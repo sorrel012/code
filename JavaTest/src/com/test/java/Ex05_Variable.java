@@ -46,6 +46,9 @@ public class Ex05_Variable {
 	c1 = '1'; //숫자 1 x , 문자 1!
 	System.out.println("c1 = " + c1);
 
+	c1 = '\0';
+	System.out.println("c1 = " + c1); // 빈 문자 > null 값
+
 	//논리형
 	boolean flag;
 
@@ -59,7 +62,6 @@ public class Ex05_Variable {
 	String name;
 	name = "홍길동"; //문자열 리터럴
 	System.out.println(name);
-
 
     }
 }
