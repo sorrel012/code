@@ -46,5 +46,12 @@ public class Ex05_Variable {
 	c1 = '1'; //숫자 1 x , 문자 1!
 	System.out.println("c1 = " + c1);
 
+	//논리형
+	boolean flag;
+
+	flag = true; // > 논리형 리터럴
+	flag = false;
+
+	System.out.println(flag);
     }
 }
