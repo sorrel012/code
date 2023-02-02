@@ -18,5 +18,10 @@ public class Ex04_Variable {
 	int kor1 = 100; // 국어
 	int eng1 = 90;	// 영어
 	int math1 = 80; // 수학
+
+	//상수(final 변수)
+	final double pi = 3.14;
+
+	System.out.println(pi);
     }
 }
