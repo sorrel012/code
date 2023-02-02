@@ -4,7 +4,7 @@ public class Ex06_Variable {
     public static void main(String[] args) {
 	//과제
 	//- 9개의 자료형
-	//- 값형(8개) + 참조형(1개)
+	//- 값형(8개) + 참조형(1개)   - 각 자료형 x10개씩
 	// - 변수 생성 + 데이터 + 출력
 
 	//1. 주위의 데이터 선별
@@ -12,6 +12,25 @@ public class Ex06_Variable {
 	//3. 변수 생성
 	//4. 값 대입 > 상수
 	//5. 출력
+
+
+	//byte
+
+	//short
+
+	//int
+
+	//long
+
+	//float
+
+	//double
+
+	//char
+
+	//boolean
+
+	//String
 
     }
 }
