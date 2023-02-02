@@ -32,5 +32,19 @@ public class Ex05_Variable {
 
 	d1 = 123456789012345678901234567890123456789D;
 	System.out.println("d1 = " + d1);
+
+	//문자형
+	char c1 = 'A'; // 문자 리터럴 표기법
+	System.out.println("c1 = " + c1);
+
+	c1 = '가';
+	System.out.println("c1 = " + c1);
+
+	c1 = '@';
+	System.out.println("c1 = " + c1);
+
+	c1 = '1'; //숫자 1 x , 문자 1!
+	System.out.println("c1 = " + c1);
+
     }
 }
