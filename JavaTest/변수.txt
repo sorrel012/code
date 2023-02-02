@@ -16,27 +16,32 @@
 		~ int eng1, eng2, eng3;
 		~ int eng1 = 100, eng2 = 90, eng3 = 80;
 		~ int eng1 = 100, eng2, eng3;
-
-	1. 생성하기(선언하기)
-		- 자료형 변수명;
-			~ int number;
-			~ char ch;
-			~ boolean isWeekDay;
-		
-	2. 초기화하기
-		- 변수명 = 값;
-			~ number = 10;
-			~ ch = 'h';
-			~ isWeekDay = true;
 	
-	2.5 치환하기(기존의 데이터에 덮어쓰기)
-		- 변수명 = 값;
-			~ number = 14;
-			~ ch = 's';
-			~ isWeekDay = false;
+	- 변수 사용 순서
+		1. 생성하기(선언하기)
+			- 자료형 변수명;
+				~ int number;
+				~ char ch;
+				~ boolean isWeekDay;
 			
-	3. 사용하기(입출력)
-		- System.out.println(number);
+		2. 초기화하기
+			- 변수명 = 값;
+				~ number = 10;
+				~ ch = 'h';
+				~ isWeekDay = true;
+		
+		2.5 치환하기(기존의 데이터에 덮어쓰기)
+			- 변수명 = 값;
+				~ number = 14;
+				~ ch = 's';
+				~ isWeekDay = false;
+				
+		3. 사용하기(입출력)
+			- System.out.println(number);
+		
+	- long에 대입할 상수는 int 범위를 벗어나면 접미어(L)을 붙여야 한다. > 정수형 상수는 기본으로 int로 할당됨
+		~ long l1 = 3000000000L;
+	
 		
 //명명법 패턴
 	1. 헝가리언 표기법
