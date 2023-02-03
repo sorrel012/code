@@ -58,6 +58,8 @@
 		
 	2. BufferedReader 클래스
 		- 편함
+		- import java.io.BufferedReader;
+		- import java.io.InputStreamReader;
 		- BufferedReader reader = new BufferedReader(new InputStreamReader(System.in)); // 입력 도구 생성하기
 		- 메인 메서드에 throws Exception 필요
 		- reader.read(): int형으로 반환
@@ -67,5 +69,8 @@
 		
 	3. Scanner 클래스
 		- 아주 편함
+		- import java.util.Scanner;
+		- Scanner scan = new Scanner(System.in);
+		- scan.nextLine(): String 형으로 반환 > 한 줄
 				
 	
