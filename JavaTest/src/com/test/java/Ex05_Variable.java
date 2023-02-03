@@ -60,7 +60,7 @@ public class Ex05_Variable {
 	//문자열, String - 참조형 > 문자들의 집합 > char 여러 개 모인 형태(한 개 이상)
 
 	String name;
-	name = "홍길동"; //문자열 리터럴
+	name = "홍길동"; //문자열 리터럴("")
 	System.out.println(name);
 
     }
