@@ -14,3 +14,16 @@
 	2. System.out.print(값)
 		- print 메소드
 		- 값을 출력한 뒤 엔터를 치지 않는다.
+		
+	3. System.out.printf(값)
+		- printf 메소드
+		- print format > 출력 형식 조작 > 출력
+		- 가독성 향상
+		- 형식 문자 제공		
+			~ 형식 문자, Place Holder
+				1. %s > String
+				2. %d > Decimal(정수) > byte, short, int, long
+				3. %f > Float(실수) > float, double
+				4. %c > char
+				5. %b > boolean
+		
