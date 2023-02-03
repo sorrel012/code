@@ -16,5 +16,10 @@ public class Ex07_Escape {
 	msg  = "하나\t둘\t셋";
 
 	System.out.println(msg + "\n");
+
+	//4. \b
+	msg = "홍길동\b입니다.";
+
+	System.out.println(msg + "\n");
     }
 }
