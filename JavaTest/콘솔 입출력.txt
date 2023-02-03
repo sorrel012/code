@@ -21,9 +21,10 @@
 		- 가독성 향상
 		- 형식 문자 제공		
 			~ 형식 문자, Place Holder
-				1. %s > String
+				1. %s > String 
 				2. %d > Decimal(정수) > byte, short, int, long
 				3. %f > Float(실수) > float, double
 				4. %c > char
 				5. %b > boolean
-		
+				
+				※%s는 모든 자료형을 출력할 수 있다.(예외) 그렇지만 무조건 형식에 맞는 형식 문자를 사용해야 함! 
