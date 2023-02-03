@@ -30,6 +30,10 @@ public class Ex08_Output {
 	System.out.println("=============================");
 	System.out.println("[이름]\t[국어]\t[영어]\t[수학]");
 
+	System.out.printf("%s\t%4d\t%4d\t%4d\t\n", name1, kor1, eng1, math1);
+	System.out.printf("%s\t%4d\t%4d\t%4d\t\n", name2, kor2, eng2, math2);
+	System.out.println();
+
 	System.out.print(name1 + "\t ");
 	System.out.print(kor1 + "\t ");
 	System.out.print(eng1 + "\t ");
