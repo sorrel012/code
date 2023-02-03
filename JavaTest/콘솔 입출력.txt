@@ -57,7 +57,13 @@
 		
 		
 	2. BufferedReader 클래스
-		-편함
+		- 편함
+		- BufferedReader reader = new BufferedReader(new InputStreamReader(System.in)); // 입력 도구 생성하기
+		- 메인 메서드에 throws Exception 필요
+		- reader.read(): int형으로 반환
+		- reader.readLine(): String형으로 반환
+		- 2byte 문자를 입력 받음(한글 입력 가능)
+		
 		
 	3. Scanner 클래스
 		- 아주 편함
