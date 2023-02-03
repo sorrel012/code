@@ -23,7 +23,7 @@
 			~ 형식 문자, Place Holder
 				1. %s > String 
 				2. %d > Decimal(정수) > byte, short, int, long
-				3. %f > Float(실수) > float, double
+				3. %f > Float(실수) > float, double > 소수점 아래 6번째 자리까지 출력
 				4. %c > char
 				5. %b > boolean	
 				※%s는 모든 자료형을 출력할 수 있다.(예외) 그렇지만 무조건 형식에 맞는 형식 문자를 사용해야 함!
@@ -33,5 +33,10 @@
 				- 탭문자처럼 출력 내용을 서식 지정하는 역할
 				- + : 우측 정렬
 				- - : 좌측 정렬
-					~ System.out.printf("[%10d]", 123); 			
+					~ System.out.printf("[%10d]", 123); 		
+					
+			~ %숫자1.숫자2f
+				- 숫자1: 출력할 너비 지정 > 소수점도 한 자리 차지함! 
+				- 숫자2: 소수점 아래 자릿수 지정 > 반올림 되어 나타남.
+				
 	
