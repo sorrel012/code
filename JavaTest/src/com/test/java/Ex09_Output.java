@@ -42,13 +42,13 @@ public class Ex09_Output {
 	//메뉴판 출력
 
 	// 주의!!! 숫자를 출력할 땐 반드시 단위를 표기해야 함.
-	System.out.println("======================");
-	System.out.println("       음료 가격");
-	System.out.println("======================");
-	System.out.printf("콜라:\t\t%,6d\n", 2500);
-	System.out.printf("사이다:\t\t%,6d\n", 3500);
-	System.out.printf("아메리카노:\t\t%,6d\n", 5000);
-	System.out.printf("케이크:\t\t%,6d\n", 12000);
+	System.out.println("================");
+	System.out.println("    음료 가격");
+	System.out.println("================");
+	System.out.printf("콜라:\t%,6d원\n", 2500);
+	System.out.printf("사이다:\t%,6d원\n", 3500);
+	System.out.printf("아메리카노:\t%,6d원\n", 5000);
+	System.out.printf("케이크:\t%,6d원\n", 12000);
 
 
     }
