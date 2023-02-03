@@ -21,5 +21,10 @@ public class Ex07_Escape {
 	msg = "홍길동\b입니다.";
 
 	System.out.println(msg + "\n");
+
+	//5. \", \', \\
+	msg = "홍길동: \"안녕하세요.\"";
+
+	System.out.println(msg + "\n");
     }
 }
