@@ -5,11 +5,13 @@ public class Ex08_Output {
 	//System.out.println();
 	System.out.println(100);
 	System.out.println(200);
+	System.out.println();
 
 	//System.out.print();
 	System.out.print("하나");
 	System.out.print("둘");
 
+	System.out.println();
 	System.out.println();
 
 	//성적표 출력하기
@@ -37,6 +39,8 @@ public class Ex08_Output {
 	System.out.print(kor2 + "\t ");
 	System.out.print(eng2 + "\t ");
 	System.out.print(math2 + "\n");
+
+	System.out.println();
 
 
     }
