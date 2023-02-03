@@ -25,5 +25,6 @@ public class Ex07_Escape {
 	//5. \", \', \\
 	msg = "홍길동: \"안녕하세요.\"";
 	System.out.println(msg + "\n");
+	System.out.println("수업 폴더: C:\\OneDrive\\class\\code\\java");
     }
 }
