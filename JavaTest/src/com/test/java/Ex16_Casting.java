@@ -35,5 +35,15 @@ public class Ex16_Casting {
 	n4 = (int)n3; //소수점 이하 절삭
 
 	System.out.println(n4);
+
+	System.out.printf("A의 문자코드: %d\n",(int)'A');
+	System.out.printf("Z의 문자코드: %d\n",(int)'Z');
+
+	System.out.printf("a의 문자코드: %d\n",(int)'a');
+	System.out.printf("z의 문자코드: %d\n",(int)'z');
+
+	System.out.printf("0의 문자코드: %d\n",(int)'0');
+	System.out.printf("9의 문자코드: %d\n",(int)'9');
+
     }
 }
