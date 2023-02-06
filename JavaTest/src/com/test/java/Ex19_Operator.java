@@ -1,10 +1,13 @@
 package com.test.java;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class Ex19_Operator {
     public static void main(String[] args) throws IOException {
 
+	//비교 연산자
 	int a = 10;
 	int b = 3;
 
@@ -17,14 +20,14 @@ public class Ex19_Operator {
 
 	//요구사항] 사용자 나이 입력 > 성인(19세 이상) O, X
 
-//	BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-//	System.out.print("당신의 나이는 몇 살인가요?: ");
-//	String input = reader.readLine();
-//	int age = Integer.parseInt(input);
-//
-//	System.out.println(age >= 19);
-//	System.out.println();
+	BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+	System.out.print("당신의 나이는 몇 살인가요?: ");
+	String input = reader.readLine();
+	int age = Integer.parseInt(input);
+	System.out.println(age >= 19);
+	System.out.println();
 
 
 	boolean b1 = true;
