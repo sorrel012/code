@@ -11,9 +11,20 @@ public class Ex15_Casting {
 
 	System.out.println(n2);
 
+	//암시적 형변환
 
-	// 암시적 형변환
+	short a = 10;	//2byte, 원본
+	int b;		//4byte, 복사본
 
-	// 명시적 형변환
+	b = a; //b = (int)a; > short였던 a가 자동으로 int a로 바뀐 후 b에 대입
+	System.out.printf("b = %d\n",b);
+
+
+	int c = 200;
+	long d;
+
+	d = c;
+
+	System.out.printf("d = %d\n", d);
     }
 }
