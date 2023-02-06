@@ -93,7 +93,5 @@ public class Ex20_Operator {
 	System.out.println(age >= 19 ? "통과" : "거절");
 	System.out.println(age % 2 == 0 ? "짝수" : "홀수");
 
-
-
     }
 }
