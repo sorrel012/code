@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Q001 {
     public static void main(String[] args) {
-	//요구사항
+	//요구사항] 사용자가 태어난 년도를 입력 받고 우리나라 나이 계산하여 출력
 
 	//1. 라벨 출력
 	//2. 사용자 입력 받기
