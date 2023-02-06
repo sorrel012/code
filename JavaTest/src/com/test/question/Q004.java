@@ -17,10 +17,10 @@ public class Q004 {
 
 	Scanner scan = new Scanner(System.in);
 
-	System.out.print("섭씨(°C): ");
-	double temC = scan.nextDouble();
-	double temP = temC * 1.8 + 32;
+	System.out.print("섭씨(°C): "); 					//1.
+	double temC = scan.nextDouble();				//2.
+	double temP = temC * 1.8 + 32;					//3.
 
-	System.out.printf("섭씨 %.1f°C는 화씨 %.1f°F입니다.\n", temC, temP);
+	System.out.printf("섭씨 %.1f°C는 화씨 %.1f°F입니다.\n", temC, temP);	//4.
     }
 }
