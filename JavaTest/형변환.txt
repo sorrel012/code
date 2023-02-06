@@ -1,0 +1,22 @@
+//(자료)형변환, Casting, Data Type Casting
+	- 하나의 자료형을 또다른 자료형으로 변환하는 작업	
+	- 코드 작성을 유연하게 하기 위해서 사용	
+	- 값형끼리만 가능(boolean 제외)
+	- byte, short, int, long, folat, double, char
+	- 정수와 실수 간의 크기 비교는 단순하게 물리 크기인 byte로 계산하는 게 아니라, 실제 표현 가능한 숫자의 범위로 비교해야 한다.
+		~ byte(1) < short(2) < int(4) < long(8) <<<<< float(4) < double(8)
+	- char: 문자코드 값 > 실제로는 숫자 자료형.
+		~ char를 문자코드로 변환하려면 int를 사용해야 한다.
+	
+	1. 암시적 형변환(implicit type casting)
+		- 큰형 = 작은형
+			~ long number = 5;
+			
+	2. 명시적 형변환(explicit type casting)
+		- 작은형 = 큰형
+		- (자료형) > 형변환 연산자
+			~ byte number = (byte)1000;
+		- 에러가 발생하지 않기 때문에 더욱 위험! > 원본의 값이 복사본의 영역을 벗어나는지 항상 확인해야 한다.
+		※ 오버플로우(overflow): 명시적 형변환 시 발생하는 데이터가 넘치는 현상 (아래로 넘치는 현상: 언더플로우(underflow))
+			> 오버플로우가 발생할 만한 상황을 미리 예측하고 관리하는 것이 필수			
+	
