@@ -26,5 +26,21 @@ public class Ex15_Casting {
 	d = c;
 
 	System.out.printf("d = %d\n", d);
+
+	//명시적 형변환 > 형변환 연산자 생략 불가
+
+	int e = 32767;	//4byte, 원본
+	short f;	//2byte, 복사본
+
+	f = (short) e;
+	System.out.printf("f = %d\n", f);
+
+
+	long g = 3000000000L;
+	int h;
+
+	h = (int) g;
+	System.out.printf("h = %d\n", h);
+
     }
 }
