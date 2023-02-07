@@ -59,6 +59,25 @@
 			※빈 리턴문 : 메소드를 종료한다.
 				~ void {return;}
 
+//메소드 오버로딩, method overloading
+	- 동일한 이름 메소드가 인자 리스트를 다양하게 가지면서 여러 개 선언하는 기술
+	- 성능 향상x, 개발자에게 도움o > 메소드 이름을 외우기 편함.
+	
+	- 메소드 오버로딩 구현 조건 > 가능
+		1. 매개변수의 개수
+		2. 매개변수의 자료형
+		
+	- 메소드 오버로딩 구현 조건 > 불가능
+		1. 매개변수의 이름
+		2. 반환 값의 자료형
+		
+		~ public static void test() {}		
+			~ public static void test() {}				//x
+			~ public static void test(int n){}			//o
+			~ public static void test(int m){}			//x
+			~ public static void test(Stirng s){}		//o
+			~ public static void test(int n, int m){}	//o
+
 // 문서 주석, Document Comment
 	- 생성한 메소드에 대한 설명을 달아준다.	
 	- /** 치고 엔터!
