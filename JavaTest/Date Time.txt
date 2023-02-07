@@ -1,0 +1,31 @@
+//자바 날짜 시간 자료형
+
+1. Date 클래스 								> JDK 1.0
+2. Calendar 클래스 							> JDK 1.1 > 가장 대중화
+3. LocalDateTime, LocalDate, LocalTime 클래스	> JDK 1.8
+
+
+// 시각과 시간 간의 연산
+
+	- 틱(tick)값, Epoch Time, Timestamp > 특정 기준일(1970.01.01 00:00:00)로부터 해당 시각까지 얼만큼 흘렀는지 구한 누적 시간
+
+	- 시각 + 시각 : 2023-02-07 + 2023-05-13 > 불가능 
+	- 시각 - 시각 : 2023-05-13 - 2023-02-07 > 가능(시간)
+	
+	- 시간 + 시간 : 8시간 + 2시간 = 10시간 > 가능
+	- 시간 - 시간 : 8시간 - 2시간 = 6시간 > 가능
+	
+	- 시각 + 시간 : 2023-02-07 + 5일 = 2023-02-12 > 가능(시각)
+	- 시각 - 시간 : 2023-02-07 - 5일 = 2023-02-02 > 가능(시각)
+	
+//Date
+	- import java.util.Date;
+	- Date date = new Date();
+	
+//Calendar
+	- import java.util.Calendar;
+	- Calendar c1 = Calendar.getInstance();	
+	- 자바는 Calendar 상수를 제공함.
+		~ Calendar.YEAR
+	- 자바가 제공하는 상수를 이용하여 Date 추출
+		~ c1.get(Calendar.YEAR)
