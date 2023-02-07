@@ -51,21 +51,21 @@ public class Q011 {
 
     private static int mod(int num1, int num2) {
 	return num1 % num2;
-    }
+    } //mod
 
     private static double div(int num1, int num2) {
 	return (double)num1 / num2;
-    }
+    } //div
 
     private static int mul(int num1, int num2) {
 	return num1 * num2;
-    }
+    } //mul
 
     private static int sub(int num1, int num2) {
 	return num1 - num2;
-    }
+    } //sub
 
     private static int add(int num1, int num2) {
 	return num1 + num2;
-    }
+    } //add
 }
