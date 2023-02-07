@@ -35,5 +35,5 @@ public class Q010 {
 	    numToString.length() == 3 ? "0" + numToString : "" + numToString;
 
 	System.out.printf("%d → %s\n", num, numToString);
-    }
+    } //digit
 }
