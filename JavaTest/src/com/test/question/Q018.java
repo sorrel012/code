@@ -19,8 +19,10 @@ public class Q018 {
      */
 
     public static void main(String[] args) {
-
-	int count = positive(10);
+	
+	int count = 0;
+	
+	count = positive(10);
 	System.out.printf("양수: %d개\n", count);
 
 	count = positive(10, 20);

@@ -24,20 +24,23 @@ public class Q022 {
      */
 
     public static void main(String[] args) {
-
+	
+	String man, woman = "";
+	int meetYear, meetMonth, meetDate = 0;
+	
 	Scanner scan = new Scanner(System.in);
 
 	System.out.print("남자 이름: ");
-	String man = scan.nextLine();
+	man = scan.nextLine();
 	System.out.print("여자 이름: ");
-	String woman = scan.nextLine();
+	woman = scan.nextLine();
 
 	System.out.print("만난 날(년): ");
-	int meetYear = scan.nextInt();
+	meetYear = scan.nextInt();
 	System.out.print("만난 날(월): ");
-	int meetMonth = scan.nextInt();
+	meetMonth = scan.nextInt();
 	System.out.print("만난 날(일): ");
-	int meetDate = scan.nextInt();
+	meetDate = scan.nextInt();
 
 	System.out.printf("'%s'과(와) '%s'의 기념일\n", man, woman);
 
