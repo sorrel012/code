@@ -7,7 +7,7 @@ public class Ex28_DateTime {
 
     public static void main(String[] args) {
 
-//	m1();
+	m1();
 	m2();
 
     } //main
@@ -47,14 +47,14 @@ public class Ex28_DateTime {
 	System.out.println(c1.get(Calendar.WEEK_OF_YEAR));	// 올해 들어 몇 주 차인지?
 	System.out.println(c1.get(Calendar.WEEK_OF_MONTH));	// 이번 달의 몇 주 차인지?
 	// > 한 달의 마지막 주가 목요일을 포함하고 있지 않다면 다음 달의 첫째 주로 센다.
-	
+
 	System.out.println();
-	
+
 	System.out.printf("오늘은 %d년 %d월 %d일입니다.\n"
 				, c1.get(Calendar.YEAR)
 				, c1.get(Calendar.MONTH) + 1
 				, c1.get(Calendar.DATE));
 
-    }
+    } //m2
 
 }
