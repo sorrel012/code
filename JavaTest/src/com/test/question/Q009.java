@@ -22,6 +22,9 @@ public class Q009 {
 
 	String result = getName("홍길동");
 	System.out.printf("고객: %s\n",  result);
+	
+	String result2 = getName("아무개");
+	System.out.printf("고객: %s\n",  result2);
 
     } //main
 
