@@ -10,6 +10,19 @@ public class Ex28_DateTime {
 //	m1();
 //	System.out.println();
 //	m2();
+//	System.out.println();
+//	m3();
+//	System.out.println();
+//	m4();
+//	System.out.println();
+//	m5();
+//	System.out.println();
+//	m6();
+
+	//현재 시각 tick
+	Calendar now = Calendar.getInstance();
+	System.out.println(now.getTimeInMillis());
+	System.out.println(System.currentTimeMillis());
 
     } //main
 
@@ -92,8 +105,119 @@ public class Ex28_DateTime {
 
     } //m2
 
+    private static void m3() {
+
+	//현재 시각 만들기
+	Calendar now = Calendar.getInstance();
+
+	//특정 시각 만들기 > 원하는 날짜(2023-07-12)
+	//1. 현재 시각 만들기
+	//2. 원하는 시각으로 수정하기
+
+	Calendar endDate = Calendar.getInstance();
+
+	endDate.set(Calendar.MONTH, 6);
+	endDate.set(Calendar.DATE, 12);
+
+	endDate.set(Calendar.HOUR_OF_DAY, 18);
+	endDate.set(Calendar.MINUTE, 0);
+	endDate.set(Calendar.SECOND, 0);
+
+	System.out.printf("%tF %tT %tA\n", endDate, endDate, endDate);
 
 
+	Calendar birthday = Calendar.getInstance();
+
+	birthday.set(1998, 0, 17);
+
+	System.out.printf("%tF %tA\n", birthday, birthday);
+
+    } //m3
+
+    private static void m4() {
+	// 연산
+	Calendar now = Calendar.getInstance();
+
+	System.out.printf("1일차: %tF\n", now);
+
+	now.add(Calendar.DATE, 100); //수정 > now는 더이상 현재 시각x
+	System.out.printf("100일 후: %tF\n", now);
+
+	//현재 시점으로부터 100일전?
+	now = Calendar.getInstance();
+	now.add(Calendar.DATE, -100);
+	System.out.printf("100일 전: %tF\n", now);
+
+	//3시간 17분 뒤 영양제 복용
+	now = Calendar.getInstance();
+
+	now.add(Calendar.HOUR, 3);
+	now.add(Calendar.MINUTE, 17);
+	System.out.printf("영양제 복용 시각은: %tT\n", now);
+
+
+	// 백일 잔치는 언제?
+	Calendar birthday = Calendar.getInstance();
+	birthday.set(1998, 0, 17);
+
+	birthday.add(Calendar.DATE, 100);
+	System.out.printf("나의 100일 잔치는 언제?: %tF\n", birthday);
+
+    } //m4
+
+    private static void m5() {
+	// 내가 태어난 시간부터 지금까지 얼마나 지났는지 계산
+	Calendar birthday = Calendar.getInstance();
+	birthday.set(1998, 01, 17, 04, 59, 00); //태어난 시간
+
+	Calendar now = Calendar.getInstance(); //현재 시간
+
+	System.out.println( (now.getTimeInMillis() - birthday.getTimeInMillis())
+								/ 1000 / 60 / 60 / 24 ); // 초 / 분 / 시 / 일
+
+	//크리스마스까지 며칠 남았는지?
+	Calendar christmas = Calendar.getInstance();
+	christmas.set(2023, 12, 25);
+
+	long span = christmas.getTimeInMillis() - now.getTimeInMillis();
+
+	System.out.printf("올해 크리스마스까지 %d일 남았습니다.\n", span / 1000 / 60 / 60 / 24);
+
+    } //m5
+
+    private static void m6() {
+	// 시간 연산
+	//2시간 30분 + 10분
+	int hour = 2;
+	int min = 30;
+
+	min += 10;
+
+	System.out.printf("%d시간 %d분\n", hour, min);
+
+	//2시간 30분 + 40분
+
+	hour = 2;
+	min = 30;
+
+	min += 40;
+
+	hour += min / 60;
+	min = min % 60;
+
+	System.out.printf("%d시간 %d분\n", hour, min);
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
