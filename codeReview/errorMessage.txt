@@ -1,0 +1,15 @@
+The local variable age may not have been initialized
+	- 변수 생성 후 초기화x(null 상태)
+		> 변수를 초기화해야 함.
+	
+Duplicate local variable
+	- 동일한 변수명이 존재함.
+		> 변수명을 변경해야 함.
+	
+The final local variable pi cannot be assigned. It must be blank and not using a compound assignment
+	- 상수를 변경하려고 함.
+		> 변수로 변경하거나, 값을 변경해서는 안 됨!
+	
+IllegalFormatFlagsException
+	- 형식문자가 잘못됨.
+		> 형식지정자를 수정해주어야 함! ( % -> %% )
