@@ -7,8 +7,9 @@ public class Ex28_DateTime {
 
     public static void main(String[] args) {
 
-	m1();
-	m2();
+//	m1();
+//	System.out.println();
+//	m2();
 
     } //main
 
@@ -55,6 +56,44 @@ public class Ex28_DateTime {
 				, c1.get(Calendar.MONTH) + 1
 				, c1.get(Calendar.DATE));
 
+	System.out.printf("오늘은 %d년 %02d월 %02d일입니다.\n"
+			, c1.get(Calendar.YEAR)
+			, c1.get(Calendar.MONTH) + 1
+			, c1.get(Calendar.DATE));
+
+	System.out.println();
+
+	//요구사항] "지금은 14시 12분 53초입니다." //24H
+	System.out.printf("지금은 %02d시 %02d분 %02d초입니다.\n"
+				, c1.get(Calendar.HOUR_OF_DAY)
+				, c1.get(Calendar.MINUTE)
+				, c1.get(Calendar.SECOND));
+
+	//요구사항] "지금은 오후 2시 12분 53초입니다." //12H
+	System.out.printf("지금은 %s %02d시 %02d분 %02d초입니다.\n"
+			, c1.get(Calendar.AM_PM) == 0 ? "오전" : "오후"
+			, c1.get(Calendar.HOUR)
+			, c1.get(Calendar.MINUTE)
+			, c1.get(Calendar.SECOND));
+
+	//요구사항] 2023-02-08 > printf()
+	System.out.printf("%tF\n", c1);
+
+	//요구사항] 09:22:17 > printf()
+	System.out.printf("%tT\n", c1);
+
+	//요구사항] 수요일 > printf()
+	System.out.printf("%tA\n", c1);
+
+	//추가] "오늘은 수요일입니다." > 변수 저장
+	//String.format() > 모든 환경 사용 가능, 출력용(X), 조작용(O)
+	String msg = String.format("오늘은 %tA입니다.", c1);
+	String msg1 = String.format("오늘은 %s입니다.", "수요일");
+
     } //m2
 
+
+
 }
+
+
