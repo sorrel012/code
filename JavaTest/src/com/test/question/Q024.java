@@ -31,6 +31,11 @@ public class Q024 {
     
     public static void main(String[] args) {
 	
+	int blackNoodleHour, blackNoodleMinute
+		, chickenHour, chickenMinute
+		, pizzaHour, pizzaMinute 	= 0;
+		
+	
 	System.out.println("음식을 받기 원하는 시각");
 	
 	Scanner scan = new Scanner(System.in);
@@ -47,16 +52,16 @@ public class Q024 {
 	time.set(Calendar.MINUTE, wantMinute);
 	
 	time.add(Calendar.MINUTE, -10);
-	int blackNoodleHour = time.get(Calendar.HOUR_OF_DAY);
-	int blackNoodleMinute = time.get(Calendar.MINUTE);
+	blackNoodleHour = time.get(Calendar.HOUR_OF_DAY);
+	blackNoodleMinute = time.get(Calendar.MINUTE);
 	
 	time.add(Calendar.MINUTE, 10 - 18);
-	int chickenHour = time.get(Calendar.HOUR_OF_DAY);
-	int chickenMinute = time.get(Calendar.MINUTE);
+	chickenHour = time.get(Calendar.HOUR_OF_DAY);
+	chickenMinute = time.get(Calendar.MINUTE);
 	
 	time.add(Calendar.MINUTE, 18 - 25);
-	int pizzaHour = time.get(Calendar.HOUR_OF_DAY);
-	int pizzaMinute = time.get(Calendar.MINUTE);
+	pizzaHour = time.get(Calendar.HOUR_OF_DAY);
+	pizzaMinute = time.get(Calendar.MINUTE);
 	
 	checkCanOrder("짜장면", blackNoodleHour, blackNoodleMinute);
 	checkCanOrder("치킨", chickenHour, chickenMinute);
