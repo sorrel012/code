@@ -27,20 +27,37 @@ public class Q016 {
     } //main
 
     private static void sum(int num1, int num2, int num3, int num4, int num5) {
-	System.out.printf("%d + %d + %d + %d + %d = %d\n", num1, num2, num3, num4, num5,
-								num1 + num2 + num3 + num4 + num5);
+	
+	int sum = num1 + num2 + num3 + num4 + num5;
+	
+	System.out.printf("%d + %d + %d + %d + %d = %d\n",
+					num1, num2, num3, num4, num5, sum);
+	
     }
 
     private static void sum(int num1, int num2, int num3, int num4) {
-	System.out.printf("%d + %d + %d + %d = %d\n", num1, num2, num3, num4, num1 + num2 + num3 + num4);
+	
+	int sum = num1 + num2 + num3 + num4;
+	
+	System.out.printf("%d + %d + %d + %d = %d\n",
+					num1, num2, num3, num4, sum);
+	
     }
 
     private static void sum(int num1, int num2, int num3) {
-	System.out.printf("%d + %d + %d = %d\n", num1, num2, num3, num1 + num2 + num3);
+	
+	int sum = num1 + num2 + num3;
+	
+	System.out.printf("%d + %d + %d = %d\n", num1, num2, num3, sum);
+	
     }
 
     private static void sum(int num1, int num2) {
-	System.out.printf("%d + %d = %d\n", num1, num2, num1 + num2);
+	
+	int sum = num1 + num2;
+	
+	System.out.printf("%d + %d = %d\n", num1, num2, sum);
+	
     }
 
     private static void sum(int num) {
