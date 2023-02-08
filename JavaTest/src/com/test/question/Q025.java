@@ -33,7 +33,7 @@ public class Q025 {
 		    						, num1, num2, num1 - num2);
 	} else if(num1 < num2) {
 	    System.out.printf("큰 수는 %d이고, 작은 수는 %d입니다. 두 숫자는 %d이(가) 차이 납니다.\n"
-		, num2, num1, num2 - num1);
+		    						, num2, num1, num2 - num1);
 	} else {
 	    System.out.println("두 숫자는 동일합니다.");
 	}
