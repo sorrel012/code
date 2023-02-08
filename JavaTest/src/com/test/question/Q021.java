@@ -4,6 +4,7 @@ import java.util.Calendar;
 import java.util.Scanner;
 
 public class Q021 {
+
     /*
 
     요구사항]태어난 년도를 입력하면 나이를 출력하시오.
