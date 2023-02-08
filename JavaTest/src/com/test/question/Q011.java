@@ -35,37 +35,36 @@ public class Q011 {
 	int num2 = scan.nextInt();
 	System.out.println();
 
-	int addNum = add(5, 3);
-	int subNum = sub(5, 3);
-	int mulNum = mul(5, 3);
-	double divNum = div(5, 3);
-	int modNum = mod(5, 3);
-
-	System.out.printf("%d + %d = %d\n", num1, num2, addNum);
-	System.out.printf("%d - %d = %d\n", num1, num2, subNum);
-	System.out.printf("%d * %d = %d\n", num1, num2, mulNum);
-	System.out.printf("%d / %d = %.1f\n", num1, num2, divNum);
-	System.out.printf("%d %% %d = %d\n", num1, num2, modNum);
+	System.out.println(add(num1, num2));
+	System.out.println(sub(num1, num2));
+	System.out.println(mul(num1, num2));
+	System.out.println(div(num1, num2));
+	System.out.println(mod(num1, num2));
 
     } //main
 
-    private static int mod(int num1, int num2) {
-	return num1 % num2;
+    private static String mod(int num1, int num2) {
+	String result = String.format("%d %% %d = %d", num1, num2, num1 % num2);
+	return result;
     } //mod
 
-    private static double div(int num1, int num2) {
-	return (double)num1 / num2;
+    private static String div(int num1, int num2) {
+	String result = String.format("%d / %d = %.1f", num1, num2, (double)num1/ num2);
+	return result;
     } //div
 
-    private static int mul(int num1, int num2) {
-	return num1 * num2;
+    private static String mul(int num1, int num2) {
+	String result = String.format("%d * %d = %d", num1, num2, num1 * num2);
+	return result;
     } //mul
 
-    private static int sub(int num1, int num2) {
-	return num1 - num2;
+    private static String sub(int num1, int num2) {
+	String result = String.format("%d - %d = %d", num1, num2, num1 - num2);
+	return result;
     } //sub
 
-    private static int add(int num1, int num2) {
-	return num1 + num2;
+    private static String add(int num1, int num2) {
+	String result = String.format("%d + %d = %d", num1, num2, num1 + num2);
+	return result;
     } //add
 }
