@@ -23,7 +23,8 @@ public class Q029 {
     
     public static void main(String[] args) throws IOException {
 
-	int num1 = 0, num2 = 0;
+	int 	num1 = 0,
+		num2 = 0;
 	String operator = "";
 	
 	Scanner scan = new Scanner(System.in);
