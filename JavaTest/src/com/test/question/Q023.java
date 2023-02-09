@@ -24,8 +24,8 @@ public class Q023 {
     
     public static void main(String[] args) {
 	
-	int dadYear, dadMonth, dadDate
-		, daughterYear, daughterMonth, daughterDate = 0;
+	int dadYear = 0, dadMonth = 0, dadDate = 0
+		, daughterYear = 0, daughterMonth = 0, daughterDate = 0;
 	long howLong = 0;
 	
 	Scanner scan = new Scanner(System.in);

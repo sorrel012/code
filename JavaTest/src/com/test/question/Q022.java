@@ -25,8 +25,8 @@ public class Q022 {
 
     public static void main(String[] args) {
 	
-	String man, woman = "";
-	int meetYear, meetMonth, meetDate = 0;
+	String man = "", woman = "";
+	int meetYear = 0, meetMonth = 0, meetDate = 0;
 	
 	Scanner scan = new Scanner(System.in);
 

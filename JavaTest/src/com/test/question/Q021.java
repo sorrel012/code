@@ -25,7 +25,7 @@ public class Q021 {
 
     public static void main(String[] args) {
 	
-	int birthYear, year, age = 0;
+	int birthYear = 0, year = 0, age = 0;
 
 	Scanner scan = new Scanner(System.in);
 

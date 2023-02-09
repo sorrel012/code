@@ -31,9 +31,9 @@ public class Q024 {
     
     public static void main(String[] args) {
 	
-	int blackNoodleHour, blackNoodleMinute
-		, chickenHour, chickenMinute
-		, pizzaHour, pizzaMinute 	= 0;
+	int blackNoodleHour = 0, blackNoodleMinute  = 0
+		, chickenHour = 0 , chickenMinute = 0
+		, pizzaHour = 0, pizzaMinute = 0;
 		
 	
 	System.out.println("음식을 받기 원하는 시각");

@@ -41,6 +41,8 @@ public class Q027 {
 	    System.out.println("입력한 문자가 올바르지 않습니다.");
 	}
 	
+	scan.close();
+	
     } //main
     
 }

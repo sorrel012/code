@@ -19,7 +19,7 @@ public class Q025 {
     
     public static void main(String[] args) {
 	
-	int num1, num2 = 0;
+	int num1 = 0, num2 = 0;
 	
 	Scanner scan = new Scanner(System.in);
 	

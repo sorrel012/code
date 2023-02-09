@@ -41,6 +41,8 @@ public class Q028 {
 	    System.out.printf("%d년차 고급 개발자입니다.\n" , workPeriod);
 	    System.out.printf("당신은 %d년 전까지 중급 개발자였습니다.\n" , workPeriod - 9);
 	}
+	
+	scan.close();
 
     } //main
     
