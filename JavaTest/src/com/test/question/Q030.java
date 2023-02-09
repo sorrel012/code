@@ -28,6 +28,8 @@ public class Q030 {
 	char inputChar = scan.nextLine().charAt(0);
 	
 	isAlphabet(inputChar);
+	
+	scan.close();
 
     } //main
 
