@@ -13,9 +13,87 @@ public class Ex31_for {
 //	m5();
 //	m6();
 //	m7();
-	m8();
+//	m8();
+//	m9();
+//	m10();
+	m11();
 	
     } //main
+    
+    
+    private static void m11() {
+	
+	//요구사항] 사용자 숫자 원하는 만큼 입력 받아 합계 구하기
+	
+	Scanner scan = new Scanner(System.in);
+	
+	int sum = 0, count = 0;
+	
+	
+	for(;;) {
+	    
+	    System.out.print("숫자(0 입력 시 종료): ");
+	    int num = scan.nextInt();
+
+	    sum += num;
+
+	    if (num == 0) {
+		break;
+	    }
+	    
+	    sum += num;
+	    count++;
+	}
+	
+	System.out.printf("총 %d개의 숫자를 입력했고, 그 숫자들의 합은 %d입니다.\n", count, sum);
+	
+	scan.close();
+	
+    } //m11
+
+
+    private static void m10() {
+	
+	//기본적으로 1~10까지 출력 루프 > 사용자 개입 > 루프 횟수 추가 지정
+	
+	Scanner scan = new Scanner(System.in);
+	
+	System.out.print("숫자: ");
+	int num = scan.nextInt();
+	
+	for (int i = 1; i < 11; i++) {
+	    
+	    System.out.println(i);
+	    
+	    if (i == num) {
+		break;
+	    }
+	    
+	}
+	
+    } //m10
+
+
+    private static void m9() {
+	
+	//분기문
+	
+	//break
+	
+	System.out.println("시작");
+	
+	for (int i = 0; i < 10; i++) {
+	    
+	    if (i == 5) {
+		break; //제어문 탈출
+	    }
+	    
+	    System.out.println(i + 1);
+	}
+	
+	System.out.println("종료");
+	
+    } //m9
 
 
     private static void m8() {
