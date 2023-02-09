@@ -92,6 +92,21 @@ public class Ex20_Operator {
 
 	System.out.println(age >= 19 ? "통과" : "거절");
 	System.out.println(age % 2 == 0 ? "짝수" : "홀수");
-
+	
+	scan.close();
+	
+	
+	//문자열 연산자
+	
+	System.out.println(10 + 20); //		+ > 산술 연산자
+	
+	System.out.println("홍길동" + "아무개"); // + > 문자열 연산자
+	
+	System.out.println(10 + 20 + 30);	//60
+	System.out.println(10 + 20 + "30");	//3030
+	System.out.println(10 + "20" + 30);	//102030
+	System.out.println("10" + 20 + 30);	//102030
+	System.out.println("10" + (20 + 30));	//1050
+	
     }
 }
