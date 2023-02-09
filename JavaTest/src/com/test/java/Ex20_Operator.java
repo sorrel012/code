@@ -105,7 +105,7 @@ public class Ex20_Operator {
 	System.out.println(10 + 20 + 30);	//60
 	System.out.println(10 + 20 + "30");	//3030
 	System.out.println(10 + "20" + 30);	//102030
-	System.out.println("10" + 20 + 30);	//102030
+	System.out.println("10" + 20 + 30);	//102030 ★주의
 	System.out.println("10" + (20 + 30));	//1050
 	
     }
