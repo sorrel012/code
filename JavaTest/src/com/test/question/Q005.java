@@ -24,6 +24,8 @@ public class Q005 {
 
 	System.out.printf("사용자가 총 %,d회 페달을 밟아 자전거가 총 %,.3fm를 달렸습니다.\n",
 		numberOfPedal, totalMeter);
+	
+	scan.close();
 
     }
 }

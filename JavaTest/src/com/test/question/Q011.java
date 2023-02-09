@@ -40,6 +40,8 @@ public class Q011 {
 	System.out.println(mul(num1, num2));
 	System.out.println(div(num1, num2));
 	System.out.println(mod(num1, num2));
+	
+	scan.close();
 
     } //main
 

@@ -37,6 +37,8 @@ public class Q025 {
 	} else {
 	    System.out.println("두 숫자는 동일합니다.");
 	}
+	
+	scan.close();
 
     } //main
     

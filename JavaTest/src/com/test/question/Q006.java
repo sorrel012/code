@@ -23,6 +23,8 @@ public class Q006 {
 
 	System.out.printf("세후 금액(원): %,d원\n", (int)afterTax);	//5-1.
 	System.out.printf("세금(원): %,d원\n", (int)tax);		//5-2.
+	
+	scan.close();
 
     }
 }

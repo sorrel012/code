@@ -45,6 +45,8 @@ public class Q013 {
 	String passFail = test(kor, eng, math);
 
 	System.out.printf("%s입니다.\n", passFail);
+	
+	scan.close();
 
     } //main
 

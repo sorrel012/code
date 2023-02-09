@@ -39,5 +39,7 @@ public class Q021 {
 
 	System.out.printf("나이: %d세\n", age);
 
+	scan.close();
+	
     } //main
 }

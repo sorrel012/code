@@ -67,6 +67,8 @@ public class Q024 {
 	checkCanOrder("치킨", chickenHour, chickenMinute);
 	checkCanOrder("피자", pizzaHour, pizzaMinute);
 	
+	scan.close();
+	
     } //main
     
     private static void checkCanOrder(String food, int hour, int min) {

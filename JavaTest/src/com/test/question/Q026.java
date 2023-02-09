@@ -44,6 +44,8 @@ public class Q026 {
 	} else {
 	    System.out.printf("입력한 %d점은 성적 F입니다.", score);
 	}
+	
+	scan.close();
 
     } //main
     

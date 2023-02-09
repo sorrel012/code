@@ -22,5 +22,7 @@ public class Q001 {
 
 	System.out.printf("나이: %d", age); //4.
 
+	scan.close();
+	
     }
 }

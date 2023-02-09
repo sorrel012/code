@@ -60,6 +60,8 @@ public class Q022 {
 	System.out.printf("500일: %tF\n", time);
 	time.add(Calendar.DATE, 500); //1000일
 	System.out.printf("1000일: %tF\n", time);
-
+	
+	scan.close();
+	
     } //main
 }

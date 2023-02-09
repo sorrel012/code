@@ -39,6 +39,7 @@ public class Q015 {
 
 	System.out.printf("사과가 총 %d개 열렸습니다.", apple);
 
+	scan.close();
 
     } //main
 

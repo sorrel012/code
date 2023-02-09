@@ -22,5 +22,7 @@ public class Q004 {
 	double temP = temC * 1.8 + 32;					//3.
 
 	System.out.printf("섭씨 %.1f°C는 화씨 %.1f°F입니다.\n", temC, temP);	//4.
+	
+	scan.close();
     }
 }

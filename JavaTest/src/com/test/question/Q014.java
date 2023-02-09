@@ -48,6 +48,7 @@ public class Q014 {
 
 	System.out.printf("총 소요 시간은 %d분입니다.\n", totalTime);
 
+	scan.close();
 
     } //main
 

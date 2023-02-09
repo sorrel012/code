@@ -53,7 +53,9 @@ public class Q023 {
 	howLong = daughterBirthday.getTimeInMillis() - dadBirthday.getTimeInMillis();
 	
 	System.out.printf("아빠는 딸보다 총 %,d일을 더 살았습니다.", howLong / 1000 / 60 / 60 / 24);
-
+	
+	scan.close();
+	
     } //main
     
 }

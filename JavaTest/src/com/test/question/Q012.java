@@ -30,6 +30,8 @@ public class Q012 {
 	String evenOdd = getNumber(num);
 
 	System.out.printf("입력하신 숫자 '%d'는(은) '%s'입니다.\n", num, evenOdd);
+	
+	scan.close();
 
     } //main
 

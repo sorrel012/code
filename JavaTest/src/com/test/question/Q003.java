@@ -27,5 +27,7 @@ public class Q003 {
 
 	System.out.printf("사각형의 넓이는 %d㎠입니다.\n",area);	//6-1.
 	System.out.printf("사각형의 둘레는 %d㎝입니다.\n",perimeter);	//6-2.
+	
+	scan.close();
     }
 }
