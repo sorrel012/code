@@ -1,5 +1,7 @@
 package com.test.question;
 
+import java.util.Scanner;
+
 public class Q031 {
 
     /*
@@ -17,4 +19,29 @@ public class Q031 {
     3. 최종 결과 출력
     
      */
+    
+    public static void main(String[] args) {
+
+	Scanner scan = new Scanner(System.in);
+	
+	int 	num = 0,
+		even = 0,
+		odd = 0;
+	
+	for (int i = 0; i < 5; i++) {
+	    System.out.print("숫자 입력: ");
+	    num = scan.nextInt();
+	    if (num % 2 == 0) {
+		even += 1;
+	    } else {
+		odd += 1;
+	    }
+	}
+	
+	System.out.printf("짝수는 %d개 홀수는 %d개 입력했습니다.\n",  even, odd);
+	System.out.printf("홀수가 짝수보다 %d개 더 많습니다.\n",  odd - even);
+
+    } //main
+    
+    
 }
