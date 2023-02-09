@@ -16,11 +16,111 @@ public class Ex31_for {
 //	m8();
 //	m9();
 //	m10();
-	m11();
+//	m11();
+//	m12();
+//	m13();
+	m14();
 	
     } //main
     
     
+    private static void m14() {
+	
+	//숫자 전달 > 한글 반환
+	String result = getNum(1);
+	System.out.println(result);
+	
+	String result2 = getText();
+	System.out.println(result2);
+	
+    } //m14
+
+
+    private static String getText() {
+	
+	String txt = "";
+		
+	
+	/*
+	
+	//컴파일 시점과 런타임 시점
+	
+	- 컴파일: 소스를 기계어로 번역
+		1. 파싱 > 구문 분석 > 문법 검사
+		2. 번역 작업
+	
+	- 런타임: 기계어 실행
+	 
+	-> for문이 작동할지 안 할지를 컴파일러는 알지 못 함!
+	 
+	 */
+	
+	for (int i = 0; i < 3; i++) {
+	    txt += i;
+	    
+	    return txt; //값 반환 + 메소드 종료(탈출)
+	}
+	
+	return "";
+	
+    } //getText
+
+
+    private static String getNum(int num) {
+	
+	if (num == 1 ) {
+	    return "하나";
+	}
+	if (num == 2 ) {
+	    return "둘";
+	}
+	if (num == 3 ) {
+	    return "셋";
+	}
+	return "나머지 숫자";
+	// return "";
+	// return null;
+	
+    } //getNum
+
+
+    private static void m13() {
+	
+	//학교 선생님 > 학생 상담(30명)
+	
+	for (int i = 0; i < 30; i++) {
+	    
+//	    if (i == 16) {
+//		break;
+//	    }
+	    
+	    if (i == 16 || i ==20) { //16번, 20번 결석
+		continue;
+	    }
+	    
+	    System.out.printf("%d번 학생을 상담합니다.\n", i+1);
+	}
+	
+    } //m13
+
+
+    private static void m12() {
+	
+	//continue
+	
+	for (int i = 1; i < 11; i++) {
+	    
+	    if(i == 5) {
+		continue;
+	    }
+	    
+	    System.out.println(i);
+	    
+	}
+	
+    } //m12
+
+
     private static void m11() {
 	
 	//요구사항] 사용자 숫자 원하는 만큼 입력 받아 합계 구하기
