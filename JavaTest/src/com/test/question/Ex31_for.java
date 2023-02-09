@@ -71,6 +71,8 @@ public class Ex31_for {
 	    
 	}
 	
+	scan.close();
+	
     } //m10
 
 
