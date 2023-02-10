@@ -19,3 +19,27 @@
 	- return이 빠졌다.
 		> 반환을 안 할 거면 메서드를 void로 변경
 		> 메소드 내에 제어문이 있다면 모든 경우의 수가 반환 값을 가져야 한다.
+		
+//nextLine() 입력 불가
+	- nextInt() 다음에 nextLine()을 사용하였다.
+		
+		> ★scan.skip("\r\n") 을 사용한다.
+			~	System.out.print("숫자: ");
+				num = scan.nextInt();
+				
+				scan.skip("\r\n");
+				
+				System.out.print("연산자: ");
+				operator = scan.nextLine();
+				
+		 > scan.nextLine()을 한 번 더 사용한다. 
+			~	System.out.print("숫자: ");
+				num = scan.nextInt(););
+		 			
+				scan.nextLine(); 
+				
+				System.out.print("연산자: ");
+				operator = scan.next();
+		 
+		 > scan.next() 사용이 가능한 경우라면 next()를 사용한다.
+		 
