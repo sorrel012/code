@@ -34,9 +34,11 @@ public class Q029 {
 
 	System.out.print("두 번째 숫자: ");
 	num2 = scan.nextInt();
-
+	
+	scan.skip("\r\n");
+	
 	System.out.print("연산자: ");
-	operator = scan.next();
+	operator = scan.nextLine();
 	
 	if (operator.equals("+")) {
 	    System.out.printf("%d + %d = %d\n", num1, num2, num1 + num2);
