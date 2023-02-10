@@ -52,6 +52,9 @@
 				
 				5. 조건을 만족할 때까지 2~4 반복
 				
+				
+				+ 중첩 for문, nested for
+				
 						
 			b. while
 			
