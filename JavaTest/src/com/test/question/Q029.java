@@ -34,8 +34,6 @@ public class Q029 {
 
 	System.out.print("두 번째 숫자: ");
 	num2 = scan.nextInt();
-	
-	scan.nextLine(); //개행문자 처리
 
 	System.out.print("연산자: ");
 	operator = scan.next();
