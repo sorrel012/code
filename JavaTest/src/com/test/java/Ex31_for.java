@@ -19,11 +19,84 @@ public class Ex31_for {
 //	m11();
 //	m12();
 //	m13();
-	m14();
+//	m14();
+//	m16();
+	m17();
 	
     } //main
     
     
+    
+    
+    private static void m17() {
+	
+	Scanner scan = new Scanner(System.in);
+	
+	System.out.print("아이디: ");
+	String id = scan.nextLine();
+	
+	if(checkId(id)) {
+	    System.out.println("올바른 아이디");
+	} else {
+	    System.out.println("올바르지 않은 아이디");
+	}
+	
+	scan.close();
+	
+    } //m17
+
+    private static boolean checkId(String id) {
+	
+	//유효성 검사
+	
+	for (int i = 0; i < id.length(); i++) {
+	    
+	    char c = id.charAt(i);
+	    
+	    if ( c < 'a' || c > 'z') {
+		return false;
+	    }
+	    
+	}
+	
+	return true;
+	
+    } //checkId
+
+    private static void m16() {
+
+	//유효성 검사
+	
+	//아이디 입력 > 영어 소문자로~ (문자 코드)
+	
+	Scanner scan = new Scanner(System.in);
+	
+	System.out.print("아이디: ");
+	
+	String id = scan.nextLine();
+	
+	for(int i = 0; i < id.length(); i++) {
+	   
+	    char c = id.charAt(i);
+	    
+//	    if ((int)c >= (int);a; && (int)c <= (int)'z') {
+//		System.out.println("소문자 O");
+//	    } else {
+//		System.out.println("소문자 X");
+//	    }
+	    	    
+	    if (c < 'a' || c > 'z') {
+		System.out.println("아이디가 올바르지 않습니다. 영소문자로만 작성해 주세요.");
+		break; //for문 탈출 > 잘못된 문자가 1개라도 발견되면, 나머지 문자는 유효성 검사를 할 필요가 없다.
+	    }
+	    
+	}
+	
+	scan.close();
+	
+	
+    } //m16
+
     private static void m14() {
 	
 	//숫자 전달 > 한글 반환
