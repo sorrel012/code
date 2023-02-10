@@ -51,6 +51,8 @@ public class Q029 {
 	} else {
 	    System.out.println("연산이 불가능합니다.");
 	}
+	
+	scan.close();
 
     } //main
 }
