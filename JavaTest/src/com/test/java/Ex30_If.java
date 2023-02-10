@@ -2,7 +2,7 @@ package com.test.java;
 
 import java.util.Scanner;
 
-public class Ex_30 {
+public class Ex30_If {
 
     // switch
 
