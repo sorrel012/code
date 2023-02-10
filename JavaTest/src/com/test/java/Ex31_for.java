@@ -21,13 +21,28 @@ public class Ex31_for {
 //	m13();
 //	m14();
 //	m16();
-	m17();
+//	m17();
+	m19();
 	
     } //main
-    
-    
-    
-    
+        
+    private static void m19() {
+	
+	//난수 생성기
+	
+	//1. Math.random()
+	System.out.println(Math.random());
+	System.out.println(Math.random() * 10);
+	System.out.println((int)(Math.random() * 10));
+	System.out.println((int)(Math.random() * 10) + 1);
+	System.out.println();
+	
+	// 3~7 > 0~4 구한 후 +3
+	System.out.println((int)(Math.random() * 5) + 3);
+	
+    }
+
+
     private static void m17() {
 	
 	Scanner scan = new Scanner(System.in);
