@@ -37,6 +37,7 @@ public class Q048 {
 	
 	printSum(num);
 	
+	scan.close();
 	
     } //main
 
