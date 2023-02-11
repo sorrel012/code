@@ -49,6 +49,8 @@ public class Q045 {
 	
 	System.out.println(txt);
 	
+	scan.close();
+	
     } //main
 
     private static String clapOrNum(int num) {
