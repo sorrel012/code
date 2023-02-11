@@ -24,7 +24,7 @@ public class Q057 {
 		sum += j;
 	    }
 	    
-	    System.out.printf("1 ~ %3d: %4d\n", i, sum);
+	    System.out.printf("1 ~ %3d: %3d\n", i, sum);
 	}
 
     } //main
