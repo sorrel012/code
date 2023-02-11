@@ -34,7 +34,7 @@ public class Q049 {
 	    }
 	    System.out.println();
 
-	    for(int k = 0; k <= i; k++) {
+	    for(int j = 0; j <= i; j++) {
 		System.out.print(" ");
 	    }
 	}
