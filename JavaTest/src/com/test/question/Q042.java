@@ -18,7 +18,6 @@ public class Q042 {
 	int normalYear = 0;
 	int leapYear = 0;
 	int date = 0;
-	String day = "";
 	
 	for(int i = 1; i < 2023; i++) {
 	    
