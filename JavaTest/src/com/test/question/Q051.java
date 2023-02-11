@@ -21,16 +21,16 @@ public class Q051 {
     
     public static void main(String[] args) {
 
-	int line = 0;
+	int row = 0;
 	
 	Scanner scan = new Scanner(System.in);
 	
 	System.out.print("행 입력: ");
-	line = scan.nextInt();
+	row = scan.nextInt();
 	
-	for (int i = 0; i < line; i++) {
+	for (int i = 0; i < row; i++) {
 	    
-	    for(int j = 0; j < line - i + 1; j++) {
+	    for(int j = 0; j < row - i + 1; j++) {
 		System.out.print(" ");
 	    }
 	    
