@@ -39,6 +39,8 @@ public class Q051 {
 	    }
 	    System.out.println();
 	}
+	
+	scan.close();
 
     } //main
     
