@@ -42,6 +42,8 @@ public class Q046 {
 	}
 	
 	System.out.println(result);
+	
+	scan.close();
 
     } //main
 
