@@ -20,7 +20,7 @@ public class Ex34_Array {
 //	m12();
 //	m13();
 //	m14();
-	m15();
+//	m15();
 
 	// ***자바의 식별자는 조합해서 만들어낼 수 없다. > 한번에 만들어야 한다.
 
@@ -33,7 +33,7 @@ public class Ex34_Array {
 
 	int[] nums = { 5, 3, 1, 4, 2 };
 
-	Arrays.sort(nums); //정렬 > Quick 정렬 알로리즘
+	Arrays.sort(nums); //정렬 > Quick 정렬 알고리즘
 
 	System.out.println(Arrays.toString(nums));
 
@@ -378,11 +378,6 @@ public class Ex34_Array {
 	System.out.println("nums: " + Arrays.toString(nums));
 	System.out.println("copy: " + Arrays.toString(copy));
 
-
-	int[] temp;
-
-	temp = copy;
-
     } //m7
 
     private static void m5() {
@@ -451,7 +446,7 @@ public class Ex34_Array {
 
     private static void m4() {
 
-	//정수 배열(byte, short, int, long
+	//정수 배열(byte, short, int, long)
 	byte[] list1 = new byte[5];
 	list1[0] = 10;
 	System.out.println(list1[0]);
@@ -480,8 +475,8 @@ public class Ex34_Array {
 
 	//캘린더
 
-	Calendar c1; //변수
-	c1 = Calendar.getInstance(); // 값
+//	Calendar c1; //변수
+//	c1 = Calendar.getInstance(); // 값
 
 	Calendar[] list6 = new Calendar[5]; //변수 x 5개
 	list6[0] = Calendar.getInstance(); //값 할당
