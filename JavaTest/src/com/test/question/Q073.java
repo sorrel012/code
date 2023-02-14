@@ -17,7 +17,7 @@ public class Q073 {
    	int num = 1;
 
    	for(int i = 0; i < list.length; i++) {
-   	    for(int j = 0; j < list[0].length - i; j++) {
+   	    for(int j = 0; j < list[0].length-i; j++) {
 
    		list[i][j] = num;
    		num++;
