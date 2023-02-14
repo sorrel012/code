@@ -56,7 +56,7 @@ public class Q062 {
 
     private static String[] sortAsc(String[] students) {
 
-	for (int i = 0; i < students.length - 1; i ++) {
+	for (int i = 0; i < students.length - 1; i++) {
 
 	    for (int j = 0; j < students.length - 1 - i; j++) {
 
