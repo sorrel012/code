@@ -17,34 +17,35 @@ import java.util.Scanner;
  */
 
 public class Q047 {
-       
+
     public static void main(String[] args) {
-	
+
 	boolean playing = true;
-	
+
 	Scanner scan = new Scanner(System.in);
-	
+
 	while(playing) {
 	    vending();
-	    
+
 	    playing = false;
-	    
+
 	    if(scan.nextInt() == 1) {
 		playing = true;
 	    }
 	}
-	
+
 	scan.close();
 
     } //main
 
+    @SuppressWarnings("resource")
     private static void vending() {
-	
+
 	int inputPrice = 0;
 	int drink = 0;
-	
+
 	Scanner scan = new Scanner(System.in);
-	
+
 	System.out.println("====================");
 	System.out.println("       자판기");
 	System.out.println("====================");
@@ -52,25 +53,25 @@ public class Q047 {
 	System.out.println("2. 사이다 : 600원");
 	System.out.println("3. 비타500 : 500원");
 	System.out.println("--------------------");
-	
+
 	System.out.print("금액 투입(원) : ");
 	inputPrice = scan.nextInt();
 	System.out.println("--------------------");
-	
+
 	System.out.print("음료 선택(번호) : ");
 	drink = scan.nextInt();
-	
+
 	checkPrice(inputPrice, drink);
-		
+
     } //
 
     private static void checkPrice(int inputPrice, int drink) {
-	
+
 	int drinkPrice = 0;
 	int change = 0;
-	
+
 	String drinkName = "";
-	
+
 	switch(drink) {
 	case 1 :
 	    drinkPrice = 700;
@@ -85,10 +86,10 @@ public class Q047 {
 	    drinkName = "비타500";
 	    break;
 	}
-	
+
 	if(inputPrice >= drinkPrice) {
 	    change = inputPrice - drinkPrice;
-	    
+
 	    System.out.printf("+%s를 제공합니다.\n", drinkName);
 	    System.out.printf("+잔돈 %d원을 제공합니다.\n\n", change);
 	    System.out.print("계속하시려면 1을, 종료하시려면 2를 입력하세요. : ");
@@ -98,8 +99,8 @@ public class Q047 {
 	    System.out.printf("투입 금액 %d원을 반환합니다.\n\n", inputPrice);
 	    System.out.print("다시 이용하시려면 1을, 종료하시려면 2를 입력하세요. : ");
 	}
-	
+
     } //checkPrice
-    
-    
+
+
 }
