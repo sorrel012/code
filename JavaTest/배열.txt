@@ -60,5 +60,16 @@
 		
 	2. Arrays.copyOf(), Arrays.copyOfRange()
 		- 깊은 복사
+		
+//n차원 배열
+
+	- 1차원 배열 > 단일 for문으로 탐색
+		~ int[] nums1 = new int[3];
+		
+	- 2차원 배열 > 2중 for문으로 탐색
+		~ int[][] nums2 = new int[2][3]; //행, 열
+		
+	- 3차원 배열 > 3중 for문으로 탐색
+		~ int[][][] nums3 = new int[2][2][3]; //면, 행, 열
 	
 	
