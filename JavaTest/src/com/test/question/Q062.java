@@ -41,7 +41,7 @@ public class Q062 {
 	    students[i] = studentName;
 	}
 
-	sortAsc(students);
+	sortAsc(students); //?students = sortAsc(students) 라고 안 써도 되는 이유?? 변수명이 같으니 자동으로 들어가는 것?
 
 	System.out.printf("입력한 학생은 총 %d명입니다.\n", numberOfStudent);
 
