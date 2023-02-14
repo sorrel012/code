@@ -41,7 +41,7 @@ public class Q062 {
 	    students[i] = studentName;
 	}
 
-	students = sortAsc(students);
+	sortAsc(students);
 
 	System.out.printf("입력한 학생은 총 %d명입니다.\n", numberOfStudent);
 
