@@ -21,11 +21,247 @@ public class Ex34_Array {
 //	m13();
 //	m14();
 //	m15();
+//	m16();
+//	m17();
+//	m18();
+//	m19();
+//	m20();
+	m21();
 
 	// ***자바의 식별자는 조합해서 만들어낼 수 없다. > 한번에 만들어야 한다.
 
 
     } //main
+
+    private static void m21() {
+
+	//삭제
+	// 배열의 원하는 위치의 요소 삭제
+	// left shift
+
+	String[] list = { "A", "B", "C", "D", "E" };
+
+	int index = 1;
+
+	for (int i = index; i < list.length - 1; i++) {
+
+	    System.out.println(i);
+
+	    list[i] = list[i+1];
+	}
+
+	list[list.length - 1] = null; //마지막 지우기 (빈 문자열""도 가능하지만, 나중에 보면 null이 더 깔끔할 것)
+
+	System.out.println(Arrays.toString(list));
+
+
+
+    } //m21
+
+    private static void m20() {
+
+	//★★★삽입
+	// 배열의 원하는 위치에 요소 삽입
+	// right shift
+
+	String[] list = { "A", "B", "C", "D", "E" };
+
+	int index = 1;
+	String value = "F";
+
+	for(int i = list.length - 2; i >= index ; i-- ) {
+
+	    list[i+1] = list[i];
+
+	}
+
+	list[index] = value;
+
+	System.out.println(Arrays.toString(list));
+
+
+
+
+    } //m20
+
+    private static void m19() {
+
+	// 추출: 색상 colorAt(배열, 방번호)
+
+	String[] colors = { "red", "yellow", "blue", "white", "black", "green", "purple", "gold", "silver" };
+
+	System.out.println(colorAt(colors, 5));
+
+
+	// 추출: subArray(배열, 시작 번호, 끝 번호)
+
+	String[] sub = subArray(colors, 1, 7);
+	System.out.println(Arrays.toString(sub));
+
+	sub = subArray(colors, 5);
+	System.out.println(Arrays.toString(sub));
+
+    } //m19
+
+    private static String[] subArray(String[] colors, int beginIndex) {
+
+	String[] tmp = new String[colors.length - beginIndex];
+
+	for(int i = beginIndex; i < colors.length; i ++) {
+
+	    tmp[i - beginIndex] = colors[i];
+	}
+
+	return tmp;
+
+    } //subArray without endIndex
+
+    private static String[] subArray(String[] colors, int beginIndex, int endIndex) {
+
+	String[] tmp = new String[endIndex - beginIndex];
+
+	for(int i = beginIndex; i < endIndex; i ++) {
+
+	    tmp[i - beginIndex] = colors[i];
+	}
+
+	return tmp;
+
+    } //subArray
+
+
+    private static String colorAt(String[] colors, int index) {
+
+	return colors[index];
+
+    } //colorAt
+
+
+
+    private static void m18() {
+
+	//깊은 복사 : 배열 deepCopy(배열)
+
+	String[] colors = { "red", "yellow", "blue", "white", "black", "green", "purple", "gold", "silver" };
+
+	String[] copy = deepCopy(colors);
+
+	System.out.println("colors: " + Arrays.toString(colors));
+	System.out.println("copy: " + Arrays.toString(copy));
+	System.out.println();
+
+	copy[0] = "skyblue";
+
+	System.out.println("colors: " + Arrays.toString(colors));
+	System.out.println("copy: " + Arrays.toString(copy));
+
+
+    } //m18
+
+    private static String[] deepCopy(String[] colors) {
+
+	String[] tmp = new String[colors.length];
+
+	for(int i = 0; i < colors.length; i++) {
+
+	    tmp[i] = colors[i];
+	}
+
+	return tmp;
+
+    } //deepCopo=y
+
+    private static void m17() {
+
+	//검색 : int indexOf(배열, 검색 대상)
+
+	String[] colors = { "red", "yellow", "blue", "white", "black", "green", "purple", "gold", "silver" };
+
+	System.out.println(indexOf(colors, "white"));
+	System.out.println(indexOf(colors, "skyblue"));
+
+    }
+
+    private static int indexOf(String[] colors, String color) {
+
+	for (int i = 0; i < colors.length; i++) {
+
+	    if (colors[i].equals(color)) {
+
+		return i;
+	    }
+	}
+
+	return -1;
+
+    } //indexOf
+
+    private static void m16() {
+
+	//배열을 대상으로 자주 하는 행동들
+
+	//검색 : boolean contains(배열, 검색 대상)
+
+	int[] nums = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+	int num = 5;
+
+	if (contains(nums, num)) {
+	    System.out.printf("%d는(은) 있습니다.\n", num);
+
+	} else {
+	    System.out.printf("%d는(은) 없습니다.\n", num);
+	}
+	System.out.println();
+
+
+	String[] colors = { "red", "yellow", "blue", "white", "black", "green", "purple", "gold", "silver" };
+
+	String color = "skyblue";
+
+
+	if (contains(colors, color)) {
+	    System.out.printf("%s는(은) 있습니다.\n", color);
+
+	} else {
+	    System.out.printf("%s는(은) 없습니다.\n", color);
+	}
+	System.out.println();
+
+
+    } //m16
+
+
+    public static boolean contains(String[] colors, String color) {
+
+	for(int i = 0; i < colors.length; i++) {
+
+	    if(colors[i].equals(color)) {
+		return true;
+
+	    }
+	}
+
+	return false;
+
+    } //contains - String
+
+
+    public static boolean contains(int[] nums, int num) {
+
+	for(int i = 0; i < nums.length; i++) {
+
+	    if (nums[i] == num) {
+		return true;
+
+	    }
+
+	}
+
+	return false;
+
+    } //contains - int
+
 
     private static void m15() {
 
