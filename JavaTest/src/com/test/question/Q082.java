@@ -18,7 +18,7 @@ public class Q082 {
     public static void main(String[] args) {
 
 	String num = "";
-	String txt = "";
+	StringBuilder txt = new StringBuilder("");
 	int sum = 0;
 
 	Scanner scan = new Scanner(System.in);
@@ -31,13 +31,14 @@ public class Q082 {
 	    char c = num.charAt(i);
 
 	    if(i == num.length() - 1) {
-		txt += c;
+		txt.append(c);
 		sum += c - 48;
 		break;
 
 	    }
 
-	    txt += c + " + ";
+	    txt.append(c);
+	    txt.append(" + ");
 	    sum += c - 48;
 
 	}
