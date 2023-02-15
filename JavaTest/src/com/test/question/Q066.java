@@ -26,9 +26,16 @@ public class Q066 {
 	int[] lotto = new int[6];
 
 	for(int i = 0; i < 6; i++) {
-
 	    randomNum = (int)(Math.random() * 45) + 1;
 	    lotto[i] = randomNum;
+
+	    for (int j = 0; j < i; j++) {
+		if (lotto[i] == lotto[j]) {
+		    i--;
+		    break;
+		}
+	    }
+
 	}
 
 	sort(lotto);
@@ -50,9 +57,7 @@ public class Q066 {
 		    lotto[j+1] = tmp;
 
 		}
-
 	    }
-
 	}
 
 	return lotto;
