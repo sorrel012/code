@@ -1,46 +1,77 @@
 package codeReview;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Test {
 
     public static void main(String[] args) {
 
-	int index = 0;
-	int value = 0;
-
-	int[] list = { 5, 6, 1, 3, 2, 8, 7, 4, 10, 9 };
+	String txt = "";
+	String op = "";
+	int result = 0;
+	int n1 = 0;
+	int n2 = 0;
+	String[] temp = new String[2];
 
 	Scanner scan = new Scanner(System.in);
 
-	System.out.print("삽입 위치: ");
-	index = scan.nextInt();
+	System.out.println("입력: ");
+	txt = scan.nextLine();
 
-	System.out.print("값: ");
-	value = scan.nextInt();
+	txt = txt.replace(" ", "");
 
-	System.out.println("원본: " + Arrays.toString(list));
+	op = getOperator(txt);
 
-	insert(list, index, value);
+	if(!op.equals("")) {
 
-	System.out.println("결과: " + Arrays.toString(list));
+	    temp = txt.split( "\\" + op);
 
-	scan.close();
+	    if (temp.length == 2) {
+
+		n1 = Integer.parseInt(temp[0]);
+		n2 = Integer.parseInt(temp[1]);
+
+		if (op.equals("+")) {
+		    result = n1 + n2;
+		} else if (op.equals("-")) {
+		    result = n1 - n2;
+		} else if (op.equals("*")) {
+		    result = n1 * n2;
+		} else if (op.equals("/")) {
+		    result = n1 / n2;
+		} else if (op.equals("%")) {
+		    result = n1 % n2;
+		}
+
+		System.out.printf("%d %s %d = %d\n", n1, op, n2, result);
+
+	    } else {
+		System.out.println("피연산자가 부족합니다.");
+	    }
+
+	} else {
+	    System.out.println("연산자가 올바르지 않습니다.");
+	}
+
+
 
     } //main
 
-    private static int[] insert(int[] list, int index, int value) {
+    private static String getOperator(String txt) {
 
-	for(int i = list.length - 1; i > index; i--) {
-
-	    list[i] = list[i-1];
+	if (txt.contains("+")) {
+	    return "+";
+	} else if (txt.contains("-")) {
+	    return "-";
+	} else if (txt.contains("*")) {
+	    return "*";
+	}    else if (txt.contains("/")) {
+	    return "/";
+	}	    else if (txt.contains("%")) {
+	    return "%";
 	}
 
-	list[index] = value;
-
-	return list;
-
-    } //insert
+	return "";
+    }
 
 }
