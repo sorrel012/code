@@ -40,7 +40,7 @@ public class Q083 {
 	    filename = scan.nextLine();
 
 	    int index = filename.lastIndexOf(".") + 1;
-	    String extension = filename.substring(index);
+	    String extension = filename.substring(index).toLowerCase();
 
 	    switch(extension)  {
 	    case "mp3" :
