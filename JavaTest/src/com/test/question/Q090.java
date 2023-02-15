@@ -21,7 +21,6 @@ public class Q090 {
     public static void main(String[] args) {
 
 	String input = "";
-	int sumCipher = 0;
 	int sum = 0;
 
 	Scanner scan = new Scanner(System.in);
@@ -52,8 +51,8 @@ public class Q090 {
 	    }
 
 	}
-
 	return sum;
+
     } //getSum
 
 
