@@ -1,52 +1,46 @@
 package codeReview;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Test {
 
     public static void main(String[] args) {
 
-	/*Q066.java
+	int index = 0;
+	int value = 0;
 
-	[요구사항] 배열: 로또
-	중복되지 않는 임의의 숫자 6개를 만드시오.(로또)
+	int[] list = { 5, 6, 1, 3, 2, 8, 7, 4, 10, 9 };
 
-	조건
-	 - 숫자의 범위: 1 ~ 45
-	 - 오름차순 정렬
-	*/
+	Scanner scan = new Scanner(System.in);
 
-	int[] nums = new int[6];
+	System.out.print("삽입 위치: ");
+	index = scan.nextInt();
 
-	for (int i = 0; i < nums.length; i++) {
-		nums[i] = (int)(Math.random() * 45) + 1;
-		//System.out.printf("%d, ", nums[i]);
+	System.out.print("값: ");
+	value = scan.nextInt();
 
-		for (int j = 0; j < i; j++) {
-			if (nums[i] == nums[j]) {
-				i--;
-			}
-		}
+	System.out.println("원본: " + Arrays.toString(list));
+
+	insert(list, index, value);
+
+	System.out.println("결과: " + Arrays.toString(list));
+
+	scan.close();
+
+    } //main
+
+    private static int[] insert(int[] list, int index, int value) {
+
+	for(int i = list.length - 1; i > index; i--) {
+
+	    list[i] = list[i-1];
 	}
 
-	Arrays.sort(nums);
+	list[index] = value;
 
-	String txt = "[";
+	return list;
 
-	for (int i = 0; i < nums.length; i++) {
-		txt += nums[i];
-
-		if (i == nums.length - 1) {
-			break;
-		}
-
-		txt += ", ";
-	}
-
-	String txt2 = "]";
-
-	System.out.print(txt + txt2);
-}
-
+    } //insert
 
 }
