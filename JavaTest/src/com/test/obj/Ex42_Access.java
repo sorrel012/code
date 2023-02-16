@@ -19,6 +19,19 @@ public class Ex42_Access {
         // 계산된 프로퍼티
         System.out.println(c1.getLevel());
 
+        System.out.println();
+        System.out.println();
+
+
+        Desk d1 = new Desk();
+
+        d1.setColor("red");                 //Setter > 유효성 검사(예측이 불가능)
+        System.out.println(d1.getColor());  //Getter > 유효성 검사(x) > 이미 Setter에서 걸렀음.
+        System.out.println();
+
+        d1.setColor("blue");
+        System.out.println(d1.getColor());
+
     } //main
 
 }
