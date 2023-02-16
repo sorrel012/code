@@ -43,7 +43,7 @@ public class Ex41_Access {
         //	System.out.println(k2.ddd());
 
 
-        k2.setModel("380");
+        k2.setModel("K380");
         System.out.println(k2.getModel());
 
         k2.setPrice(35000);

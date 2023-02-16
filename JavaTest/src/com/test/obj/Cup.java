@@ -23,7 +23,8 @@ public class Cup {
         return this.price;
     }
 
-    public int getLevel() {
+
+    public int getLevel() { //얘도 getter인지? 멤버 변수를 읽는 것은 아닌데..
 
         if (this.weight < 500 && this.price < 1000) {
             return 1; //등
