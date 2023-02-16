@@ -88,15 +88,13 @@ public class Book {
 
         String information = "";
 
-        information = String.format("제목: %s\n"
-                                    + "가격: %,d원\n"
-                                    + "저자: %s\n"
-                                    + "출판사: %s\n"
-                                    + "발행년도: %s년\n"
-                                    + "ISBN: %s\n"
-                                    + "페이지: %,d장"
-                                    , title, price, author, publisher
-                                    , pubYear, isbn, page);
+        information += String.format("제목: %s\n", title);
+        information += String.format("가격: %,d원\n", price);
+        information += String.format("저자: %s\n", author);
+        information += String.format("출판사: %s\n", publisher);
+        information += String.format("발행년도: %s년\n", pubYear);
+        information += String.format("ISBN: %s\n", isbn);
+        information += String.format("페이지: %,d장", page);
 
         return information;
     }
