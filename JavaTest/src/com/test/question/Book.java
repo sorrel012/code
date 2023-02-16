@@ -91,8 +91,8 @@ public class Book {
         information = String.format("제목: %s\n"
                                     + "가격: %,d원\n"
                                     + "저자: %s\n"
-                                    + "출판사: %s년\n"
-                                    + "발행년도: %s\n"
+                                    + "출판사: %s\n"
+                                    + "발행년도: %s년\n"
                                     + "ISBN: %s\n"
                                     + "페이지: %,d장"
                                     , title, price, author, publisher
