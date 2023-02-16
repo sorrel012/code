@@ -32,6 +32,7 @@
 		~ public String getModel(); {			
 				return this.model;
 		  }
+		※ 만약 영어로 입력 받고 한글로 값을 돌려줘야 한다면 Getter에서 작업(데이터 가공)
 		  
 	- 필드 vs 프로퍼티 (자바에서)
 		~ c1.type		> public 변수 		> field(필드)
