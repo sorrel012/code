@@ -173,8 +173,5 @@ public class Ex46_Data {
 
 		}
 
-
-
-
 	} //main
 }
