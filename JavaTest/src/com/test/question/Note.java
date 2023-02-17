@@ -68,7 +68,7 @@ public class Note {
             this.owner = owner;
 
         } else {
-            this.owner = "주인 없는 노트";
+        	System.out.println("잘못된 이름 대입");
         }
 
     } //setOwner
@@ -140,7 +140,7 @@ public class Note {
 
         String information = "";
 
-        if (this.owner == null || this.owner.equals("주인 없는 노트")) {
+        if (this.owner == null) {
         	information += "■■■■■■ 노트 정보 ■■■■■■\n";
         	information += "주인 없는 노트\n";
         	information += "■■■■■■■■■■■■■■■■■■■■■";
