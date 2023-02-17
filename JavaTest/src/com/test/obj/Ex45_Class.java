@@ -18,7 +18,7 @@ public class Ex45_Class {
 
 		e2.setSuperior(e1); //e1 객체를 통채로 superior로 전달
 		
-		System.out.println(e2.getSuperior().getName()); //아무개의 상급자 이름을 알아낼 수 있음
+		System.out.printf("%s의 상사는 %s입니다.\n", e2.getName(), e2.getSuperior().getName()); //아무개의 상급자 이름을 알아낼 수 있음
 
 	} //main
 }
