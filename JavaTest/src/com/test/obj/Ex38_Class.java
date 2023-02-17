@@ -81,7 +81,7 @@ public class Ex38_Class {
 	System.out.println();
 
 	//학생점수
-	Student hong = new Student();
+	Student0 hong = new Student0();
 
 	hong.name = "홍길동";
 	hong.kor = 100;
@@ -128,7 +128,7 @@ class Size {
 
 } //Size
 
-class Student {
+class Student0 {
 
     public String name;
     public int kor;
