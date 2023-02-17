@@ -115,7 +115,7 @@ public class Note {
 
     } //getThickness
 
-    private void calSizePrice() {
+    private void calSizePrice() { //Q.Getter Setter만 사용해야?
 
     	switch(this.size) {
     	case "A3":
@@ -185,7 +185,7 @@ public class Note {
         	information += "■■■■■■■■■■■■■■■■■■■■■";
         }
 
-        return information;
+        return information; //Stringbuilder.toString()
 
     } //info
 
