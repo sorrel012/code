@@ -64,14 +64,42 @@ public class Note {
 
     public void setOwner(String owner) {
 
-        if(owner.length() >= 2 && owner.length() <= 5) {
-            this.owner = owner;
+    	if(checkLength(owner) && checkKorean(owner)) {
+    		this.owner = owner;
 
-        } else {
-        	System.out.println("잘못된 이름 대입");
-        }
+    	} else {
+    		System.out.println("잘못된 이름 대입");
+    	}
+
 
     } //setOwner
+
+    public boolean checkKorean(String owner) {
+
+    	for (int i = 0; i <owner.length(); i++) {
+
+    		char c = owner.charAt(i);
+
+    		if (c < '가' || c > '힣') {
+    			return false;
+    		}
+    	}
+
+    	return true;
+
+    } //checkKorean
+
+    public boolean checkLength(String owner) {
+
+    	if (owner.length() >= 2 && owner.length() <= 5) {
+    		return true;
+
+    	} else {
+    		return false;
+    	}
+
+    } //checkLength
+
 
     public String getThickness() { //두께
 
