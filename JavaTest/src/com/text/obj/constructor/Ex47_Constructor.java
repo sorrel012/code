@@ -1,6 +1,6 @@
 package com.text.obj.constructor;
 
-public class Ex37_Constructor {
+public class Ex47_Constructor {
 
 
 	public static void main(String[] args) {
