@@ -2,7 +2,7 @@ package com.sorrel012.generics;
 
 import java.util.ArrayList;
 
-public class MyCustomList<T> {
+public class MyCustomList<T extends Number> {
 	
 	ArrayList<T> list = new ArrayList<>();
 	
