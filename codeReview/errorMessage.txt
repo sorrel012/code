@@ -53,3 +53,8 @@
 	- 특수문자 '+'를 기준으로 split을 통해 문자열을 잘랐다.
 	- ?, *, +, (, ), [, ], {, }
 		> 특수문자 앞에 \\를 붙여줘야한다. (역슬래시 두 개)
+		
+		
+// Exception in thread "main" java.lang.NullPointerException
+	- 무엇인가 처리할 때 null값이 입력되어 에러가 발생했다.
+		> 예외 처리를 해준다.
