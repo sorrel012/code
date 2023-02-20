@@ -13,8 +13,6 @@ public class Ex54_static {
 	
 	 */
 	
-	
-	
 	public static void main(String[] args) {
 
 		//상황] 학생 3명
