@@ -59,6 +59,11 @@ class Child extends Parent { //클래스 상속(extends Parent)
 	- 아이디
 	- 암호
 	- 등급
+3. 임시회원
+	- 이름
+	- 아이디
+	- 암호
+	- 유효기간
 
 class User {
 	
@@ -102,19 +107,8 @@ class Administrator extends Member {
 	
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+class Temp extends Member {
+	
+	public String exDate;
+	
+}
