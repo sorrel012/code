@@ -72,7 +72,6 @@ class FinalChild extends FinalParent {
 
 //상속을 할 수 없게 금지함. > 자식 낳을 수 xx
 final class FinalMember {
-	
-	
+		
 }
 
