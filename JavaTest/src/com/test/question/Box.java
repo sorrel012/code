@@ -8,21 +8,20 @@ public class Box {
 		
 		String[] colors = {"red", "blue", "yellow", "white", "pink", "purple", "green", "black"};
 		
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < 10; i++) { //T: 10 -> list.length
 			
 			Macaron macaron = new Macaron();
 
+			//T: 바로 넣기보다는 변수 선언 후 넣으면 좋을 듯
 			macaron.setSize( ( (int) (Math.random() * 11) + 5 ) );
-			macaron.setColor(colors[(int)(Math.random() * 7)]);
+			macaron.setColor(colors[(int)(Math.random() * 7)]); // T: 7 -> colors.length
 			macaron.setThickness( ( (int) (Math.random() * 20) + 1 ) );
 			
 			list[i] = macaron;
 			
-			
-			
 		}
 		
-		System.out.println("마카롱을 10개 만들었습니다.\n");
+		System.out.println("마카롱을 10개 만들었습니다.\n"); //T: 10개 -> list.length개
 				
 	} //cook
 	
