@@ -1,4 +1,4 @@
-package com.text.obj.constructor;
+package com.test.obj.constructor;
 
 public class Ex48_Constructor {
 
