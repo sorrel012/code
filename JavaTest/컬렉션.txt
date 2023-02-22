@@ -1,0 +1,62 @@
+//컬렉션, Collection
+	- JCF, Java Collection Framework
+	- (향상된) 배열
+	- 기존의 순수 배열 > 성능, 사용법 등 개량 > 클래스
+	- 가변적 길이 > 방의 개수를 마음대로 늘리거나 줄이는 것이 가능
+	
+	1. List 계열
+		- ArrayList★★★★★ > implement Serializable, Cloneable, Iterable<E>, Collection<E>, List<E>, RandomAccess
+			
+			1. 생성하기
+				- ArrayList<String> list = new ArrayList<String>(); 
+			
+			2. 요소 추가하기
+				- boolean add(T value)
+				- 배열의 맨 마지막에 추가하기 > Append Mode
+		
+			3. 요소의 개수
+				- int size()
+			
+			4. 요소 읽기
+				- T get(int index)
+		
+			5. 요소의 수정
+				- T set(int index, T newValue)
+			
+			6. 요소의 삭제
+				- T remove(int index)
+			
+			7. 탐색
+				- 루프 
+				
+			8. 요소의 검색
+				- int indexOf(T value)
+				- int lastIndexOf(T value)
+				- boolean contains(T value)
+				
+			9. 초기화
+				- 모든 요소 삭제
+				- void clear()
+				
+			10. 빈 배열 확인
+				- boolean isEmpty()
+				
+			11. 요소 추가 
+				- 중간에 삽입
+				- void add(int index, T value)
+				- ★★★우측 시프트 발생 > 삽입한 위치 이후의 모든 요소의 방번호 + 1
+			
+		- LinkedList
+		- Queue
+		- Stack
+		- Vector(legacy)
+		 
+	2. Set 계열
+		- HashSet★★★
+		- TreeSet
+		
+	3. Map 계열
+		- HaashMap★★★
+		- TreeMap
+		- Properties(legacy)
+		- HashTaable(legacy)
