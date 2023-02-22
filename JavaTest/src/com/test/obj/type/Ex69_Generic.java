@@ -11,9 +11,23 @@ public class Ex69_Generic {
 
 	private static void m2() {
 		
+		//향상된 for문
 		
+		String[] list = { "강아지", "고양이", "병아리", "오병이", "송아지" };
+		
+		
+		for(int i = 0; i < list.length; i++) {
+			System.out.print(list[i] + "\t");
+		}
+		System.out.println();
+		
+		for(String animal : list) {
+			System.out.print(animal + "\t");
+		}
+		System.out.println();
 		
 	}
+	
 
 	private static void m1() {
 
