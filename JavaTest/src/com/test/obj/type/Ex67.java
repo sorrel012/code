@@ -43,5 +43,3 @@ class EEE implements DDD {
 abstract class GGG implements AAA {
 	
 }
-
-abs
