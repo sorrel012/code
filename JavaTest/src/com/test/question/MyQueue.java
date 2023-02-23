@@ -60,7 +60,7 @@ public class MyQueue {
 				this.queue[i] = this.queue[i+1];
 			}
 			
-			index--;
+			this.index--;
 			
 			return tmp;
 			
@@ -77,11 +77,11 @@ public class MyQueue {
 	public String peek() {
 		try {
 			
-			if(index <= 0) {
+			if(this.index <= 0) {
 				throw new NegativeArraySizeException();
 			}
 			
-			return queue[0];
+			return this.queue[0];
 			
 		} catch(NegativeArraySizeException e) {
 			return e.toString() + ": " + ERROR_MSG;
