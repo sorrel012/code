@@ -44,7 +44,7 @@ public class MyArrayList {
 			return this.list[index];
 			
 		} catch(IndexOutOfBoundsException e) {
-			return errorMsg;
+			return e.toString() + ": " + errorMsg;
 		}
 		
 	}
@@ -60,7 +60,7 @@ public class MyArrayList {
 			this.list[index] = value;
 			
 		} catch(IndexOutOfBoundsException e) {
-			System.out.println(errorMsg);
+			System.out.println(e.toString() + ": " + errorMsg);
 		}
 		
 	}
@@ -84,13 +84,12 @@ public class MyArrayList {
 			return value;
 			
 		} catch(IndexOutOfBoundsException e) {
-			return errorMsg;
+			return e.toString() + ": " + errorMsg;
 		}
 	}
 	
 	//index의 범위는 연속적이어야 한다. index 범위를 벗어날 경우 throw
 	public boolean add(int index, String value) {
-		
 		
 		try {
 
@@ -109,11 +108,12 @@ public class MyArrayList {
 			return true;
 			
 		} catch(IndexOutOfBoundsException e) {
-			System.out.println(errorMsg);
+			System.out.println(e.toString() + ": " + errorMsg);
 			return false;
 		}
 		
 	}
+	
 	
 	public int indexOf(String value) {
 		

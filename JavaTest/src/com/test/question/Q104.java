@@ -60,6 +60,8 @@ public class Q104 {
 		list.add("병아리");
 		System.out.println(list);
 		
+		list.add(8, "강아지"); //에러 발생 메시지 확인용
+		
 		//trim
 		list.trimToSize();
 		System.out.println(list);
