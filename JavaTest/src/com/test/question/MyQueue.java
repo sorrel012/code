@@ -28,9 +28,9 @@ public class MyQueue {
 		return true;
 	}
 	
-	private String[] newQueue(String[] queue, int addIndex) {
+	private String[] newQueue(String[] queue, int index) {
 		
-		String[] queue2 = new String[addIndex * 2];
+		String[] queue2 = new String[index * 2];
 		
 		copyList(queue, queue2);
 		
