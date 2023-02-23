@@ -173,7 +173,7 @@ public class MyArrayList {
 	
 	public void trimToSize() {
 		
-		String[] list2 = new String[index];
+		String[] list2 = new String[this.index];
 		
 		copyList(this.list, list2);
 		
