@@ -35,7 +35,7 @@ public class MyArrayList {
 		
 		try {
 			
-			if(index < 0 || index > this.index) {
+			if(index < 0 || index >= this.index) {
 				throw new IndexOutOfBoundsException();
 			}
 			
@@ -167,7 +167,7 @@ public class MyArrayList {
 	}
 	
 	public void clear() {
-		this.list = new String[4];
+//		this.list = new String[4];
 		this.index = 0;
 	}
 	
