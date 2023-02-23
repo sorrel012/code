@@ -124,9 +124,31 @@ public class MyArrayList {
 		return -1;
 	}
 
+	public int indexOf(String value, int fromIndex) {
+
+		for(int i = fromIndex; i < this.index; i++) {
+			if(this.list[i].equals(value)) {
+				return i;
+			}
+		}
+
+		return -1;
+	}
+
 	public int lastIndexOf(String value) {
 
 		for(int i = this.index - 1; i >= 0 ; i--) {
+			if(this.list[i].equals(value)) {
+				return i;
+			}
+		}
+
+		return -1;
+	}
+	
+	public int lastIndexOf(String value, int fromIndex) {
+
+		for(int i = fromIndex; i >= 0 ; i--) {
 			if(this.list[i].equals(value)) {
 				return i;
 			}
