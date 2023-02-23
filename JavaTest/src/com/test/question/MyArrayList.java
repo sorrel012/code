@@ -157,6 +157,15 @@ public class MyArrayList {
 		return -1;
 	}
 	
+	public boolean contains(String value) {
+		
+		if(indexOf(value) != -1) {
+			return true;
+		}
+		
+		return false;
+	}
+	
 	public void clear() {
 		this.list = new String[4];
 		this.index = 0;

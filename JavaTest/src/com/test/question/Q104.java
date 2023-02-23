@@ -55,6 +55,8 @@ public class Q104 {
 		}
 		System.out.println();
 		
+		System.out.println(list.contains("홍길동"));
+		
 		//삽입
 		list.add("오리");
 		list.add("병아리");
