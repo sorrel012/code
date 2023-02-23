@@ -8,7 +8,6 @@ public class Ex77_Queue {
 	public static void main(String[] args) {
 
 		//선입선출
-		
 		//1. 생성
 		Queue<String> queue = new LinkedList<String>();
 		
