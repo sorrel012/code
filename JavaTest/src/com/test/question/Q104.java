@@ -70,6 +70,7 @@ public class Q104 {
 		
 		//초기화
 		list.clear();
+		System.out.println(list);
 		System.out.println(list.size());
 
 	} //main
