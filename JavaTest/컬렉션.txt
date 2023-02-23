@@ -53,9 +53,38 @@
 				- ★★★우측 시프트 발생 > 삽입한 위치 이후의 모든 요소의 방번호 + 1
 			
 		b. LinkedList
-		c. Queue
-		d. Stack
+		
+		c. Stack
+			- ADT(Abstract Data Type)
+			- 후입선출(LIFO, Last Input First Output)		
+			~ 메모리 구조, 되돌리기(Ctrl+Z), 다시하기(Ctrl+Y)
+			
+			1. 생성하기
+				- Stack<T> stack = new Stack<T>(); 
+			
+			2. 요소 추가하기 > push down
+				- T push(T value)
+		
+			3. 요소의 개수
+				- int size()
+			
+			4. 요소 읽기(= 꺼내기 = 삭제하기) > pop up
+				- T pop()
+				
+			5. 빈 스택 확인
+				- boolean isEmpty()
+			
+			6. 마지막 요소 확인
+				- T peek()
+				
+		
+		d. Queue
+			- ADT(Abstract Data Type) : 물리적인 특성은 배열과 동일한데, 사용법이 특별한 자료형
+			- 선입선출(FIFO, First Input First Output)
+			~ 줄서기
+		
 		e. Vector(legacy)
+		
 		 
 	2. Set 계열
 		a. HashSet★★★
