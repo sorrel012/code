@@ -103,25 +103,4 @@ public class MyQueue {
 		this.queue = new String[4];
 	}
 	
-	@Override
-	public String toString() {
-		
-		StringBuilder sb = new StringBuilder();
-		
-		sb.append("\n");
-		
-		sb.append(String.format("index: %d\n", this.index));
-		sb.append(String.format("length: %d\n", this.queue.length));
-		
-		//실제로 사용자가 보게 하려면 this.list.length 대신 this.index를 사용할 것
-		for(int i = 0; i < this.queue.length; i++) {
-			
-			sb.append(String.format("\t%d: %s\n", i, this.queue[i]));
-			
-		}
-		
-		sb.append("\n");
-		
-		return sb.toString();
-	}
 }
