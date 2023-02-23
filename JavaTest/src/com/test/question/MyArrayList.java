@@ -4,7 +4,7 @@ public class MyArrayList {
 
 	private String[] list; //보조
 	private int index; //★★★★★★★★★★★★★★★★★주인공
-	private final String errorMsg = "입력 가능 범위를 벗어났습니다.";
+	private final String ERROR_MSG = "입력 가능 범위를 벗어났습니다.";
 	
 	public MyArrayList() {
 		this.index = 0;
@@ -42,7 +42,7 @@ public class MyArrayList {
 			return this.list[index];
 			
 		} catch(IndexOutOfBoundsException e) {
-			return e.toString() + ": " + errorMsg;
+			return e.toString() + ": " + ERROR_MSG;
 		}
 		
 	}
@@ -58,7 +58,7 @@ public class MyArrayList {
 			this.list[index] = value;
 			
 		} catch(IndexOutOfBoundsException e) {
-			System.out.println(e.toString() + ": " + errorMsg);
+			System.out.println(e.toString() + ": " + ERROR_MSG);
 		}
 		
 	}
@@ -82,7 +82,7 @@ public class MyArrayList {
 			return value;
 			
 		} catch(IndexOutOfBoundsException e) {
-			return e.toString() + ": " + errorMsg;
+			return e.toString() + ": " + ERROR_MSG;
 		}
 		
 	}
@@ -107,7 +107,7 @@ public class MyArrayList {
 			return true;
 			
 		} catch(IndexOutOfBoundsException e) {
-			System.out.println(e.toString() + ": " + errorMsg);
+			System.out.println(e.toString() + ": " + ERROR_MSG);
 			return false;
 		}
 		
