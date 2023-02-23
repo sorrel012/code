@@ -100,7 +100,6 @@ public class MyQueue {
 	
 	public void clear() {
 		this.index = 0;
-		this.queue = new String[4];
 	}
 	
 }
