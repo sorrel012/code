@@ -75,13 +75,30 @@
 				- boolean isEmpty()
 			
 			6. 마지막 요소 확인
-				- T peek()
-				
+				- T peek()				
 		
 		d. Queue
 			- ADT(Abstract Data Type) : 물리적인 특성은 배열과 동일한데, 사용법이 특별한 자료형
 			- 선입선출(FIFO, First Input First Output)
-			~ 줄서기
+			~ 줄서기			
+			
+			1. 생성하기
+				- Queue<T> queue = new LinkedList<T>();
+			
+			2. 요소 추가하기 > push down
+				- boolean add(T value)
+		
+			3. 요소의 개수
+				- int size()
+			
+			4. 요소 읽기(= 꺼내기 = 삭제하기) > 
+				- T poll() //deque()
+				
+			5. 빈 스택 확인
+				- boolean isEmpty()
+			
+			6. 마지막 요소 확인
+				- T peek()
 		
 		e. Vector(legacy)
 		
