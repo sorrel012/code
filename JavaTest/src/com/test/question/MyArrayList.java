@@ -36,35 +36,54 @@ public class MyArrayList {
 	public String get(int index) {
 		
 		try {
+			
+			if(index < 0 || index > this.index) {
+				throw new IndexOutOfBoundsException();
+			}
+			
 			return this.list[index];
-		} catch(ArrayIndexOutOfBoundsException e) {
+			
+		} catch(IndexOutOfBoundsException e) {
 			return errorMsg;
 		}
 		
 	}
 
 	public void set(int index, String value) {
+
 		try {
+
+			if(index < 0 || index > this.index) {
+				throw new IndexOutOfBoundsException();
+			}
+			
 			this.list[index] = value;
-		} catch(ArrayIndexOutOfBoundsException e) {
+			
+		} catch(IndexOutOfBoundsException e) {
 			System.out.println(errorMsg);
 		}
 		
 	}
 	
 	public String remove(int index) {
-		
+
 		try {
-			String value = this.list[index];
+
+			if(index < 0 || index > this.index) {
+				throw new IndexOutOfBoundsException();
+			}
 			
+			String value = this.list[index];
+
 			for(int i = index; i < this.index - 1; i++) {
 				list[i] = list[i+1];
 			}
-			
+
 			this.index--;
-			
+
 			return value;
-		} catch(ArrayIndexOutOfBoundsException e) {
+			
+		} catch(IndexOutOfBoundsException e) {
 			return errorMsg;
 		}
 	}

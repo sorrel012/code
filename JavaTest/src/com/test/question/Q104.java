@@ -58,6 +58,8 @@ public class Q104 {
 		//trim
 		list.add("오리");
 		list.add("병아리");
+		System.out.println(list.get(7));
+		
 		list.trimToSize();
 
 		System.out.println(list);
