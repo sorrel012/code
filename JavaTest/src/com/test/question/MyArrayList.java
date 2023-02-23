@@ -28,10 +28,8 @@ public class MyArrayList {
 	}
 
 	public int size() {
-		
 		return this.index;
 	}
-	
 	
 	public String get(int index) {
 		
@@ -86,6 +84,7 @@ public class MyArrayList {
 		} catch(IndexOutOfBoundsException e) {
 			return e.toString() + ": " + errorMsg;
 		}
+		
 	}
 	
 	//index의 범위는 연속적이어야 한다. index 범위를 벗어날 경우 throw
@@ -113,8 +112,7 @@ public class MyArrayList {
 		}
 		
 	}
-	
-	
+		
 	public int indexOf(String value) {
 		
 		for(int i = 0; i < this.index; i++) {
