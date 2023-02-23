@@ -31,6 +31,7 @@ public class MyArrayList {
 		return this.index;
 	}
 	
+	
 	public String get(int index) {
 		
 		try {

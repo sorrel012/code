@@ -11,7 +11,6 @@ public class Q104 {
 		list.add("홍길동");
 		list.add("아무개");
 		list.add("하하하");
-		list.get(10);
 
 		//읽기
 		System.out.println(list.get(0));
