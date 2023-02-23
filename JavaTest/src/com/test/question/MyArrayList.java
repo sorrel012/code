@@ -88,20 +88,31 @@ public class MyArrayList {
 		}
 	}
 	
-	//TODO index의 범위는 연속적이어야 하는가?
-	//ex) 배열 길이 8, 현재 index 5, 9번째에 값을 넣으려고 함 > 에러 처리? or 새 배열 생성?
-	// > class 설명 보니 새로 하는 듯 하긴 한데..
+	//index의 범위는 연속적이어야 한다. index 범위를 벗어날 경우 throw
 	public boolean add(int index, String value) {
 		
-		for(int i = index; i < this.index - 1; i++) {
-			list[i+1] = list[i];
+		
+		try {
+
+			if(index < 0 || index > this.index) {
+				throw new IndexOutOfBoundsException();
+			}
+			
+			for(int i = index; i < this.index - 1; i++) {
+				list[i+1] = list[i];
+			}
+			
+			list[index] = value;
+			
+			this.index++;
+			
+			return true;
+			
+		} catch(IndexOutOfBoundsException e) {
+			System.out.println(errorMsg);
+			return false;
 		}
 		
-		list[index] = value;
-		
-		this.index++;
-		
-		return true;
 	}
 	
 	public int indexOf(String value) {

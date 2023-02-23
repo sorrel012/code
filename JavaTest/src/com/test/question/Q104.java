@@ -55,13 +55,13 @@ public class Q104 {
 		}
 		System.out.println();
 		
-		//trim
+		//삽입
 		list.add("오리");
 		list.add("병아리");
-		System.out.println(list.get(7));
+		System.out.println(list);
 		
+		//trim
 		list.trimToSize();
-
 		System.out.println(list);
 		
 		//초기화
