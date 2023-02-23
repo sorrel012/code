@@ -4,6 +4,7 @@ public class MyArrayList {
 
 	private String[] list; //보조
 	private int index; //★★★★★★★★★★★★★★★★★주인공
+	private final String errorMsg = "입력 가능 범위를 벗어났습니다.";
 	
 	public MyArrayList() {
 		this.index = 0;
@@ -37,7 +38,7 @@ public class MyArrayList {
 		try {
 			return this.list[index];
 		} catch(ArrayIndexOutOfBoundsException e) {
-			return "입력 가능 범위를 벗어났습니다.";
+			return errorMsg;
 		}
 		
 	}
@@ -46,7 +47,7 @@ public class MyArrayList {
 		try {
 			this.list[index] = value;
 		} catch(ArrayIndexOutOfBoundsException e) {
-			System.out.println("입력 가능 범위를 벗어났습니다.");
+			System.out.println(errorMsg);
 		}
 		
 	}
@@ -64,12 +65,13 @@ public class MyArrayList {
 			
 			return value;
 		} catch(ArrayIndexOutOfBoundsException e) {
-			return "입력 가능 범위를 벗어났습니다.";
+			return errorMsg;
 		}
 	}
 	
 	//TODO index의 범위는 연속적이어야 하는가?
 	//ex) 배열 길이 8, 현재 index 5, 9번째에 값을 넣으려고 함 > 에러 처리? or 새 배열 생성?
+	// > class 설명 보니 새로 하는 듯 하긴 한데..
 	public boolean add(int index, String value) {
 		
 		for(int i = index; i < this.index - 1; i++) {
@@ -132,7 +134,7 @@ public class MyArrayList {
 		
 		int length = list.length > list2.length ? list2.length : list.length;
 		
-		for(int i = 0; i < length; i++) {
+		for(int i = 0; i < length; i++) { //깊은 복사
 			list2[i] = list[i];
 		}
 		

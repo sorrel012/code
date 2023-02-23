@@ -3,7 +3,7 @@ package com.test.question;
 public class Q104 {
 
 	public static void main(String[] args) {
-
+		
 		//배열 생성
 		MyArrayList list = new MyArrayList();
 
