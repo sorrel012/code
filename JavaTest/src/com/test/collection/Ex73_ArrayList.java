@@ -1,15 +1,59 @@
 package com.test.collection;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class Ex73_ArrayList {
 
 	public static void main(String[] args) {
 
 //		m1();
-		m2();
+//		m2();
+		m3();
 
 	} //main
+
+	private static void m3() {
+		
+		//정수 배열
+		int[] ns1 = new int[3];
+		ArrayList<Integer> ns2 = new ArrayList<Integer>();
+		
+		//실수 배열
+		double[] fs1 = new double[3];
+		ArrayList<Double> fs2 = new ArrayList<Double>();
+		
+		//논리 배열
+		boolean[] bs1 = new boolean[3];
+		ArrayList<Boolean> bs2 = new ArrayList<Boolean>();
+		
+		//문자열 배열
+		String[] txt1 = new String[3];
+		ArrayList<String> txt2 = new ArrayList<String>();
+		
+		//참조형(객체)배열
+		Calendar[] cs1 = new Calendar[3];
+		ArrayList<Calendar> cs2 = new ArrayList<Calendar>();
+		
+		
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		
+		//- add
+		
+		for(int i = 0; i < 10; i++) {
+			list.add( (int)(Math.random() * 100) );
+		}
+		
+		System.out.println(list);
+		
+		for(int i = 0; i < list.size(); i++) {
+			System.out.printf("list.get(%d) = %d\n", i, list.get(i));
+		}
+		
+		
+		
+		
+	}
 
 	private static void m2() {
 		
