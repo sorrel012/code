@@ -68,6 +68,8 @@ public class MyArrayList {
 		}
 	}
 	
+	//TODO index의 범위는 연속적이어야 하는가?
+	//ex) 배열 길이 8, 현재 index 5, 9번째에 값을 넣으려고 함 > 에러 처리? or 새 배열 생성?
 	public boolean add(int index, String value) {
 		
 		for(int i = index; i < this.index - 1; i++) {
@@ -134,6 +136,27 @@ public class MyArrayList {
 			list2[i] = list[i];
 		}
 		
+	}
+	
+	@Override
+	public String toString() {
+		
+		StringBuilder sb = new StringBuilder();
+		
+		sb.append("\n");
+		
+		sb.append(String.format("index: %d\n", this.index));
+		sb.append(String.format("length: %d\n", this.list.length));
+		
+		for(int i = 0; i < this.list.length; i++) {
+			
+			sb.append(String.format("\t%d: %s\n", i, this.list[i]));
+			
+		}
+		
+		sb.append("\n");
+		
+		return sb.toString();
 	}
 	
 }

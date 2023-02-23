@@ -11,6 +11,7 @@ public class Q104 {
 		list.add("홍길동");
 		list.add("아무개");
 		list.add("하하하");
+		System.out.println(list);
 
 		//읽기
 		System.out.println(list.get(0));
@@ -59,6 +60,8 @@ public class Q104 {
 		list.add("병아리");
 		list.trimToSize();
 
+		System.out.println(list);
+		
 		//초기화
 		list.clear();
 		System.out.println(list.size());
