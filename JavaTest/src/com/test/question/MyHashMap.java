@@ -81,19 +81,13 @@ public class MyHashMap {
 	
 	public String remove(String key) {
 
-		int removeIndex = 0;
 		String tmp = "";
 		
-		for(int i = 0; i < this.index; i++) {
-
-			if(this.keys[i].equals(key)) {
-				removeIndex = i;
-				tmp = this.values[i];
-				break;
-			}
+		if(containsKey(key)) {
+			tmp = this.values[this.containIndex];
 		}
 		
-		for(int i = removeIndex; i < this.index - 1; i++) {
+		for(int i = this.containIndex; i < this.index - 1; i++) {
 			
 			this.keys[i] = this.keys[i+1];
 			this.values[i] = this.values[i+1];
