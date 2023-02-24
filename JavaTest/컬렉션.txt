@@ -5,6 +5,10 @@
 	- 가변적 길이 > 방의 개수를 마음대로 늘리거나 줄이는 것이 가능
 	
 	1. List 계열
+		- 순서가 있는 집합
+		- 첨자(index)
+		- 데이터 중복을 허용한다.
+		
 		a. ArrayList★★★★★ > implement Serializable, Cloneable, Iterable<E>, Collection<E>, List<E>, RandomAccess
 			- 내부에 배열을 가지고 있다.
 			- 내부 배열을 조작하는 기능들이 대부분이다.
@@ -102,12 +106,11 @@
 		
 		e. Vector(legacy)
 		
-		 
-	2. Set 계열
-		a. HashSet★★★
-		b. TreeSet
-		
-	3. Map 계열
+	2. Map 계열
+		- 순서가 없는 집합
+		- 키(key)
+		- 데이터 중복을 허용한다. 
+	
 		a. HashMap★★★
 			- 키와 값을 저장하는 컬렉션
 			- HashMap의 특징을 살리기 위해서 key는 거의 String을 사용한다.
@@ -147,8 +150,32 @@
 		b. TreeMap
 		
 		c. Properties(legacy)
-		d. HashTaable(legacy)
+		d. HashTaable(legacy)		
+		 
+	3. Set 계열
+		- 순서가 없는 집합
+		- 식별자가 없다.(index X, key X) > 구분 불가
+		- 데이터 중복을 허용한다.
+		 
+		a. HashSet★★★
+			1. 생성하기
+				-HashSet<String> set = new HashSet<String>();
+			
+			2. 요소 추가하기
+				- boolean add(E e)
 		
+			3. 요소의 개수
+				- int size()
+			
+			4. 요소의 삭제
+				- boolean remove(Object o)
+				
+			5. 요소의 검색
+				- boolean contains(Object o)		
+				
+			6. 요소 읽기(향상된 for문)			
+				
+		b. TreeSet
 		
 ※ ArrayList vs HashMap		
 	1. ArrayList
@@ -174,8 +201,20 @@
 ※ Class vs HashMap
 	- 다회성(개수가 많으면): Class
 	- 일회성(개수가 적으면): HashMap, Class				
-		
-		
+
+//Iterator
+	- 데이터 집합을 탐색하는 도구
+	- 탐색기
+	- ★★★끝까지 읽고 나면 다시 읽을 수 없다.
+	
+	~ Iterator<String> iter = 컬렉션.iterator()
+	
+	~ iter.hasNext() : 다음 칸으로 이동하여 데이터가 있는지 없는지 확인 > boolean 값 반환
+	~ iter.next() : 해당 칸에 있는 데이터 반환
+	
+	while(iter.hasNext()) {
+			System.out.println(iter.next());
+		} 		
 		
 		
 		
