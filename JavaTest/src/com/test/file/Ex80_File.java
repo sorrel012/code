@@ -20,10 +20,47 @@ public class Ex80_File {
 //		m8();
 //		m9();
 //		m10();
-		m11();
+//		m11();
+		m12();
 		
 
 	} //main
+
+	private static void m12() {
+		
+		//폴더 내용 보기
+		String path = "C:\\OneDrive\\class\\dev\\eclipse";
+		
+		File dir = new File(path);
+		
+		if(dir.exists()) {
+			
+			File[] list = dir.listFiles();
+			
+			/*
+			for(File file : list) {
+				System.out.println(file.getName());
+				System.out.println(file.isFile());
+				System.out.println(file.isDirectory());
+				System.out.println();
+			}
+			*/
+			
+			for(File file : list) {
+				
+				if(file.isDirectory()) {
+					System.out.printf("[%s]\n", file.getName());
+				}
+				
+				if(file.isFile()) {
+					System.out.println(file.getName());
+				}
+				
+			}
+			
+		}
+		
+	}
 
 	private static void m11() {
 		
