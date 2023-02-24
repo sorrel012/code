@@ -29,7 +29,7 @@ public class Q107 {
 		System.out.println(map.get("영어"));
 		
 		System.out.println();
-
+		
 		//삭제
 		map.remove("영어");
 		System.out.println(map.get("영어"));
