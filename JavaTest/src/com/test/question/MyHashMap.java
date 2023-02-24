@@ -125,8 +125,3 @@ public class MyHashMap {
 	}
 	
 }
-
-class Entry {
-	public String key;
-	public String value;
-}
