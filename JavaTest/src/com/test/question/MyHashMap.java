@@ -18,11 +18,11 @@ public class MyHashMap {
 		if(!containsKey(key) || this.index == 0) {
 			this.keys[this.index] = key;
 			this.values[this.index] = value;
+			index++;
+			
 		} else {
 			this.values[this.containIndex] = value;
 		}
-		
-		index++;
 		
 		return null;
 	}
