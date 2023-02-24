@@ -2,7 +2,7 @@ package com.test.question;
 
 public class MyHashMap2 {
 
-	private Entry[] list;
+	public Entry[] list;
 	
 	private int index;
 	private int containIndex;
@@ -23,11 +23,11 @@ public class MyHashMap2 {
 
 			this.list[this.index] = e;
 			
+			index++;
+			
 		} else {
 			this.list[this.containIndex].value = value;
 		}
-		
-		index++;
 		
 		return null;
 	}
@@ -92,7 +92,7 @@ public class MyHashMap2 {
 			tmp = this.list[this.containIndex].value;
 		}
 
-		for(int i = this.containIndex; i < this.index - 2; i++) { //TODO 왜 여기는 -2고 MyHashMap은 -1?
+		for(int i = this.containIndex; i < this.index - 1; i++) {
 			
 			this.list[i].key = this.list[i+1].key;
 			this.list[i].value = this.list[i+1].value;
@@ -107,7 +107,7 @@ public class MyHashMap2 {
 	public void clear() {
 		this.index = 0;
 	}
-	
+		
 }
 
 class Entry {

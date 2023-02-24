@@ -11,7 +11,7 @@ public class Q107_2 {
 		map.put("국어", "합격");
 		map.put("영어", "불합격");
 		map.put("수학", "보류");
-
+		
 		//읽기
 		System.out.println(map.get("국어"));
 		System.out.println(map.get("영어"));
@@ -27,7 +27,6 @@ public class Q107_2 {
 		//수정
 		map.put("영어", "합격");
 		System.out.println(map.get("영어"));
-		
 		System.out.println();
 
 		//삭제
