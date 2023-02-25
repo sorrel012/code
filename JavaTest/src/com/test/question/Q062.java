@@ -20,59 +20,59 @@ import java.util.Scanner;
 
 public class Q062 {
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
 
-	int numberOfStudent = 0;
-	String studentName = "";
+		int numberOfStudent = 0;
+		String studentName = "";
 
-	Scanner scan = new Scanner(System.in);
+		Scanner scan = new Scanner(System.in);
 
-	System.out.print("학생 수: ");
-	numberOfStudent = scan.nextInt();
+		System.out.print("학생 수: ");
+		numberOfStudent = scan.nextInt();
 
-	scan.skip("\r\n");
+		scan.skip("\r\n");
 
-	String[] students = new String[numberOfStudent];
+		String[] students = new String[numberOfStudent];
 
-	for(int i = 0; i < numberOfStudent; i++) {
+		for(int i = 0; i < numberOfStudent; i++) {
 
-	    System.out.print("학생명: " );
-	    studentName = scan.nextLine();
-	    students[i] = studentName;
-	}
+			System.out.print("학생명: " );
+			studentName = scan.nextLine();
+			students[i] = studentName;
+		}
 
-	sortAsc(students); //?students = sortAsc(students) 라고 안 써도 되는 이유?? 변수명이 같으니 자동으로 들어가는 것?
+		sortAsc(students); //?students = sortAsc(students) 라고 안 써도 되는 이유?? 변수명이 같으니 자동으로 들어가는 것?
 
-	System.out.printf("입력한 학생은 총 %d명입니다.\n", numberOfStudent);
+		System.out.printf("입력한 학생은 총 %d명입니다.\n", numberOfStudent);
 
-	for(int i = 0; i < numberOfStudent; i++) {
+		for(int i = 0; i < numberOfStudent; i++) {
 
-	    System.out.printf("%d. %s\n", i + 1, students[i]);
-	}
+			System.out.printf("%d. %s\n", i + 1, students[i]);
+		}
 
-	scan.close();
+		scan.close();
 
-    } //main
+	} //main
 
-    private static String[] sortAsc(String[] students) {
+	private static String[] sortAsc(String[] students) {
 
-	for (int i = 0; i < students.length - 1; i++) {
+		for (int i = 0; i < students.length - 1; i++) {
 
-	    for (int j = 0; j < students.length - 1 - i; j++) {
+			for (int j = 0; j < students.length - 1 - i; j++) {
 
-		if (students[j].compareTo(students[j+1]) > 0) {
-		    String tmp = students[j];
-		    students[j] = students[j+1];
-		    students[j+1] = tmp;
+				if (students[j].compareTo(students[j+1]) > 0) {
+					String tmp = students[j];
+					students[j] = students[j+1];
+					students[j+1] = tmp;
+
+				}
+
+			}
 
 		}
 
-	    }
+		return students;
 
-	}
-
-	return students;
-
-    } //sortAsc
+	} //sortAsc
 
 }
