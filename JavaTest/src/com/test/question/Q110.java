@@ -27,6 +27,8 @@ public class Q110 {
 		System.out.println("파일명: " + filename);
 		System.out.println("종류 : " + fileExtension + " 파일");
 		System.out.println("파일 크기: " + fileSize);
+		
+		scan.close();
 
 	} //main
 
