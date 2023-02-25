@@ -33,6 +33,8 @@ public class Q111 {
 			
 		}
 
+		scan.close();
+		
 	} //main
 	
 }
