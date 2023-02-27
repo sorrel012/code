@@ -1,5 +1,6 @@
 package com.test.question;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -15,21 +16,26 @@ public class Q121 {
 
 		try {
 
-			FileReader reader = new FileReader("C:\\OneDrive\\쌍용\\과제\\120-126. 파일입출력\\문제 파일\\리소스\\숫자.dat");
+			BufferedReader reader = new BufferedReader(new FileReader("C:\\OneDrive\\쌍용\\과제\\120-126. 파일입출력\\문제 파일\\리소스\\숫자.dat"));
 			BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\OneDrive\\쌍용\\과제\\120-126. 파일입출력\\문제 파일\\리소스\\숫자_변환.dat"));
 
-
-			int code = -1;
-			while((code = reader.read()) != -1) {
+			String line = null;
+			
+			while ( (line = reader.readLine()) != null ) {
 				
-				char c = (char)code;
+				line = line.replace("0", "영")
+						.replace("1", "일")
+						.replace("2", "이")
+						.replace("3", "삼")
+						.replace("4", "사")
+						.replace("5", "오")
+						.replace("6", "육")
+						.replace("7", "칠")
+						.replace("8", "팔")
+						.replace("9", "구");
 				
-				if(c >= '0' && c <= '9') {
-					writer.write(getNum(c));
-
-				} else {
-					writer.write(c);
-				}
+				writer.write(line);
+				writer.newLine();
 				
 			}
 
@@ -43,31 +49,5 @@ public class Q121 {
 		}
 
 	} //main
-	
-	private static String getNum(char c) {
-		
-		switch(c) {
-		case '1' :
-		    return "일";
-		case '2' :
-		    return "이";
-		case '3' :
-		    return "삼";
-		case '4' :
-		    return "사";
-		case '5' :
-		    return "오";
-		case '6' :
-		    return "육";
-		case '7' :
-		    return "칠";
-		case '8' :
-		    return "팔";
-		default:
-		    return "구";
-		}
-		
-	}
-	
 	
 }
