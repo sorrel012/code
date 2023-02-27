@@ -10,44 +10,24 @@ public class Q125 {
 		try {
 			
 			FileReader reader = new FileReader("C:\\OneDrive\\쌍용\\과제\\120-126. 파일입출력\\문제 파일\\리소스\\괄호.java");
-			
-			Stack<Character> stack = new Stack<>();
-			
 			int code = -1;
-			boolean check = true;
+			String result = "";
+
+			Stack<Character> stack = new Stack<>();
 			
 			while((code = reader.read()) != -1) {
 				
-				if((char)code == '(') {
-					stack.add('(');
-				}
-				
-				if((char)code == '{') {
-					stack.add('{');
-				}
-				
-				if((char)code == ')') {
-					if(stack.pop() != '(') {
-						check = false;
-						break;
-					}
-				}
-				
-				if((char)code == '}') {
-					if(stack.pop() != '{') {
-						check = false;
-						break;
-					}
+				if(checkCompile(stack, (char)code)) {
+					result = "올바른 소스입니다.";
+					
+				} else {
+					result = "올바르지 않은 소스입니다.";
+					break;
 				}
 				
 			}
 			
-			if(check) {
-				System.out.println("올바른 소스입니다.");
-				
-			} else {
-				System.out.println("올바르지 않은 소스입니다.");
-			}
+			System.out.println(result);
 			
 			reader.close();
 			
@@ -57,4 +37,30 @@ public class Q125 {
 
 	} //main
 
+	private static boolean checkCompile(Stack<Character> stack, char c) {
+		
+		if(c == '(') {
+			stack.add('(');
+		}
+		
+		if(c == '{') {
+			stack.add('{');
+		}
+		
+		if(c == ')') {
+			if(stack.pop() != '(') {
+				return false;
+			}
+		}
+		
+		if(c == '}') {
+			if(stack.pop() != '{') {
+				return false;
+			}
+		}
+		
+		return true;
+		
+	}
+	
 }
