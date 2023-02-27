@@ -43,6 +43,8 @@ public class Q122 {
 				}
 			}
 			
+			reader.close();
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
