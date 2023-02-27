@@ -21,10 +21,79 @@ public class Ex81_File {
 //		m6();
 //		m7();
 //		m8();
-		m9();
+//		m9();
+//		m10();
+		m11();
 		
 
 	} //main
+
+	private static void m11() {
+		
+		try {
+
+			BufferedReader reader = new BufferedReader(new FileReader("C:\\OneDrive\\class\\code2\\java\\JavaTest\\dat\\score.txt"));
+
+			String line = null;
+
+			while((line = reader.readLine()) != null) {
+
+				String[] temp = line.split(",");
+
+				int kor = Integer.parseInt(temp[1]);
+				int eng = Integer.parseInt(temp[2]);
+				int math = Integer.parseInt(temp[3]);
+				int total = kor + eng + math;
+				double avg = total / 3.0;
+
+				System.out.printf("%s\t%5d\t%5d\t%5d\t%5d\t%5.1f\n", temp[0], kor, eng, math, total, avg);
+
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+	private static void m10() {
+
+		//더미 데이터 만들기
+		String[] names = { "김", "이", "박", "최", "정", "현", "민", "유", "재", "신" };
+
+		try {
+
+			//. : 현재 프로그램이 있는 폴더
+			//자바 콘솔 프로그램 > 현재 위치 > 프로젝트 폴더
+			BufferedWriter writer
+			= new BufferedWriter(new FileWriter("C:\\OneDrive\\class\\code2\\java\\JavaTest\\dat\\score.txt"));
+
+			for (int i=0; i<30; i++) {
+
+				String name = "";
+
+				name = names[(int)(Math.random() * names.length)]
+						+ names[(int)(Math.random() * names.length)]
+								+ names[(int)(Math.random() * names.length)];
+
+				int kor = (int)(Math.random() * 61) + 40;
+				int eng = (int)(Math.random() * 61) + 40;
+				int math = (int)(Math.random() * 61) + 40;
+
+				writer.write(String.format("%s,%d,%d,%d\r\n"
+						, name, kor, eng, math));
+
+			}
+
+			writer.close();
+
+			System.out.println("더미 데이터 생성 완료!!!");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
 
 	private static void m9() {
 		
