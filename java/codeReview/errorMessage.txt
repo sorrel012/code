@@ -1,0 +1,60 @@
+//The local variable age may not have been initialized
+	- 변수 생성 후 초기화x(null 상태)
+		> 변수 초기화
+	
+//Duplicate local variable
+	- 동일한 변수명이 존재한다.
+		> 변수명을 변경
+	
+//The final local variable pi cannot be assigned. It must be blank and not using a compound assignment
+	- 상수를 변경하려고 한다.
+		> 변수로 변경하거나, 값을 변경해서는 안 됨!
+	
+//IllegalFormatFlagsException
+	- 형식문자가 잘못됨.
+		> 형식지정자 수정!
+			~ % -> %% 
+		
+//This method must return a result of type String
+	- return이 빠졌다.
+		> 반환을 안 할 거면 메서드를 void로 변경
+		> 메소드 내에 제어문이 있다면 모든 경우의 수가 반환 값을 가져야 한다.
+		
+//nextLine() 입력 불가
+	- nextInt() 다음에 nextLine()을 사용하였다.
+		
+		> ★scan.skip("\r\n") 을 사용한다.
+			~	System.out.print("숫자: ");
+				num = scan.nextInt();
+				
+				scan.skip("\r\n");
+				
+				System.out.print("연산자: ");
+				operator = scan.nextLine();
+				
+		 > scan.nextLine()을 한 번 더 사용한다. 
+			~	System.out.print("숫자: ");
+				num = scan.nextInt(););
+		 			
+				scan.nextLine(); 
+				
+				System.out.print("연산자: ");
+				operator = scan.next();
+		 
+		 > scan.next() 사용이 가능한 경우라면 next()를 사용한다.
+		
+		
+//  java.lang.ArrayIndexOutOfBoundsException: Index 10 out of bounds for length 10 
+	- 배열의 길이를 벗어나는 인덱스에 값을 넣었다.(반복문 루프 변수로 인해 자주 발생)
+		> 배열 범위 확인 후 수정 
+		
+		
+// java.util.regex.PatternSyntaxException: Dangling meta character '+' near index 0
+	- 특수문자 '+'를 기준으로 split을 통해 문자열을 잘랐다.
+	- ?, *, +, (, ), [, ], {, }
+		> 특수문자 앞에 \\를 붙여줘야한다. (역슬래시 두 개)
+		
+		
+// Exception in thread "main" java.lang.NullPointerException
+	- 무엇인가 처리할 때 null값이 입력되어 에러가 발생했다.
+		> 예외 처리를 해준다.
