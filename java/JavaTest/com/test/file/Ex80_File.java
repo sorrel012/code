@@ -48,8 +48,8 @@ public class Ex80_File {
 		
 		System.out.printf("총 파일 개수: %,d개\n", fileCount);
 		System.out.printf("총 폴더 개수: %,d개\n", dirCount);
-		System.out.printf("폴더 크기: %,dB개\n", length);
-		System.out.printf("폴더 크기: %,dMB개\n", length/1024/1024);
+		System.out.printf("폴더 크기: %,dB\n", length);
+		System.out.printf("폴더 크기: %,dMB\n", length/1024/1024);
 		
 	}
 	
