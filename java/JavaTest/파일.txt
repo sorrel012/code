@@ -17,9 +17,13 @@
 				- 바이트 단위 쓰기(1byte씩 저장) > 한글은 추가 작업 필요
 			
 				1. 데이터를 저장할 파일 참조
+           			~ File file = new File("경로");
 				2. 저장할 파일의 스트림 객체 생성(스트림 열기)
+					~ FileInputStream stream = new FileInputStream(file);
 				3. 쓰기 > 문자코드값
-				4. 스트림 닫기
+					~ stream.write('문자');
+				4. 스트림 닫기(필수)
+					~ stream.close();
 				
 				a. 덮어쓰기 모드(기본) 
 					- 기존 내용을 삭제하고 다시 파일을 생성 후 데이터를 작성한다.
@@ -31,8 +35,31 @@
 					- 스트림을 열 때 매개변수에 true를 추가로 적어준다.
 					- 파일 있으면 > 파일을 그대로 사용
 					- 파일 없으면 > 파일을 새로 생성
+			
+			② FileWriter
+			
+			
+		- 파일 읽기	
+			① stream
+				- 바이트 단위 읽기(1byte씩 저장) > 한글은 추가 작업 필요
+				
+				1. 데이터를 읽어올 파일 참조
+					~ File file = new File("경로");
+				2. 읽을 파일의 스트림 객체 생성(스트림 열기)
+					~ FileInputStream stream = new FileInputStream(file);
+				3. 읽기 > 문자 코드값
+					~ stream.read();
 					
-			② Files
+					※모든 글자 코드 읽는 법(암기!!)
+						int code = -1;                
+		                while((code = stream.read()) != -1) {
+		                    System.out.print((char)code);
+		                }
+					
+				4. 스트림 닫기(필수는 아니지만 닫는 것을 권장)
+					~ stream.close();
+					
+				
 					
 	- 비텍스트 입출력
 		~ 그림판
