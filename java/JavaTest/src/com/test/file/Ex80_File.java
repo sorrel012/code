@@ -7,6 +7,8 @@ import java.util.Calendar;
 public class Ex80_File {
 
 	private static int fileCount;
+	private static int dirCount;
+	private static int length;
 	
 	
 	public static void main(String[] args) {
@@ -40,27 +42,37 @@ public class Ex80_File {
 		File dir = new File(path);
 		
 		if(dir.exists()) {
-			
-			//1. 목록 가져오기
-			File[] list = dir.listFiles();
-			
-			//2. 파일 개수
-			for(File file : list) {
-				if(file.isFile()) {
-					fileCount++;
-				}
-			}
-			
-			//3. 자식 폴더 > 방금 행동을 반복
-			
-			for(File subdir : list) {
-				if(subdir.isDirectory()) {
-					count(subdir);
-				}
-			}
-
+			count(dir);
 		}
 		
+		System.out.printf("총 파일 개수: %,d개\n", fileCount);
+		System.out.printf("총 폴더 개수: %,d개\n", dirCount);
+		System.out.printf("폴더 크기: %,dB개\n", length);
+		System.out.printf("폴더 크기: %,dMB개\n", length/1024/1024);
+		
+	}
+	
+	private static void count(File dir) {
+		
+		//1. 목록 가져오기
+		File[] list = dir.listFiles();
+		
+		//2. 파일 개수
+		for(File file : list) {
+			if(file.isFile()) {
+				fileCount++;
+				length += file.length();
+			}
+		}
+		
+		//3. 자식 폴더 > 방금 행동을 반복
+		for(File subdir : list) {
+			if(subdir.isDirectory()) {
+				dirCount++;
+				count(subdir);
+			}
+		}
+
 	}
 
 	private static void m17() {
