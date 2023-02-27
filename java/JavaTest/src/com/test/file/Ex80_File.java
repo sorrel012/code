@@ -55,7 +55,7 @@ public class Ex80_File {
 			
 			for(File subdir : list) {
 				if(subdir.isDirectory()) {
-					
+					count(subdir);
 				}
 			}
 
