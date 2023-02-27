@@ -34,6 +34,8 @@ public class Ex81_File {
 
 			BufferedReader reader = new BufferedReader(new FileReader("C:\\OneDrive\\class\\code2\\java\\JavaTest\\dat\\score.txt"));
 
+			System.out.println("[이름]\t[국어]\t[영어]\t[수학]\t[총점]\t[평균]");
+			
 			String line = null;
 
 			while((line = reader.readLine()) != null) {
