@@ -18,15 +18,9 @@ public class Q120 {
 			
 			while ( (line = reader.readLine()) != null ) {
 				
-				if(line.contains("유재석")) {
-					String replaceLine = line.replace("유재석", "메뚜기");
-					writer.write(replaceLine);
-					writer.newLine();
-					
-				} else {
+				line = line.replace("유재석", "메뚜기");
 					writer.write(line);
 					writer.newLine();
-				}
 				
 			}
 			
