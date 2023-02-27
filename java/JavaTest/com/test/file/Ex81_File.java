@@ -64,7 +64,7 @@ public class Ex81_File {
 		try {
 
 			//. : 현재 프로그램이 있는 폴더
-			//자바 콘솔 프로그램 > 현재 위치 > 프로젝트 폴더
+			//자바 콘솔 프로그램 > 현재 위치 : 프로젝트 폴더
 			BufferedWriter writer
 			= new BufferedWriter(new FileWriter("C:\\OneDrive\\class\\code2\\java\\JavaTest\\dat\\score.txt"));
 
