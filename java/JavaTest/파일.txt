@@ -37,6 +37,19 @@
 					- 파일 없으면 > 파일을 새로 생성
 			
 			② FileWriter
+				- 문자 단위 쓰기(2byte씩 저장)
+				
+				1. FileWriter writer = new FileWriter("경로");
+				2. writer.write("문자열");
+				3. writer.close();
+				
+			③ BufferedWriter
+				- FileWriter를 매개변수로 받음
+				
+				1. BufferedWriter writer = new BufferedWriter(new FileWriter("경로"));
+				2. writer.write("문자열");
+					※ writer.newLine(); : 개행
+				3. writer.close();
 			
 			
 		- 파일 읽기	
@@ -59,8 +72,27 @@
 				4. 스트림 닫기(필수는 아니지만 닫는 것을 권장)
 					~ stream.close();
 					
+			② FileReader
+				- 문자 단위 읽기
 				
-					
+				1. FileReader reader = new FileReader("경로");
+				2. reader.read("문자열");
+				3. reader.close();		
+			
+			③ BufferedReader
+				- FileReader를 매개변수로 받음
+				
+				1. BufferedReader reader = new BufferedReader(new FileReader("경로"));
+				2. reader.readLine("문자열");
+				
+					※모든 내용 읽는 법
+						String line = null;         
+		                while((line = reader.readLine()) != null) {
+		                    System.out.print(line);
+		                }
+				
+				3. reader.close();
+				
 	- 비텍스트 입출력
 		~ 그림판
 		~ 동영상 플레이어
