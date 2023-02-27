@@ -76,7 +76,7 @@ public class Ex81_File {
 						+ names[(int)(Math.random() * names.length)]
 								+ names[(int)(Math.random() * names.length)];
 
-				int kor = (int)(Math.random() * 61) + 40;
+				int kor = (int)(Math.random() * 61) + 40; //60~100
 				int eng = (int)(Math.random() * 61) + 40;
 				int math = (int)(Math.random() * 61) + 40;
 
