@@ -137,17 +137,17 @@
 			6. 요소의 삭제
 				- boolean remove(Object key, Object value)
 				
-			8. 요소의 검색
+			7. 요소의 검색
 				- boolean containsKey(Object key)
 				- boolean containsValue(Object value)				
 				
-			9. 초기화
+			8. 초기화
 				- void clear()
 				
-			10. 빈 배열 확인
+			9. 빈 배열 확인
 				- boolean isEmpty()
 				
-			11. 루프(향상된 for문)를 통한탐색
+			10. 루프(향상된 for문)를 통한탐색
 				- Set<K> keySet() 				> 키들만 모아놓은 배열을 반환
 				- Collections<String> values()	> 값들만 모아놓은 배열
 		
