@@ -57,6 +57,9 @@
 				- ★★★우측 시프트 발생 > 삽입한 위치 이후의 모든 요소의 방번호 + 1
 			
 		b. LinkedList
+			- LinkedList: 단방향 탐색
+			- Double LinkedList: 양방향 탐색
+			- Double Circular LinkedList : 순환 탐색 > 자바의 LinkedList
 		
 		c. Stack
 			- ADT(Abstract Data Type)
@@ -176,6 +179,17 @@
 			6. 요소 읽기(향상된 for문)			
 				
 		b. TreeSet
+		
+※ ArrayList vs LinkedList
+	- 사용법은 아주 유사하다.
+	- 내부 구조가 달라 사용 용도가 다르다. > 능률 차이 有
+	
+	1. ArrayList
+		- 순차적인 데이터 추가 / 삭제
+		- 탐색 위주 작업
+		
+	2. LinkedList
+		- 중간 데이터 추가/삭제		
 		
 ※ ArrayList vs HashMap		
 	1. ArrayList
