@@ -1,6 +1,6 @@
 package com.test.lambda;
 
-public class Ex87_lambda {
+public class Ex87_Lambda {
 	
 	public static void main(String[] args) {
 

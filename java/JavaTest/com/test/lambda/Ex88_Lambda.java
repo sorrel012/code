@@ -2,7 +2,7 @@ package com.test.lambda;
 
 import java.util.ArrayList;
 
-public class Ex88_lambda {
+public class Ex88_Lambda {
 
 	public static void main(String[] args) {
 
