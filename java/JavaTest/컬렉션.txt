@@ -154,6 +154,21 @@
 		b. TreeMap
 			- Tree 구조 + Map 사용법
 			- 이진 탐색 트리 >자동 정렬 + 범위(부분) 추출 용이
+			
+			1. K firstEntry().getKey()
+				- 맨 앞에 있는 키+값 엔트리세트에서 키 반환
+				
+			2. K firstEntry().getValue()
+				- 맨 앞에 있는 키+값 엔트리세트에서 값 반환
+			
+			3. SortedMap<K,V> headMap(K toKey)
+				- 맨 앞부터 toKey 이전까지 추출하여 반환
+				
+			4. SortedMap<K,V> tailMap(K fromKey)
+				- fromKey부터 끝까지 추출하여 반환
+			
+			5. SortedMap<K,V> subMap(K fromKey, K toKey)
+				- fromKey부터 toKey 이전까지 추출하여 반환
 		
 		c. Properties(legacy)
 		d. HashTaable(legacy)		
