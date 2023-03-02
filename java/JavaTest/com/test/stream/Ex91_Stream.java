@@ -5,6 +5,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -33,7 +35,51 @@ public class Ex91_Stream {
 	} //main
 
 	private static void m7() {
-		// TODO Auto-generated method stub
+		
+		//sorted
+		Data.getIntList(10).stream()
+							.forEach(num -> System.out.print(num + " "));
+		System.out.println();
+		
+		Data.getIntList(10).stream()
+							.sorted()
+							.forEach(num -> System.out.print(num + " "));
+		System.out.println();
+		
+		Data.getIntList(10).stream()
+							.sorted((a,b) -> b - a)
+							.forEach(num -> System.out.print(num + " "));
+		System.out.println();
+		
+		Data.getItemList().stream()
+							.forEach(item -> System.out.println(item));
+		System.out.println();
+		
+		Data.getItemList().stream()
+							.sorted((a,b) -> a.getName().compareTo(b.getName()))
+							.forEach(item -> System.out.println(item));
+		System.out.println();
+		
+		List<Integer> list = Data.getIntList(10);
+		
+		System.out.println(list);
+		
+		Collections.sort(list); 				//오름차순
+		Collections.sort(list, (a,b) -> b - a); //내림차순
+		
+		list.sort((a,b) -> a - b); 				//오름차순
+		list.sort((a,b) -> b - a); 				//내림차순
+		
+		list.sort(Comparator.naturalOrder());	//오름차순
+		list.sort(Comparator.reverseOrder());	//내림차순
+		
+		Data.getIntList().stream()
+							.distinct()
+							.filter(n -> n % 2 == 0)
+							.filter(n -> n % 3 == 0)
+							.sorted()
+							.forEach(System.out::println);
+		System.out.println();
 		
 	}
 
