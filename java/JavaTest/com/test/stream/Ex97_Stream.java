@@ -9,6 +9,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -23,15 +24,98 @@ public class Ex97_Stream {
 //		m1();
 //		m2();
 //		m3();
-		m4();
+//		m4();
+		m5();
 		
 
 	} //main
 
+	private static void m5() {
+		
+		List<Integer> list = Data.getIntList();
+		System.out.println(list.size());
+		
+		//요구사항] 집합에서 중복값을 제거하여 유일값들을 출력하시오.
+		
+		//Case 1.
+		Set<Integer> set1 = new HashSet<Integer>();
+		
+		for(int n : list) {
+			set1.add(n);
+		}
+		System.out.println(set1.size());
+		
+		
+		//Case 2.
+		Set<Integer> set2 = new HashSet<Integer>(list);
+		System.out.println(set2.size());
+		System.out.println();
+		
+		
+		//Case 3.
+		list.stream()
+			.distinct()
+			.forEach(num -> System.out.printf("%4d", num));
+		System.out.println();
+		
+		Data.getStringList().stream()
+							.filter(word -> word.length() > 5)
+							.distinct()
+							.forEach(word -> System.out.println(word));
+		
+	}
+
 	private static void m4() {
 		
+		List<Integer> list = Data.getIntList(20);
+		System.out.println(list);
+		
+		//요구사항] 짝수만 화면에 출력하시오.
+		
+		//1. for
+		for(int i = 0; i < list.size(); i++) {
+			if(list.get(i) % 2 == 0) {
+				System.out.printf("%4d", list.get(i));
+			}
+		}
+		System.out.println();
+		
+		//2. 향상된 for문
+		for(int n : list) {
+			if(n % 2 == 0) {
+				System.out.printf("%4d", n);
+			}
+		}
+		System.out.println();
+		
+		//3. stream
+		list.stream()
+			.filter(num -> num % 2 == 0 && num > 50)
+			.forEach(num -> System.out.printf("%4d", num));
+		
+		list.stream() //관리 차원에선 보기가 더 수월
+			.filter(num -> num % 2 == 0)
+			.filter(num -> num > 50)
+			.forEach(num -> System.out.printf("%4d", num));
+		
+		System.out.println();
+		System.out.println();
+		
+		Data.getStringList().stream()
+							.filter(word -> word.length() >= 5)
+							.filter(word -> word.startsWith("애플"))
+							.forEach(word -> System.out.println(word));
+		System.out.println();
+		
+		Data.getUserList().stream()
+							.filter(user -> user.getGender() == 1)
+							.filter(user -> user.getHeight() >= 180)
+							.filter(user -> user.getWeight() >= 80)
+							.forEach(user -> System.out.println(user));
+		System.out.println();
 		
 		
+	
 	}
 
 	private static void m3() {
