@@ -11,6 +11,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -54,9 +55,50 @@ public class Ex91_Stream {
 								.filter(user -> user.getHeight() >= 175)
 								.count();
 		System.out.println("175cm 이상인 사람은 " + cnt + "명입니다.");
+		System.out.println();
+		System.out.println();
+		
+		list = Data.getIntList(10);
+		
+		System.out.println(list);
+		
+		int max = Integer.MIN_VALUE;  //list 안의 모든 숫자들 중 가장 작은 숫자 - 1;
+		int min = Integer.MAX_VALUE;  //list 안의 모든 숫자들 중 가장 큰 숫자 + 1;
+		
+		//enhanced for
+		for(int n : list) {
+			if (n > max) {
+				max = n;
+			}
+			
+			if (n < min) {
+				min = n;
+			}
+		}
+		
+		System.out.println("최댓값: " + max);
+		System.out.println("최솟값: " + min);
+		
+		System.out.println();
+		System.out.println();
 		
 		
+		//stream
 		
+		//Optional<Integer>
+		// - Integer, int 타입과 동일한 자료형
+		// - null을 가질 수 있다.
+		Optional<Integer> result = list.stream().max((a,b) -> a - b);
+		
+		
+		//값형 변수는 반드시 값을 가져야 한다.
+		int a = 10;
+		System.out.println(a);
+		
+		//참조형 변수는 값을 선택적으로 가진다.
+		Optional<Integer> b = null;
+		System.out.println(b);
+				
 	}
 	
 	private static void m8() {
