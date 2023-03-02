@@ -25,10 +25,88 @@ public class Ex91_Stream {
 //		m2();
 //		m3();
 //		m4();
-		m5();
+//		m5();
+//		m6();
+		m7();
 		
 
 	} //main
+
+	private static void m7() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static void m6() {
+		
+		//map
+		List<String> list = Data.getStringList(10);
+		System.out.println(list);
+		System.out.println();
+		
+		list.stream()
+			.forEach(word -> System.out.printf("%3d", word.length()));
+		System.out.println();
+		
+		list.stream()
+			.map(word -> word.length())
+			.forEach(num -> System.out.printf("%3d", num));
+		System.out.println();
+		System.out.println();
+		
+		String[] names = { "홍길동", "유재석", "박명수", "박나래", "장도연" };
+		
+		Arrays.stream(names)
+				.map(name -> name.substring(1))
+				.forEach(name -> System.out.printf("%4s", name));
+		System.out.println();
+		System.out.println();
+		
+		
+		for(int i = 0; i < names.length; i++) {
+			
+			String firstName = names[i].substring(1); //이름
+			String lastName = names[i].substring(0, 1); //성
+			
+			Name name = new Name();
+			name.setFirstName(firstName);
+			name.setLastName(lastName);
+			
+			System.out.println(name.getFirstName() + ", " + name.getLastName());
+			
+		}
+		System.out.println();
+		
+		Arrays.stream(names)
+				.map(name -> {
+
+					String firstName = name.substring(1); //이름
+					String lastName = name.substring(0, 1); //성
+					
+					Name n = new Name();
+					n.setFirstName(firstName);
+					n.setLastName(lastName);
+					
+					return n;
+					
+				})
+				.forEach(name -> System.out.println(name.getFirstName() + ", " + name.getLastName()));
+		System.out.println();
+		
+		Data.getIntList(5).stream()
+							.map(num -> 1)
+							.forEach(n -> System.out.println(n));
+		
+		Data.getUserList().stream()
+							.forEach(user -> System.out.println(user.getName()));
+		System.out.println();
+		
+		Data.getUserList().stream()
+							.map(user -> user.getName())
+							.forEach(name -> System.out.println(name));
+		System.out.println();
+		
+	}
 
 	private static void m5() {
 		
@@ -62,6 +140,20 @@ public class Ex91_Stream {
 							.filter(word -> word.length() > 5)
 							.distinct()
 							.forEach(word -> System.out.println(word));
+		
+		List<Student> slist = new ArrayList<Student>();
+		
+		slist.add(new Student("가가가", 20, "남자"));
+		slist.add(new Student("나나나", 20, "남자"));
+		slist.add(new Student("다다다", 20, "남자"));
+		slist.add(new Student("홍길동", 20, "남자"));
+		slist.add(new Student("홍길동", 20, "남자"));
+		
+		slist.stream()
+			.distinct()
+			.forEach(s -> System.out.println(s));
+		System.out.println();
+		
 		
 	}
 
@@ -305,4 +397,30 @@ public class Ex91_Stream {
 		
 	}
 	
+} //Main
+
+class Name {
+	
+	private String firstName;
+	private String lastName;
+	
+	public String getFirstName() {
+		return firstName;
+	}
+	
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	
+	public String getLastName() {
+		return lastName;
+	}
+	
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	
 }
+
+
+
