@@ -35,6 +35,11 @@
 				2. forEach 	> 공급받은 데이터를 하나씩 꺼내서 Consumer에 전달한다.
 				3. Consumer > forEach가 하나씩 꺼내 온 데이터를 전달 받아 처리한다.
 		
+			~ allMatch(), anyMatch(), noneMatch() 
+				a. boolean allMatch(Predicate): 모든 요소가 만족하는지?(&&)
+				b. boolean anyMatch(Predicate): 일부 요소가 만족하는지?(||)
+				c. boolean nonMatch(Predicate): 모든 요소가 불만족하는지?(^)
+			
 //스트림을 얻어오는 방법
 	- stream()/OOO/OOO 메소드를 사용한다.	
 		1. 컬렉션으로부터 > List 계열, Set 계열
