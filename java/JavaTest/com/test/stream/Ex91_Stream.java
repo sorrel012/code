@@ -17,7 +17,7 @@ import com.test.data.Data;
 import com.test.data.Item;
 import com.test.data.User;
 
-public class Ex97_Stream {
+public class Ex91_Stream {
 
 	public static void main(String[] args) {
 
