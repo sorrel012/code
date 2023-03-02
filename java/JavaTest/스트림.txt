@@ -12,33 +12,35 @@
 		1. 중간 파이프
 			- 스트림 반환
 			
-			~ filter()
+			~ filter() : 필터링
 				- 앞의 스트림 값들을 받아서 검사 후 조건을 만족하는 요소만 스트림으로 반환
 				
-			~ distict()
+			~ distict() : 중복 제거
 				- 앞의 스트림 값들을 받아서 중복값을 제거한 새로운 스트림 반환
 				- 유일한 값들로만 되어 있는 스트림을 생성
 				- Set 성질과 유사
 				
-			~ map()
+			~ map() : 변환(매핑)
 				- 앞의 스트림 값들을 받아서 다른 값으로 변환한 새로운 스트림 반환
 				
-			~ sorted()
+			~ sorted() : 정렬
 				- 앞의 스트림 값들을 받아서 정렬된 상태의 스트림 반환
 				- ※여러 개의 sorted()를 나열해도 n차 정렬이 되는 것이 아니라 최종 sorted()대로만 정렬된다.
 		
 		2. 최종 파이프	
 			- 스트림이 아닌 것을 반환 || 반환값 X
 		
-			~ ★★★forEach()
+			~ ★★★forEach() : 탐색
 				1. stream 	> 배열(컬렉션)으로부터 데이터 집합을 공급받는다.
 				2. forEach 	> 공급받은 데이터를 하나씩 꺼내서 Consumer에 전달한다.
 				3. Consumer > forEach가 하나씩 꺼내 온 데이터를 전달 받아 처리한다.
 		
-			~ allMatch(), anyMatch(), noneMatch() 
+			~ allMatch(), anyMatch(), noneMatch() : 매칭
 				a. boolean allMatch(Predicate): 모든 요소가 만족하는지?(&&)
 				b. boolean anyMatch(Predicate): 일부 요소가 만족하는지?(||)
 				c. boolean nonMatch(Predicate): 모든 요소가 불만족하는지?(^)
+				
+			~
 			
 //스트림을 얻어오는 방법
 	- stream()/OOO/OOO 메소드를 사용한다.	
