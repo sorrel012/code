@@ -40,7 +40,8 @@
 				b. boolean anyMatch(Predicate): 일부 요소가 만족하는지?(||)
 				c. boolean nonMatch(Predicate): 모든 요소가 불만족하는지?(^)
 				
-			~
+			~ count(), max, min, sum, avg() : 집계
+				- 앞의 스트림 값들을 받아서 개수, 최댓값, 최솟값, 총합, 평균값 반환
 			
 //스트림을 얻어오는 방법
 	- stream()/OOO/OOO 메소드를 사용한다.	
