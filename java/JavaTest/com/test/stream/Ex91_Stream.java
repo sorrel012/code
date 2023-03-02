@@ -91,11 +91,11 @@ public class Ex91_Stream {
 		Optional<Integer> result = list.stream().max((a,b) -> a - b);
 		
 		
-		//값형 변수는 반드시 값을 가져야 한다.
+		//값형 변수는 반드시 값을 가져야 한다.(유의미한 값만 가질 수 있다.)
 		int a = 10;
 		System.out.println(a);
 		
-		//참조형 변수는 값을 선택적으로 가진다.
+		//참조형 변수는 값을 선택적으로 가진다.(주소값 or null)
 		Optional<Integer> b = null;
 		System.out.println(b);
 				
