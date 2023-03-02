@@ -1,0 +1,224 @@
+package com.test.stream;
+
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
+
+import com.test.data.Data;
+import com.test.data.Item;
+import com.test.data.User;
+
+public class Ex97_Stream {
+
+	public static void main(String[] args) {
+
+//		m1();
+//		m2();
+//		m3();
+		m4();
+		
+
+	} //main
+
+	private static void m4() {
+		
+		
+		
+	}
+
+	private static void m3() {
+
+		//스트림을 얻어오는 방법
+		
+		//1. 컬렉션으로부터
+		ArrayList<Integer> nums1 = new ArrayList<Integer>();
+		nums1.add(100);
+		nums1.add(200);
+		nums1.add(300);
+		
+		nums1.stream().forEach(num -> System.out.println(num));
+		System.out.println();
+		
+		LinkedList<Integer> nums2 = new LinkedList<Integer>();
+		nums2.add(1000);
+		nums2.add(2000);
+		nums2.add(3000);
+
+		nums2.stream().forEach(num -> System.out.println(num));
+		System.out.println();
+		
+		HashSet<Integer> nums3 = new HashSet<Integer>();
+		nums3.add(10000);
+		nums3.add(20000);
+		nums3.add(30000);
+
+		nums3.stream().forEach(num -> System.out.println(num));
+		System.out.println();
+
+		//2. 배열로부터
+		int[] nums4 = { 111, 222, 333, 444, 555 };
+		
+		Arrays.stream(nums4).forEach(num -> System.out.println(num));
+		System.out.println();
+		System.out.println();
+		
+		//3. 숫자 범위로부터
+		IntStream.range(1, 11).forEach(num -> System.out.println(num));
+		System.out.println();
+		System.out.println();
+				
+		try {
+			
+			//4. 파일로부터
+			// - 파일 읽기
+			Path path = Paths.get("C:\\class\\code\\java\\JavaTest\\dat\\user.txt"); //File file = new File();
+			
+			Files.lines(path).forEach(line -> System.out.println(line));
+			System.out.println();
+			System.out.println();
+			
+			//5. 디렉토리로부터
+			// - 목록 보기 : dir.listFiles()
+			
+			Path dir = Paths.get("c:\\class\\dev\\eclipse");
+			
+			Files.list(dir).forEach(p -> {
+				System.out.println(p.getFileName() + ", " + p.toFile().length());
+			});
+			
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+	private static void m2() {
+		
+		//배열(컬렉션) 탐색
+		List<Integer> list = Data.getIntList(10);
+		
+		//1. for문(while문)
+		for(int i = 0; i < list.size(); i++) {
+			System.out.printf("%5d", list.get(i));
+		}
+		System.out.println();
+		
+		//2. 향상된 for문
+		for(int n : list) {
+			System.out.printf("%5d", n);
+		}
+		System.out.println();
+		
+		//3. Iterator
+		Iterator<Integer> iter = list.iterator();
+		while(iter.hasNext()) {
+			System.out.printf("%5d", iter.next());
+		}
+		System.out.println();
+		
+		//4. stream
+		Stream<Integer> stream = list.stream();
+		
+//		Consumer<Integer> c1 = num -> System.out.printf("%5d", num);
+		
+//		stream.forEach(c1); > c1.accept() 반복
+		
+		stream.forEach(num -> System.out.printf("%5d", num)); //배열 탐색
+		
+		System.out.println();
+		System.out.println();
+		
+//		List<Double> list2 = Data.getDoubleList(10);
+//		Stream<Double> stream2 = list2.stream();
+//		Consumer<Double> c2 = num -> System.out.printf("%5.1f", num);
+//		stream2.forEach(c2);
+		
+		//메소드 체인
+		Data.getDoubleList(10)
+				.stream()
+				.forEach(num -> System.out.printf("%5.1f", num));
+		
+		System.out.println();
+		
+		Data.getDoubleList(10)
+				.stream()
+				.forEach(System.out::println);
+		
+		System.out.println();
+		System.out.println();
+		
+		Data.getStringList(10)
+				.stream()
+				.forEach(System.out::println);
+		
+		System.out.println();
+		
+		Data.getStringList(10)
+				.stream()
+				.forEach(txt -> System.out.println(txt.length()));
+		
+		System.out.println();
+		System.out.println();
+		
+		Data.getUserList()
+				.stream()
+				.forEach(user -> {
+					System.out.println("이름: "+ user.getName());
+					System.out.println("나이: "+ user.getAge());
+					System.out.println();
+				});
+		
+	}
+
+	//컴파일한 jar파일 안에 어떤 클래스, 메소드가 있는지 확인
+	private static void m1() {
+		
+		int[] nums1 = Data.getIntArray();
+		System.out.println(Arrays.toString(nums1));
+		
+		System.out.println();
+		
+		int[] nums2 = Data.getIntArray(10);
+		System.out.println(Arrays.toString(nums2));
+		
+		System.out.println();
+		
+		//★★★ 인터페이스를 구현한 클래스의 객체를 담을 참조 변수
+		// BB: 자기 타입, AA: 부모 타입
+		//1. 자기 타입의 클래스 변수		BB a1 = new BB();
+		//2. 부모 타입의 인터페이스 변수	AA a2 = new BB();
+		ArrayList<Integer> list1 = (ArrayList<Integer>)Data.getIntList();
+		
+		List<Integer> list2 = Data.getIntList();
+		
+		System.out.println(list2);
+		
+		System.out.println();
+		System.out.println();
+		
+		String[] txt1 = Data.getStringArray();
+		System.out.println(Arrays.toString(txt1));
+		
+		System.out.println();
+		
+		User[] ulist = Data.getUserArray();
+		System.out.println(Arrays.toString(ulist));
+		
+		System.out.println();
+		
+		Item[] ilist = Data.getItemArray();
+		System.out.println(Arrays.toString(ilist));
+		
+	}
+	
+}
