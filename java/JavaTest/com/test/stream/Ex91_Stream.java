@@ -29,10 +29,108 @@ public class Ex91_Stream {
 //		m4();
 //		m5();
 //		m6();
-		m7();
+//		m7();
+		m8();
 		
 
 	} //main
+	private static void m8() {
+		
+		//요구사항] 배열 안에 짝수만 있는지?
+		
+		int[] nums = { 2, 4, 6, 8, 10, 3 };
+		
+		//1. enhanced-for
+
+		boolean result = true;
+				
+		for(int n : nums) {
+			if (n % 2 == 1) {
+				result = false;
+				break;
+			}
+		}
+		
+		if(result) {
+			System.out.println("짝수만 존재");
+		} else {
+			System.out.println("홀수 발견!!");
+		}
+		
+		//2. allMatch
+		
+		result = Arrays.stream(nums).allMatch(n -> n % 2 == 0);
+		
+		if(result) {
+			System.out.println("짝수만 존재");
+		} else {
+			System.out.println("홀수 발견!!");
+		}
+		System.out.println();
+		System.out.println();
+		
+		
+		//요구사항] nums안에 홀수가 1개 이상 존재하는지?
+
+		result = Arrays.stream(nums).anyMatch(n -> n % 2 == 1);
+		
+		if(result) {
+			System.out.println("홀수 존재");
+		} else {
+			System.out.println("짝수만 존재");
+		}
+		System.out.println();
+		System.out.println();
+		
+		
+		//요구사항] nums 안에 모두 홀수가 아닌가?
+		
+		result = Arrays.stream(nums).noneMatch(n -> n % 2 == 1);
+		if(result) {
+			System.out.println("짝수만 존재");
+		} else {
+			System.out.println("홀수 존재");
+		}
+		System.out.println();
+		System.out.println();
+		
+		System.out.println(Data.getUserList());
+		System.out.println();
+		
+		result = Data.getUserList().stream()
+									.anyMatch(user -> user.getHeight() >= 180);
+		if(result) {
+			System.out.println("180 이상인 사람이 존재합니다.");
+		} else {
+			System.out.println("모두 180 미만입니다.");
+		}
+		
+		result = Data.getUserList().stream()
+									.allMatch(user -> user.getGender() == 1);
+		if(result) {
+			System.out.println("모두 남자입니다.");
+		} else {
+			System.out.println("여자도 존재합니다.");
+		}
+		
+		result = Data.getUserList().stream()
+									.filter(user -> user.getHeight() >= 180)
+									.allMatch(user -> user.getGender() == 1);
+		if(result) {
+			System.out.println("180 넘는 사람은 모두 남자입니다.");
+		} else {
+			System.out.println("180 넘는 여자도 존재합니다.");
+		}
+		
+		result = Data.getUserList().stream()
+									.noneMatch(user -> user.getWeight() < 60);
+		if(result) {
+			System.out.println("60kg 미만이 아무도 없습니다.");
+		} else {
+			System.out.println("60kg 미만인 사람이 있습니다.");
+		}
+		
+	}
 
 	private static void m7() {
 		
