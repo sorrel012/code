@@ -39,23 +39,42 @@
 	a. 표준 API 함수형 인터페이스	> JDK 제공
 		1. Consumer
 			- 매개변수를 받아서 소비하는 업무를 구현하는 인터페이스 > 인자 O, 반환 X
-			- void acceptXXX() 추상메소드 제공			
+			- void acceptXXX(); 추상메소드 제공			
 			
 			~ Consumer<T>
 			~ BiConsumer<T,U>
 		
 		2. Supplier 
-			~ Supplier<T>
+			- 매개변수를 없이 반환값을 돌려주는 업무를 구현하는 인터페이스 > 인자 X, 반환 O
+			- T getXXX(); 추상 메소드 제공		
+		
+			~ Supplier<T>			
 			
 		3. Function
+			- 매개변수를 전달하면, 처리 후 반환값을 돌려주는 업무를 구현하는 인터페이스 > 인자 O, 반환 O
+			- R applyXXX(T t); 추상 메소드 제공	
+			
 			~ Function<T,R>
 			~ BiFunction<T,U,R>	
 		
 		4. Operator
-			~ UnaryOperator<T>
-			~ BinaryOperator<T>
+			- 매개변수를 전달하면, 처리 후 반환값을 돌려주는 업무를 구현하는 인터페이스 > 인자 O, 반환 O
+			- 추상 메소드의 매개변수와 변환값의 자료형이 동일하다.
+			- 연산자와 메소드는 성질이 같다.			
+			- Function의 하위셋
+			- 행동 > 연산자 역할
+			- R applyXXX(T t, U u); 추상 메소드 제공	
+		
+			~ UnaryOperator<T> 	// extends Function<T, R>
+			~ BinaryOperator<T>	// extends BiFunction<T, U, R>
 			
 		5. Predicate
+			- 매개변수를 전달하면, 처리 후 반환값을 돌려주는 업무를 구현하는 인터페이스 > 인자 O, 반환 O
+			- 논리 검사 전용 > Boolean 반환
+			- Function의 하위셋
+			- 행동 > 판단 역할
+			-boolean test(T t); 추상 메소드 제공				
+			
 			~ Predicate<T>
 			~ BiPredicate<T,U>	
 	
