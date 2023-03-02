@@ -30,10 +30,35 @@ public class Ex91_Stream {
 //		m5();
 //		m6();
 //		m7();
-		m8();
+//		m8();
+		m9();
 		
 
 	} //main
+	private static void m9() {
+		
+		List<Integer> list = Data.getIntList();
+		
+		System.out.println(list.size());
+		
+		System.out.println(list.stream().count());
+		System.out.println();
+		
+		long cnt = list.stream()
+						.filter(num -> num % 2 ==0)
+						.count();
+		System.out.println("짝수의 개수: " + cnt);
+		System.out.println();
+		
+		cnt = Data.getUserList().stream()
+								.filter(user -> user.getHeight() >= 175)
+								.count();
+		System.out.println("175cm 이상인 사람은 " + cnt + "명입니다.");
+		
+		
+		
+	}
+	
 	private static void m8() {
 		
 		//요구사항] 배열 안에 짝수만 있는지?
