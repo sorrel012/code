@@ -32,8 +32,8 @@ public class Ex91_Stream {
 //		m6();
 //		m7();
 //		m8();
-//		m9();
-		m10();
+		m9();
+//		m10();
 
 	} //main
 	
@@ -139,14 +139,16 @@ public class Ex91_Stream {
 		// - null을 가질 수 있다.
 		Optional<Integer> result = list.stream().max((a,b) -> a - b);
 		
+		if(result.isPresent()) {
+			System.out.println(result.get());
+		}
 		
-		//값형 변수는 반드시 값을 가져야 한다.(유의미한 값만 가질 수 있다.)
-		int a = 10;
-		System.out.println(a);
+		System.out.println(Data.getUserList().stream()
+						.max((a,b) -> a.getHeight() - b.getHeight()).get());
 		
-		//참조형 변수는 값을 선택적으로 가진다.(주소값 or null)
-		Optional<Integer> b = null;
-		System.out.println(b);
+		System.out.println(Data.getUserList().stream()
+				.min((a,b) -> a.getWeight() - b.getWeight()).get());
+		
 		
 		
 				
