@@ -162,4 +162,17 @@
 	aaa1234@naver.com
 	holkejiasdfkj;ld@daum.net
 			
+//자바의 정규표현식
+	a. 기존(문자열) 메소드 > 정규표현식 지원  
+		~ split
+		~ replaceAll
+		
+	b. 정규표현식 클래스
+		1. 정규식 객체 생성
+			~ Pattern p1 = Pattern.compile(regex);
+		2. 객체가 자신의 정규식으로 txt 검사
+			~ Matcher m1 = p1.matcher(txt);
+			~ boolean m1.find()	> iterator의 hasNext()와 비슷한 역할을 함 > while문을 통해 몇 번 발견했는지도 알 수 있음.
+			~ m1.group() > 찾은 데이터를 반환함
+			~ m1.group(n) > 정규식에서 () 를 찾아서 n번째를 반환함(0은 그냥 group()과 같음)
 		 	
