@@ -149,9 +149,19 @@ public class Ex91_Stream {
 		System.out.println(Data.getUserList().stream()
 				.min((a,b) -> a.getWeight() - b.getWeight()).get());
 		
+		//Stream<Integer> : IntStream
+		System.out.println(Data.getIntList(5).stream().mapToInt(num -> num).sum());
+		System.out.println(Data.getIntList(5).stream().mapToInt(num -> num).average().getAsDouble());
 		
+		System.out.println();
 		
-				
+		//User > 평균 몸무게
+		System.out.println(Data.getUserList().stream()
+												.filter(user -> user.getGender() == 1)
+												.mapToInt(user -> user.getWeight())
+												.average()
+												.getAsDouble());
+		
 	}
 	
 	private static void m8() {
