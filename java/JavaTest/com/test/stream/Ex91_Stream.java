@@ -32,10 +32,59 @@ public class Ex91_Stream {
 //		m6();
 //		m7();
 //		m8();
-		m9();
-		
+//		m9();
+		m10();
 
 	} //main
+	
+	private static void m10() {
+		
+		//Optional<T>
+		
+		int age = getAge("홍길동");
+		
+		System.out.println("나이: " + age);
+		
+		Optional<Integer> num = getNum("홍길동");
+		
+		if(!num.isEmpty()) {
+			System.out.println("번호: " + num);
+		} else {
+			System.out.println("회원 없음");
+		}
+		
+	}
+	
+	private static Optional<Integer> getNum(String name) {
+		
+		Optional<Integer> num = Optional.empty(); //null
+		
+		if(name.equals("홍길동")) {
+			num = Optional.of(20);
+		} else if(name.equals("아무개")) {
+			num = Optional.of(22);
+		} else if (name.equals("호호호")) {
+			num = Optional.of(25);
+		}
+		
+		return num;
+	}
+
+	private static int getAge(String name) {
+		
+		int age = 0;
+		
+		if(name.equals("홍길동")) {
+			age = 20;
+		} else if(name.equals("아무개")) {
+			age = 22;
+		} else if (name.equals("호호호")) {
+			age = 25;
+		}
+		
+		return age;
+	}
+
 	private static void m9() {
 		
 		List<Integer> list = Data.getIntList();
@@ -98,6 +147,8 @@ public class Ex91_Stream {
 		//참조형 변수는 값을 선택적으로 가진다.(주소값 or null)
 		Optional<Integer> b = null;
 		System.out.println(b);
+		
+		
 				
 	}
 	
