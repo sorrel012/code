@@ -1,7 +1,9 @@
 package com.test.project;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.ArrayList;
 
 public class Data {
@@ -46,6 +48,19 @@ public class Data {
 	public static void save() {
 		
 		try {
+			
+			BufferedWriter writer = new BufferedWriter(new FileWriter(Data.MEMBER));
+			
+			//Member m > 1,홍길동,20,남자
+			for(Member m : list) {
+				
+				writer.write(String.format("%s,%s,%s,%s\r\n"
+											, m.getNo()
+											, m.getName()
+											, m.getAge()
+											, m.getGender()));
+				
+			}
 			
 		} catch (Exception e) {
 			e.printStackTrace();
