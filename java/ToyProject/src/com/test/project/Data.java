@@ -8,8 +8,8 @@ import java.util.ArrayList;
 
 public class Data {
 
-	public final static String MEMBER = "C:\\OneDrive\\class\\code\\java\\ToyProject\\src\\dat\\member.txt";
-//
+	public final static String MEMBER = ".\\dat\\member.txt";
+
 	
 	public static ArrayList<Member> list;
 	
