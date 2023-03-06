@@ -8,9 +8,11 @@ public class Test {
 
 		try {
 
-			String asciiArt3 = FigletFont.convertOneLine(".\\font\\banner3.flf", "hello");
+			String asciiArt3 = FigletFont.convertOneLine(".\\font\\banner3.flf", "MONEY");
 		    System.out.println(asciiArt3);
 			
+		    System.out.println();
+		    System.out.println();
 			
 		} catch (Exception e) {
 			e.printStackTrace();
