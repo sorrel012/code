@@ -18,6 +18,7 @@ public class UI {
 	
 	public static void subMenu(String title) {
 		
+		System.out.println();
 		System.out.println("---------------------------------");
 		System.out.printf("<%s>\n", title);
 		System.out.println("---------------------------------");

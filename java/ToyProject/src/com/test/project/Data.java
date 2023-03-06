@@ -8,8 +8,8 @@ import java.util.ArrayList;
 
 public class Data {
 
-	public final static String MEMBER = "H:\\내 드라이브\\프로그래밍\\쌍용\\자바\\ToyProject\\src\\dat\\member.txt";
-//			".\\dat\\member.txt";
+	public final static String MEMBER = "C:\\OneDrive\\class\\code\\java\\ToyProject\\src\\dat\\member.txt";
+//
 	
 	public static ArrayList<Member> list;
 	
@@ -61,6 +61,8 @@ public class Data {
 											, m.getGender()));
 				
 			}
+			
+			writer.close();
 			
 		} catch (Exception e) {
 			e.printStackTrace();

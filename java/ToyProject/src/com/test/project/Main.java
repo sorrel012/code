@@ -23,7 +23,7 @@ public class Main {
 			} else if(sel.equals("2")) {
 				Service.add();
 			} else if(sel.equals("3")) {
-				
+				Service.delete();
 			} else {
 				loop = false;
 			}

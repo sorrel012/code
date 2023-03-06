@@ -22,7 +22,8 @@ public class Service {
 		UI.pause();
 		
 	} //list
-	
+
+	@SuppressWarnings("resource")
 	public static void add() {
 		
 		UI.subMenu("추가하기");
@@ -52,7 +53,43 @@ public class Service {
 		
 		UI.pause();
 		
+		//이번 프로젝트할 때는 안 해도 됨.. 정상종료만 구현해도 된다.
+		if(Data.list.size() % 5 == 0) {
+			Data.save(); //1명씩 추가 > 데이터를 파일에 저장
+		}
+		
 	} //add
+	
+	@SuppressWarnings("resource")
+	public static void delete() {
+		
+		//특정 회원 > 원하는 1명
+		UI.subMenu("삭제하기");
+		
+		//업무 구현
+		
+		for(Member m : Data.list) {
+			System.out.println(m);
+		}
+		
+		
+		Scanner scan = new Scanner(System.in);
+		System.out.print("번호: ");
+		
+		String sel = scan.nextLine();
+		
+		for(Member m : Data.list) {
+			
+			if(m.getNo().equals(sel)) {
+				Data.list.remove(m);
+				break;
+			}
+			
+		}
+		
+		UI.pause();
+		
+	}
 	
 }
 
