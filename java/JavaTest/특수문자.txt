@@ -1,0 +1,28 @@
+ ` : 역따옴표, back quote, back tick
+ ! : exclamation mark
+ @ : at sign
+ # : sharp, crosshatch
+ $ : dollar sign
+ % : percent sign
+ ^ : xor, carret, circumflex
+ & : ampersand
+ * : asterisk
+ - : hyphen
+ + : plus sign
+ ~ : 틸드, tilde
+ _ : underscore
+ ; : semicolon
+ : : colon
+ ' : apostrophe
+ " : quotation mark
+ , : comma
+ . : dot, period
+ / : slash
+ \ : backslash
+ ? : question mark
+ | : pipe, or, vertical bar
+ () : 소괄호, parentheses
+ [] : 대괄호, brackets
+ {} : 중괄호, braces
+ <> : 화살표괄호, angle brackets
+ 

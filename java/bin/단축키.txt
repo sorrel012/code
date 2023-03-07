@@ -1,0 +1,6 @@
+- 코드 이동 : Alt + 위아래 방향키 
+- 코드 복사 : Ctrl + Alt + 위아래 방향키
+- 코드 삭제 : Ctrl + D
+- 한 줄 주석 : Ctrl + /
+- 여러 줄 주석 : Ctrl + Shift + /
+- 여러 줄 주석 해제: Ctrl + Shift + \
