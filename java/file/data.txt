@@ -1,3 +1,0 @@
-ABC
-Java Programming
-Hello world!!
