@@ -8,7 +8,7 @@ public class Test {
 
 		try {
 
-			String asciiArt3 = FigletFont.convertOneLine(".\\font\\banner3.flf", "MONEY");
+			String asciiArt3 = FigletFont.convertOneLine(".\\font\\pagga.flf", "MONEY");
 		    System.out.println(asciiArt3);
 			
 		    System.out.println();
