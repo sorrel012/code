@@ -1,0 +1,45 @@
+
+//팀장 : 이수연님 > 전공자
+
+//우선 토론식으로 진행!
+
+
+-----------------------------연산자------------------------------------------
+
+//BufferedReader vs Scanner : 상황에 따라 적절하게 사용.. 
+	- 문자열 : Scanner
+	- 정수형 : Scanner
+	- 문자 : BufferedReader
+	
+// printf 연달아 사용할 경우 줄을 확실히 나눠주는 것이 가독성이 좋다
+	-r 	System.out.printf("%d - %d = %,d\n", num1, num2, num1 - num2);
+	  	System.out.printf("%d * %d = %,d\n", num1, num2, num1 * num2);
+	  	
+	-	System.out.printf("%,d + %,d = %,d  \n"
+						+ "%,d + %,d = %,d  \n"
+						, value1,value2,plus,
+						value1,value2,minus);
+
+// 적절한 공백을 넣으면 가독성 향상! 
+	-r	char result = 'c';
+	- 	char rusult='c';
+
+-----------------------------메소드------------------------------------------
+
+// 3항 연산자 사용시 가독성 높이도록 적절히 줄바꿈하기★
+	-r String result = num < 10 ? "000" + num :
+						num < 100 ? "00" + num : 
+						num < 1000 ? "0" + num : "" + num;
+						
+// 메소드 분리의 의미 확실히 이해하기
+
+// 필요한 변수를 한 번에 선언하는 연습해보기
+	-r int station = 0,
+			change = 0,
+			
+		station = sc.nextInt();
+		change = sc.nextInt();
+		
+	-	int station = sc.nextInt();
+		int change = sc.nextInt();
+		

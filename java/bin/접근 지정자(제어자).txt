@@ -1,0 +1,59 @@
+// 접근 지정자(제어자), Access Modifier
+	- 클래스 멤버 변수에 붙여서 사용한다.
+	- 클래스 멤버 메소드에 붙여서 사용한다.
+	- 클래스 자체에 붙여서 사용한다.
+	- 멤버를 외부에 공개할지 말지 결정하는 역할 > 클래스가 경계선 역할
+	   > 멤버 노출 수위를 조절하는 역할
+	   > 외부에 멤버 공개 유무 조절하는 역할
+	
+	1. public
+		- 외부에 멤버를 100% 공개
+		
+	2. private
+		- 외부에 멤버를 100% 비공개
+		
+	3. protected
+	
+	4. default	
+	
+	
+// 클래스의 멤버 변수 접근 지정자
+	1. private으로 지정 > 유효하지 않은 값이 들어갈까봐...
+	2. public 메소드 선언 > private 변수 접근
+	
+	- Setter : set변수명();
+		~ public void setModel(String model) {
+				this.model = model;
+		  }
+		※ this : 객체 접근(지정) 연산자 > 객체 자신을 가리키는 표현	
+		// 멤버 변수 vs 지역 변수 충돌 발생 시 지역 변수 win!		
+			
+	- Getter : 자료형 get변수명();
+		~ public String getModel(); {			
+				return this.model;
+		  }
+		※ 만약 영어로 입력 받고 한글로 값을 돌려줘야 한다면 Getter에서 작업(데이터 가공)
+		  
+	- 필드 vs 프로퍼티 (자바에서)
+		~ c1.type		> public 변수 		> field(필드)
+		~ c1.getType	> private 변수 통제 	> property(프로퍼티)  
+			  
+		a. 읽기 쓰기 가능한 멤버(읽기 쓰기 가능한 프로퍼티)
+        	c1.setColor("white");
+       		System.out.println(c1.getColor());
+
+        b. 쓰기 전용 멤버(쓰기 전용 프로퍼티)
+        	c1.setWeight(500);
+
+        c. 읽기 전용 멤버(읽기 전용 프로퍼티)
+      	 	System.out.println(c1.getPrice());
+
+        d. 계산된 프로퍼티 (사용자 입장에서는 level이라는 변수가 있다고 생각하게끔..)
+       		System.out.println(c1.getLevel()); 
+       		
+       		
+			
+	
+	
+	
+	
