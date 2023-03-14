@@ -51,9 +51,4 @@
         d. 계산된 프로퍼티 (사용자 입장에서는 level이라는 변수가 있다고 생각하게끔..)
        		System.out.println(c1.getLevel()); 
        		
-       		
-			
-	
-	
-	
 	
