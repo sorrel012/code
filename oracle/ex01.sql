@@ -33,4 +33,24 @@ SELECT * FROM TABS;
 
 select * from TABS;
 
-SELECT * FROM tabs; --FM (키워드는 대문자, 식별자는 검정색)
+--Ctrl + F7
+SELECT
+    *
+FROM
+    tabs; --FM (키워드는 대문자, 식별자는 검정색)
+    
+-- 식별자 > 30바이트 이내(30글자 이내)   
+create table aaa (
+    num number
+);
+
+create table aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa (
+    num number
+);
+
+--password identifier longer than 30 bytes was specified.
+create table aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa (
+    num number
+);
+
+
