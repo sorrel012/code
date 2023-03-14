@@ -63,4 +63,4 @@
 	- 메소드의 반환값에 바로 또다른 메소드를 연결시킨 모습
 	- 함수형 프로그래밍 방식
 	~ Data.getDoubleList(10).stream().forEach(System.out::println);
-	
+
