@@ -1,0 +1,26 @@
+-- 수업 코드 컨벤션
+-- - 객체 생성 > 객체 접두어 사용
+
+-- 테이블 생성
+create table 테이블명 (
+
+    컬럼명 자료형
+
+);
+
+-- 테이블 삭제
+drop table 테이블명;
+
+-- 테이블이 생성되었는지 확인하는 방법
+1. SQL 명령어 > 모든 툴이 동일하게 반응
+  ~ select * from tabs;   
+
+2. sql developer 기능 이용
+
+
+-- 데이터 추가하기
+insert into 테이블명 (컬럼명) values (값);
+
+-- 데이터 확인
+1. select * from 테이블명
+2. sql developer 기능 이용
