@@ -2,6 +2,120 @@
 	- 데이터 집합
 	- 관리, 운영, 보안, 조작 등... > 데이터베이스 관리 시스템
 	
-//ORACLE, SQL Developer
+//관계형 데이터베이스
+	- 데이터를 표현식으로 저장/관리한다.
+	- SQL을 사용한다.
+	
+//관계형 데이터베이스 종류
+	1. Oracle
+	2. MS-SQL
+	3. MySQL
+	4. MariaDB
+	5. PostreSQL
+	6. DB2
+	7. SQLite
+	
+//SQL
+1. DBMS 제작사와 독립적이다.
+	- 모든 관계형 데이터베이스에서 공통적으로 적용하기 위해 만들어진 언어
+	- DBMS 제작사에서 SQL이란 언어를 자신의 제품에 적용
+2. 표준 SQL, ANSI-SQL
+	-모든 DBMS에 적용 가능한 SQL
+3. 각 제작사별 sQL
+	- Oracle vs MS-SQL
+	- 자기네 제품에서만 동작하는 추가 SQL
+	- Oracle > PL/SQL
+	- MS_SQL > T-SQL
+
+//ANSI-SQL 종류
+1. DDL
+	- Data Definition Language
+	- 데이터 정의어
+	- 데이터베이스 오브젝트(테이블, 뷰, 사용자, 인덱스, 트리거 등)를 생성/수정/삭제하는 명령어
+		a. create : 생성
+		b. drop : 삭제
+		c. alter : 수정
+	- 구조를 생성/관리하는 명령어 (건물의 기초 공사와 비슷)
+	- 데이터베이스 관리자
+	- 데이터베이스 담당자
+	- 프로그래머(일부)
+	
+2. DML
+	- Data Manipulation Language
+	- 데이터 조작어
+	- 사용 빈도가 가장 높음
+	- 데이터베이스에 데이터를 추가/수정/삭제/조회하는 명령어(CRUD)
+		a. select: 조회(읽기)	> R ★★★★★★★★★★★
+		b. insert: 추가(생성)	> C
+		c. update: 수정		> U
+		d. delete: 삭제		> D
+	- 데이터베이스 관리자
+	- 데이터베이스 담당자
+	- 프로그래머★★
+	
+3. DCL
+	- Data Control Langauge
+	- 데이터 제어어
+	- 계정권한 관리, 보안 제어, 트랜잭션 처리 등..
+		a. commit
+		b. rollback
+		c. grant
+		d. revoke
+	- 데이터베이스 관리자
+	- 데이터베이스 담당자
+	- 프로그래머(일부)
+	
+4. DQL
+	- Data Query Language
+	- DML 중에 select 만 따로 호칭
+	
+5. TCL
+	- Transaction Control Language
+	- DCL 중에 commit, rollback 만 따로 호칭
+
+	
+	
+//클라이언트 프로그램
+	1. SQL Developer > 오라클 설치 후 따로 설치해야 됨
+	2. SQL Plus > 오라클과 같이 설치됨(콘솔)
+	3. DataGrip ★★★꼭 써보기(학교 이메일 있으면 무료)
+	4. DBeaver ★★★꼭 써보기
+	5. SQLGate
+	6. Toad
+
+//ORACLE
 	- 오라클은 UI가 없어서 눈에 보이지 않는다.
 	- SQL Developer을 사용하여 접속
+	- 데이터베이스 + 데이터베이스관리시스템
+	- SQL + 많은 기능 
+	- 사용자
+		1. 데이터베이스 관리자
+			- DBA
+			- 모든 기능 관리/조작
+			
+		2. 데이터베이스 개발자
+			- DB 팀
+			- 거의 대다수 기능 관리/조작
+		
+		3. 응용프로그램 개발자
+			- 전부 or 일부 사용	
+	- 인코딩 
+		~ 1.0 ~ 8i : EUR-KR
+		~ 9i, 10g, 11g, 12c, 18c, 19c, 21c .. : UTF-8
+	- 제품군
+		~ Oracle Enterprise
+		~ Oracle Express Edition
+			- 무료
+			- 개인용 or 소규모 회사
+			- 사용 메모리: 최대 1GB
+				
+//SQL
+	- Structured Queary Language
+	- 구조화된 질의 언어
+	- 대화형 언어
+	- 오라클 데이터베이스와 클라이언트(개발자)를 연결	
+	
+// SQL Developer
+	- 현재 작성중인 파일 > 스크립트 파일(*.sql)
+	- ★★★스크립트 파일은 계정에 비종속적이다. > 계정에 독립적이다. > 스크립트 내용을 실행할 당시의 접속 상태가 누구인지가 중요하다.
+	
