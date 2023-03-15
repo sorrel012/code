@@ -1,0 +1,104 @@
+-- SELECT문
+	- DML, DQL
+	- 관계대수 연산 중 셀렉션 작업을 구현한 명령어
+	- 대상 테이블로부터 원하는 행을 추출하는 작업 > 오라클 서버에 데이터를 요청하는 명령어
+	- 읽기(조회)
+	- 여러 개의 절로 구성됨(★★★★★★★★★★절의 실행 순서는 정해져 있음.)
+		[WITH <Sub Query>]	> with절
+   		SELECT column_list	> select절
+    	FROM table_name	> from절
+    	[WHERE search_condition]	> where절
+    	[GROUP BY group_by_expression]	> group by절
+    	[HAVING search_condition]	> having절
+    	[ORDER BY order_expression [ASC|DESC]]	> order by절
+		
+		
+	- select 컬럼리스트	> 2. 원하는 컬럼을 지정
+	  from 테이블명;	> 1. 데이터소스를 지정(어느 테이블로부터 데이터를 가져올 것인지 지정)
+	
+	- 단일 컬럼 조회
+		~ select first_name from employees;
+		
+	- 다중 컬럼 조회
+		~ 1. 
+			select first_name, last_name, email, salary, phone_number from employees;
+
+		~ 2. 
+			select first_name, last_name, email, salary, phone_number 
+			from employees;
+
+		~ 3.
+			select 
+				first_name, last_name, email, salary, phone_number 
+			from 
+				employees;
+    
+		~ 4.
+			select first_name, last_name, email, salary, phone_number 
+				from employees;
+	
+	- * : 와일드 카드 > 모든 컬럼   --가독성, 성능면에서는 컬럼명을 모두 명시하는 것이 더 좋음.
+	
+	- select절의 컬럼 리스트의 컬럼 순서는 원본 테이블의 컬럼 순서와 무관하다.
+	
+	- 같은 컬럼을 반복해서 가져오는 것도 가능하다.(하지만 그럴 일은 없음)
+		~ select first_name, first_name from employees;   
+		※ 가공해서는 사용함!
+			~ select first_name, length(first_name) from employees;   
+	
+	- select문의 결과는 항상 테이블이다. > 결과 테이블 > 메모리에 존재하는 임시 테이블
+	
+
+-- where절
+	- 레코드를 검색한다.
+	- 원하는 행만 추출하는 역할 > 결과셋 반환
+
+	-select 컬럼리스트 3.원하는 컬럼 지정
+	 from 테이블 1. 테이블 지정
+	 where 조건 2. 조건 지정
+	 
+	 
+-- distinct
+	~ distinct 컬럼명 > distinct 컬럼리스트
+	- select의 컬럼 리스트에서 사용
+	- 컬럼이 아닌 레코드를 대상으로 함. > 컬럼이 많아질 수록 중복될 확률이 낮음
+	- 중복값 제거
+	
+	
+-- case
+	~ case
+   		when 조건 then 반환값
+	  end as 이름 지정
+
+	~ java의 if문과 비슷
+		case
+    		when 조건1 then 반환값1
+    		when 조건2 then 반환값2
+    		else 반환값3
+		end as 이름 지정
+
+	~ java의 switch-case문과 비슷
+		case 컬럼명
+    		when 값1 then 반환값1
+    		when 값2 then 반환값2
+    		else 반환값3
+		end as 이름 지정	
+		
+	- 대부분의 절에서 사용
+	- 조건문 역할 > 컬럼값 조작
+	- 반환값은 반드시 같은 성격이어야 함.★★★★
+	
+-- order by절
+	~ order by 정렬컬럼 [asc|desc]
+	~ order by 정렬컬럼 [asc|desc], 정렬컬럼 [asc|desc], 정렬컬럼 [asc|desc] ...... > 다중 정렬
+		
+	- 결과셋의 정렬
+	- 원본 테이블의 정렬을 사용자가 관여할 수 없음! > 사용자는 select에서만..
+	- null값도 정렬되므로 null을 제외하려면 where 절에 is not null을 함께 사용해야 함.
+	
+	- select 컬럼리스트	--3. 원하는 컬럼 지정
+	  from 테이블	--1. 테이블 지정
+	  where 조건	--2. 원하는 행 지정
+	  order by 정렬기준;	--1. 순서대로
+	
+	

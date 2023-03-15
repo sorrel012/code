@@ -1,0 +1,42 @@
+--함수, Function
+	1. 내장형 함수
+	2. 사용자 정의 함수
+	
+
+-- 집계함수, Aggregation Function
+	1. count()
+		- number count(컬럼명)
+			~ select count(capital) from tblCountry;
+		- 결과 테이블의 레코드 수를 반환한다.		
+		- null 레코드는 count에서 제외된다. 
+			> select count(*) from tblCountry; 를 사용하면 일부 컬럼값이 null이어도 개수를 구할 수 있다.
+	
+	2. sum()
+		- number sum(컬럼명)
+			~ select sum(height) from tblComedian;
+		- 해당 컬럼의 합을 구한다.
+		- 숫자형만 적용 가능
+		- 
+		
+	3. avg()
+		- number avg(컬럼명)
+			~ select avg(basicpay) from tblInsa;
+		- 해당 컬럼의 평균값을 구한다.
+		- 숫자형만 적용 가능
+		- null 값은 제외함.
+	
+	4. max()
+		- object max(컬럼명)
+			~ select max(height) from tblComedian; --숫자형
+			~ select max(name) from tblInsa; --문자형
+			~ select max(ibsadate) from tblInsa; --날짜형
+		- 최솟값 반환
+		- 숫자형, 문자형, 날짜형 모두 적용
+	
+	5. min()
+		- object min(컬럼명)
+			~ select min(height) from tblComedian; --숫자형
+			~ select min(name) from tblInsa; --문자형
+			~ select min(ibsadate) from tblInsa; --날짜형
+		- 최솟값 반환
+		- 숫자형, 문자형, 날짜형 모두 적용
