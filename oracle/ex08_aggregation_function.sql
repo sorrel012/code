@@ -62,3 +62,21 @@ select
         when buseo = '개발부' then 1
     end) as 개발부
 from tblInsa;
+
+
+/*sum*/
+
+select sum(height) from tblComedian;
+select sum(height), sum(weight) from tblComedian;
+
+select 
+    sum(basicpay) as "지출 급여 합",
+    sum(sudang) as "지출 수당 합",
+--    sum(basicpay) + sum(sudang) as "총 지출"
+    sum(basicpay + sudang) as "총 지출"
+from tblInsa;
+
+
+
+
+
