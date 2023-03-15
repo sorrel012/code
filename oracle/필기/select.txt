@@ -45,3 +45,5 @@
 		~ select first_name, first_name from employees;   
 		※ 가공해서는 사용함!
 			~ select first_name, length(first_name) from employees;   
+	
+	- select문의 결과는 항상 테이블이다. > 결과 테이블 > 메모리에 존재하는 임시 테이블
