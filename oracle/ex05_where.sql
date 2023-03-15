@@ -151,23 +151,33 @@ select name, capital from tblCountry;
 -- 아래와 같이 가져오시오
 -- [국가명]    [수도명]   [인구수]   [면적]    [대륙] <- 컬럼명
 -- 대한민국   서울        4403       101       AS     <- 데이터
-select name "[국가명]", capital "[수도명]", population "[인구수]", area "[면적]", continent "[대륙]"
-    from tblCountry;
+select 
+    name as "[국가명]",
+    capital as "[수도명]", 
+    population as "[인구수]", 
+    area as "[면적]", 
+    continent as "[대륙]"  
+from tblCountry;
 
 
 --요구사항.004.tblCountry
 --아래와 같이 가져오시오
 -- [국가정보] <- 컬럼명
 -- 국가명: 대한민국, 수도명: 서울, 인구수: 4403   <- 데이터
-
-???
+select
+    '국가명: ' || name || ', 수도명: ' || capital || ', 인구수: ' || population as "[국가정보]"
+from tblCountry;
 
 --요구사항.005
 --아래와 같이 가져오시오.employees
 -- [이름]                 [이메일]                 [연락처]            [급여]
 -- Steven King           SKING@gmail.com   515.123.4567      $24000
-select (first_name || ' ' || last_name) "[이름]", email "[이메일]", phone_number "[연락처]", salary "급여" 
-    from employees;
+select 
+    first_name || ' ' || last_name as "[이름]",
+    email as "[이메일]", 
+    phone_number as "[연락처]", 
+    salary as "급여" 
+from employees;
 
 
 --요구사항.006.tblCountry
@@ -179,17 +189,13 @@ select name, area
 
 --요구사항.007.tblCountry
 --아시아와 유럽 대륙에 속한 나라를 가져오시오.
-select * from tblCountry;
-
 select name
     from tblCountry
-        where continent in ('AS', 'EU')
+        where continent in ('AS', 'EU');
 
 
 --요구사항.008.employees
 --직업(job_id)이 프로그래머(it_prog)인 직원의 이름(풀네임)과 연락처 가져오시오.
-select * from employees;
-
 select (first_name || ' ' || last_name), phone_number
     from employees 
         where job_id = 'IT_PROG';
@@ -199,7 +205,7 @@ select (first_name || ' ' || last_name), phone_number
 --last_name이 'Grant'인 직원의 이름, 연락처, 고용날짜를 가져오시오.
 select (first_name || ' ' || last_name), phone_number, hire_date
     from employees
-        where last_name = 'Grant'
+        where last_name = 'Grant';
         
 
 --요구사항.010.employees
@@ -295,14 +301,14 @@ select *
 --여름에(7,8,9월) 태어난 직원들 가져오시오.
 select * 
     from tblInsa
-        where ssn like '__07__%' or ssn like '__08__%' or ssn like '__09__%';
+        where ssn like '__07%' or ssn like '__08%' or ssn like '__09%';
 
 
 --요구사항.024.tblInsa
 --서울, 인천에 사는 김씨만 가져오시오.    
 select *
     from tblInsa
-        where (city = '서울' or city = '인천') and name like '김%';
+        where city in ('서울', '인천') and name like '김%';
 
 
 --요구사항.025.tblInsa > 10
