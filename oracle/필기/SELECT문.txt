@@ -72,16 +72,16 @@
 
 	~ java의 if문과 비슷
 		case
-    		when 조건1 then 반환값1
+			when 조건1 then 반환값1
     		when 조건2 then 반환값2
     		else 반환값3
 		end as 이름 지정
 
 	~ java의 switch-case문과 비슷
 		case 컬럼명
-    		when 값1 then 반환값1
-    		when 값2 then 반환값2
-    		else 반환값3
+			when 값1 then 반환값1
+			when 값2 then 반환값2
+			else 반환값3
 		end as 이름 지정	
 		
 	- 대부분의 절에서 사용
