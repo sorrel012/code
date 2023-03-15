@@ -45,3 +45,31 @@ select first_name, first_name from employees;
 select first_name, length(first_name) from employees;   
 
 
+create table zipcode  (
+   seq                  NUMBER(10)                        not null,
+   zipcode              VARCHAR2(50),
+   sido                 VARCHAR2(50),
+   gugun                VARCHAR2(50),
+   dong                 VARCHAR2(50),
+   bunji                VARCHAR2(50),
+   constraint PK_ZIPCODE primary key (seq)
+)
+
+select count(*) from zipcode;
+
+select * from tblAddressBook; --주소록
+select * from tblComedian; --코미디언
+select * from tblCountry; --국가정보
+select * from tblDiary; --다이어리
+select * from tblHousekeeping; --가계부
+select * from tblInsa; --직원정보
+select * from tblMen; --남자
+select * from tblWomen; --여자
+select * from tblTodo; --할일
+select * from tblZoo; --동물
+
+
+
+
+
+
