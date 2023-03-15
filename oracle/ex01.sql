@@ -1,33 +1,33 @@
 
--- ´ÜÀÏ¶óÀÎ ÁÖ¼® (Ctrl + /)
+-- ë‹¨ì¼ë¼ì¸ ì£¼ì„ (Ctrl + /)
 
 /*
-    ´ÙÁß¶óÀÎ ÁÖ¼®
+    ë‹¤ì¤‘ë¼ì¸ ì£¼ì„
 */
 
-alter user hr account unlock;   --°èÁ¤ Ç®±â
-alter user hr account lock;      --°èÁ¤ Àá±×±â
+alter user hr account unlock;   --ê³„ì • í’€ê¸°
+alter user hr account lock;      --ê³„ì • ì ê·¸ê¸°
 
-alter user hr identified by java1234; --¾ÏÈ£ ¹Ù²Ù±â
+alter user hr identified by java1234; --ì•”í˜¸ ë°”ê¾¸ê¸°
 
---ÇöÀç °èÁ¤ÀÌ º¸À¯ÇÏ°í ÀÖ´Â Å×ÀÌºí ¸ñ·Ï °¡Á®¿À±â
+--í˜„ì¬ ê³„ì •ì´ ë³´ìœ í•˜ê³  ìˆëŠ” í…Œì´ë¸” ëª©ë¡ ê°€ì ¸ì˜¤ê¸°
 select * from tabs;
 
---ÇöÀç ÀÛ¼ºÁßÀÎ ÆÄÀÏ > ½ºÅ©¸³Æ® ÆÄÀÏ(*.sql)
--- *** ½ºÅ©¸³Æ® ÆÄÀÏÀº °èÁ¤¿¡ ºñÁ¾¼ÓÀûÀÌ´Ù. > °èÁ¤¿¡ µ¶¸³ÀûÀÌ´Ù.
--- *** ½ºÅ©¸³Æ® ³»¿ëÀ» ½ÇÇàÇÒ ´ç½ÃÀÇ Á¢¼Ó »óÅÂ°¡ ´©±¸ÀÎÁö°¡ Áß¿äÇÏ´Ù.
+--í˜„ì¬ ì‘ì„±ì¤‘ì¸ íŒŒì¼ > ìŠ¤í¬ë¦½íŠ¸ íŒŒì¼(*.sql)
+-- *** ìŠ¤í¬ë¦½íŠ¸ íŒŒì¼ì€ ê³„ì •ì— ë¹„ì¢…ì†ì ì´ë‹¤. > ê³„ì •ì— ë…ë¦½ì ì´ë‹¤.
+-- *** ìŠ¤í¬ë¦½íŠ¸ ë‚´ìš©ì„ ì‹¤í–‰í•  ë‹¹ì‹œì˜ ì ‘ì† ìƒíƒœê°€ ëˆ„êµ¬ì¸ì§€ê°€ ì¤‘ìš”í•˜ë‹¤.
 
--- ÆÄ¶õ»ö > Å°¿öµå
--- °ËÁ¤»ö > ½Äº°ÀÚ
-select * from REGIONS;      --ºÎ¼­ Áö¿ª ±¹°¡ ´ë·ú Á¤º¸
-select * from COUNTRIES;    --ºÎ¼­ Áö¿ª ±¹°¡ Á¤º¸
-select * from LOCATIONS;    --ºÎ¼­ Áö¿ª Á¤º¸
-select * from DEPARTMENTS;  --ºÎ¼­ Á¤º¸
-select * from JOBS;         --Á÷¿ø Á÷¾÷ Á¤º¸
-select * from EMPLOYEES;    --Á÷¿ø Á¤º¸
+-- íŒŒë€ìƒ‰ > í‚¤ì›Œë“œ
+-- ê²€ì •ìƒ‰ > ì‹ë³„ì
+select * from REGIONS;      --ë¶€ì„œ ì§€ì—­ êµ­ê°€ ëŒ€ë¥™ ì •ë³´
+select * from COUNTRIES;    --ë¶€ì„œ ì§€ì—­ êµ­ê°€ ì •ë³´
+select * from LOCATIONS;    --ë¶€ì„œ ì§€ì—­ ì •ë³´
+select * from DEPARTMENTS;  --ë¶€ì„œ ì •ë³´
+select * from JOBS;         --ì§ì› ì§ì—… ì •ë³´
+select * from EMPLOYEES;    --ì§ì› ì •ë³´
 select * from JOB_HISTORY;  --
 
-select * from tabs; --¼ö¾÷Àº ÀÌ°É·Î..
+select * from tabs; --ìˆ˜ì—…ì€ ì´ê±¸ë¡œ..
 
 SELECT * FROM TABS;
 
@@ -37,9 +37,9 @@ select * from TABS;
 SELECT
     *
 FROM
-    tabs; --FM (Å°¿öµå´Â ´ë¹®ÀÚ, ½Äº°ÀÚ´Â °ËÁ¤»ö)
+    tabs; --FM (í‚¤ì›Œë“œëŠ” ëŒ€ë¬¸ì, ì‹ë³„ìëŠ” ê²€ì •ìƒ‰)
     
--- ½Äº°ÀÚ > 30¹ÙÀÌÆ® ÀÌ³»(30±ÛÀÚ ÀÌ³»)   
+-- ì‹ë³„ì > 30ë°”ì´íŠ¸ ì´ë‚´(30ê¸€ì ì´ë‚´)   
 create table aaa (
     num number
 );

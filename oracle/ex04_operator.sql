@@ -1,4 +1,4 @@
---¿¬»êÀÚ, Operator
+--ì—°ì‚°ì, Operator
 
 desc tblCountry;
 select * from tblCountry;
@@ -10,10 +10,10 @@ select population, area, population + area
 select name || capital
     from tblCountry;
 
--- ÄÃ·³¸í > °¡°øµÈ ÄÃ·³¸í > ¿Ã¹Ù¸¥ ÀÌ¸§À¸·Î ¼öÁ¤ > ÄÃ·³¸í ¹Ù²Ù±â > º°Äª(Alias)
--- ½Äº°ÀÚ "ÄÃ·³¸í|¹Ù²Ü ÄÃ·³¸í"
+-- ì»¬ëŸ¼ëª… > ê°€ê³µëœ ì»¬ëŸ¼ëª… > ì˜¬ë°”ë¥¸ ì´ë¦„ìœ¼ë¡œ ìˆ˜ì • > ì»¬ëŸ¼ëª… ë°”ê¾¸ê¸° > ë³„ì¹­(Alias)
+-- ì‹ë³„ì "ì»¬ëŸ¼ëª…|ë°”ê¿€ ì»¬ëŸ¼ëª…"
 
-select name as 'ÀÌ¸§';
+select name as 'ì´ë¦„';
 
 drop table tblType;
 
@@ -22,6 +22,6 @@ create table tblType (
     num2 varchar2(40)
 );
 
-insert into tblType (num1, num2) values (123, '123'); --¼ıÀÚ´Â ¿À¸¥ÂÊ Á¤·Ä, ¹®ÀÚ¿­Àº ¿ŞÂÊ Á¤·Ä
+insert into tblType (num1, num2) values (123, '123'); --ìˆ«ìëŠ” ì˜¤ë¥¸ìª½ ì •ë ¬, ë¬¸ìì—´ì€ ì™¼ìª½ ì •ë ¬
 
 select * from tblType;

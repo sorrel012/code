@@ -1,16 +1,16 @@
---select¹®
+--selectë¬¸
 
-select ÄÃ·³¸®½ºÆ® from Å×ÀÌºí¸í;
+select ì»¬ëŸ¼ë¦¬ìŠ¤íŠ¸ from í…Œì´ë¸”ëª…;
 
 
--- Ã³À½ º¸´Â Å×ÀÌºíÀÇ ±¸Á¶(½ºÅ°¸¶, Scheme) È®ÀÎ
-desc employees; --SQL Developer, SQL Plus¸¸ °¡´É
+-- ì²˜ìŒ ë³´ëŠ” í…Œì´ë¸”ì˜ êµ¬ì¡°(ìŠ¤í‚¤ë§ˆ, Scheme) í™•ì¸
+desc employees; --SQL Developer, SQL Plusë§Œ ê°€ëŠ¥
 
--- ´ÜÀÏ ÄÃ·³ Á¶È¸
+-- ë‹¨ì¼ ì»¬ëŸ¼ ì¡°íšŒ
 select first_name from employees;
 select email from employees;
 
--- ´ÙÁß ÄÃ·³ Á¶È¸
+-- ë‹¤ì¤‘ ì»¬ëŸ¼ ì¡°íšŒ
 
 select first_name, last_name from employees;
 
@@ -31,17 +31,17 @@ from
 select first_name, last_name, email, salary, phone_number 
     from employees;
 
---¿ÍÀÏµå Ä«µå »ç¿ë    
-select * --¿ÍÀÏµåÄ«µå(*) > ¸ğµç ÄÃ·³
+--ì™€ì¼ë“œ ì¹´ë“œ ì‚¬ìš©    
+select * --ì™€ì¼ë“œì¹´ë“œ(*) > ëª¨ë“  ì»¬ëŸ¼
     from employees;
     
--- selectÀıÀÇ ÄÃ·³ ¸®½ºÆ®ÀÇ ÄÃ·³ ¼ø¼­´Â ¿øº» Å×ÀÌºíÀÇ ÄÃ·³ ¼ø¼­¿Í ¹«°üÇÏ´Ù.
+-- selectì ˆì˜ ì»¬ëŸ¼ ë¦¬ìŠ¤íŠ¸ì˜ ì»¬ëŸ¼ ìˆœì„œëŠ” ì›ë³¸ í…Œì´ë¸”ì˜ ì»¬ëŸ¼ ìˆœì„œì™€ ë¬´ê´€í•˜ë‹¤.
 select last_name, first_name from employees;
 
--- °°Àº ÄÃ·³À» ¹İº¹ÇØ¼­ °¡Á®¿À´Â °Íµµ °¡´ÉÇÏ´Ù.(ÇÏÁö¸¸ ±×·² ÀÏ x)
+-- ê°™ì€ ì»¬ëŸ¼ì„ ë°˜ë³µí•´ì„œ ê°€ì ¸ì˜¤ëŠ” ê²ƒë„ ê°€ëŠ¥í•˜ë‹¤.(í•˜ì§€ë§Œ ê·¸ëŸ´ ì¼ x)
 select first_name, first_name from employees;   
 
--- °¡°øÇØ¼­´Â »ç¿ëÇÔ!
+-- ê°€ê³µí•´ì„œëŠ” ì‚¬ìš©í•¨!
 select first_name, length(first_name) from employees;   
 
 
@@ -57,16 +57,16 @@ create table zipcode  (
 
 select count(*) from zipcode;
 
-select * from tblAddressBook; --ÁÖ¼Ò·Ï
-select * from tblComedian; --ÄÚ¹Ìµğ¾ğ
-select * from tblCountry; --±¹°¡Á¤º¸
-select * from tblDiary; --´ÙÀÌ¾î¸®
-select * from tblHousekeeping; --°¡°èºÎ
-select * from tblInsa; --Á÷¿øÁ¤º¸
-select * from tblMen; --³²ÀÚ
-select * from tblWomen; --¿©ÀÚ
-select * from tblTodo; --ÇÒÀÏ
-select * from tblZoo; --µ¿¹°
+select * from tblAddressBook; --ì£¼ì†Œë¡
+select * from tblComedian; --ì½”ë¯¸ë””ì–¸
+select * from tblCountry; --êµ­ê°€ì •ë³´
+select * from tblDiary; --ë‹¤ì´ì–´ë¦¬
+select * from tblHousekeeping; --ê°€ê³„ë¶€
+select * from tblInsa; --ì§ì›ì •ë³´
+select * from tblMen; --ë‚¨ì
+select * from tblWomen; --ì—¬ì
+select * from tblTodo; --í• ì¼
+select * from tblZoo; --ë™ë¬¼
 
 
 

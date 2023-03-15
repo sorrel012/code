@@ -2,7 +2,7 @@
 
 SELECT *
     FROM tblCountry
-        where name = '´ëÇÑ¹Î±¹';
+        where name = 'ï¿½ï¿½ï¿½Ñ¹Î±ï¿½';
         
 select *
     from tblCountry
@@ -18,42 +18,91 @@ select *
         
 select *
     from tblInsa
-        where buseo = '°³¹ßºÎ';
+        where buseo = 'ï¿½ï¿½ï¿½ßºï¿½';
         
 select *
     from tblInsa
-        where buseo<> '°³¹ßºÎ';
+        where buseo<> 'ï¿½ï¿½ï¿½ßºï¿½';
         
 select *
     from tblInsa
-        where buseo =  '°³¹ßºÎ' and jikwi = 'ºÎÀå';       
+        where buseo =  'ï¿½ï¿½ï¿½ßºï¿½' and jikwi = 'ï¿½ï¿½ï¿½ï¿½';       
         
 select *
     from tblInsa
-        where city = '¼­¿ï' or city = '°æ±â';
+        where city = 'ï¿½ï¿½ï¿½ï¿½' or city = 'ï¿½ï¿½ï¿½';
         
 select *
     from tblInsa
-        where not buseo = '°³¹ßºÎ';
+        where not buseo = 'ï¿½ï¿½ï¿½ßºï¿½';
 
 -- tblComedian
---1. ¸ö¹«°Ô°¡ 60kg ÀÌ»óÀÌ°í, 170cm ¹Ì¸¸ÀÎ »ç¶÷À» °¡Á®¿À½Ã¿À > 3¸í
+--1. ï¿½ï¿½ï¿½ï¿½ï¿½Ô°ï¿½ 60kg ï¿½Ì»ï¿½ï¿½Ì°ï¿½, 170cm ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ > 3ï¿½ï¿½
 select *
     from tblComedian
         where weight >= 60 and height < 170;
         
---2. ¸ö¹«°Ô°¡ 70kg ÀÌÇÏÀÎ ¿©ÀÚ¸¸ °¡Á®¿À½Ã¿À. 1¸í
+--2. ï¿½ï¿½ï¿½ï¿½ï¿½Ô°ï¿½ 70kg ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½. 1ï¿½ï¿½
+select *
+    from tblComedian
+        where weight <= 70 and gender = 'f';
+
+--where
+
+SELECT *
+    FROM tblCountry
+        where name = 'ëŒ€í•œë¯¼êµ­';
+        
+select *
+    from tblCountry
+        where continent = 'AS';
+        
+select *
+    from tblInsa
+        where basicpay > 2000000;
+    
+select *
+    from tblInsa
+        where basicpay <= 2000000;    
+        
+select *
+    from tblInsa
+        where buseo = 'ê°œë°œë¶€';
+        
+select *
+    from tblInsa
+        where buseo<> 'ê°œë°œë¶€';
+        
+select *
+    from tblInsa
+        where buseo =  'ê°œë°œë¶€' and jikwi = 'ë¶€ì¥';       
+        
+select *
+    from tblInsa
+        where city = 'ì„œìš¸' or city = 'ê²½ê¸°';
+        
+select *
+    from tblInsa
+        where not buseo = 'ê°œë°œë¶€';
+
+-- tblComedian
+--1. ëª¸ë¬´ê²Œê°€ 60kg ì´ìƒì´ê³ , 170cm ë¯¸ë§Œì¸ ì‚¬ëŒì„ ê°€ì ¸ì˜¤ì‹œì˜¤ > 3ëª…
+select *
+    from tblComedian
+        where weight >= 60 and height < 170;
+        
+--2. ëª¸ë¬´ê²Œê°€ 70kg ì´í•˜ì¸ ì—¬ìë§Œ ê°€ì ¸ì˜¤ì‹œì˜¤. 1ëª…
 select *
     from tblComedian
         where weight <= 70 and gender = 'f';
 
 --tblInsa
---3. ºÎ¼­°¡ '°³¹ßºÎ'ÀÌ°í, ±Ş¿©¸¦ 150¸¸¿ø ÀÌ»ó ¹Ş´Â Á÷¿øÀ» °¡Á®¿À½Ã¿À  4’D
+--3. ë¶€ì„œê°€ 'ê°œë°œë¶€'ì´ê³ , ê¸‰ì—¬ë¥¼ 150ë§Œì› ì´ìƒ ë°›ëŠ” ì§ì›ì„ ê°€ì ¸ì˜¤ì‹œì˜¤  4Â’D
 select * 
     from tblInsa
-        where buseo='°³¹ßºÎ' and basicpay >= 1500000;
+        where buseo='ê°œë°œë¶€' and basicpay >= 1500000;
 
---4. ±Ş¿© + ¼ö´çÀ» ÇÕÇÑ ±İ¾×ÀÌ 200¸¸¿ø ÀÌ»óÀÎ Á÷¿øÀ» °¡Á®¿À½Ã¿À > 26¸í
+--4. ê¸‰ì—¬ + ìˆ˜ë‹¹ì„ í•©í•œ ê¸ˆì•¡ì´ 200ë§Œì› ì´ìƒì¸ ì§ì›ì„ ê°€ì ¸ì˜¤ì‹œì˜¤ > 26ëª…
 select *
     from tblInsa
         where (basicpay + sudang) >= 2000000;
@@ -63,8 +112,8 @@ select *
     from tblComedian
         where height between 172 and 178;
 
---ºñ±³Çü
---1. ¼ıÀÚÇü
+--ë¹„êµí˜•
+--1. ìˆ«ìí˜•
 select *
     from tblInsa
         where basicpay >= 1500000 and basicpay <= 2000000;
@@ -73,53 +122,53 @@ select *
     from tblInsa
         where basicpay between 1500000 and 2000000;
 
---2. ¹®ÀÚÇü
-select * from tblInsa where name >= '¹Ú';
-select * from tblInsa where name between '¹Ú' and 'À¯';
+--2. ë¬¸ìí˜•
+select * from tblInsa where name >= 'ë°•';
+select * from tblInsa where name between 'ë°•' and 'ìœ ';
 
---3. ³¯Â¥½Ã°£Çü
+--3. ë‚ ì§œì‹œê°„í˜•
 desc tblInsa;
-select * from tblInsa where ibsadate >= '2000-01-01'; --2000³â ÀÌÈÄ¿¡ ÀÔ»çÇÑ Á÷¿øµé
+select * from tblInsa where ibsadate >= '2000-01-01'; --2000ë…„ ì´í›„ì— ì…ì‚¬í•œ ì§ì›ë“¤
 select * from tblInsa where ibsadate between '2000-01-01' and '2000-12-31';
 
--- È«º¸ºÎ or °³¹ßºÎ
-select * from tblInsa where buseo = 'È«º¸ºÎ' or buseo = '°³¹ßºÎ';
-select * from tblInsa where buseo in ('È«º¸ºÎ', '°³¹ßºÎ');
+-- í™ë³´ë¶€ or ê°œë°œë¶€
+select * from tblInsa where buseo = 'í™ë³´ë¶€' or buseo = 'ê°œë°œë¶€';
+select * from tblInsa where buseo in ('í™ë³´ë¶€', 'ê°œë°œë¶€');
 
 select * from tblInsa
-    where jikwi in('°úÀå', 'ºÎÀå') and city in ('¼­¿ï', 'ÀÎÃµ')
+    where jikwi in('ê³¼ì¥', 'ë¶€ì¥') and city in ('ì„œìš¸', 'ì¸ì²œ')
         and basicpay between 2500000 and 3000000;
 
--- ÆĞÅÏ ¹®ÀÚ¿­
+-- íŒ¨í„´ ë¬¸ìì—´
 -- like, _, %
 
 -- _
-select name from tblInsa where name like '±è__';
-select name from tblInsa where name like '__¼ö';
-select name from tblInsa where name like '_±æ_';
+select name from tblInsa where name like 'ê¹€__';
+select name from tblInsa where name like '__ìˆ˜';
+select name from tblInsa where name like '_ê¸¸_';
 
 --%
-select name from tblInsa where name like '±è%';
-select * from tblAddressBook where address like '¼­¿ïÆ¯º°½Ã%';
-select * from tblAddressBook where address like '%µ¿´ë¹®±¸%';
-select * from tblAddressBook where name like 'ÀÌ%';
-select * from tblAddressBook where name like '%ÀÌ';
-select * from tblAddressBook where name like '%ÀÌ%';
+select name from tblInsa where name like 'ê¹€%';
+select * from tblAddressBook where address like 'ì„œìš¸íŠ¹ë³„ì‹œ%';
+select * from tblAddressBook where address like '%ë™ëŒ€ë¬¸êµ¬%';
+select * from tblAddressBook where name like 'ì´%';
+select * from tblAddressBook where name like '%ì´';
+select * from tblAddressBook where name like '%ì´%';
 
---¿©Á÷¿ø¸¸
+--ì—¬ì§ì›ë§Œ
 select * from tblInsa where ssn like '______-2______';
 select * from tblInsa where ssn like '%-2%';
 
 
 /*
-    RDBS¿¡¼­ÀÇ null
-    -ÀÚ¹ÙÀÇ null°ú À¯»ç
-    - ÄÃ·´°ª(¼¿)ÀÌ ºñ¾îÀÖ´Â »óÅÂ
-    - null »ó¼ö Á¦°ø
-    - ´ëºÎºĞÀÇ ¾ğ¾î¿¡¼­ nullÀº ¿¬»êÀÇ ´ë»óÀÌ µÉ ¼ö ¾ø´Ù.¡Ú¡Ú¡Ú¡Ú¡Ú
+    RDBSì—ì„œì˜ null
+    -ìë°”ì˜ nullê³¼ ìœ ì‚¬
+    - ì»¬ëŸ½ê°’(ì…€)ì´ ë¹„ì–´ìˆëŠ” ìƒíƒœ
+    - null ìƒìˆ˜ ì œê³µ
+    - ëŒ€ë¶€ë¶„ì˜ ì–¸ì–´ì—ì„œ nullì€ ì—°ì‚°ì˜ ëŒ€ìƒì´ ë  ìˆ˜ ì—†ë‹¤.â˜…â˜…â˜…â˜…â˜…
     
-    null Á¶°Ç
-    - whereÀı¿¡¼­ »ç¿ë
+    null ì¡°ê±´
+    - whereì ˆì—ì„œ ì‚¬ìš©
     
 */
 
@@ -129,207 +178,207 @@ select * from tblCountry where population is not null;
 
 select * from tblInsa where tel is null;
 
--- ¾ÆÁ÷ ½ÇÇàÇÏÁö ¾ÊÀº ÀÏ
+-- ì•„ì§ ì‹¤í–‰í•˜ì§€ ì•Šì€ ì¼
 select * from tblTodo where completedate is null;
 
---¿Ï·áÇÑ ÀÏ
+--ì™„ë£Œí•œ ì¼
 select * from tblTodo where completedate is not null;
 
 
 
--- ¿ä±¸»çÇ×.001.tblCountry
--- ¸ğµç Çà°ú ¸ğµç ÄÃ·³À» °¡Á®¿À½Ã¿À.
+-- ìš”êµ¬ì‚¬í•­.001.tblCountry
+-- ëª¨ë“  í–‰ê³¼ ëª¨ë“  ì»¬ëŸ¼ì„ ê°€ì ¸ì˜¤ì‹œì˜¤.
 select * from tblCountry;
 
 
--- ¿ä±¸»çÇ×.002.tblCountry
--- ±¹°¡¸í°ú ¼öµµ¸íÀ» °¡Á®¿À½Ã¿À.
+-- ìš”êµ¬ì‚¬í•­.002.tblCountry
+-- êµ­ê°€ëª…ê³¼ ìˆ˜ë„ëª…ì„ ê°€ì ¸ì˜¤ì‹œì˜¤.
 select name, capital from tblCountry;
 
 
--- ¿ä±¸»çÇ×.003.tblCountry
--- ¾Æ·¡¿Í °°ÀÌ °¡Á®¿À½Ã¿À
--- [±¹°¡¸í]    [¼öµµ¸í]   [ÀÎ±¸¼ö]   [¸éÀû]    [´ë·ú] <- ÄÃ·³¸í
--- ´ëÇÑ¹Î±¹   ¼­¿ï        4403       101       AS     <- µ¥ÀÌÅÍ
+-- ìš”êµ¬ì‚¬í•­.003.tblCountry
+-- ì•„ë˜ì™€ ê°™ì´ ê°€ì ¸ì˜¤ì‹œì˜¤
+-- [êµ­ê°€ëª…]    [ìˆ˜ë„ëª…]   [ì¸êµ¬ìˆ˜]   [ë©´ì ]    [ëŒ€ë¥™] <- ì»¬ëŸ¼ëª…
+-- ëŒ€í•œë¯¼êµ­   ì„œìš¸        4403       101       AS     <- ë°ì´í„°
 select 
-    name as "[±¹°¡¸í]",
-    capital as "[¼öµµ¸í]", 
-    population as "[ÀÎ±¸¼ö]", 
-    area as "[¸éÀû]", 
-    continent as "[´ë·ú]"  
+    name as "[êµ­ê°€ëª…]",
+    capital as "[ìˆ˜ë„ëª…]", 
+    population as "[ì¸êµ¬ìˆ˜]", 
+    area as "[ë©´ì ]", 
+    continent as "[ëŒ€ë¥™]"  
 from tblCountry;
 
 
---¿ä±¸»çÇ×.004.tblCountry
---¾Æ·¡¿Í °°ÀÌ °¡Á®¿À½Ã¿À
--- [±¹°¡Á¤º¸] <- ÄÃ·³¸í
--- ±¹°¡¸í: ´ëÇÑ¹Î±¹, ¼öµµ¸í: ¼­¿ï, ÀÎ±¸¼ö: 4403   <- µ¥ÀÌÅÍ
+--ìš”êµ¬ì‚¬í•­.004.tblCountry
+--ì•„ë˜ì™€ ê°™ì´ ê°€ì ¸ì˜¤ì‹œì˜¤
+-- [êµ­ê°€ì •ë³´] <- ì»¬ëŸ¼ëª…
+-- êµ­ê°€ëª…: ëŒ€í•œë¯¼êµ­, ìˆ˜ë„ëª…: ì„œìš¸, ì¸êµ¬ìˆ˜: 4403   <- ë°ì´í„°
 select
-    '±¹°¡¸í: ' || name || ', ¼öµµ¸í: ' || capital || ', ÀÎ±¸¼ö: ' || population as "[±¹°¡Á¤º¸]"
+    'êµ­ê°€ëª…: ' || name || ', ìˆ˜ë„ëª…: ' || capital || ', ì¸êµ¬ìˆ˜: ' || population as "[êµ­ê°€ì •ë³´]"
 from tblCountry;
 
---¿ä±¸»çÇ×.005
---¾Æ·¡¿Í °°ÀÌ °¡Á®¿À½Ã¿À.employees
--- [ÀÌ¸§]                 [ÀÌ¸ŞÀÏ]                 [¿¬¶ôÃ³]            [±Ş¿©]
+--ìš”êµ¬ì‚¬í•­.005
+--ì•„ë˜ì™€ ê°™ì´ ê°€ì ¸ì˜¤ì‹œì˜¤.employees
+-- [ì´ë¦„]                 [ì´ë©”ì¼]                 [ì—°ë½ì²˜]            [ê¸‰ì—¬]
 -- Steven King           SKING@gmail.com   515.123.4567      $24000
 select 
-    first_name || ' ' || last_name as "[ÀÌ¸§]",
-    email as "[ÀÌ¸ŞÀÏ]", 
-    phone_number as "[¿¬¶ôÃ³]", 
-    salary as "±Ş¿©" 
+    first_name || ' ' || last_name as "[ì´ë¦„]",
+    email as "[ì´ë©”ì¼]", 
+    phone_number as "[ì—°ë½ì²˜]", 
+    salary as "ê¸‰ì—¬" 
 from employees;
 
 
---¿ä±¸»çÇ×.006.tblCountry
---¸éÀû(area)ÀÌ 100ÀÌÇÏÀÎ ±¹°¡ÀÇ ÀÌ¸§°ú ¸éÀûÀ» °¡Á®¿À½Ã¿À.
+--ìš”êµ¬ì‚¬í•­.006.tblCountry
+--ë©´ì (area)ì´ 100ì´í•˜ì¸ êµ­ê°€ì˜ ì´ë¦„ê³¼ ë©´ì ì„ ê°€ì ¸ì˜¤ì‹œì˜¤.
 select name, area 
     from tblCountry
         where area <= 100;
 
 
---¿ä±¸»çÇ×.007.tblCountry
---¾Æ½Ã¾Æ¿Í À¯·´ ´ë·ú¿¡ ¼ÓÇÑ ³ª¶ó¸¦ °¡Á®¿À½Ã¿À.
+--ìš”êµ¬ì‚¬í•­.007.tblCountry
+--ì•„ì‹œì•„ì™€ ìœ ëŸ½ ëŒ€ë¥™ì— ì†í•œ ë‚˜ë¼ë¥¼ ê°€ì ¸ì˜¤ì‹œì˜¤.
 select name
     from tblCountry
         where continent in ('AS', 'EU');
 
 
---¿ä±¸»çÇ×.008.employees
---Á÷¾÷(job_id)ÀÌ ÇÁ·Î±×·¡¸Ó(it_prog)ÀÎ Á÷¿øÀÇ ÀÌ¸§(Ç®³×ÀÓ)°ú ¿¬¶ôÃ³ °¡Á®¿À½Ã¿À.
+--ìš”êµ¬ì‚¬í•­.008.employees
+--ì§ì—…(job_id)ì´ í”„ë¡œê·¸ë˜ë¨¸(it_prog)ì¸ ì§ì›ì˜ ì´ë¦„(í’€ë„¤ì„)ê³¼ ì—°ë½ì²˜ ê°€ì ¸ì˜¤ì‹œì˜¤.
 select (first_name || ' ' || last_name), phone_number
     from employees 
         where job_id = 'IT_PROG';
 
 
---¿ä±¸»çÇ×.009.employees
---last_nameÀÌ 'Grant'ÀÎ Á÷¿øÀÇ ÀÌ¸§, ¿¬¶ôÃ³, °í¿ë³¯Â¥¸¦ °¡Á®¿À½Ã¿À.
+--ìš”êµ¬ì‚¬í•­.009.employees
+--last_nameì´ 'Grant'ì¸ ì§ì›ì˜ ì´ë¦„, ì—°ë½ì²˜, ê³ ìš©ë‚ ì§œë¥¼ ê°€ì ¸ì˜¤ì‹œì˜¤.
 select (first_name || ' ' || last_name), phone_number, hire_date
     from employees
         where last_name = 'Grant';
         
 
---¿ä±¸»çÇ×.010.employees
---Æ¯Á¤ ¸Å´ÏÀú(manager_id: 120)ÀÌ °ü¸®ÇÏ´Â Á÷¿øÀÇ ÀÌ¸§, ±Ş¿©, ¿¬¶ôÃ³¸¦ °¡Á®¿À½Ã¿À.
+--ìš”êµ¬ì‚¬í•­.010.employees
+--íŠ¹ì • ë§¤ë‹ˆì €(manager_id: 120)ì´ ê´€ë¦¬í•˜ëŠ” ì§ì›ì˜ ì´ë¦„, ê¸‰ì—¬, ì—°ë½ì²˜ë¥¼ ê°€ì ¸ì˜¤ì‹œì˜¤.
 select (first_name || ' ' || last_name), salary, phone_number
     from employees
         where manager_id=120;
 
 
---¿ä±¸»çÇ×.011.employees
---Æ¯Á¤ ºÎ¼­(60, 80, 100)¿¡ ¼ÓÇÑ Á÷¿øµéÀÇ ÀÌ¸§, ¿¬¶ôÃ³, ÀÌ¸ŞÀÏ, ºÎ¼­ID °¡Á®¿À½Ã¿À.
+--ìš”êµ¬ì‚¬í•­.011.employees
+--íŠ¹ì • ë¶€ì„œ(60, 80, 100)ì— ì†í•œ ì§ì›ë“¤ì˜ ì´ë¦„, ì—°ë½ì²˜, ì´ë©”ì¼, ë¶€ì„œID ê°€ì ¸ì˜¤ì‹œì˜¤.
 select (first_name || ' ' || last_name), phone_number, email, department_id
     from employees
         where department_id in(60, 80, 100);
 
 
---¿ä±¸»çÇ×.012.tblInsa
---±âÈ¹ºÎ Á÷¿øµé °¡Á®¿À½Ã¿À.
+--ìš”êµ¬ì‚¬í•­.012.tblInsa
+--ê¸°íšë¶€ ì§ì›ë“¤ ê°€ì ¸ì˜¤ì‹œì˜¤.
 select * 
     from tblInsa
-        where buseo = '±âÈ¹ºÎ';
+        where buseo = 'ê¸°íšë¶€';
 
---¿ä±¸»çÇ×.013.tblInsa
---¼­¿ï¿¡ ÀÖ´Â Á÷¿øµé Áß Á÷À§°¡ ºÎÀåÀÎ »ç¶÷ÀÇ ÀÌ¸§, Á÷À§, ÀüÈ­¹øÈ£ °¡Á®¿À½Ã¿À.
+--ìš”êµ¬ì‚¬í•­.013.tblInsa
+--ì„œìš¸ì— ìˆëŠ” ì§ì›ë“¤ ì¤‘ ì§ìœ„ê°€ ë¶€ì¥ì¸ ì‚¬ëŒì˜ ì´ë¦„, ì§ìœ„, ì „í™”ë²ˆí˜¸ ê°€ì ¸ì˜¤ì‹œì˜¤.
 select name, jikwi, tel, city
     from tblInsa
-        where city = '¼­¿ï' and jikwi = 'ºÎÀå';
+        where city = 'ì„œìš¸' and jikwi = 'ë¶€ì¥';
 
 
---¿ä±¸»çÇ×.014.tblInsa
---±âº»±Ş¿© + ¼ö´ç ÇÕÃÄ¼­ 150¸¸¿ø ÀÌ»óÀÎ Á÷¿ø Áß ¼­¿ï¿¡ Á÷¿ø¸¸ °¡Á®¿À½Ã¿À.
+--ìš”êµ¬ì‚¬í•­.014.tblInsa
+--ê¸°ë³¸ê¸‰ì—¬ + ìˆ˜ë‹¹ í•©ì³ì„œ 150ë§Œì› ì´ìƒì¸ ì§ì› ì¤‘ ì„œìš¸ì— ì§ì›ë§Œ ê°€ì ¸ì˜¤ì‹œì˜¤.
 select *
     from tblInsa
-        where (basicpay + sudang) >= 1500000 and city = '¼­¿ï';
+        where (basicpay + sudang) >= 1500000 and city = 'ì„œìš¸';
 
 
---¿ä±¸»çÇ×.015.tblInsa
---¼ö´çÀÌ 15¸¸¿ø ÀÌÇÏÀÎ Á÷¿ø Áß Á÷À§°¡ »ç¿ø, ´ë¸®¸¸ °¡Á®¿À½Ã¿À.
+--ìš”êµ¬ì‚¬í•­.015.tblInsa
+--ìˆ˜ë‹¹ì´ 15ë§Œì› ì´í•˜ì¸ ì§ì› ì¤‘ ì§ìœ„ê°€ ì‚¬ì›, ëŒ€ë¦¬ë§Œ ê°€ì ¸ì˜¤ì‹œì˜¤.
 select *
     from tblInsa
-        where sudang <= 150000 and jikwi in('»ç¿ø', '´ë¸®');
+        where sudang <= 150000 and jikwi in('ì‚¬ì›', 'ëŒ€ë¦¬');
 
 
---¿ä±¸»çÇ×.016.tblInsa
---¼ö´çÀ» Á¦¿ÜÇÑ ±âº» ¿¬ºÀÀÌ 2Ãµ¸¸¿ø ÀÌ»ó, ¼­¿ï, Á÷À§ °úÀå(ºÎÀå)¸¸ °¡Á®¿À½Ã¿À.
+--ìš”êµ¬ì‚¬í•­.016.tblInsa
+--ìˆ˜ë‹¹ì„ ì œì™¸í•œ ê¸°ë³¸ ì—°ë´‰ì´ 2ì²œë§Œì› ì´ìƒ, ì„œìš¸, ì§ìœ„ ê³¼ì¥(ë¶€ì¥)ë§Œ ê°€ì ¸ì˜¤ì‹œì˜¤.
 select *
     from tblInsa
-        where basicpay*12 >= 20000000 and city = '¼­¿ï' and jikwi in ('°úÀå', 'ºÎÀå');
+        where basicpay*12 >= 20000000 and city = 'ì„œìš¸' and jikwi in ('ê³¼ì¥', 'ë¶€ì¥');
 
---¿ä±¸»çÇ×.017.tblCountry
---±¹°¡¸í 'O±¹'ÀÎ ³ª¶ó¸¦ °¡Á®¿À½Ã¿À.
+--ìš”êµ¬ì‚¬í•­.017.tblCountry
+--êµ­ê°€ëª… 'Oêµ­'ì¸ ë‚˜ë¼ë¥¼ ê°€ì ¸ì˜¤ì‹œì˜¤.
 select * 
     from tblCountry
-        where name like '_±¹';
+        where name like '_êµ­';
 
 
---¿ä±¸»çÇ×.018.employees
---¿¬¶ôÃ³°¡ 515·Î ½ÃÀÛÇÏ´Â Á÷¿øµé °¡Á®¿À½Ã¿À.
+--ìš”êµ¬ì‚¬í•­.018.employees
+--ì—°ë½ì²˜ê°€ 515ë¡œ ì‹œì‘í•˜ëŠ” ì§ì›ë“¤ ê°€ì ¸ì˜¤ì‹œì˜¤.
 select * 
     from employees
         where phone_number like '515%';
      
 
---¿ä±¸»çÇ×.019.employees
---Á÷¾÷ ID°¡ SA·Î ½ÃÀÛÇÏ´Â Á÷¿øµé °¡Á®¿À½Ã¿À.
+--ìš”êµ¬ì‚¬í•­.019.employees
+--ì§ì—… IDê°€ SAë¡œ ì‹œì‘í•˜ëŠ” ì§ì›ë“¤ ê°€ì ¸ì˜¤ì‹œì˜¤.
 select * 
     from employees
         where job_id like 'SA%';
     
     
---¿ä±¸»çÇ×.020.employees
---first_name¿¡ 'de'°¡ µé¾î°£ Á÷¿øµé °¡Á®¿À½Ã¿À.
+--ìš”êµ¬ì‚¬í•­.020.employees
+--first_nameì— 'de'ê°€ ë“¤ì–´ê°„ ì§ì›ë“¤ ê°€ì ¸ì˜¤ì‹œì˜¤.
 select * 
     from employees
         where first_name like '%de%';
 
 
---¿ä±¸»çÇ×.021.tblInsa
---³²ÀÚ Á÷¿ø¸¸ °¡Á®¿À½Ã¿À.
+--ìš”êµ¬ì‚¬í•­.021.tblInsa
+--ë‚¨ì ì§ì›ë§Œ ê°€ì ¸ì˜¤ì‹œì˜¤.
 select * 
     from tblInsa
         where ssn like '%-1%';
 
 
--- ¿ä±¸»çÇ×.022.tblInsa
---¿©ÀÚ Á÷¿ø¸¸ °¡Á®¿À½Ã¿À.   
+-- ìš”êµ¬ì‚¬í•­.022.tblInsa
+--ì—¬ì ì§ì›ë§Œ ê°€ì ¸ì˜¤ì‹œì˜¤.   
 select * 
     from tblInsa
         where ssn like '%-2%';
 
 
---¿ä±¸»çÇ×.023.tblInsa
---¿©¸§¿¡(7,8,9¿ù) ÅÂ¾î³­ Á÷¿øµé °¡Á®¿À½Ã¿À.
+--ìš”êµ¬ì‚¬í•­.023.tblInsa
+--ì—¬ë¦„ì—(7,8,9ì›”) íƒœì–´ë‚œ ì§ì›ë“¤ ê°€ì ¸ì˜¤ì‹œì˜¤.
 select * 
     from tblInsa
         where ssn like '__07%' or ssn like '__08%' or ssn like '__09%';
 
 
---¿ä±¸»çÇ×.024.tblInsa
---¼­¿ï, ÀÎÃµ¿¡ »ç´Â ±è¾¾¸¸ °¡Á®¿À½Ã¿À.    
+--ìš”êµ¬ì‚¬í•­.024.tblInsa
+--ì„œìš¸, ì¸ì²œì— ì‚¬ëŠ” ê¹€ì”¨ë§Œ ê°€ì ¸ì˜¤ì‹œì˜¤.    
 select *
     from tblInsa
-        where city in ('¼­¿ï', 'ÀÎÃµ') and name like '±è%';
+        where city in ('ì„œìš¸', 'ì¸ì²œ') and name like 'ê¹€%';
 
 
---¿ä±¸»çÇ×.025.tblInsa > 10
---¿µ¾÷ºÎ/ÃÑ¹«ºÎ/°³¹ßºÎ Á÷¿ø Áß »ç¿ø±Ş(»ç¿ø/´ë¸®) Áß¿¡ 010À» »ç¿ëÇÏ´Â Á÷¿øµéÀ» °¡Á®¿À½Ã¿À.
+--ìš”êµ¬ì‚¬í•­.025.tblInsa > 10
+--ì˜ì—…ë¶€/ì´ë¬´ë¶€/ê°œë°œë¶€ ì§ì› ì¤‘ ì‚¬ì›ê¸‰(ì‚¬ì›/ëŒ€ë¦¬) ì¤‘ì— 010ì„ ì‚¬ìš©í•˜ëŠ” ì§ì›ë“¤ì„ ê°€ì ¸ì˜¤ì‹œì˜¤.
 select *
     from tblInsa
-        where buseo in ('¿µ¾÷ºÎ', 'ÃÑ¹«ºÎ', '°³¹ßºÎ') 
-            and jikwi in('»ç¿ø', '´ë¸®')
+        where buseo in ('ì˜ì—…ë¶€', 'ì´ë¬´ë¶€', 'ê°œë°œë¶€') 
+            and jikwi in('ì‚¬ì›', 'ëŒ€ë¦¬')
             and tel like '010%';
 
 
---¿ä±¸»çÇ×.026.tblInsa > 18
---¼­¿ï/ÀÎÃµ/°æ±â¿¡ »ì°í ÀÔ»çÀÏÀÌ 1998~2000³â »çÀÌÀÎ Á÷¿øµéÀ» °¡Á®¿À½Ã¿À.
+--ìš”êµ¬ì‚¬í•­.026.tblInsa > 18
+--ì„œìš¸/ì¸ì²œ/ê²½ê¸°ì— ì‚´ê³  ì…ì‚¬ì¼ì´ 1998~2000ë…„ ì‚¬ì´ì¸ ì§ì›ë“¤ì„ ê°€ì ¸ì˜¤ì‹œì˜¤.
 select *
     from tblInsa
-        where city in ('¼­¿ï', 'ÀÎÃµ', '°æ±â') 
+        where city in ('ì„œìš¸', 'ì¸ì²œ', 'ê²½ê¸°') 
             and ibsadate between '1998-01-01' and '2000-12-31';
 
 
---¿ä±¸»çÇ×.027.employees > 1
---ºÎ¼­°¡ ¾ÆÁ÷ ¹èÁ¤ ¾ÈµÈ Á÷¿øµéÀ» °¡Á®¿À½Ã¿À. (department_id°¡ ¾ø´Â Á÷¿ø)
+--ìš”êµ¬ì‚¬í•­.027.employees > 1
+--ë¶€ì„œê°€ ì•„ì§ ë°°ì • ì•ˆëœ ì§ì›ë“¤ì„ ê°€ì ¸ì˜¤ì‹œì˜¤. (department_idê°€ ì—†ëŠ” ì§ì›)
 select *
     from employees
         where department_id is null;

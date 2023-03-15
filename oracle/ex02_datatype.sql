@@ -1,8 +1,8 @@
 
--- Å×ÀÌºí »ı¼º
+-- í…Œì´ë¸” ìƒì„±
 
--- ¼ö¾÷ ÄÚµå ÄÁº¥¼Ç
--- - °´Ã¼ »ı¼º > °´Ã¼ Á¢µÎ¾î »ç¿ë
+-- ìˆ˜ì—… ì½”ë“œ ì»¨ë²¤ì…˜
+-- - ê°ì²´ ìƒì„± > ê°ì²´ ì ‘ë‘ì–´ ì‚¬ìš©
 create table tblType (
 
 --    num number
@@ -14,22 +14,22 @@ create table tblType (
 
 );
 
--- Å×ÀÌºí »èÁ¦
+-- í…Œì´ë¸” ì‚­ì œ
 drop table tblType;
 
--- Å×ÀÌºíÀÌ »ı¼ºµÇ¾ú´ÂÁö È®ÀÎÇÏ´Â ¹æ¹ı
--- 1. SQL ¸í·É¾î > ¸ğµç ÅøÀÌ µ¿ÀÏÇÏ°Ô ¹İÀÀ
+-- í…Œì´ë¸”ì´ ìƒì„±ë˜ì—ˆëŠ”ì§€ í™•ì¸í•˜ëŠ” ë°©ë²•
+-- 1. SQL ëª…ë ¹ì–´ > ëª¨ë“  íˆ´ì´ ë™ì¼í•˜ê²Œ ë°˜ì‘
 select * from tabs;
 
---2. Åø¸¶´Ù ±â´ÉÀÌ ´Ù¸§
+--2. íˆ´ë§ˆë‹¤ ê¸°ëŠ¥ì´ ë‹¤ë¦„
 
 
--- µ¥ÀÌÅÍ Ãß°¡ÇÏ±â
+-- ë°ì´í„° ì¶”ê°€í•˜ê¸°
 insert into tblType (num) values (100);
 insert into tblType (num) values (200);
 insert into tblType (num) values (300);
 
-insert into tblType (num) values (3.14); --½Ç¼öÇü ¸®ÅÍ·²
+insert into tblType (num) values (3.14); --ì‹¤ìˆ˜í˜• ë¦¬í„°ëŸ´
 
 insert into tblType (num) values (-100);
 
@@ -48,22 +48,22 @@ insert into tblType (num) values (99.99);
 insert into tblType (num) values (-99.99);
 
 
-insert into tblType (txt1) values ('A'); --¹®ÀÚ¿­ ¸®ÅÍ·²
+insert into tblType (txt1) values ('A'); --ë¬¸ìì—´ ë¦¬í„°ëŸ´
 
---10¹ÙÀÌÆ® > ¸î ±ÛÀÚ ? > ¿À¶óÅ¬ ÀÎÄÚµù > UTF-8 > ¿µ¾î(1), ÇÑ±Û(3)
+--10ë°”ì´íŠ¸ > ëª‡ ê¸€ì ? > ì˜¤ë¼í´ ì¸ì½”ë”© > UTF-8 > ì˜ì–´(1), í•œê¸€(3)
 insert into tblType (txt1) values ('ABCDEFGHUJ');
-insert into tblType (txt1) values ('ABCDEFGHUJK'); --¿À¹öÇÃ·Î¿ì
+insert into tblType (txt1) values ('ABCDEFGHUJK'); --ì˜¤ë²„í”Œë¡œìš°
 
-insert into tblType (txt1) values ('°¡');
-insert into tblType (txt1) values ('°¡³ª´Ù');
-insert into tblType (txt1) values ('°¡³ª´Ù¶ó'); --¿À¹öÇÃ·Î¿ì
+insert into tblType (txt1) values ('ê°€');
+insert into tblType (txt1) values ('ê°€ë‚˜ë‹¤');
+insert into tblType (txt1) values ('ê°€ë‚˜ë‹¤ë¼'); --ì˜¤ë²„í”Œë¡œìš°
 
 insert into tblType (txt1, txt2) values('ABC', 'ABC');
 
 
--- µ¥ÀÌÅÍ È®ÀÎ
+-- ë°ì´í„° í™•ì¸
 --1. 
 select * from tblType;
 
--- ÇöÀç ½Ã°£
+-- í˜„ì¬ ì‹œê°„
 select sysdate from dual;
