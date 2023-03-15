@@ -94,3 +94,12 @@ from tblCountry;
 --2. 차등 지급: 총지급액 / 참여 직원수 = sum() / count(참여직원수)  > avg()
 
 
+/*min , max*/
+
+
+select max(height), min(height) from tblComedian; --숫자형
+select max(name), min(name) from tblInsa; --문자형
+select max(ibsadate), min(ibsadate) from tblInsa; --날짜형
+
+
+
