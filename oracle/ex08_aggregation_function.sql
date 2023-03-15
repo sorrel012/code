@@ -77,6 +77,20 @@ select
 from tblInsa;
 
 
+/*avg*/
+select sum(basicpay) / count(*) from tblInsa;
 
+select avg(basicpay) from tblInsa;
+
+-- 평균 인구수 
+select 
+    avg(population) as "평균1",
+    sum(population) / count(*) as "평균2",
+    sum(population) / count(population) as "평균3"
+from tblCountry;
+
+-- 회사 > 성과급 지급 > 성과급 출처 : 1팀 공로
+--1. 균등 지급: 총지급액 / 모든 직원수 = sum() / count(*)
+--2. 차등 지급: 총지급액 / 참여 직원수 = sum() / count(참여직원수)  > avg()
 
 
