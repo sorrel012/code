@@ -5,3 +5,7 @@
 -- value larger than specified precision allowed for this column
 	- 자료형의 범위를 벗어남 > overflow 발생
 		> 자료형을 변경하거나, 값을 변경
+
+-- not a single-group group function
+	- 컬럼 리스트에 집계 함수와 일반 컬럼을 동시에 사용함.
+		> 해결 불가.. 따로따로 가져와야 함.
