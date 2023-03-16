@@ -41,7 +41,7 @@ select
 from tblInsa;
     
 select
-count(case
+    count(case
         when substr(name, 1, 1) = '김' then 1
     end) as "김",
     count(case
