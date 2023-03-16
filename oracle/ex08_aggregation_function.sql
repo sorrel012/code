@@ -248,3 +248,24 @@ select
     min(basicpay + sudang)
 from tblInsa;
 
+
+-- 요구사항] 직원들의 이름과 총직원수를 가져오시오.
+select name, count(*) from tblInsa;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
