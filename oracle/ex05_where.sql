@@ -2,55 +2,6 @@
 
 SELECT *
     FROM tblCountry
-        where name = '���ѹα�';
-        
-select *
-    from tblCountry
-        where continent = 'AS';
-        
-select *
-    from tblInsa
-        where basicpay > 2000000;
-    
-select *
-    from tblInsa
-        where basicpay <= 2000000;    
-        
-select *
-    from tblInsa
-        where buseo = '���ߺ�';
-        
-select *
-    from tblInsa
-        where buseo<> '���ߺ�';
-        
-select *
-    from tblInsa
-        where buseo =  '���ߺ�' and jikwi = '����';       
-        
-select *
-    from tblInsa
-        where city = '����' or city = '���';
-        
-select *
-    from tblInsa
-        where not buseo = '���ߺ�';
-
--- tblComedian
---1. �����԰� 60kg �̻��̰�, 170cm �̸��� ����� �������ÿ� > 3��
-select *
-    from tblComedian
-        where weight >= 60 and height < 170;
-        
---2. �����԰� 70kg ������ ���ڸ� �������ÿ�. 1��
-select *
-    from tblComedian
-        where weight <= 70 and gender = 'f';
-
---where
-
-SELECT *
-    FROM tblCountry
         where name = '대한민국';
         
 select *
@@ -165,7 +116,7 @@ select * from tblInsa where ssn like '%-2%';
     -자바의 null과 유사
     - 컬럽값(셀)이 비어있는 상태
     - null 상수 제공
-    - 대부분의 언어에서 null은 연산의 대상이 될 수 없다.★★★★★
+    - 대부분의 언어에서 null은 연산의 대상이 될 수 없다.*****
     
     null 조건
     - where절에서 사용
