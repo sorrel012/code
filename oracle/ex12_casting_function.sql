@@ -33,6 +33,9 @@ select
     to_char(1234567.89, '9,999,999.9')
 from dual;
 
+
+/*2. to_char(날짜)*/
+
 select sysdate from dual;
 select to_char(sysdate) from dual;
 select to_char(sysdate, 'yyyy') from dual;  --년(4자리)*****
@@ -78,5 +81,42 @@ from tblInsa;
 --날짜 상수
 --입사 날짜 > 2000년 이후
 select * from tblInsa
-    where ibsadate >= '2000-01-01';
+    where ibsadate >= '2000-01-01';  -- '2000-01-01' > 문자열
+
+-- 2000년 입사    
+select * from tblInsa
+    where ibsadate between '2000-01-01' and '2000-12-31'; --!!!!!!!!!!!!!!오답
+    -- 날짜 상수 > 자동으로 00:00:00 > 자정으로 세팅된다.
+
+select * from tblInsa
+    where to_char(ibsadate, 'yyyy') = '2000';
+
+
+/* 3. to_number */
+
+select 
+    123 * 2,
+    to_number('123') * 2,
+    '123' * 2
+from dual;
+
+
+/* 4. to_date */
+
+select
+    sysdate,
+    '2023-03-16',
+    to_date('2023-03-16') as time1, 
+    to_date('2023-03-16' , 'yyyy-mm-dd') as time2,
+    to_date('20230316') as time3,
+    to_date('20230316', 'yyyy-mm-dd') as time4,
+    to_date('2023/03/16') as time5,
+    to_date('2023/03/16', 'yyyy/mm/dd') as time6,
+    to_date('2023-03-16 15:28:25', 'yyyy-mm-dd hh24:mi:ss') as time7 --*******
+from dual;
+
+--2000년에 입사한 직원
+select * from tblInsa
+    where ibsadate between to_date('2000-01-01 00:00:00', 'yyyy-mm-dd hh24:mi:ss') 
+        and to_date('2000-12-31 23:59:59', 'yyyy-mm-dd hh24:mi:ss');
 
