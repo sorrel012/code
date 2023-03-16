@@ -1,7 +1,16 @@
 --name is already used by an existing object
-	- 이미 있는 이름을 또 사용하하려고 함.
+	- 이미 있는 이름을 또 사용
 		> 이름을 변경하여 다시 시도
 		
 -- value larger than specified precision allowed for this column
 	- 자료형의 범위를 벗어남 > overflow 발생
 		> 자료형을 변경하거나, 값을 변경
+
+-- not a single-group group function
+	- 컬럼 리스트에 집계 함수와 일반 컬럼을 동시에 사용
+		> 해결 불가.. 따로따로 가져와야 함. (어떻게든 할 수는 있지만 기본적으로는 x)
+
+-- group function is not allowed here
+	- where 절에 집계 함수를 사용
+		> 해결 불가... where절은 집합값에 대한 접근이 불가능 (어떻게든 할 수는 있지만 기본적으로는 x)
+		
