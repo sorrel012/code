@@ -14,3 +14,6 @@
 	- where 절에 집계 함수를 사용
 		> 해결 불가... where절은 집합값에 대한 접근이 불가능 (어떻게든 할 수는 있지만 기본적으로는 x)
 		
+--  unique constraint (HR.SYS_C007072) violated
+	- unique 제약 조건을 위반
+		> 위반한 값을 중복되지 않도록 수정
