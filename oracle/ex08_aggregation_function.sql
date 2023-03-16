@@ -236,7 +236,16 @@ select distinct
     where jikwi in ('대리', '사원'))
     as "평균 급여 차액"
 from tblInsa;
-    
+
+select
+    avg(case
+            when jikwi in ('부장', '과장') then basicpay
+         end) 
+    - avg(case
+            when jikwi in ('대리', '사원') then basicpay
+         end) as "평균 급여 차액"   
+from tblInsa;
+ 
 --max(),min()
 --1. 면적이 가장 넓은 나라의 면적은? tblCountry > 959
 select 
@@ -247,10 +256,6 @@ from tblCountry;
 select 
     min(basicpay + sudang)
 from tblInsa;
-
-
--- 요구사항] 직원들의 이름과 총직원수를 가져오시오.
-select name, count(*) from tblInsa;
 
 
 
