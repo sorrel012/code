@@ -186,12 +186,3 @@ select
     count(decode(gender, 'f', 1)) as "여자"
 from tblComedian;
 
-
-
-
-
-
-
-
-
-
