@@ -14,6 +14,12 @@ select
     'abc', initcap('abc'), initcap('aBC')
 from dual;
 
+select 
+    first_name || ' ' || last_name as full_name,
+    upper(first_name || ' ' || last_name) as full_upper,
+    lower(first_name || ' ' || last_name)as full_lower,
+    initcap(first_name || ' ' || last_name) as full_initcap
+from employees;
 
 /*substr()*/
 
