@@ -150,7 +150,7 @@ create table tblMemo (
 
     --컬럼명 자료형(길이) NULL 제약사항
     seq number(3) primary key,        --메모번호(일련번호)
-    name varchar2(30) default '익명', --작성자 > 한 사람이 딱 한 개의 글 작성 가능
+    name varchar2(30) default '익명', --작성자 > 입력되지 않으면 익명이 입력됨.
     memo varchar2(1000),              --메모
     regdate date default sysdate      --작성날짜
     
@@ -165,10 +165,10 @@ insert into tblMemo (seq, name, memo, regdate)
 insert into tblMemo (seq, name, memo, regdate)
             values (3, null, '메모입니다.', sysdate);
 
-insert into tblMemo (seq, memo, regdate)
+insert into tblMemo (seq, memo, regdate)                -- 1.name 컬럼 생략 > 자동으로 default값 입력됨
             values (4, '메모입니당!!', sysdate);
 
 insert into tblMemo (seq, memo, regdate)
-            values (5, '메모 남기는 중', default);
+            values (5, '메모 남기는 중', default);       -- 2.값에 직접 default 상수 지정
             
 select * from tblMemo;
