@@ -115,7 +115,7 @@ from tblInsa;
 
 
 -- 6. tblInsa. 기획부, 영업부, 총무부, 개발부의 각각 평균 급여?
-select
+select distinct
     (select
         avg(basicpay)
     from tblInsa
@@ -135,6 +135,30 @@ select
 from tblInsa;
 
 
+select
+    avg(case
+        when buseo = '기획부' then basicpay
+    end) as "기획부",
+    avg(case
+        when buseo = '영업부' then basicpay
+    end) as "영업부",
+    avg(case
+        when buseo = '총무부' then basicpay
+    end) as "총무부",
+    avg(case
+        when buseo = '개발부' then basicpay
+    end) as "개발부"    
+from tblInsa;
+
+
+select
+    avg(decode(buseo, '기획부', basicpay)) as "기획부",
+    avg(decode(buseo, '영업부', basicpay)) as "영업부",
+    avg(decode(buseo, '총무부', basicpay)) as "총무부",
+    avg(decode(buseo, '개발부', basicpay)) as "개발부"    
+from tblInsa;
+
+
 -- 7. tblInsa. 남자 직원 가장 나이가 많은 사람이 몇년도 태생? 여자 직원 가장 나이가 어린 사람이 몇년도 태생?
 select distinct
     (select
@@ -146,6 +170,20 @@ select distinct
     from tblInsa
         where substr(ssn, 8, 1) = '2') as "여자"        
 from tblInsa;    
-    
-    
+
+
+select 
+    '19' || min(case
+        when substr(ssn, 8, 1) = '1' then substr(ssn, 1, 2)
+    end) as "남자",
+    '19' || max(case
+        when substr(ssn, 8, 1) = '2' then substr(ssn, 1, 2)
+    end) as "여자"
+from tblInsa;           
+
+
+select
+    '19' || min(decode(substr(ssn, 8, 1), '1', substr(ssn, 1, 2))) as "남자",
+    '19' || max(decode(substr(ssn, 8, 1), '2', substr(ssn, 1, 2))) as "여자"
+from tblInsa;       
     
