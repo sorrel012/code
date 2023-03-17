@@ -173,5 +173,34 @@ from tblTodo
     end;
 
 
-        
+-- ====================================Q====================================
+
+
+-- tblZoo. 종류(family)별 평균 다리의 갯수를 가져오시오.
+select 
+    family as "종류",
+    round(avg(leg)) as "평균 다리수"
+from tblZoo
+    group by family;
+
+
+-- tblZoo. 사이즈와 종류별로 그룹을 나누고 각 그룹의 갯수를 가져오시오.
+select 
+    family || ' ' || decode(sizeof,'small','소형','medium','중형','large','대형') as 분류, 
+    count(family) as "개수" -- *을 넣어도, family를 넣어도, sizeof를 넣어도 같음... 추가 공부하기
+from tblZoo
+    group by family, sizeof
+        order by family asc, sizeof desc;
+
+
+-- tblAddressBook. 이메일이 스네이크 명명법으로 만들어진 사람들 중에서 여자이며, 20대이며, 키가 150~160cm 사이며, 고향이 서울 또는 인천인 사람들만 가져오시오.
+
+select 
+    *
+from tblAddressBook
+    where instr(email,'_') <> 0 and
+            gender = 'f' and
+            floor(age / 10) = 2 and
+            height like '15_' and
+            hometown in ('서울', '인천');    
 
