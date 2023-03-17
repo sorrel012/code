@@ -15,6 +15,8 @@ create table tblMemo (
 drop sequence seqMemo;
 create sequence seqMemo;
 
+select * from tblMemo;
+
 --1. 표준
 -- - 원본 테이블에 정의된 컬럼 순서와 개수대로 컬럼리스트를 만들고 그에 따라 값리스트를  구성하는 방법
 insert into tblMemo (seq, name, memo, regdate) 
@@ -81,9 +83,9 @@ create table tblMemoCopy (
     
 );
 
+select * from tblMemoCopy;
+
 insert into tblMemoCopy select * from tblMemo;
-
-
 
 drop table tblMemoCopy;
 
