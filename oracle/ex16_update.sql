@@ -24,3 +24,20 @@ update tblCountry set
 -----------------------------------------------
 
 /*delete*/
+
+commit;
+rollback;
+
+select * from tblCountry;
+
+delete from tblCountry where name = '일본';
+
+delete from tblCountry where continent = 'EU';
+
+delete from tblCountry;
+
+
+/* update, delete 실수 */
+--1. 백업
+--2. commit/rollback > 트랜잭션 > 현재 세션에 한해서..
+--3. 스크립트
