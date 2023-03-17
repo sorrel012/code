@@ -107,9 +107,21 @@
 	- 레코드를 대상으로 그룹을 나누는 역할
 	- 특정 컬럼을 대상으로 같은 값을 가지는 레코드들끼리 그룹을 묶는 역할
 	- 각각의 나눠진 그룹을 대상으로 집계 함수를 적용하기 위해서 그룹을 나눔.★★★★★★★★★★
+		> 원래는 order by에서 집계 함수를 사용할 수 없지만, group by를 사용하면 집계 함수가 컬럼이 되어 사용 가능하다.
+			~ select 
+			  	  job,
+				  count(*)
+			  from tblAddressBook
+				  group by job
+					  order by count(*) desc;
 	
 	- select 컬럼리스트--4. 컬럼을 선택하고
 	  from 테이블      --1. 테이블로부터
 	  where 조건       --2. 원하는 레코드를
 	  group by 기준    --3. 그룹을 나눠서
 	  order by 정렬;   --5. 정렬한다.
+	  
+	- group by를 사용할 때 컬럼리스트 제약
+		1. 집계 함수
+		2. group by 기준이 된 컬럼
+		
