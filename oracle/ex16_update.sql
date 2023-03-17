@@ -21,3 +21,6 @@ update tblCountry set
 update tblCountry set
     population = population * 1.1;
 
+-----------------------------------------------
+
+/*delete*/
