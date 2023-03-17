@@ -37,6 +37,9 @@ select * from tblMemo;
 
 drop table tblMemo;
 
+/* 1. 컬럼 수준 */
+
+
 /* not null*/
 
 --메모 테이블
@@ -139,7 +142,7 @@ insert into tblMemo (seq, name, memo, regdate, priority, category)
 insert into tblMemo (seq, name, memo, regdate, priority, category)
             values (2, '홍', '메모입니다.', sysdate, 10, '공부');  --check 제약조건 위배           
             
-select * from tblMemo;
+select * from tblMemo; 
 
 
 /* default */
@@ -172,3 +175,47 @@ insert into tblMemo (seq, memo, regdate)
             values (5, '메모 남기는 중', default);       -- 2.값에 직접 default 상수 지정
             
 select * from tblMemo;
+
+
+create table tblMemo (
+
+    --제약사항명 : 테이블명_컬럼명_제약종류
+    --컬럼명 자료형(길이) [constraint 제약사항명] 제약 종류
+    seq number(3) constraint tblmemo_seq_pk primary key,                                    
+    name varchar2(30),
+    memo varchar2(1000),
+    regdate date
+    
+);
+
+insert into tblMemo (seq, name, memo, regdate) values (1, '홍길동', '메모', sysdate);
+
+drop table tblMemo;
+
+
+/* 2. 테이블 수준 */
+
+create table tblMemo (
+
+    seq number(3),                                    
+    name varchar2(30),
+    memo varchar2(1000),
+    regdate date,
+    
+    --제약사항 선언    
+    constraint tblmemo_seq_pk primary key(seq),
+    constraint tblmemo_name_uq unique(name),
+    constraint tblmemo_memo_ck check(length(memo) >= 10),
+    constraint tblmemo_memo_df default sysdate
+    
+);
+
+
+
+
+
+
+
+
+
+
