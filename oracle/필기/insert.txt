@@ -7,10 +7,10 @@
 	
 	create table tblMemo (
     
-    seq number(3) primary key,
-    name varchar2(50),
-    memo varchar2(1000) not null,
-    regdate date default sysdate
+		seq number(3) primary key,
+		name varchar2(50),
+		memo varchar2(1000) not null,
+		regdate date default sysdate
     
 	);
 	
