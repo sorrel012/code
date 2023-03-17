@@ -186,8 +186,9 @@ from tblZoo
 
 -- tblZoo. 사이즈와 종류별로 그룹을 나누고 각 그룹의 갯수를 가져오시오.
 select 
-    family || ' ' || decode(sizeof,'small','소형','medium','중형','large','대형') as 분류, 
-    count(family) as "개수" -- *을 넣어도, family를 넣어도, sizeof를 넣어도 같음... 추가 공부하기
+    family,
+    decode(sizeof,'small','소형','medium','중형','large','대형') as 분류, 
+    count(*) as "개수" -- 추가 공부하기
 from tblZoo
     group by family, sizeof
         order by family asc, sizeof desc;
