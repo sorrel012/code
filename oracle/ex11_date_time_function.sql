@@ -68,10 +68,10 @@ from dual;
 -- 1. 전체 이름(first_name + last_name)이 가장 긴 -> 짧은 사람 순으로 정렬해서 가져오기
 --    > 컬럼 리스트 > fullname(first_name + last_name), length(fullname)
 select 
-    first_name || last_name as fullname,
-    length(first_name || last_name) as length
-from hr.employees
-    order by length(first_name || last_name) desc;
+    first_name || ' ' || last_name as fullname,
+    length(first_name || ' ' || last_name) as namelength
+from employees
+    order by namelength desc;
     
 
 -- 2. 전체 이름(first_name + last_name)이 가장 긴 사람은 몇글자? 가장 짧은 사람은 몇글자? 평균 몇글자?
@@ -79,8 +79,8 @@ from hr.employees
 select 
     max(length(first_name || last_name)) as "max",
     min(length(first_name || last_name)) as "min",
-    round(avg(length(first_name || last_name)), 2) as "avg"
-from hr.employees;
+    round(avg(length(first_name || last_name))) as "avg"
+from employees;
 
 
 -- 3. last_name이 4자인 사람들의 first_name을 가져오기
@@ -89,7 +89,7 @@ from hr.employees;
 select 
     first_name,
     last_name
-from hr.employees
+from employees
     where length(last_name) = 4
         order by length(first_name);
 
@@ -152,10 +152,10 @@ from tblInsa;
 
 
 select
-    avg(decode(buseo, '기획부', basicpay)) as "기획부",
-    avg(decode(buseo, '영업부', basicpay)) as "영업부",
-    avg(decode(buseo, '총무부', basicpay)) as "총무부",
-    avg(decode(buseo, '개발부', basicpay)) as "개발부"    
+    round(avg(decode(buseo, '기획부', basicpay))) as "기획부",
+    round(avg(decode(buseo, '영업부', basicpay))) as "영업부",
+    round(avg(decode(buseo, '총무부', basicpay))) as "총무부",
+    round(avg(decode(buseo, '개발부', basicpay))) as "개발부"    
 from tblInsa;
 
 
