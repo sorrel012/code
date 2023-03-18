@@ -72,4 +72,11 @@
 			- 실사용은 힘들고, 개발용으로 대용량의 더미가 필요한 경우에 사용
 			  
 			  create table tblMemoCopy as select * from tblMemo;
-			
+
+-- update
+	- 데이터를 수정하는 명령어
+	- 원하는 행의 원하는 컬럼값을 수정하는 명령어
+	
+	~ update 테이블명 set 컬럼명=값 [, 컬럼명=값] x N [where절];
+	
+	
