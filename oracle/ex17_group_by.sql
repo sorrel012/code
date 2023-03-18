@@ -187,8 +187,8 @@ from tblZoo
 -- tblZoo. 사이즈와 종류별로 그룹을 나누고 각 그룹의 갯수를 가져오시오.
 select 
     family,
-    decode(sizeof,'small','소형','medium','중형','large','대형') as 분류, 
-    count(*) as "개수" -- 추가 공부하기
+    decode(sizeof,'small','소형','medium','중형','large','대형') as 크기, 
+    count(*) as "개수"
 from tblZoo
     group by family, sizeof
         order by family asc, sizeof desc;
@@ -204,4 +204,3 @@ from tblAddressBook
             floor(age / 10) = 2 and
             height like '15_' and
             hometown in ('서울', '인천');    
-
