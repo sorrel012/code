@@ -7,12 +7,12 @@
 
 	- 시퀀스 객체 생성하기
 		- create sequence 시퀀스명 [옵션];
-									~ increament by n > 증감치★
-									~ start with n > 시작값★
-									~ mavalue n	> 최댓값
-									~ minvalue n > 최솟값
-									~ cycle	> 루프
-									~ cache n > 캐시
+			~ increament by n > 증감치★
+			~ start with n > 시작값★
+			~ mavalue n > 최댓값
+			~ minvalue n > 최솟값
+			~ cycle	> 루프
+			~ cache n > 캐시
 
 	- 시퀀스 객체 삭제하기
 		~ drop sequence 시퀀스명;

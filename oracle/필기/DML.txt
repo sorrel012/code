@@ -72,4 +72,25 @@
 			- 실사용은 힘들고, 개발용으로 대용량의 더미가 필요한 경우에 사용
 			  
 			  create table tblMemoCopy as select * from tblMemo;
-			
+
+-- update
+	- 데이터를 수정하는 명령어
+	- 원하는 행의 원하는 컬럼값을 수정하는 명령어
+	
+	~ update 테이블명 set 컬럼명=값 [, 컬럼명=값] x N [where절];
+	
+	
+	
+-- delete
+	- 데이터를 삭제하는 명령어
+	- 원하는 행을 삭제하는 명령어
+	- where절을 지정하지 않을 경우 테이블의 모든 데이터가 삭제된다.★★
+		> 테이블의 모든 데이터가 삭제되더라도 구조가 사라지진 않기 때문에 DDL의 drop과는 다르다.
+	~ delete from 테이블명 [where절];
+	
+	
+
+※ update, delete 실수
+	1. 백업
+	2. commit/rollback > 현재 세션에 한해서 트랜잭션 단위로
+	3. 스크립트
