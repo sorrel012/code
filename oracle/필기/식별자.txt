@@ -1,0 +1,19 @@
+
+-- 식별자 정리
+
+- 현재 접속중인 계정명은 생략 가능하다.
+    select * from tblInsa;      -- 생략
+    select * from hr.tblInsa;   -- 계정명(스키마).테이블명
+
+
+- 하나의 select문일 때 컬럼명에서 테이블명은 생략 가능하다.
+    ~ select name, buseo from tblInsa;                            -- 생략
+    ~ select hr.tblInsa.name, hr.tblInsa.buseo from hr.tblInsa;   -- 계정명(스키마).테이블명
+    
+- 와일드카드(*)와 다른 컬럼을 동시에 가져오는 방법
+    ~ select tblInsa.*, sysdate from tblInsa; -- 테이블명.*
+
+- 테이블 별칭
+    - 최대한 줄여서, 보통 알파벳 1글자로 적는다.
+    - 별칭 선언 이후의 단계에서는 원래 이름으로 접근할 수 없다. (from 절이 가장 처음 실행됨.)
+    ~ select i.*, sysdate from tblInsa i; --테이블명 별칭
