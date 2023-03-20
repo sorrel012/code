@@ -431,22 +431,20 @@ COMMIT;
 
 CREATE TABLE tblmen
 (
-	name varchar2(30) primary key,
-	age number not null,
-	height number null,
-	weight number null,
-	job varchar2(50) null,
-	couple varchar2(30) null
+   name varchar2(30) primary key,
+   age number not null,
+   height number null,
+   weight number null,
+   couple varchar2(30) null
 );
 
 CREATE TABLE tblwomen
 (
-	name varchar2(30) primary key,
-	age number not null,
-	height number null,
-	weight number null,
-	job varchar2(50) null,
-	couple varchar2(30) null
+   name varchar2(30) primary key,
+   age number not null,
+   height number null,
+   weight number null,
+   couple varchar2(30) null
 );
 
 
@@ -474,7 +472,6 @@ INSERT INTO tblwomen VALUES ('½ÅºÀ¼±', 27, 162, NULL, NULL);
 
 
 COMMIT;
-
 
 
 
