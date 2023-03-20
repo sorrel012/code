@@ -4,14 +4,14 @@
 	- 관계대수 연산 중 셀렉션 작업을 구현한 명령어
 	- 대상 테이블로부터 원하는 행을 추출하는 작업 > 오라클 서버에 데이터를 요청하는 명령어
 	- 읽기(조회)
-	- 여러 개의 절로 구성됨(★★★★★★★★★★절의 실행 순서는 정해져 있음.)
-		[WITH <Sub Query>]	> with절
-		SELECT column_list	> select절
-		FROM table_name	> from절
-		[WHERE search_condition]	> where절
-		[GROUP BY group_by_expression]	> group by절
-		[HAVING search_condition]	> having절
-		[ORDER BY order_expression [ASC|DESC]]	> order by절
+	- 여러 개의 절로 구성됨(★★★★★★★★★★절의 실행 순서는 정해져 있음.) > 각 절의 역할과 순서를 잘 알아둬야 함.★★★
+		[WITH <Sub Query>] > with절
+		5. SELECT column_list > select절
+		1. FROM table_name > from절
+		2. [WHERE search_condition] > where절
+		3. [GROUP BY group_by_expression] > group by절
+		4. [HAVING search_condition] > having절
+		6. [ORDER BY order_expression [ASC|DESC]] > order by절
 		
 		
 	- select 컬럼리스트	> 2. 원하는 컬럼을 지정
@@ -125,4 +125,36 @@
 	- group by를 사용할 때 컬럼리스트 제약
 		1. 집계 함수
 		2. group by 기준이 된 컬럼
+	
+	- group by 함수
+		1. rollup()
+			- group by 결과에서 집계 결과를 더 자세하게 반환
+			- group별 총계(다중그룹수만큼), 모든 group에 대한 총계 반환 (해당 그룹의 결과가 끝날 때마다 밑에..)
+			- 1차 결산 / 1+2차 결산 / 1+2+3차 결산 ...
+			- 값을 정렬하여 반환함
+		
+		2. cube()    
+			- group by 결과에서 집계 결과를 더 자세하게 반환
+			- rollup()보다 조금 더 자세하게 표현
+			- 1차 결산 / 1+2차 결산 / 1+2+3차 결산 / 2차 결산 / 3차 결산 ...
+	
+--having절
+	- group by에 대한 조건절
+	- 집합에 대한 질문 > 집계 함수값을 조건으로 사용
+	
+	- select 컬럼리스트--5. 컬럼을 선택하고
+	  from 테이블      --1. 테이블로부터
+	  where 조건       --2. 원하는 레코드를
+	  group by 기준    --3. 그룹을 나눠서
+	  having 조건		 --4. 그룹에 대한 조건
+	  order by 정렬;   --6. 정렬한다.	
+	
+※where절 vs having절★★★★★
+	1. where절 
+		- 개인에 대한 질문(행) > 컬럼값을 조건으로 사용
+		- from으로부터 나온 set에 대한 조건(실행 순서 : from > where)
+	2. having절
+		- group by로부터 나온 set에 대한 조건(실행 순서 : group by > having)
+		- 집합에 대한 질문 > 집계 함수값을 조건으로 사용
+		
 		
