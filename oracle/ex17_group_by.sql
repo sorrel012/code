@@ -304,6 +304,47 @@ from tblAddressBook
     group by job
         having job in ('건물주', '건물주자제분');
 
+        
+        
+/* group by 함수 */        
+
+-- rollup()
+
+
+select 
+    buseo,
+    count(*),
+    round(avg(basicpay))
+from tblInsa
+    group by rollup(buseo);
+    
+    
+select 
+    buseo,
+    count(*),
+    round(avg(basicpay))
+from tblInsa
+    group by buseo, jikwi;
+    
+    
+select 
+    buseo,
+    count(*),
+    round(avg(basicpay))
+from tblInsa
+    group by rollup(buseo, jikwi);
+    
+    
+-- cube()   
+
+select 
+    buseo,
+    count(*),
+    round(avg(basicpay))
+from tblInsa
+    group by cube(buseo, jikwi);
+    
+    
     
     
     
