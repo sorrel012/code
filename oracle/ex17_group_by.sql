@@ -204,3 +204,106 @@ from tblAddressBook
             floor(age / 10) = 2 and
             height like '15_' and
             hometown in ('서울', '인천');    
+            
+            
+            
+--=======================순서 정리============================================
+
+-- 서울 사는 직원 > 부서별 인원수?
+select 
+    count(*), buseo     --4.
+from tblInsa            --1.
+    where city = '서울' --2.
+        group by buseo; --3.
+            
+            
+
+select  
+    count(*), buseo           --4.
+from tblInsa                  --1.
+    where basicpay >= 2500000 --2. > 인사부, 홍보부 제외됨
+        group by buseo;       --3.
+
+
+/*having*/
+
+select 
+    buseo,
+    round(avg(basicpay))    --3. 나눠진 그룹별로 집계함수를 각각 구한다.
+from tblInsa                --1. 60명의 데이터를 가져온다.
+    group by buseo;         --2. 60명을 대상으로 > 부서로 그룹을 나눈다.
+
+
+select
+    buseo,
+    round(avg(basicpay))        --4. 나눠진 그룹별로 집계함수를 각각 구한다.
+from tblInsa                    --1. 60명의 데이터를 가져온다.
+    where basicpay >= 1500000   --2. 60명을 대상으로 > 조건에 맞는 직원만 남긴다.
+        group by buseo;         --3. where절을 만족한 직원들을 대상으로 그룹을 나눈다.
+
+
+
+select
+    buseo,
+    round(avg(basicpay))                --4. 필터링된 그룹별 집계함수를 각각 구한다.
+from tblInsa                            --1. 60명의 데이터를 가져온다.
+    group by buseo                      --2. 60명을 대상으로 > 부서로 그룹을 나눈다.
+        having avg(basicpay) >= 1500000;--3. 그룹별 집계함수값을 조건으로 필터링
+        
+        
+        
+/*Q*/        
+
+-- tblZoo. 체온이 변온인 종류 중 아가미 호흡과 폐 호흡을 하는 종들의 갯수를 가져오시오.
+select 
+    count(case
+        when breath = 'lung' then 1
+    end) as "변온, 폐 호흡",
+    count(case
+        when breath = 'gill' then 1
+    end) as "변온, 아가미 호흡"
+from tblzoo
+    group by thermo
+        having thermo = 'variable';
+
+-- tblAddressBook. 관리자의 실수로 몇몇 사람들의 이메일 주소가 중복되었다. 중복된 이메일 주소만 가져오시오.
+select
+    email,
+    count(email) as count
+from tblAddressBook
+    group by email
+        having count(email) > 1;
+
+
+-- tblAddressBook. 성씨별 인원수가 100명 이상 되는 성씨들을 가져오시오.
+select 
+    substr(name,1,1) as "성",
+    count(substr(name,1,1)) as count
+from tblAddressBook
+    group by substr(name,1,1)
+        having count(substr(name,1,1)) >= 100;
+        
+
+-- tblAddressBook. '건물주'와 '건물주자제분'들의 거주지가 서울과 지방의 비율이 어떻게 되느냐?
+select
+    job,
+    count(*) as "총인원수",
+    count(case
+            when substr(address, 1, 2) = '서울' then 1
+    end) as "서울 거주",
+    count(case
+            when substr(address, 1, 2) <> '서울' then 1
+    end) as "서울 비거주",    
+    round(count(case
+            when substr(address, 1, 2) = '서울' then 1
+    end) / count(*) * 100, 2) as "서울 거주(%)",    
+    round(count(case
+            when substr(address, 1, 2) <> '서울' then 1
+    end) / count(*) * 100, 2) as "서울 비거주(%)"    
+from tblAddressBook
+    group by job
+        having job in ('건물주', '건물주자제분');
+
+    
+    
+    
