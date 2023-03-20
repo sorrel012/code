@@ -207,11 +207,14 @@ select
 from tblMen i;
 
 
--- tblAddressBook. 가장 많은 사람들이 가지고 있는 직업은 주로 어느 지역 태생(hometown)인가? > where절
-select
-    max(hometown) as "지역"
+-- tblAddressBook. 가장 많은 사람들이 가지고 있는 직업은 > 주로 어느 지역 태생(hometown)인가? > where절
+select distinct
+    hometown as "지역"
 from tblAddressBook
-    where job = (select max(job) from tblAddressBook);
+    where job = (select job from tblAddressBook
+                    group by job
+                        having count(job) = (select max(count(job)) from tblAddressBook 
+                                                group by job));    
     
 
 -- tblAddressBook. 이메일 도메인들 중 평균 아이디 길이가 가장 긴 이메일 사이트의 도메인은 무엇인가? > group by + having
@@ -224,16 +227,24 @@ from tblAddressBook
                                             from tblAddressBook
                                                 group by substr(email, instr(email, '@')+1)); 
                                                 
+
     
 
--- tblAddressBook. 평균 나이가 가장 많은 출신(hometown)들이 가지고 있는 직업 중 가장 많은 직업은? > where + group by + having
+-- tblAddressBook. 평균 나이가 가장 많은 출신(hometown)들이> 가지고 있는 직업 > 중 가장 많은 직업은? > where + group by + having
 select 
-    max(job) as 직업
+    job as 직업
 from tblAddressBook
-    where hometown = (select hometown from tblAddressBook
+    where hometown = (select hometown from tblAddressBook                               -- 평균 나이가 가장 많은 출신
                         group by hometown
                             having avg(age) = (select max(avg(age)) from tblAddressBook 
-                                                group by hometown));   
+                                                group by hometown))
+        group by job
+            having count(job) = (select max(count(job)) from tblAddressBook             -- 평균 나이가 가장 많은 출신들이 가지고 있는 직업 중 가장 많은 직업
+                                    where hometown = (select hometown from tblAddressBook
+                                                        group by hometown
+                                                            having avg(age) = (select max(avg(age)) from tblAddressBook 
+                                                                                group by hometown))
+                                        group by job);    
 
 
 -- tblAddressBook. 남자 평균 나이보다 나이가 많은 서울 태생 + 직업을 가지고 있는 사람들을 가져오시오. > where절
@@ -277,27 +288,24 @@ from tblAddressBook
 -- tblAddressBook. 가장 사람이 많은 직업의(332명) 세대별 비율을 구하시오.> where + group by + having
 --    [10대]       [20대]       [30대]       [40대]
 --    8.7%        30.7%        28.3%        32.2%
-select * from tblAddressBook;
-
-select 
+select
     round(count(case
             when floor(age/10) = 1 then 1
-    end) / count(*) * 100, 2) as "10대",
+    end) / count(*) * 100, 1) || '%' as "[10대]",
     round(count(case
              when floor(age/10) = 2 then 1
-    end) / count(*) * 100, 2) as "20대",
+    end) / count(*) * 100, 1) || '%' as "[20대]",
     round(count(case
             when floor(age/10) = 3 then 1
-    end) / count(*) * 100, 2) as "30대",
+    end) / count(*) * 100, 1) || '%' as "[30대]",
     round(count(case
              when floor(age/10) = 4 then 1
-    end) / count(*) * 100, 2) as "40대"
+    end) / count(*) * 100, 1) || '%' as "[40대]"
+
 from tblAddressBook
     where job = (select job from tblAddressBook
                     group by job
                         having count(job) = (select max(count(job)) from tblAddressBook 
                                                 group by job))
-        group by age;
-    
-
-
+        group by job;
+            
