@@ -1,0 +1,32 @@
+
+-- Main Query
+  - 일반적인 SQL
+  - 하나의 문장 안에 하나의 select|insert|update|delete 로 구성된 커리
+
+-- 하위 질의(서브쿼리), Sub Query★★★
+    - 하나의 문장(select|insert|update|delete) 안에 또다른 문장(select)이 들어있는 쿼리
+    - 삽입 위치 > 거의 대다수의 절(select절, from절, where절 :: group by절, having절, order by절
+  
+    - 장점
+        1. 2개의 SQl을 1개의 SQL로 줄일 수 있다.
+        2. 변화에 강하다.(변하는 값을 실시간으로 적용할 수 있음.) > 개발자 편의성 향상
+        
+    - 삽입 위치
+        1. 조건절
+            - 비교대상(비교값) 역할 > 값
+            - where절, having절, case문
+            
+            a. 반환값이 1행 1열 > 단일값 반환 > 값 1개로 취급
+                ~ where = (select ...)
+            b. 반환값이 n행 1열 > 다중값(같은 성질의 여러 개 데이터) 반환 > 값 N개로 취급
+                ~ where in (select ...)
+            c. 반환값이 1행 n열 > 다중값(서로 다른 성질의 여러 개 데이터) 반환 > N:N 비교
+                - and 비교라는 가정 하에 비교(or은 불가능)
+                ~ where (컬럼1, 컬럼2) = (select 컬럼1, 컬럼2 ...)
+            d. 반환값이 n행 n열 > 다중값 반환
+                ~ where (컬럼1, 컬럼2) in (select 컬럼1, 컬럼2 ...)
+            
+        2. 컬럼리스트
+        
+        3. from절
+	
