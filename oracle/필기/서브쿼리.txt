@@ -3,7 +3,7 @@
   - 일반적인 SQL
   - 하나의 문장 안에 하나의 select|insert|update|delete 로 구성된 커리
 
--- 하위 질의(서브쿼리), Sub Query★★★
+-- 서브쿼리(하위 질의, 부속 질의), Sub Query★★★
     - 하나의 문장(select|insert|update|delete) 안에 또다른 문장(select)이 들어있는 쿼리
     - 삽입 위치 > 거의 대다수의 절(select절, from절, where절 :: group by절, having절, order by절
   
@@ -27,6 +27,19 @@
                 ~ where (컬럼1, 컬럼2) in (select 컬럼1, 컬럼2 ...)
             
         2. 컬럼리스트
+	        - 단일 데이터(값) > 원자값 > 관계형 데이터베이스 > 표 > 속성(컬럼)의 값은 원자값이어야 한다.
+            - 서브쿼리의 결과값이 반드시 1행 1열이어야 한다. > 스칼라 쿼리
+            - 정적쿼리 > 모든 행에 동일한 값을 반환
+            - 상관(상호) 서브 쿼리 > 사용 빈도 높음
+            
+            a. 컬럼명
+                ~ select (select sysdate from dual) from ...
+            b. 상수
+            c. 연산
+            d. 함수
         
         3. from절
+            - 서브쿼리의 결과셋을 하나의 테이블이라고 생각하고 또다른 select를 실행함.
+            - 구문을 단순화하기 위해서 사용
+            - from절에서 서브쿼리를 사용할 경우, select 와일드카드(*)시 주의!
 	
