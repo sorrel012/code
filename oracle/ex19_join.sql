@@ -472,19 +472,19 @@ select * from jobs;
 
 select 
     e.first_name || ' ' || e.last_name as "이름",
-    d.department name as "부서",
+    d.department_name as "부서",
     l.city as "도시",
     c.country_name as "국가",
     r.region_name as "대륙",
     j.job_title as "직업"
 from employees e
     inner join departments d
-        on d.department_id = e.department_id;
+        on d.department_id = e.department_id
             inner join locations l
-                on l.location_id = d.location_id;
+                on l.location_id = d.location_id
                     inner join countries c
                         on c.country_id = l.country_id
-                            inner join regios r
+                            inner join regions r
                                 on r.region_id  = c.region_id
                                     inner join jobs j
                                         on j.job_id = e.job_id;
@@ -894,7 +894,7 @@ select
     e1.manager_id as "관리자번호",
     (e2.first_name || ' ' || e2.last_name) as "관리자이름"
 from employees e1
-    inner join employees e2
+    left outer join employees e2
         on e1.manager_id = e2.employee_id
 order by e1.employee_id;
 
@@ -931,40 +931,48 @@ group by l.city
     order by avg(e.salary) asc;
             
             
--- employees, jobs, job_history. ‘Public  Accountant’의 직책(job_title)으로 과거에 근무한 적이 있는 모든 사원의 사번과 이름을 가져오시오. 현재 ‘Public Accountant’의 직책(job_title)으로 근무하는 사원은 고려 하지 말것.
-select * from employees; 
-select * from jovs; 
-select * from job_history; 
+-- employees, jobs, job_history. ‘Public Accountant’의 직책(job_title)으로 과거에 근무한 적이 있는 모든 사원의 사번과 이름을 가져오시오. 
+-- 현재 ‘Public Accountant’의 직책(job_title)으로 근무하는 사원은 고려 하지 말것.
+select * from employees; -- job_id/employee_id, (e.first_name || ' ' || e.last_name)
+select * from jobs; --job_id
+select * from job_history; -- employee_id, job_id
+
+select
+    h.employee_id,
+    (e.first_name || ' ' || e.last_name) as name
+from employees e
+    inner join job_history h
+        on e.employee_id = h.employee_id
+where h.job_id = (select job_id from jobs where job_title = 'Public Accountant');
     
     
 -- employees, departments, locations. 커미션을 받는 모든 사람들의 first_name, last_name, 부서명, 지역 id, 도시명을 가져오시오.
-select * from employees; 
-select * from departments; 
-select * from locations; 
-    
-    
+select * from employees; -- department_id/first_name, last_name + where commission_pct is not null
+select * from departments; -- department_id / location_id/ department_name
+select * from locations;  --location_id / city
+
+select
+    e.first_name,
+    e.last_name,
+    d.department_name,
+    l.city
+from employees e
+    left outer join departments d
+        on d.department_id = e.department_id
+            left outer join locations l
+                on l.location_id = d.location_id
+where e.commission_pct is not null;
+        
 -- employees. 자신의 매니저보다 먼저 고용된 사원들의 first_name, last_name, 고용일을 가져오시오.
 select * from employees; 
- 
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+
+select
+    e1.first_name,
+    e1.last_name,
+    e1.hire_date
+from employees e1
+    inner join employees e2
+        on e1.manager_id = e2.employee_id
+where e1.hire_date < e2.hire_date;
             
             
