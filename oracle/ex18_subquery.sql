@@ -263,6 +263,36 @@ from tblAddressBook
     where substr(email, instr(email, '@')+1)='gmail.com'
         group by gender, floor(age/10)
             order by floor(age/10) asc;
+            
+-- TODO
+select
+    case
+        when gender = 'm' then '남자'
+        when gender = 'f' then '여자'
+    end as gender,
+    count(*) as "총인원수",
+    count(
+        case
+            when age between 10 and 19 then 1
+        end
+    ) as "10대",
+    count(
+        case
+            when age between 20 and 29 then 1
+        end
+    ) as "20대",
+    count(
+        case
+            when age between 30 and 39 then 1
+        end
+    ) as "30대",
+    count(
+        case
+            when age between 40 and 49 then 1
+        end
+    ) as "40대"    
+from tblAddressBook
+    group by gender;
 
 
 -- tblAddressBook. 가장 나이가 많으면서 가장 몸무게가 많이 나가는 사람과 같은 직업을 가지는 사람들을 가져오시오. > where절
@@ -270,6 +300,14 @@ select
     * 
 from tblAddressBook
     where job in (select job from tblAddressBook
+                    where weight = (select max(weight) from tblAddressBook)
+                        and age = (select max(age) from tblAddressBook));
+
+--TODO
+select
+    * 
+from tblAddressBook
+    where job = (select job from tblAddressBook
                     where weight = (select max(weight) from tblAddressBook)
                         and age = (select max(age) from tblAddressBook));
 
@@ -282,6 +320,16 @@ from tblAddressBook
                     group by name
                         having count(name) = (select max(count(name)) from tblAddressBook
                                                 group by name));
+
+--TODO
+select 
+    name,
+    count(*)
+from tblAddressBook
+    group by name
+        having count(*) = (select max(count(*)) from tblAddressBook
+                            group by name);
+                            
 
 
 -- tblAddressBook. 가장 사람이 많은 직업의(332명) 세대별 비율을 구하시오.> where + group by + having
@@ -308,7 +356,7 @@ from tblAddressBook
                                                 group by job))
         group by job;
 
-
+--TODO
 SELECT 
     job,
     round(count(CASE
