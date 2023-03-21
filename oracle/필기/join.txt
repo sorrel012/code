@@ -27,6 +27,7 @@
             
     2. 내부 조인, Inner Join
         - 단순 조인에서 유효한 레코드만 추출하는 조인
+        - 부모 자식 관계의 테이블이 아니어도 동작한다. (다만 결과가 의미 없을 확률이 높다.)
         
         ~ select 컬럼리스트 from 테이블A inner join 테이블B on 테이블A.컬럼 = 테이블B.컬럼;     > ANSI-SQL(표준 SQL) > 권장
           select
@@ -38,7 +39,14 @@
         ~ select 컬럼리스트 from 테이블A, 테이블B where 테이블A.컬럼 = 테이블B.컬럼;            > Oracle 전용
         
     3. 외부 조인, Outer Join
-        
+        - 내부 조인 결과 + 결과셋에 포함되지 못한 부모 테이블의 나머지 레코드
+        - 보통 outer join은 부모 테이블을 가리킨다.(보편적으로 자식 테이블은 inner join에 다 포함되기 때문)
+        ~ select 
+            컬럼리스트
+          from 테이블A
+            (left|right)outer join 테이블 B
+                on 테이블A.컬럼 = 테이블B.컬럼;
+                
     4. 셀프 조인, Self Join
         
     5. 전체 외부 조인, Full Outer Join
