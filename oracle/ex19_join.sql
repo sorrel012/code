@@ -324,3 +324,282 @@ select * from tblMember;
 select * from tblRent;
 
 
+/* join */
+
+--1. 단순 조인, Cross Join
+
+select * from tblCustomer;  --3명
+select * from tblSales;     --9건
+
+select * from tblCustomer cross join tblSales;
+select * from tblCustomer, tblSales;
+
+--2. 내부 조인, Inner Join
+
+select 
+    * 
+from tblCustomer 
+    inner join tblSales 
+        on tblCustomer.seq = tblSales.cseq;
+
+
+select 
+    c.name, s.item, c.seq, s.seq
+from tblCustomer c
+    inner join tblSales s
+        on c.seq = s.cseq;
+
+select 
+   *
+from tblCustomer c
+    inner join tblSales s
+        on c.seq = s.cseq;
+                      
+select * from tblCustomer, tblSales where tblCustomer.seq = tblSales.cseq;
+
+-- 원래 아래 2개의 테이블은 2개의 테이블이었다.
+select * from tblStaff;
+select * from tblProject;
+
+-- 원래 1개의 테이블 정보를 2개로 나눴다 > 가끔은 다시 1개로 합쳐 봐야 할 업무가 생긴다.
+select 
+   *
+from tblStaff s
+    inner join tblProject p
+        on s.seq = p.staff_seq;
+
+
+--1. 직원 명단을 가져오시오.
+select * from tblStaffl
+
+--2. 진행중인 프로젝트 목록을 가져오시오.
+select * fromt tblProject;
+
+--3. 진행중인 프로젝트명과 해당 담당직원의 이름을 가져오시오.
+select 
+    p.project,
+    s.name
+from tblStaff s
+    inner join tblProject p
+        on s.seq = p.staff_seq;
+        
+--4.비디오 제목과 대여 가격을 가져오시오.
+select 
+    v.name,
+    g.price
+from tblGenre g
+    inner join tblVideo v
+        on g.seq = v.genre;
+        
+-- 조인 or 서브쿼리
+-- tblCustomer + tblSales
+
+-- 고객명 + 상품명
+
+--1. join
+select
+    c.name as "고객명",
+    s.item as "상품명"
+from tblCustomer c
+    inner join tblSales s
+        on c.seq = s.cseq;
+
+-- 2. subquery (메인 쿼리 : 자식 테이블)
+select
+    item as "상품명",
+    (select name from tblCustomer where seq = tblSales.cseq) as "고객명"
+from tblSales;
+
+
+select 
+    *
+from tblGenre g
+    inner join tblVideo v
+        on g.seq = v.genre
+            inner join tblRent r
+                on v.seq = r.video;
+
+
+select 
+    v.name as "비디오",
+    r.rentdate as "빌린 날짜",
+    g.period as "대여기간",
+    r.rentdate + g.period as "반납날짜"
+from tblGenre g
+    inner join tblVideo v
+        on g.seq = v.genre
+            inner join tblRent r
+                on v.seq = r.video;
+
+select * from tblGenre;
+select * from tblVideo;
+select * from tblRent;
+select * from tblMember;
+
+select 
+    m. name as "회원",
+    v.name as "비디오",
+    r.rentdate as "대여날짜",
+    g. price as "가격"
+from tblGenre g
+    inner join tblVideo v
+        on g.seq = v.genre
+            inner join tblRent r
+                on v.seq = r.video
+                    inner join tblMember m
+                        on m.seq = r.member;
+
+
+-- 관계 없는 테이블끼리 join
+
+select * from tblStaff; --직원
+select * from tblSales; --판매
+
+select 
+    *
+from tblStaff s1
+    inner join tblSales s2
+        on s1.seq = s2.cseq;
+        
+-- hr >  7개
+select * from employees;
+select * from departments;
+select * from locations;
+select * from countries;
+select * from regions;
+
+select * from jobs;
+
+select 
+    e.first_name || ' ' || e.last_name as "이름",
+    d.department name as "부서",
+    l.city as "도시",
+    c.country_name as "국가",
+    r.region_name as "대륙",
+    j.job_title as "직업"
+from employees e
+    inner join departments d
+        on d.department_id = e.department_id;
+            inner join locations l
+                on l.location_id = d.location_id;
+                    inner join countries c
+                        on c.country_id = l.country_id
+                            inner join regios r
+                                on r.region_id  = c.region_id
+                                    inner join jobs j
+                                        on j.job_id = e.job_id;
+ 
+ -- 3. 외부 조인 , Outer Join                                   
+
+select * from tblCustomer;
+select * from tblSales;
+
+insert into tblCustomer values(4, '호호호', '010-1234-4321', '서울시');
+
+--한 번이라도 구매한 이력이 있는 고객들의 정보와 구매 이력을 가져오시오.
+select
+    * 
+from tblCustomer c
+    inner join tblSales s
+        on c.seq = s. cseq;
+
+-- 구매 이력과 상관 없이 모든 고객들의 정보를 가져오되, 구매 이력이 있으면 같이 가져오시오.
+select
+    * 
+from tblCustomer c
+    left outer join tblSales s
+        on c.seq = s. cseq;
+        
+
+select * from tblStaff;
+select * from tblProject;
+
+--1. inner join
+-- 아무개 제외 > 담당 프로젝트가 없어서,, > 부모 레코드가 자식 테이블에 참조되지 않았기 때문에
+select
+    *
+from tblStaff s
+    inner join tblProject p
+        on s.seq = p.staff_seq;
+        
+--2. outer join
+-- 담당 프로젝트가 없는 직원들까지 > 참조가 없는 부모 레코드까지 가져오시오.
+select
+    *
+from tblStaff s
+    left outer join tblProject p
+        on s.seq = p.staff_seq;
+        
+        
+-- tblVideo, tblRent
+select * from tblVideo;
+select * from tblRent;
+
+-- 대여가 한 번이라도 된 비디오와 그 대여 내역 > inner join
+select
+    *
+from tblVideo v
+    inner join tblRent r
+        on v.seq = r.video;
+    
+-- 대여와 상관없이 모든 비디오와 그 대여 내역을 가져오시오. > outer join
+select 
+    *
+from tblVideo v
+    left outer join tblRent r
+        on v.seq = r.video;
+        
+        
+-- 대여를 한 번도 안 한 비디오.. 악성 재고 > outer join
+select 
+    *
+from tblVideo v
+    left outer join tblRent r
+        on v.seq = r.video
+            where rentdate is null;
+
+-- 대여 순위 > inner join
+select
+    name,
+    count(name)
+from tblVideo v
+    inner join tblRent r
+        on v.seq = r.video
+            group by name
+                order by count(name) desc;
+                
+-- 대여 순위 > outer join
+select
+    name,
+    count(rentdate)
+from tblVideo v
+    left outer join tblRent r
+        on v.seq = r.video
+                group by name                
+                    order by count(rentdate) desc;
+                
+-- tblMember, tblRent
+select * from tblMember;
+select * from tblRent;
+
+--대여를 1회 이상 > 고객 정보 + 대여 정보
+select 
+    *
+from tblMember m
+    inner join tblRent r
+        on m.seq = r.member;
+        
+-- 대여를 한 번도 안 한 사람도 포함..
+select
+    *
+from tblMember m
+    left outer join tblRent r
+        on m.seq = r.member;
+
+-- 대여를 한 번도 안 한 사람
+select
+    *
+from tblMember m
+    left outer join tblRent r
+        on m.seq = r.member
+            where rentdate is null;
