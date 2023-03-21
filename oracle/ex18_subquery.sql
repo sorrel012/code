@@ -263,8 +263,7 @@ from tblAddressBook
     where substr(email, instr(email, '@')+1)='gmail.com'
         group by gender, floor(age/10)
             order by floor(age/10) asc;
-            
--- TODO
+
 select
     case
         when gender = 'm' then '남자'
@@ -273,22 +272,22 @@ select
     count(*) as "총인원수",
     count(
         case
-            when age between 10 and 19 then 1
+            when floor(age/10) = 1 then 1
         end
     ) as "10대",
     count(
         case
-            when age between 20 and 29 then 1
+            when floor(age/10) = 2 then 1
         end
     ) as "20대",
     count(
         case
-            when age between 30 and 39 then 1
+            when floor(age/10) = 3 then 1
         end
     ) as "30대",
     count(
         case
-            when age between 40 and 49 then 1
+            when floor(age/10) = 4 then 1
         end
     ) as "40대"    
 from tblAddressBook
@@ -303,14 +302,6 @@ from tblAddressBook
                     where weight = (select max(weight) from tblAddressBook)
                         and age = (select max(age) from tblAddressBook));
 
---TODO
-select
-    * 
-from tblAddressBook
-    where job = (select job from tblAddressBook
-                    where weight = (select max(weight) from tblAddressBook)
-                        and age = (select max(age) from tblAddressBook));
-
 
 -- tblAddressBook.  동명이인이 여러명 있습니다. 이 중 가장 인원수가 많은 동명이인(모든 이도윤)의 명단을 가져오시오. > where절
 select 
@@ -320,8 +311,8 @@ from tblAddressBook
                     group by name
                         having count(name) = (select max(count(name)) from tblAddressBook
                                                 group by name));
-
---TODO
+                                                
+-- 이름만..
 select 
     name,
     count(*)
@@ -354,21 +345,4 @@ from tblAddressBook
                     group by job
                         having count(job) = (select max(count(job)) from tblAddressBook 
                                                 group by job))
-        group by job;
-
---TODO
-SELECT 
-    job,
-    round(count(CASE
-        when age between 10 and 19 then 1
-    end)/count(*)*100,2)||'%' as "[10대]",
-    round(count(CASE
-        when age between 20 and 29 then 1
-    end)/count(*)*100,2)||'%' as "[20대]",
-    round(count(CASE
-        when age between 30 and 39 then 1
-    end)/count(*)*100,2)||'%' as "[30대]",
-    round(count(CASE
-        when age between 40 and 49 then 1
-    end)/count(*)*100,2)||'%' as "[40대]"
-FROM tbladdressbook group by job having count(job) = (SELECT max(count(job)) FROM tbladdressbook group by job);            
+        group by job;       
