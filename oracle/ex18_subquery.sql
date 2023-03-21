@@ -264,34 +264,6 @@ from tblAddressBook
         group by gender, floor(age/10)
             order by floor(age/10) asc;
 
-select     
-    case
-        when gender = 'm' then '남자'
-        when gender = 'f' then '여자'
-    end as gender,
-    count(*) as "총인원수",
-    count(
-        case 
-            when age between 10 and 19 then 1
-        end
-    ) as "10대",
-    count(
-        case 
-            when age between 20 and 29 then 1
-        end
-    ) as "20대",
-    count(
-        case 
-            when age between 30 and 39 then 1
-        end
-    ) as "30대",
-    count(
-        case 
-            when age between 40 and 49 then 1
-        end
-    ) as "40대"
-
-
 
 -- tblAddressBook. 가장 나이가 많으면서 가장 몸무게가 많이 나가는 사람과 같은 직업을 가지는 사람들을 가져오시오. > where절
 select
@@ -335,4 +307,20 @@ from tblAddressBook
                         having count(job) = (select max(count(job)) from tblAddressBook 
                                                 group by job))
         group by job;
-            
+
+
+SELECT 
+    job,
+    round(count(CASE
+        when age between 10 and 19 then 1
+    end)/count(*)*100,2)||'%' as "[10대]",
+    round(count(CASE
+        when age between 20 and 29 then 1
+    end)/count(*)*100,2)||'%' as "[20대]",
+    round(count(CASE
+        when age between 30 and 39 then 1
+    end)/count(*)*100,2)||'%' as "[30대]",
+    round(count(CASE
+        when age between 40 and 49 then 1
+    end)/count(*)*100,2)||'%' as "[40대]"
+FROM tbladdressbook group by job having count(job) = (SELECT max(count(job)) FROM tbladdressbook group by job);            
