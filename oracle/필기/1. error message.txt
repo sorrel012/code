@@ -33,4 +33,5 @@
 
 -- integrity constraint () violated - parent key not found
 	- 참조키를 설정했을 때, 부모 테이블에 해당 값이 존재하지 않음
-		> 부모 테이블에 해당 값을 추가하거나, 자식 테이블에 추가하려는 값을 
+		> 부모 테이블에 해당 값을 추가하기
+		
