@@ -33,6 +33,8 @@
 	1. 표준(권장)
 		- 원본 테이블에 정의된 컬럼 순서와 개수대로 컬럼리스트를 만들고 그에 따라 값리스트를 구성하는 방법
 		~ insert into tblMemo (seq, name, memo, regdate) 
+		
+		
             values(seqMemo.nextVal, '홍길동', 'memo', sysdate);
 			
 	2. 컬럼리스트 순서 변경
