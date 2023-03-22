@@ -1046,3 +1046,14 @@ from employees e1
         on e1.manager_id = e2.employee_id
 where e1.hire_date < e2.hire_date;
 
+
+
+/* SELF JOIN, 셀프 조인 */
+
+-- 직원 테이블
+create table tblSelf (
+    seq number primary key,                     --직원번호(PK)
+    name varchar2(30) not null,                 --직원명
+    department varchar2(50) null,               --부서명
+    super number null references tblSelf(seq)   --
+);
