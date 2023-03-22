@@ -88,11 +88,12 @@ SELECT name, buseo, jikwi, basicpay+sudang, rnum FROM(SELECT a.*, ROWNUM AS rnum
                                                              ORDER BY basicpay+sudang DESC) a);
                                                                                 
 -- 3. tblInsa. 여자 인원수가 (가장 많은 부서 및 인원수) 가져오시오.
-select * from (select a.*, rownum as rnum from(select buseo, count(*) as count  from tblInsa 
-                                where substr(ssn, 8, 1) = '2'
-                                    group by buseo
-                                        order by count(*) desc) a)
-    where rnum = 1;
+select a.*, rownum from(select buseo, count(*) as count  from tblInsa 
+                         where substr(ssn, 8, 1) = '2'
+                            group by buseo
+                             order by count(*) desc) a
+    where rownum = 1;
+
 
 
 -- 4. tblInsa. 지역별 인원수 (내림차순)순위를 가져오시오.(city, 인원수)
@@ -117,10 +118,10 @@ where rnum between 3 and 5;
 
 
 -- 7. tblInsa. 입사일이 빠른 순서로 5순위까지만 가져오시오.
-select * from (select a.*, rownum from(select * from tblInsa order by ibsadate) a)
+select a.*, rownum from(select * from tblInsa order by ibsadate) a
     where rownum <= 5; 
-
-
+    
+    
 -- 8. tblhousekeeping. 지출 내역(가격 * 수량) 중 가장 많은 금액을 지출한 내역 3가지를 가져오시오.
 select a.*, rownum from (select * from tblhousekeeping
                            order by price*qty desc) a
