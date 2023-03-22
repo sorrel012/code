@@ -1055,5 +1055,27 @@ create table tblSelf (
     seq number primary key,                     --직원번호(PK)
     name varchar2(30) not null,                 --직원명
     department varchar2(50) null,               --부서명
-    super number null references tblSelf(seq)   --
+    super number null references tblSelf(seq)   --상사번호(FK)
 );
+
+insert into tblSelf values (1, '홍사장', null, null);
+insert into tblSelf values (2, '김부장', '영업부', 1);
+insert into tblSelf values (3, '이과장', '영업부', 2);
+insert into tblSelf values (4, '정대리', '영업부', 3);
+insert into tblSelf values (5, '최사원', '영업부', 4);
+insert into tblSelf values (6, '박부장', '개발부', 1);
+insert into tblSelf values (7, '하과장', '개발부', 6);
+
+
+-- 직원 명단을 가져오시오.
+
+-- 1. join
+select 
+    b.name as "직원명",
+	a.name as "상사명"
+from tblSelf a --상사
+	inner join tblSelf b --직원
+		on a.seq = b.super;
+
+--2. subquery
+
