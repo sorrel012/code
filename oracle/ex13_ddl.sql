@@ -210,11 +210,23 @@ create table tblMemo (
     
 );
 
+/* 3. 외부 수준 */
 
+create table tblMemo(
+    seq number(3),
+    name varchar2(50),
+    memo varchar2(1000),
+    regdate date
+);
 
+alter table tblMemo
+    add constraint tblmemo_deq_pk primary key(seq);
 
-
-
+alter table tblMemo
+    add constraint tblmemo_name_uq unique(name);
+    
+alter table tblMemo
+    add constraint tblmemo_memo_ck check(length(memo) >= 10);
 
 
 
