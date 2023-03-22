@@ -1,0 +1,7 @@
+
+-- 관계 대수 연산
+
+1. 셀렉션  > select where
+2. 프로젝션 > select column
+3. 조인 > a join b
+4. 합집합, 차집합, 교집합
