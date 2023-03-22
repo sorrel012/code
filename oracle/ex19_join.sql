@@ -1048,7 +1048,7 @@ where e1.hire_date < e2.hire_date;
 
 
 
-/* SELF JOIN, 셀프 조인 */
+/* 셀프 조인, Self Join */
 
 -- 직원 테이블
 create table tblSelf (
@@ -1103,23 +1103,45 @@ from employees e1; --직원
 
 
 
+/* 전체 외부 조인, Full Outer Join */
+
+select * from tblMen;
+select * from tblWomen;
 
 
+-- 커플(남자명 + 여자명)
+select
+    w.name as "여자",
+    m.name as "남자"
+from tblMen m
+    inner join tblWomen w
+        on m.name = w.couple;
 
 
+-- 커플(남자명 + 여자명) + 남자 솔로도    > left outer join
+select
+    w.name as "여자",
+    m.name as "남자"
+from tblMen m
+    left outer join tblWomen w
+        on m.name = w.couple;
+        
+        
+-- 커플(남자명 + 여자명) +  여자 솔로도    > right outer join
+select
+    w.name as "여자",
+    m.name as "남자"
+from tblMen m
+    right outer join tblWomen w
+        on m.name = w.couple;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+-- 커플(남자명 + 여자명) + 솔로도    > full outer join
+select
+    w.name as "여자",
+    m.name as "남자"
+from tblMen m
+    full outer join tblWomen w
+        on m.name = w.couple;
 
 
