@@ -1078,4 +1078,48 @@ from tblSelf a --상사
 		on a.seq = b.super;
 
 --2. subquery
+select
+    a.*,
+    (select name from tblSelf where seq = a.super) as "상사명"
+from tblSelf a;-- 직원
+
+
+
+
+--직원명 + 매니저명(관리자)
+
+select
+    e1.first_name as "직원명",
+    e2.first_name as "매니저명"
+from employees e1   --직원
+    inner join employees e2 --매니저
+        on e1.manager_id = e2.employee_id;
+
+
+select
+    e1.first_name as "직원명",
+    (select first_name from employees where employee_id = e1.manager_id) as "매니저명"
+from employees e1; --직원
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
