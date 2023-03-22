@@ -28,16 +28,16 @@
 	
 	
 -- SQL
-1. DBMS 제작사와 독립적이다.
-	- 모든 관계형 데이터베이스에서 공통적으로 적용하기 위해 만들어진 언어
-	- DBMS 제작사에서 SQL이란 언어를 자신의 제품에 적용
-2. 표준 SQL, ANSI-SQL
-	-모든 DBMS에 적용 가능한 SQL
-3. 각 제작사별 sQL
-	- Oracle vs MS-SQL
-	- 자기네 제품에서만 동작하는 추가 SQL
-	- Oracle > PL/SQL
-	- MS_SQL > T-SQL
+	1. DBMS 제작사와 독립적이다.
+		- 모든 관계형 데이터베이스에서 공통적으로 적용하기 위해 만들어진 언어
+		- DBMS 제작사에서 SQL이란 언어를 자신의 제품에 적용
+	2. 표준 SQL, ANSI-SQL
+		-모든 DBMS에 적용 가능한 SQL
+	3. 각 제작사별 sQL
+		- Oracle vs MS-SQL
+		- 자기네 제품에서만 동작하는 추가 SQL
+		- Oracle > PL/SQL
+		- MS_SQL > T-SQL
 
 
 -- ANSI-SQL 종류
@@ -48,7 +48,6 @@
 		a. create : 생성
 		b. drop : 삭제
 		c. alter : 수정
-			- 테이블 정의 수정, 컬럼 수정, 컬럼명 or 자료형(길이) or 제약사항 수정
 	- 구조를 생성/관리하는 명령어 (건물의 기초 공사와 비슷)
 	- 데이터베이스 관리자
 	- 데이터베이스 담당자
