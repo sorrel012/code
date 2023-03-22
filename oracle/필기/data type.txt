@@ -1,3 +1,4 @@
+
 //ANSI-SQL 자료형
 	- Oracle 자료형★★★
   
@@ -86,3 +87,5 @@
 1. 숫자 > number
 2. 문자 > varchar2(+char)
 3. 날짜 > date
+
+
