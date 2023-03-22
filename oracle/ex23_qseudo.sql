@@ -77,54 +77,67 @@ SELECT * FROM (SELECT a.*, ROWNUM AS rnum FROM(SELECT * FROM tblcomedian ORDER B
 --====================================================Q=======================================================
 
 -- 1. tblInsa. 남자 급여(기본급+수당)을 (내림차순)순위대로 가져오시오. (이름, 부서, 직위, 급여, 순위 출력)
-SELECT name, buseo, jikwi, basicpay+sudang, rnum FROM(SELECT a.*, ROWNUM AS rnum FROM(SELECT * FROM tblinsa 
-                                                        WHERE substr(ssn, 8, 1) = '1' 
-                                                           ORDER BY basicpay+sudang DESC) a);
+select name, buseo, jikwi, basicpay+sudang as salary, rownum from(select * from tblinsa 
+                                                                    where substr(ssn, 8, 1) = '1' 
+                                                                       order by basicpay+sudang desc);
+
+
+select a.*, rownum from (select name, buseo, jikwi, (basicpay + sudang) as salary 
+                                    from tblInsa
+                                       where substr(ssn, 8, 1) = '1'
+                                          order by (basicpay + sudang) desc) a;
 
 
 -- 2. tblInsa. 여자 급여(기본급+수당)을 (오름차순)순위대로 가져오시오. (이름, 부서, 직위, 급여, 순위 출력)
-SELECT name, buseo, jikwi, basicpay+sudang, rnum FROM(SELECT a.*, ROWNUM AS rnum FROM(SELECT * FROM tblinsa 
-                                                          WHERE substr(ssn, 8, 1) = '2' 
-                                                             ORDER BY basicpay+sudang DESC) a);
-                                                                                
+select name, buseo, jikwi, basicpay+sudang as salary, rownum from(select * from tblinsa 
+                                                                    where substr(ssn, 8, 1) = '2' 
+                                                                       order by basicpay+sudang asc);
+                                                                       
+ 
+select a.*, rownum from (select name, buseo, jikwi, (basicpay + sudang) as salary 
+                                    from tblInsa
+                                       where substr(ssn, 8, 1) = '2'
+                                          order by (basicpay + sudang) asc) a;
+
+                                                                               
 -- 3. tblInsa. 여자 인원수가 (가장 많은 부서 및 인원수) 가져오시오.
-select a.*, rownum from(select buseo, count(*) as count  from tblInsa 
+select * from(select buseo, count(*) as count from tblInsa 
                          where substr(ssn, 8, 1) = '2'
                             group by buseo
                              order by count(*) desc) a
     where rownum = 1;
 
 
-
 -- 4. tblInsa. 지역별 인원수 (내림차순)순위를 가져오시오.(city, 인원수)
-select a.*, rownum
-    from (select city, count(*) as count 
-            from tblInsa group by city order by count(*) desc) a;            
-
-
+select 
+    city, count(*) as count 
+from tblInsa 
+    group by city 
+        order by count(*) desc;    
+            
+            
 -- 5. tblInsa. 부서별 인원수가 가장 많은 부서명 및 인원수 출력.
-select a.*, rownum
-    from (select buseo, count(*) as count from tblInsa 
-            group by buseo order by count(*) desc) a 
+select * from (select buseo, count(*) as count from tblInsa 
+                   group by buseo order by count(*) desc) 
     where rownum = 1;
 
 
 -- 6. tblInsa. 남자 급여(기본급+수당)을 (내림차순) 3~5등까지 가져오시오. (이름, 부서, 직위, 급여, 순위 출력)
-SELECT name, buseo, jikwi, basicpay+sudang, rnum 
-    FROM(SELECT a.*, ROWNUM AS rnum FROM(SELECT * FROM tblinsa 
-                                            WHERE substr(ssn, 8, 1) = '1' 
-                                               ORDER BY basicpay+sudang DESC) a)
-where rnum between 3 and 5;
+select name, buseo, jikwi, basicpay+sudang, rnum 
+    from(select a.*, rownum as rnum FROM(select * from tblinsa 
+                                            where substr(ssn, 8, 1) = '1' 
+                                               order by basicpay+sudang desc) a)
+    where rnum between 3 and 5;
 
 
 -- 7. tblInsa. 입사일이 빠른 순서로 5순위까지만 가져오시오.
-select a.*, rownum from(select * from tblInsa order by ibsadate) a
+select * from(select * from tblInsa order by ibsadate)
     where rownum <= 5; 
     
     
 -- 8. tblhousekeeping. 지출 내역(가격 * 수량) 중 가장 많은 금액을 지출한 내역 3가지를 가져오시오.
-select a.*, rownum from (select * from tblhousekeeping
-                           order by price*qty desc) a
+select * from (select * from tblhousekeeping
+                           order by price*qty desc)
     where rownum <= 3;
     
 
@@ -136,7 +149,7 @@ select * from tblInsa
 
 
 -- 10. tbltodo. 등록 후 가장 빠르게 완료한 할일을 순서대로 5개 가져오시오.
-select a.*, rownum from (select * from tblTodo where completedate is not null 
+select a.* from (select * from tblTodo where completedate is not null 
                             order by completedate-adddate) a
     where rownum <= 5;
 
@@ -144,19 +157,12 @@ select a.*, rownum from (select * from tblTodo where completedate is not null
 -- 11. tblinsa. 남자 직원 중에서 급여를 3번째로 많이 받는 직원과 9번째로 많이 받는 직원의 급여 차액은 얼마인가?
 
 select 
-    (select basicpay+sudang from (select a.*, rownum as rnum from(select * from tblInsa 
-                                 where substr(ssn, 8, 1) = '1'
-                                      order by basicpay+sudang desc) a)
+    (select basicpay+sudang from (select a.*, rownum as rnum from(select basicpay, sudang from tblInsa 
+                                                                     where substr(ssn, 8, 1) = '1' order by basicpay+sudang desc) a)
         where rnum = 3)
     -
-    (select basicpay+sudang from (select a.*, rownum as rnum from(select * from tblInsa 
-                                    where substr(ssn, 8, 1) = '1'
-                                        order by basicpay+sudang desc) a)
+    (select basicpay+sudang from (select a.*, rownum as rnum from(select basicpay, sudang from tblInsa 
+                                                                    where substr(ssn, 8, 1) = '1' order by basicpay+sudang desc) a)
         where rnum = 9) as gap        
 from dual;
 
-
-
-
-
-    
