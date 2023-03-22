@@ -105,7 +105,7 @@ select a.*, rownum
 -- 5. tblInsa. 부서별 인원수가 가장 많은 부서명 및 인원수 출력.
 select a.*, rownum
     from (select buseo, count(*) as count from tblInsa 
-            group by buseo order by count(*) desc) a
+            group by buseo order by count(*) desc) a 
     where rownum = 1;
 
 
