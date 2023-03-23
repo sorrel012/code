@@ -42,3 +42,18 @@ with insa as (
 )
 
 select * from insa where rnum = 5;
+
+
+
+-- 9. tblinsa. 평균 급여 2위인 부서에 속한 직원들을 가져오시오.
+
+with employee as (
+    select round(avg(basicpay+sudang), 2) as "avg(salary)", buseo from tblinsa 
+                                                    group by buseo order by round(avg(basicpay+sudang), 2) desc
+)
+
+select * from tblInsa 
+    where buseo = (select buseo from (select e.*, rownum as rnum from employee e)
+                    where rnum = 2);   
+                    
+                    
