@@ -83,23 +83,18 @@ from tblInsa;
 
 
 
+--tblCountry.
+
+select * from tblCountry;
 
 
+-- 대륙별 인구 순위
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+select 
+    continent, name, population,
+    rank() over(partition by continent order by population desc) as rank
+from tblCountry
+    where population is not null;
 
 
 
