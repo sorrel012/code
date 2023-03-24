@@ -40,7 +40,6 @@
                 - 중복값을 가질 수 없다. > Unique
                 - 값을 반드시 가진다. > Not Null
 
-
             3. FOREIGN KEY
                 ~ 컬럼명 자료형(길이) [constraint 제약사항명] references 참조할테이블명(참조할컬럼명)
                 - 외래키, 참조키
