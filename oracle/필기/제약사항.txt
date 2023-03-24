@@ -1,103 +1,103 @@
 
 -- 제약사항, Constraint
-	- 해당 컬럼에 들어갈 데이터(값)에 대한 조건
-		- 조건을 만족하면 > 대입
-		- 조건을 불만족하면 > 에러 발생
-	- 유효성 검사 도구
-	- 데이터베이스 > 데이터 관리 > 무결성을 보장하는 도구
+    - 해당 컬럼에 들어갈 데이터(값)에 대한 조건
+        - 조건을 만족하면 > 대입
+        - 조건을 불만족하면 > 에러 발생
+    - 유효성 검사 도구
+    - 데이터베이스 > 데이터 관리 > 무결성을 보장하는 도구
 	
-	- 제약사항을 만드는 방법 (코드 관리 기법)
+    - 제약사항을 만드는 방법 (코드 관리 기법)
 	
-		a. 컬럼 수준에서 만드는 방법
+        a. 컬럼 수준에서 만드는 방법
 		
-			- 컬럼명 자료형(길이) [constraint 제약사항명] not null
-			- 제약사항명: 테이블명_컬럼명_제약종류
-				~ seq number(3) constraint tblmemo_seq_pk primary key
+            - 컬럼명 자료형(길이) [constraint 제약사항명] not null
+            - 제약사항명: 테이블명_컬럼명_제약종류
+                ~ seq number(3) constraint tblmemo_seq_pk primary key
 				
-			create table tblMemo (
-			
-				seq number(3) constraint tblmemo_seq_pk primary key,        
-				name varchar2(30) constraint tblmemo_name_df default '익명',
-				memo varchar2 constraint constraint tblmemo_memo_ck check(length(memo) >= 10),              
-				regdate date tblmemo_regdate_uk unique      
+            create table tblMemo (
+            
+                seq number(3) constraint tblmemo_seq_pk primary key,        
+                name varchar2(30) constraint tblmemo_name_df default '익명',
+                memo varchar2 constraint constraint tblmemo_memo_ck check(length(memo) >= 10),              
+                regdate date tblmemo_regdate_uk unique      
 
-			);	
+            );	
 				
 						
-			1. NOT NULL 
-				~ 컬럼명 자료형(길이) [constraint 제약사항명] not null
-				- 해당 컬럼이 반드시 값을 가져야 한다.
-				- 해당 컬럼에 값이 없으면 에러 발생
-				- SQL은 빈문자('')도 null로 취급한다.
+            1. NOT NULL 
+                ~ 컬럼명 자료형(길이) [constraint 제약사항명] not null
+                - 해당 컬럼이 반드시 값을 가져야 한다.
+                - 해당 컬럼에 값이 없으면 에러 발생
+                - SQL은 빈문자('')도 null로 취급한다.
 
-			2. PRIMARY KEY, PK
-				~ 컬럼명 자료형(길이) [constraint 제약사항명] primary key
-				- 기본키
-				- 테이블에서 행과 행을 구분하기 위한 수단 > 제약
-				- 행을 식별하는 대표 컬럼을 지정하는 역할
-				- 모든 테이블은 반드시 1개의 기본키가 존재해야 한다.★★★★★★
-				- 중복값을 가질 수 없다. > Unique
-				- 값을 반드시 가진다. > Not Null
+            2. PRIMARY KEY, PK
+                ~ 컬럼명 자료형(길이) [constraint 제약사항명] primary key
+                - 기본키
+                - 테이블에서 행과 행을 구분하기 위한 수단 > 제약
+                - 행을 식별하는 대표 컬럼을 지정하는 역할
+                - 모든 테이블은 반드시 1개의 기본키가 존재해야 한다.★★★★★★
+                - 중복값을 가질 수 없다. > Unique
+                - 값을 반드시 가진다. > Not Null
 
 
-			3. FOREIGN KEY
-				~ 컬럼명 자료형(길이) [constraint 제약사항명] references 참조할테이블명(참조할컬럼명)
-				- 외래키, 참조키
-				- 다른 테이블의 컬럼을 참조한다.
-				- 항상 부모 테이블(기본 테이블)을 먼저 만든 후 자식 테이블(참조 테이블)을 생성해야 한다.				
-				  ~ 보통 두 테이블의 데이터 비교 > 먼저 존재해야 할 성격의 데이터(시간상..) > 부모 테이블 
+            3. FOREIGN KEY
+                ~ 컬럼명 자료형(길이) [constraint 제약사항명] references 참조할테이블명(참조할컬럼명)
+                - 외래키, 참조키
+                - 다른 테이블의 컬럼을 참조한다.
+                - 항상 부모 테이블(기본 테이블)을 먼저 만든 후 자식 테이블(참조 테이블)을 생성해야 한다.				
+                    ~ 보통 두 테이블의 데이터 비교 > 먼저 존재해야 할 성격의 데이터(시간상..) > 부모 테이블 
 
-			4. UNIQUE
-				~ 컬럼명 자료형(길이) [constraint 제약사항명] unique
-				- 유일하다. > 행들 간에 동일한 값을 가질 수 없다.
-				- Null을 가질 수 있다. 
-				- 컬럼명 자료형(길이) unique not null > 가능 > Primary key와 같은 권한
+            4. UNIQUE
+                ~ 컬럼명 자료형(길이) [constraint 제약사항명] unique
+                - 유일하다. > 행들 간에 동일한 값을 가질 수 없다.
+                - Null을 가질 수 있다. 
+                - 컬럼명 자료형(길이) unique not null > 가능 > Primary key와 같은 권한
 
-			5. CHECK	
-				~ 컬럼명 자료형(길이) [constraint 제약사항명] check(조건)
-				- 사용자 정의 제약 조건
-				- where절과 동일한 조건을 컬럼에 적용한다.
+            5. CHECK	
+                ~ 컬럼명 자료형(길이) [constraint 제약사항명] check(조건)
+                - 사용자 정의 제약 조건
+                - where절과 동일한 조건을 컬럼에 적용한다.
 
-			6. DEFAULT
-				~ 컬럼명 자료형(길이) [constraint 제약사항명] defalut '기본값'
-				- 기본값 설정
-				- insert,update 작업 때 값을 대입하지 않으면, 미리 준비해 놓은 기본값을 대신 넣는 역할
-				- insert into (컬럼리스트)에서 컬럼을 생략하거나 values(값 목록)에 default 상수를 적어서 사용할 수 있다.
+            6. DEFAULT
+                ~ 컬럼명 자료형(길이) [constraint 제약사항명] defalut '기본값'
+                - 기본값 설정
+                - insert,update 작업 때 값을 대입하지 않으면, 미리 준비해 놓은 기본값을 대신 넣는 역할
+                - insert into (컬럼리스트)에서 컬럼을 생략하거나 values(값 목록)에 default 상수를 적어서 사용할 수 있다.
 		
 		
-		b. 테이블 수준에서 만드는 방법
+        b. 테이블 수준에서 만드는 방법
 		
-			create table tblMemo (
+            create table tblMemo (
 
-				seq number(3),                                    
-				name varchar2(30),
-				memo varchar2(1000),
-				regdate date,
+                seq number(3),                      
+                name varchar2(30),
+                memo varchar2(1000),
+                regdate date,
 
-				--제약사항 선언    
-				constraint tblmemo_seq_pk primary key(seq),
-				constraint tblmemo_name_uq unique(name),
-				constraint tblmemo_memo_ck check(length(memo) >= 10),
-				constraint tblmemo_memo_df default sysdate
+                --제약사항 선언    
+                constraint tblmemo_seq_pk primary key(seq),
+                constraint tblmemo_name_uq unique(name),
+                constraint tblmemo_memo_ck check(length(memo) >= 10),
+                constraint tblmemo_memo_df default sysdate
 
-			);
+            );
 			
 		
-		c. 외부에서 만드는 방법			
+        c. 외부에서 만드는 방법			
 			
-			create table tblMemo(
-			    seq number(3),
-			    name varchar2(50),
-			    memo varchar2(1000),
-			    regdate date
-			);
+            create table tblMemo(
+                seq number(3),
+                name varchar2(50),
+                memo varchar2(1000),
+                regdate date
+            );
 
-			alter table tblMemo
-			    add constraint tblmemo_deq_pk primary key(seq);
+            alter table tblMemo
+                add constraint tblmemo_deq_pk primary key(seq);
 	
-			alter table tblMemo
-			    add constraint tblmemo_name_uq unique(name);
+            alter table tblMemo
+                add constraint tblmemo_name_uq unique(name);
 
-			alter table tblMemo
-			    add constraint tblmemo_memo_ck check(length(memo) >= 10);
+            alter table tblMemo
+                add constraint tblmemo_memo_ck check(length(memo) >= 10);
 	
