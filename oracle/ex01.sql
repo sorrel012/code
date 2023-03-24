@@ -8,7 +8,10 @@
 alter user hr account unlock;   --계정 풀기
 alter user hr account lock;      --계정 잠그기
 
-alter user hr identified by java1234; --암호 바꾸기
+
+alter user movie account unlock;   --계정 풀기
+
+alter user movie identified by java1234; --암호 바꾸기
 
 --현재 계정이 보유하고 있는 테이블 목록 가져오기
 select * from tabs;
