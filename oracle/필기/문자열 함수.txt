@@ -1,50 +1,49 @@
 
 --문자열 함수, String Function
 	
-	1. upper(), lower(), initcap()
-		- varchar2 upper(컬럼) : 대문자로 변환
-		- varchar2 lower(컬럼) : 소문자로 변환
-		- varchar2 initcap(컬럼) : 첫글자만 대문자, 나머진 소문자로 변환 (카멜 표기법)
+    1. upper(), lower(), initcap()
+        - varchar2 upper(컬럼) : 대문자로 변환
+        - varchar2 lower(컬럼) : 소문자로 변환
+        - varchar2 initcap(컬럼) : 첫글자만 대문자, 나머진 소문자로 변환 (카멜 표기법)
 	
-	2. substr()
-		- 문자열 추출 함수
-		- varchar2 substr(컬럼, 시작위치, 가져올 문자 개수)
-		- varchar2 substr(컬럼, 시작위치)
-		- ★★★ SQL 인덱스 > 1부터 시작
+    2. substr()
+        - 문자열 추출 함수
+        - varchar2 substr(컬럼, 시작위치, 가져올 문자 개수)
+        - varchar2 substr(컬럼, 시작위치)
+        - ★★★ SQL 인덱스 > 1부터 시작
+        
+    3. length()
+        - 문자열 길이 반환 함수
+        - number length(컬럼)
 		
-	3. length()
-		- 문자열 길이 반환 함수
-		- number length(컬럼)
+    4. instr()
+        - 검색함수(indexOf)
+        - 검색어의 위치를 반환
+        - number instr(컬럼, 검색어)
+        - number instr(컬럼, 검색어, 시작 위치)
+        - number instr(컬럼, 검색어, 시작 위치, -1) > lastIndexOf
+        - 못 찾으면 0 반환
 		
-	4. instr()
-		- 검색함수(indexOf)
-		- 검색어의 위치를 반환
-		- number instr(컬럼, 검색어)
-		- number instr(컬럼, 검색어, 시작 위치)
-		- number instr(컬럼, 검색어, 시작 위치, -1) > lastIndexOf
-		- 못 찾으면 0 반환
+    5. lpad(), rpad()
+        - left padding, right padding
+        - 채우기
+        - varchar2 lpad(컬럼, 개수, 문자)
+        - varchar2 rpad(컬럼, 개수, 문자)
 		
-	5. lpad(), rpad()
-		- left padding, right padding
-		- 채우기
-		- varchar2 lpad(컬럼, 개수, 문자)
-		- varchar2 rpad(컬럼, 개수, 문자)
+    6. trim(), ltrim(), rtrim()
+        - 공백 제거
+        - varchar2 trim(컬럼)
+        - varchar2 ltrim(컬럼)
+        - varchar2 rtrim(컬럼)
 		
-	6. trim(), ltrim(), rtrim()
-		- 공백 제거
-		- varchar2 trim(컬럼)
-		- varchar2 ltrim(컬럼)
-		- varchar2 rtrim(컬럼)
+    7. replace()
+        - 문자열 치환
+        - varchar2 replace(컬럼, 찾을 문자열, 바꿀 문자열)
 		
-	7. replace()
-		- 문자열 치환
-		- varchar2 replace(컬럼, 찾을 문자열, 바꿀 문자열)
-		
-	8. decode()
-		- 문자열 치환
-		- replace와 비슷하지만 상황에 따라 훨씬 편함
-		- varchar2 decode(컬럼, 찾을 문자열, 바꿀 문자열 [, 찾을 문자열, 바꿀 문자열] x N)
-		- 문자열 조작 > case의 간단한 버전
-		- 문자열을 못 찾으면 null 반환
-		
+    8. decode()
+        - 문자열 치환
+        - replace와 비슷하지만 상황에 따라 훨씬 편함
+        - varchar2 decode(컬럼, 찾을 문자열, 바꿀 문자열 [, 찾을 문자열, 바꿀 문자열] x N)
+        - 문자열 조작 > case의 간단한 버전
+        - 문자열을 못 찾으면 null 반환		
 		

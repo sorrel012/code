@@ -1,16 +1,16 @@
 
 --날짜 시간 함수, Date Time Function
-	1. sysdate
-		- 현재 시스템의 시각을 반환
-		- 자바의 Calendar.getInstance()와 같은 역할
-		- date sysdate
+    1. sysdate
+        - 현재 시스템의 시각을 반환
+        - 자바의 Calendar.getInstance()와 같은 역할
+        - date sysdate
     
--- 날짜 연산	
-	- 시각 - 시각
-		1. 일, 시, 분, 초 > 연산자(-)
-		2. 월, 년 > months_between(date, date)
+-- 날짜 연산
+    - 시각 - 시각
+        1. 일, 시, 분, 초 > 연산자(-)
+        2. 월, 년 > months_between(date, date)
 
-	- 시각 +- 시간
-		1. 일, 시, 분, 초 > 연산자(+, -)
-		2. 월, 년 >  add_months(date, +|-)
+    - 시각 +- 시간
+        1. 일, 시, 분, 초 > 연산자(+, -)
+        2. 월, 년 >  add_months(date, +|-)
 		
