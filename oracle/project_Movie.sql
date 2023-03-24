@@ -52,11 +52,11 @@ create table tblGrade( --등급
 create table tblMovie (
 
     movie_seq number primary key,
-    title varchar2(30) not null,
+    title varchar2(100) not null,
     runtime number not null,
     likes number not null,
     line varchar2(300) null,
-    release_year date not null,
+    release_date varchar(30) not null,
     movie_rank number not null,
     grade_seq number not null,
     director_seq number not null,
@@ -98,4 +98,3 @@ create table tblViewer (
     --누적관객수(숫자)
     constraint v_movie_fk foreign key(movie_seq) references tblMovie(movie_seq)       --tblmovie 기본키를 tblviewer의 movie_seq로 참조
 );
-
