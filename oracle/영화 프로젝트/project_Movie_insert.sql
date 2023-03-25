@@ -16,7 +16,7 @@ insert into tblNation values(seqNation.nextval, '뉴질랜드');
 insert into tblNation values(seqNation.nextval, '캐나다');
 
 
-/*tblGenre*/
+/*tblGenre*/ --완료
 insert into tblGenre values (1, '드라마');
 insert into tblGenre values (2, '판타지');
 insert into tblGenre values (3, '서부');
@@ -50,6 +50,7 @@ insert into tblGrade values (2, '12세 이상 관람가');
 insert into tblGrade values (3, '15세 이상 관람가');
 insert into tblGrade values (4, '청소년 관람불가');
 insert into tblGrade values (5, '미정');
+
 
 /*tblActor*/ --완료
 create sequence seqActor start with 1;
@@ -271,13 +272,130 @@ insert into tblScore values (seqScore.nextval, null, null, null, 48);
 insert into tblScore values (seqScore.nextval, null, null, null, 49);  
 insert into tblScore values (seqScore.nextval, 9.38, null, 4.73, 50);  
 
+
 /*tblViewer*/
+
+
+/*tblNation_List*/ --완료
+insert into tblNation_List values (1,1);
+insert into tblNation_List values (2,2);
+insert into tblNation_List values (3,2);
+insert into tblNation_List values (4,1);
+insert into tblNation_List values (5,3);
+insert into tblNation_List values (6,3);
+insert into tblNation_List values (7,1);
+insert into tblNation_List values (8,2);
+insert into tblNation_List values (9,3);
+insert into tblNation_List values (10,3);
+insert into tblNation_List values (10,4);
+insert into tblNation_List values (11,2);
+insert into tblNation_List values (12,2);
+insert into tblNation_List values (13,2);
+insert into tblNation_List values (14,3);
+insert into tblNation_List values (15,3);
+insert into tblNation_List values (16,3);
+insert into tblNation_List values (17,3);
+insert into tblNation_List values (18,2);
+insert into tblNation_List values (19,3);
+insert into tblNation_List values (19,4);
+insert into tblNation_List values (19,5);
+insert into tblNation_List values (20,3);
+insert into tblNation_List values (21,2);
+insert into tblNation_List values (22,2);
+insert into tblNation_List values (23,3);
+insert into tblNation_List values (24,3);
+insert into tblNation_List values (25,2);
+insert into tblNation_List values (26,2);
+insert into tblNation_List values (27,3);
+insert into tblNation_List values (27,6);
+insert into tblNation_List values (28,3);
+insert into tblNation_List values (29,2);
+insert into tblNation_List values (30,3);
+insert into tblNation_List values (31,3);
+insert into tblNation_List values (32,7);
+insert into tblNation_List values (32,8);
+insert into tblNation_List values (33,4);
+insert into tblNation_List values (34,3);
+insert into tblNation_List values (35,2);
+insert into tblNation_List values (36,1);
+insert into tblNation_List values (37,3);
+insert into tblNation_List values (38,2);
+insert into tblNation_List values (39,3);
+insert into tblNation_List values (40,9);
+insert into tblNation_List values (41,2);
+insert into tblNation_List values (42,3);
+insert into tblNation_List values (43,3);
+insert into tblNation_List values (44,1);
+insert into tblNation_List values (45,1);
+insert into tblNation_List values (46,3);
+insert into tblNation_List values (47,2);
+insert into tblNation_List values (48,3);
+insert into tblNation_List values (49,3);
+insert into tblNation_List values (50,2);
+
+
+/*tblGenre_List*/
+
 
 /*tblActor_List*/
 
-/*tblDirector_List*/
 
-/*tblNational_List*/
+/*tblDirector_List*/ --완료
+insert into tblDirector_List values (1,1);
+insert into tblDirector_List values (2,2);
+insert into tblDirector_List values (3,3);
+insert into tblDirector_List values (4,4);
+insert into tblDirector_List values (5,5);
+insert into tblDirector_List values (6,6);
+insert into tblDirector_List values (7,7);
+insert into tblDirector_List values (8,8);
+insert into tblDirector_List values (9,9);
+insert into tblDirector_List values (9,10);
+insert into tblDirector_List values (10,11);
+insert into tblDirector_List values (11,12);
+insert into tblDirector_List values (12,13);
+insert into tblDirector_List values (13,14);
+insert into tblDirector_List values (14,15);
+insert into tblDirector_List values (15,16);
+insert into tblDirector_List values (15,17);
+insert into tblDirector_List values (16,18);
+insert into tblDirector_List values (17,19);
+insert into tblDirector_List values (17,20);
+insert into tblDirector_List values (18,21);
+insert into tblDirector_List values (19,22);
+insert into tblDirector_List values (20,23);
+insert into tblDirector_List values (21,24);
+insert into tblDirector_List values (22,25);
+insert into tblDirector_List values (23,26);
+insert into tblDirector_List values (24,27);
+insert into tblDirector_List values (25,28);
+insert into tblDirector_List values (26,29);
+insert into tblDirector_List values (27,30);
+insert into tblDirector_List values (28,31);
+insert into tblDirector_List values (29,32);
+insert into tblDirector_List values (30,33);
+insert into tblDirector_List values (31,34);
+insert into tblDirector_List values (32,35);
+insert into tblDirector_List values (33,36);
+insert into tblDirector_List values (34,37);
+insert into tblDirector_List values (35,38);
+insert into tblDirector_List values (35,39);
+insert into tblDirector_List values (36,40);
+insert into tblDirector_List values (37,41);
+insert into tblDirector_List values (38,42);
+insert into tblDirector_List values (39,43);
+insert into tblDirector_List values (40,44);
+insert into tblDirector_List values (41,45);
+insert into tblDirector_List values (42,9);
+insert into tblDirector_List values (42,10);
+insert into tblDirector_List values (43,46);
+insert into tblDirector_List values (44,1);
+insert into tblDirector_List values (45,1);
+insert into tblDirector_List values (46,47);
+insert into tblDirector_List values (47,48);
+insert into tblDirector_List values (48,49);
+insert into tblDirector_List values (49,50);
+insert into tblDirector_List values (50,51);
 
-/*tblGenre_List*/
+
 
