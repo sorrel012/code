@@ -27,7 +27,7 @@ insert into tblNation values(seqNation.nextval, '캐나다');
 /*tblDirector*/ --완료
 
 insert into tblDirector values(seqDirector.nextval,'신카이 마코토',to_date('1973-02-09', 'yyyy-mm-dd'),1,1);
-insert into tblDirector values(seqDirector.nextval,'웅남이',to_date('1981-08-15','yyyy-mm-dd'),2,2);
+insert into tblDirector values(seqDirector.nextval,'박성광',to_date('1981-08-15','yyyy-mm-dd'),2,2);
 insert into tblDirector values(seqDirector.nextval,'민용근',to_date('1976-08-02','yyyy-mm-dd'),5,2);
 insert into tblDirector values(seqDirector.nextval,'이노우에 다케히코',to_date('1967-01-12','yyyy-mm-dd'),null ,1);
 insert into tblDirector values(seqDirector.nextval,'데이비드F 샌드버그',to_date('1981-01-21','yyyy-mm-dd'),27 ,6);
