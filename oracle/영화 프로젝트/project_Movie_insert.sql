@@ -1,5 +1,5 @@
 
-/*tblNation*/ --완료
+/*tblNation*/ 
 
 insert into tblNation values(seqNation.nextval, '일본');
 insert into tblNation values(seqNation.nextval, '한국');
@@ -24,7 +24,7 @@ insert into tblNation values(seqNation.nextval, '캐나다');
 /*tblActor*/
 
 
-/*tblDirector*/ --완료
+/*tblDirector*/
 
 insert into tblDirector values(seqDirector.nextval,'신카이 마코토',to_date('1973-02-09', 'yyyy-mm-dd'),1,1);
 insert into tblDirector values(seqDirector.nextval,'박성광',to_date('1981-08-15','yyyy-mm-dd'),2,2);
@@ -64,6 +64,7 @@ insert into tblDirector values(seqDirector.nextval,'아쉬가르 파라디',to_d
 insert into tblDirector values(seqDirector.nextval,'리스 플레이크 워터필드',to_date('1982-10-21','yyyy-mm-dd'),null ,3);
 insert into tblDirector values(seqDirector.nextval,'데이미언 셔젤',to_date('1985-01-19','yyyy-mm-dd'), null,3);
 insert into tblDirector values(seqDirector.nextval,'김수정',to_date('1950-07-31','yyyy-mm-dd'),null ,2);
+insert into tblDirector values(seqDirector.nextval,'임경원',null,null ,2);
 insert into tblDirector values(seqDirector.nextval,'하라 케이이치',to_date('1959-07-24','yyyy-mm-dd'), 43,1);
 insert into tblDirector values(seqDirector.nextval,'벤 애플렉',to_date('1968-08-15','yyyy-mm-dd'), null,3);
 insert into tblDirector values(seqDirector.nextval,'홍상수',to_date('1960-10-25','yyyy-mm-dd'),21 ,2);
@@ -77,10 +78,18 @@ insert into tblDirector values(seqDirector.nextval,'제임스 건',to_date('1970
 insert into tblDirector values(seqDirector.nextval,'제임스 맨골드',to_date('1963-12-16','yyyy-mm-dd'),null ,3);
 insert into tblDirector values(seqDirector.nextval,'이승원',to_date('1980-09-10','yyyy-mm-dd'), null,2);
 
-
 /*tblMovie*/
 
 /*tbScore*/
 
-
 /*tblViewer*/
+
+/*tblActor_List*/
+
+/*tblDirector_List*/
+
+
+/*tblDirector*/
+
+/*tblDirector*/
+
