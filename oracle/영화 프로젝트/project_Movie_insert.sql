@@ -136,7 +136,7 @@ insert into tblDirector values(seqDirector.nextval,'제임스 맨골드',to_date
 insert into tblDirector values(seqDirector.nextval,'이승원',to_date('1980-09-10','yyyy-mm-dd'), null,2);
 
 
-/*tblMovie*/
+/*tblMovie*/ --완료
 create sequence seqMovie start with 1;
 
 insert into tblMovie values (seqMovie.nextVal, '스즈메의 문단속', 122, 14584, '나는 스즈메의 내일이란다', '2023.03.08 개봉', 1, 2);
