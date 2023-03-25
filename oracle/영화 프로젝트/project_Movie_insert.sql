@@ -1,5 +1,7 @@
 
 /*tblNation*/ --완료
+create sequence seqNation start with 1;
+
 insert into tblNation values(seqNation.nextval, '일본');
 insert into tblNation values(seqNation.nextval, '한국');
 insert into tblNation values(seqNation.nextval, '미국');
@@ -24,6 +26,8 @@ insert into tblNation values(seqNation.nextval, '캐나다');
 
 
 /*tblDirector*/ --완료
+create sequence seqDirector start with 1;
+
 insert into tblDirector values(seqDirector.nextval,'신카이 마코토',to_date('1973-02-09', 'yyyy-mm-dd'),1,1);
 insert into tblDirector values(seqDirector.nextval,'박성광',to_date('1981-08-15','yyyy-mm-dd'),2,2);
 insert into tblDirector values(seqDirector.nextval,'민용근',to_date('1976-08-02','yyyy-mm-dd'),5,2);
@@ -78,6 +82,8 @@ insert into tblDirector values(seqDirector.nextval,'이승원',to_date('1980-09-
 
 
 /*tblMovie*/
+create sequence seqMovie start with 1;
+
 insert into tblMovie values (seqMovie.nextVal, '스즈메의 문단속', 122, 14584, '나는 스즈메의 내일이란다', '2023.03.08 개봉', 1, 2);
 insert into tblMovie values (seqMovie.nextVal, '웅남이', 97, 6204, null, '2023.03.22 개봉', 2, 3);
 insert into tblMovie values (seqMovie.nextVal, '소울메이트', 124, 4179, '사람들 얼굴이 왜 다 다른줄 아나? 각자 다 다르게 살라고, 네 맘 가는대로 살아', '2023.03.15 개봉', 3, 2);
