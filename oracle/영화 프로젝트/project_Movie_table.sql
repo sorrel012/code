@@ -1,5 +1,4 @@
 
-
 -- 국가
 create table tblNation(                 
 
@@ -40,11 +39,11 @@ create table tblActor(
 --감독
 create table tblDirector(                                  
 
-    director_seq number primary key,                       --감독번호(PK)
-    director_name varchar2(50) not null,                   --감독명
-    director_birth date not null,                          --생년월일
-    member_rank number null,                               --영화인순위
-    nation_seq number not null,                            --국가번호(FK)
+    director_seq number primary key,        --감독번호(PK)
+    director_name varchar2(50) not null,    --감독명
+    director_birth date null,               --생년월일
+    member_rank number null,                --영화인순위
+    nation_seq number not null,             --국가번호(FK)
     
     constraint d_nation_seq_fk foreign key (nation_seq) references tblNation(nation_seq)  
     
@@ -61,16 +60,8 @@ create table tblMovie (
     release_date varchar(30) not null,  --개봉일
     movie_rank number not null,         --영화순위
     grade_seq number not null,          --등급번호(FK)
-    director_seq number not null,       --감독번호(FK)
-    genre_seq number not null,          --장르번호(FK)
-    nation_seq number not null,         --국가번호(FK)
-    actor_seq number not null,          --배우번호(FK)
     
-    constraint m_grade_seq_fk foreign key(grade_seq) references tblGrade(grade_seq),
-    constraint m_director_seq_fk foreign key(director_seq) references tblDirector(director_seq),
-    constraint m_genre_seq_fk foreign key(genre_seq) references tblGenre(genre_seq),
-    constraint m_nation_seq_fk foreign key(nation_seq) references tblNation(nation_seq),
-    constraint m_actor_seq_fk foreign key(actor_seq) references tblActor(actor_seq)
+    constraint m_grade_seq_fk foreign key(grade_seq) references tblGrade(grade_seq)
     
 );
 
@@ -99,3 +90,47 @@ create table tblViewer (
     constraint v_movie_fk foreign key(movie_seq) references tblMovie(movie_seq)  
 );
 
+
+-- 영화-출연진
+create table tblActor_List (
+
+    movie_seq number not null,      --영화번호(FK)
+    actor_seq number not null,      --배우번호(FK)
+    
+    constraint al_movie_fk foreign key(movie_seq) references tblMovie(movie_seq),
+    constraint al_actor_fk foreign key(actor_seq) references tblActor(actor_seq)
+    
+);
+
+-- 영화-장르
+create table tblGenre_List (
+
+    movie_seq number not null,      --영화번호(FK)
+    genre_seq number not null,      --장르번호(FK)
+    
+    constraint gl_movie_fk foreign key(movie_seq) references tblMovie(movie_seq),
+    constraint gl_genre_fk foreign key(genre_seq) references tblGenre(genre_seq)
+    
+);
+
+-- 영화-국가
+create table tblNation_List (
+
+    movie_seq number not null,      --영화번호(FK)
+    nation_seq number not null,     --국가번호(FK)
+    
+    constraint nl_movie_fk foreign key(movie_seq) references tblMovie(movie_seq),
+    constraint nl_nation_fk foreign key(nation_seq) references tblNation(nation_seq)
+    
+);
+
+-- 영화-감독
+create table tblDirector_List (
+
+    movie_seq number not null,      --영화번호(FK)
+    director_seq number not null,   --감독번호(FK)
+    
+    constraint dl_movie_fk foreign key(movie_seq) references tblMovie(movie_seq),
+    constraint dl_director_fk foreign key(director_seq) references tblDirector(director_seq)
+    
+);
