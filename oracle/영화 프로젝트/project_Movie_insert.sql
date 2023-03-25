@@ -42,6 +42,7 @@ insert into tblGenre values (22, '서사');
 insert into tblGenre values (23, '블랙코미디');
 insert into tblGenre values (24, '실험');
 insert into tblGenre values (25, '공연실황');
+insert into tblGenre values (26, '멜로/로맨스');
 
 
 /*tblGrade*/ --완료
