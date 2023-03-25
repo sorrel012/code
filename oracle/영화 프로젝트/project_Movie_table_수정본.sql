@@ -98,7 +98,7 @@ create table tblActor_List (
     actor_seq number not null,      --배우번호(FK)
     
     constraint al_movie_fk foreign key(movie_seq) references tblMovie(movie_seq),
-    constraint al_actor_fk foreign key(actor_seq) references tblMovie(actor_seq)
+    constraint al_actor_fk foreign key(actor_seq) references tblActor(actor_seq)
     
 );
 
