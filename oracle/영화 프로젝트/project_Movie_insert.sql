@@ -80,6 +80,7 @@ insert into tblActor values (seqActor.nextval, '크리스 프랫', to_date('1979
 insert into tblActor values (seqActor.nextval, '해리슨 포드', to_date('1942-07-13', 'yyyy-mm-dd') , null, 3);
 insert into tblActor values (seqActor.nextval, '브루스 칸', to_date('1997-03-15', 'yyyy-mm-dd') , null, 1);
 
+
 /*tblDirector*/ --완료
 create sequence seqDirector start with 1;
 
@@ -191,7 +192,59 @@ insert into tblMovie values (seqMovie.nextVal, '인디아나 존스: 운명의 �
 insert into tblMovie values (seqMovie.nextVal, '리벤져', 102, 439, '클레멘타인은 수작이네', '2018.12.06 개봉', 49, 3);
 
 
-/*tbScore*/
+/*tbScore*/ --완료
+create sequence seqScore start with 1;
+
+insert into tblScore values (seqScore.nextval, 8.17, 7.79, 8.30, 1);
+insert into tblScore values (seqScore.nextval, 8.28, 3.33, 7.07, 2);
+insert into tblScore values (seqScore.nextval, 8.07, 6.17, 8.69, 3);
+insert into tblScore values (seqScore.nextval, 9.28, 7.83, 9.44, 4);
+insert into tblScore values (seqScore.nextval, 6.89, 4.50, 6.46, 5);
+insert into tblScore values (seqScore.nextval, 8.92, 8.67, 8.65, 6);
+insert into tblScore values (seqScore.nextval, 6.64, null, 4.97, 7);
+insert into tblScore values (seqScore.nextval, 6.16, 5.17, 6.19, 8);
+insert into tblScore values (seqScore.nextval, 8.87, null, 7.84, 9);
+insert into tblScore values (seqScore.nextval, 7.72, 5.00, 7.91, 10); 
+insert into tblScore values (seqScore.nextval, 8.36, 5.00, 8.68, 11);
+insert into tblScore values (seqScore.nextval, 9.87, null, 9.82, 12);
+insert into tblScore values (seqScore.nextval, 8.75, 6.73, 9.44, 13);
+insert into tblScore values (seqScore.nextval, 7.10, 5.20, 7.29, 14);
+insert into tblScore values (seqScore.nextval, null, null, null, 15);
+insert into tblScore values (seqScore.nextval, 6.02, 5.80, 5.70, 16);
+insert into tblScore values (seqScore.nextval, 8.32, 6.50, 8.77, 17); 
+insert into tblScore values (seqScore.nextval, 6.19, 5.75, 5.53, 18); 
+insert into tblScore values (seqScore.nextval, 8.26, 8.08, 8.28, 19);
+insert into tblScore values (seqScore.nextval, null, null, 8.77, 20);
+insert into tblScore values (seqScore.nextval, null, null, null, 21);
+insert into tblScore values (seqScore.nextval, null, null, null, 22);  
+insert into tblScore values (seqScore.nextval, 7.79, 7.55, 7.82, 23);  
+insert into tblScore values (seqScore.nextval, 6.88, 5.22, 7.09, 24);
+insert into tblScore values (seqScore.nextval, 8.01, 5.50, 8.82, 25);
+insert into tblScore values (seqScore.nextval, null, null, null, 26);
+insert into tblScore values (seqScore.nextval, null, null, null, 27);
+insert into tblScore values (seqScore.nextval, 8.00, 3.50, 6.17, 28);
+insert into tblScore values (seqScore.nextval, 7.89, 5.67, 8.28, 29);
+insert into tblScore values (seqScore.nextval, 8.27, 6.67, 8.48, 30);
+insert into tblScore values (seqScore.nextval, null, null, null, 31);
+insert into tblScore values (seqScore.nextval, 8.16, 6.75, 8.08, 32);
+insert into tblScore values (seqScore.nextval, null, null, null, 33);
+insert into tblScore values (seqScore.nextval, 8.38, 6.86, 7.90, 34);
+insert into tblScore values (seqScore.nextval, null, null, 9.35, 35);
+insert into tblScore values (seqScore.nextval, null, null, null, 36);  
+insert into tblScore values (seqScore.nextval, null, null, null, 37); 
+insert into tblScore values (seqScore.nextval, null, null, null, 38);  
+insert into tblScore values (seqScore.nextval, null, null, null, 39); 
+insert into tblScore values (seqScore.nextval, null, null, 9.03, 40); 
+insert into tblScore values (seqScore.nextval, 9.50, 6.00, 9.58, 41);
+insert into tblScore values (seqScore.nextval, 8.81, 8.33, 8.16, 42);
+insert into tblScore values (seqScore.nextval, 5.50, 1.00, 4.86, 43);
+insert into tblScore values (seqScore.nextval, 8.38, 6.57, 7.98, 44);
+insert into tblScore values (seqScore.nextval, 9.02, 7.55, 8.81, 45);
+insert into tblScore values (seqScore.nextval, 8.82, 7.80, 8.65, 46);
+insert into tblScore values (seqScore.nextval, 6.25, 6.43, 5.80, 47); 
+insert into tblScore values (seqScore.nextval, null, null, null, 48);  
+insert into tblScore values (seqScore.nextval, null, null, null, 49);  
+insert into tblScore values (seqScore.nextval, 9.38, null, 4.73, 50);  
 
 /*tblViewer*/
 
@@ -199,8 +252,7 @@ insert into tblMovie values (seqMovie.nextVal, '리벤져', 102, 439, '클레멘
 
 /*tblDirector_List*/
 
+/*tblNational_List*/
 
-/*tblDirector*/
-
-/*tblDirector*/
+/*tblGenre_List*/
 
