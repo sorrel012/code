@@ -68,11 +68,11 @@ create table tblMovie (
 --평점
 create table tblScore (
     
-    score_seq number primary key, --평점번호(PK)
-    viwer number not null,        --관람객
-    reporter number not null,     --기자,평론가
-    netizen number not null,      --네티즌
-    movie_seq number not null,    --영화번호(FK)
+    score_seq number primary key,   --평점번호(PK)
+    viwer number null,              --관람객
+    reporter number null,           --기자,평론가
+    netizen number null,            --네티즌
+    movie_seq number not null,      --영화번호(FK)
     
     constraint s_movie_seq_pk foreign key(movie_seq) references tblMovie(movie_seq)
     
