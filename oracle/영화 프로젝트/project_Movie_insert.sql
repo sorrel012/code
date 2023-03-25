@@ -183,7 +183,7 @@ insert into tblMovie values (seqMovie.nextVal, '그대 어이가리', 120, 472, 
 insert into tblMovie values (seqMovie.nextVal, '에브리씽 에브리웨어 올 앳 원스', 139, 3298, '다정함을 보여줘', '2022.10.12 개봉', 38, 3);
 insert into tblMovie values (seqMovie.nextVal, '팔로우드', 96, 54, null, '2023.03.22 개봉', 38, 3);
 insert into tblMovie values (seqMovie.nextVal, '날씨의 아이', 112, 11808, '신이 있다면 우리에게 어떠한 것도 주지마시고, 가져가지도 말아주세요.', '2021.09.09 개봉', 38, 3);
-insert into tblMovie values (seqMovie.nextVal, '너의 이름은.', 106, 26375, '(좋아해) 이래선 이름을 알수없잖아', '2021.09.09 개봉', 38, 2);
+insert into tblMovie values (seqMovie.nextVal, '너의 이름은.', 106, 26375, '(좋아해) 이래선 이름을 알 수 없잖아', '2021.09.09 개봉', 38, 2);
 insert into tblMovie values (seqMovie.nextVal, '아바타: 물의 길', 192, 23668, '아버지는 지킨다, 그것이 존재 이유다.', '2022.12.14 개봉', 38, 2);
 insert into tblMovie values (seqMovie.nextVal, '교섭', 108, 8843, '자존심이 총알 막아주는거 아닙니다', '2023.01.18 개봉', 47, 2);
 insert into tblMovie values (seqMovie.nextVal, '가디언즈 오브 갤럭시: Volume 3 ', 120, 2710, null, '2023.06 개봉 예정', 47, 5);
