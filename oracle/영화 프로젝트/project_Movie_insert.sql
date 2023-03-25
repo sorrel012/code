@@ -19,11 +19,66 @@ insert into tblNation values(seqNation.nextval, '캐나다');
 /*tblGenre*/
 
 
-/*tblGrade*/
+/*tblGrade*/ --완료
+insert into tblGrade values (1, '전체관람가');
+insert into tblGrade values (2, '12세 이상 관람가');
+insert into tblGrade values (3, '15세 이상 관람가');
+insert into tblGrade values (4, '청소년 관람불가');
+insert into tblGrade values (5, '미정');
 
+/*tblActor*/ --완료
+create sequence seqActor start with 1;
 
-/*tblActor*/
-
+insert into tblActor values (seqActor.nextval, '하라 나노카', to_date('2003-08-26', 'yyyy-mm-dd') , 14, 1);
+insert into tblActor values (seqActor.nextval, '박성웅', to_date('1997-03-15', 'yyyy-mm-dd') , 17, 2);
+insert into tblActor values (seqActor.nextval, '전소니', to_date('1990-02-17', 'yyyy-mm-dd') , 7, 2); 
+insert into tblActor values (seqActor.nextval, '키무라 스바루', to_date('1990-06-29', 'yyyy-mm-dd') , 17, 9);
+insert into tblActor values (seqActor.nextval, '제커리 레비', to_date('1980-09-29', 'yyyy-mm-dd') , 20, 3);
+insert into tblActor values (seqActor.nextval, '가브리엘 라벨', to_date('2002-09-20', 'yyyy-mm-dd') , null, 12);
+insert into tblActor values (seqActor.nextval, '하나에 나츠키', to_date('1991-06-26', 'yyyy-mm-dd') , null, 1);
+insert into tblActor values (seqActor.nextval, '조진웅', to_date('1977-01-25', 'yyyy-mm-dd') , 32, 2);
+insert into tblActor values (seqActor.nextval, '양자경', to_date('1962-08-06', 'yyyy-mm-dd') , 5, 1);
+insert into tblActor values (seqActor.nextval, '마이크 콜터', to_date('1976-08-26', 'yyyy-mm-dd') , null, 3);
+insert into tblActor values (seqActor.nextval, '유연석', to_date('1985-04-10', 'yyyy-mm-dd') , null, 2);
+insert into tblActor values (seqActor.nextval, '임영웅', to_date('1991-06-16', 'yyyy-mm-dd') , null, 2);
+insert into tblActor values (seqActor.nextval, '김시은', to_date('1999-01-19', 'yyyy-mm-dd') , null, 2);
+insert into tblActor values (seqActor.nextval, '전종서', to_date('1992-03-26', 'yyyy-mm-dd') , 24, 2);
+insert into tblActor values (seqActor.nextval, '크리스 파인', to_date('1980-08-26', 'yyyy-mm-dd') , null, 3);
+insert into tblActor values (seqActor.nextval, '데이비드 바티스타', to_date('1969-01-18', 'yyyy-mm-dd') , null, 3);
+insert into tblActor values (seqActor.nextval, '스톰 레이드', to_date('2003-07-01', 'yyyy-mm-dd') , null, 3);
+insert into tblActor values (seqActor.nextval, '서현우', to_date('1989-09-15', 'yyyy-mm-dd') , null, 2);
+insert into tblActor values (seqActor.nextval, '콜린 파렐', to_date('1976-05-31', 'yyyy-mm-dd') , 22, 5);
+insert into tblActor values (seqActor.nextval, '키이라 나이틀리', to_date('1985-03-26', 'yyyy-mm-dd') , null, 4);
+insert into tblActor values (seqActor.nextval, '박서준', to_date('1989-02-12', 'yyyy-mm-dd') , null, 2);
+insert into tblActor values (seqActor.nextval, '김보라', to_date('1995-09-28', 'yyyy-mm-dd') , null, 2);
+insert into tblActor values (seqActor.nextval, '케이트 블란쳇', to_date('1969-05-14', 'yyyy-mm-dd') , 36, 11);
+insert into tblActor values (seqActor.nextval, '조나단 메이저스', to_date('1989-09-07', 'yyyy-mm-dd') , null, 3);
+insert into tblActor values (seqActor.nextval, '진선규', to_date('1977-09-13', 'yyyy-mm-dd') , null, 2);
+insert into tblActor values (seqActor.nextval, '안재홍', to_date('1986-03-31', 'yyyy-mm-dd') , null, 2);
+insert into tblActor values (seqActor.nextval, '톰 행크스', to_date('1956-07-09', 'yyyy-mm-dd') , 26, 3);
+insert into tblActor values (seqActor.nextval, '러셀 크로우', to_date('1964-04-07', 'yyyy-mm-dd') , 22, 11);
+insert into tblActor values (seqActor.nextval, '이동휘', to_date('1985-07-2', 'yyyy-mm-dd') , null, 2);
+insert into tblActor values (seqActor.nextval, '브렌든 프레이저', to_date('1968-12-03', 'yyyy-mm-dd') , 14, 3);
+insert into tblActor values (seqActor.nextval, '제이슨 스타뎀', to_date('1967-07-26', 'yyyy-mm-dd') , null, 4);
+insert into tblActor values (seqActor.nextval, '아미르 자디디', to_date('1984-06-20', 'yyyy-mm-dd') , null, 7);
+insert into tblActor values (seqActor.nextval, '크레이그 데이빗 다우젯', to_date('1988-05-22', 'yyyy-mm-dd') , null, 4);
+insert into tblActor values (seqActor.nextval, '진 스미트', to_date('1951-09-13', 'yyyy-mm-dd') , null, 3);
+insert into tblActor values (seqActor.nextval, '이인성', to_date('1950-07-27', 'yyyy-mm-dd') , null, 2);
+insert into tblActor values (seqActor.nextval, '토우마 아미', to_date('2006-11-02', 'yyyy-mm-dd') , null, 1);
+insert into tblActor values (seqActor.nextval, '맷 데이먼', to_date('1970-10-08', 'yyyy-mm-dd') , null, 3);
+insert into tblActor values (seqActor.nextval, '신석호', to_date('1989-06-15', 'yyyy-mm-dd') , null, 2);
+insert into tblActor values (seqActor.nextval, '키아누 리브스', to_date('1964-09-02', 'yyyy-mm-dd') , null, 7);
+insert into tblActor values (seqActor.nextval, '알브레히트 슈흐', to_date('1985-08-21', 'yyyy-mm-dd') , null, 9);
+insert into tblActor values (seqActor.nextval, '선동혁', to_date('1955-10-17', 'yyyy-mm-dd') , null, 2);
+insert into tblActor values (seqActor.nextval, '스테파니 수', to_date('1990-1-25', 'yyyy-mm-dd') , 43, 3);
+insert into tblActor values (seqActor.nextval, '매튜 솔로몬', to_date('1980-03-13', 'yyyy-mm-dd') , null, 3);
+insert into tblActor values (seqActor.nextval, '심규혁', to_date('1970-01-19', 'yyyy-mm-dd') , null, 2);
+insert into tblActor values (seqActor.nextval, '카미키 류노스케', to_date('1993-05-19', 'yyyy-mm-dd') , null, 1);
+insert into tblActor values (seqActor.nextval, '조 샐다나', to_date('1978-06-19', 'yyyy-mm-dd') , null, 3);
+insert into tblActor values (seqActor.nextval, '현빈', to_date('1981-08-12', 'yyyy-mm-dd') , null, 2);
+insert into tblActor values (seqActor.nextval, '크리스 프랫', to_date('1979-06-21', 'yyyy-mm-dd') , null, 3);
+insert into tblActor values (seqActor.nextval, '해리슨 포드', to_date('1942-07-13', 'yyyy-mm-dd') , null, 3);
+insert into tblActor values (seqActor.nextval, '브루스 칸', to_date('1997-03-15', 'yyyy-mm-dd') , null, 1);
 
 /*tblDirector*/ --완료
 create sequence seqDirector start with 1;
