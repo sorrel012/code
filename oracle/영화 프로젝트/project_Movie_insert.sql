@@ -1,6 +1,5 @@
 
-/*tblNation*/ 
-
+/*tblNation*/ --완료
 insert into tblNation values(seqNation.nextval, '일본');
 insert into tblNation values(seqNation.nextval, '한국');
 insert into tblNation values(seqNation.nextval, '미국');
@@ -24,8 +23,7 @@ insert into tblNation values(seqNation.nextval, '캐나다');
 /*tblActor*/
 
 
-/*tblDirector*/
-
+/*tblDirector*/ --완료
 insert into tblDirector values(seqDirector.nextval,'신카이 마코토',to_date('1973-02-09', 'yyyy-mm-dd'),1,1);
 insert into tblDirector values(seqDirector.nextval,'박성광',to_date('1981-08-15','yyyy-mm-dd'),2,2);
 insert into tblDirector values(seqDirector.nextval,'민용근',to_date('1976-08-02','yyyy-mm-dd'),5,2);
@@ -79,6 +77,8 @@ insert into tblDirector values(seqDirector.nextval,'제임스 맨골드',to_date
 insert into tblDirector values(seqDirector.nextval,'이승원',to_date('1980-09-10','yyyy-mm-dd'), null,2);
 
 /*tblMovie*/
+
+
 
 /*tbScore*/
 
