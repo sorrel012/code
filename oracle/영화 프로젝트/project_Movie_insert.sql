@@ -17,6 +17,31 @@ insert into tblNation values(seqNation.nextval, '캐나다');
 
 
 /*tblGenre*/
+insert into tblGenre values (1, '드라마');
+insert into tblGenre values (2, '판타지');
+insert into tblGenre values (3, '서부');
+insert into tblGenre values (4, '공포');
+insert into tblGenre values (5, '모험');
+insert into tblGenre values (6, '스릴러');
+insert into tblGenre values (7, '느와르');
+insert into tblGenre values (8, '컬트');
+insert into tblGenre values (9, '다큐멘터리');
+insert into tblGenre values (10, '코미디');
+insert into tblGenre values (11, '가족');
+insert into tblGenre values (12, '미스터리');
+insert into tblGenre values (13, '전쟁');
+insert into tblGenre values (14, '애니메이션');
+insert into tblGenre values (15, '범죄');
+insert into tblGenre values (16, '뮤지컬');
+insert into tblGenre values (17, 'SF');
+insert into tblGenre values (18, '액션');
+insert into tblGenre values (19, '무협');
+insert into tblGenre values (20, '에로');
+insert into tblGenre values (21, '서스펜스');
+insert into tblGenre values (22, '서사');
+insert into tblGenre values (23, '블랙코미디');
+insert into tblGenre values (24, '실험');
+insert into tblGenre values (25, '공연실황');
 
 
 /*tblGrade*/ --완료
