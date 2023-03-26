@@ -351,7 +351,170 @@ insert into tblScore values (seqScore.nextval, null, null, null, 49);
 insert into tblScore values (seqScore.nextval, 9.38, null, 4.73, 50);  
 
 
-/*tblViewer*/
+/*
+    tblViewer
+    -null 값 = 집계안됨, 0 = 집계는 됐으나 표본수 부족 
+    -나이별 관람추이의 단위는 %
+    -성별 관람추이의 단위는 %, 남자,여자 순
+    -insert 순서는 2023-03-26 네이버 영화랭킹순
+*/
+create sequence v_seq;
+
+--null 값 = 집계안됨, 0 = 집계는 됐으나 표본수 부족 
+--나이별 관람추이의 단위는 %
+--성별 관람추이의 단위는 %, 남자,여자 순
+--insert 순서는 2023-03-23 네이버 영화랭킹순
+--스즈메의 문단속    
+insert into tblviewer (seq, movie_seq, gen_10, gen_20, gen_30, gen_40, gen_50, gender_m, gender_w, viewer_sum)
+    values (v_seq.nextval, 1, 6, 36, 34, 18, 6, 64, 36, 2655578);
+--웅남이
+insert into tblviewer (seq, movie_seq, gen_10, gen_20, gen_30, gen_40, gen_50, gender_m, gender_w, viewer_sum)
+    values (v_seq.nextval, 2, 1, 27, 42, 23, 7, 50, 50, 129847);
+--소울메이트
+insert into tblviewer (seq, movie_seq, gen_10, gen_20, gen_30, gen_40, gen_50, gender_m, gender_w, viewer_sum)
+    values (v_seq.nextval, 3, 2, 25, 38, 22, 12, 52, 48, 171429);
+--더 퍼스트 슬램덩크    
+insert into tblviewer (seq, movie_seq, gen_10, gen_20, gen_30, gen_40, gen_50, gender_m, gender_w, viewer_sum)
+    values (v_seq.nextval, 4, 2, 24, 44, 24, 6, 61, 39, 4249401);
+--샤잠! 신들의 분노    
+insert into tblviewer (seq, movie_seq, gen_10, gen_20, gen_30, gen_40, gen_50, gender_m, gender_w, viewer_sum)
+    values (v_seq.nextval, 5, 1, 31, 42, 20, 6, 72, 28, 74928);
+--파벨만스   
+insert into tblviewer (seq, movie_seq, gen_10, gen_20, gen_30, gen_40, gen_50, gender_m, gender_w, viewer_sum)
+    values (v_seq.nextval, 6, 1, 31, 38, 17, 12, 66, 34, 27063);
+--귀멸의 칼날: 상현집결, 그리고 도공 마을로    
+insert into tblviewer (seq, movie_seq, gen_10, gen_20, gen_30, gen_40, gen_50, gender_m, gender_w, viewer_sum)
+    values (v_seq.nextval, 7, 3, 35, 34, 22, 6, 67, 33, 517603);
+--대외비    
+insert into tblviewer (seq, movie_seq, gen_10, gen_20, gen_30, gen_40, gen_50, gender_m, gender_w, viewer_sum)
+    values (v_seq.nextval, 8, 2, 24, 39, 25, 10, 58, 42, 751436);
+--에브리씽 에브리웨어 올 앳 원스+    
+insert into tblviewer (seq, movie_seq, gen_10, gen_20, gen_30, gen_40, gen_50, gender_m, gender_w, viewer_sum)
+    values (v_seq.nextval, 9, 2, 35, 40, 17, 6, 51, 49, 83908);
+--플레인
+insert into tblviewer (seq, movie_seq, gen_10, gen_20, gen_30, gen_40, gen_50, gender_m, gender_w, viewer_sum)
+    values (v_seq.nextval, 10, 0, 20, 39, 31, 10, 60, 40, 34871);
+--멍뭉이    
+insert into tblviewer (seq, movie_seq, gen_10, gen_20, gen_30, gen_40, gen_50, gender_m, gender_w, viewer_sum)
+    values (v_seq.nextval, 11, 4, 26, 37, 21, 12, 40, 60, 168650);
+--아임 히어로 더 파이널
+insert into tblviewer (seq, movie_seq, gen_10, gen_20, gen_30, gen_40, gen_50, gender_m, gender_w, viewer_sum)
+    values (v_seq.nextval, 12, 0, 5, 12, 19, 64, 12, 88, 227956);
+--다음소희
+insert into tblviewer (seq, movie_seq, gen_10, gen_20, gen_30, gen_40, gen_50, gender_m, gender_w, viewer_sum)
+    values (v_seq.nextval, 13, 2, 19, 37, 27, 15, 59, 41, 105338);
+--모나리자와 블러드 문   
+insert into tblviewer (seq, movie_seq, gen_10, gen_20, gen_30, gen_40, gen_50, gender_m, gender_w, viewer_sum)
+    values (v_seq.nextval, 14, 3, 27, 42, 21, 7, 66, 34, 13980);
+
+--던전 앤 드래곤: 도적들의 명예
+insert into tblviewer (seq, movie_seq, gen_10, gen_20, gen_30, gen_40, gen_50, gender_m, gender_w, viewer_sum)
+    values (v_seq.nextval, 15, null, null, null, null, null, null, null, null);
+--똑똑똑
+insert into tblviewer (seq, movie_seq, gen_10, gen_20, gen_30, gen_40, gen_50, gender_m, gender_w, viewer_sum)
+    values (v_seq.nextval, 16, 1, 26, 40, 26, 6, 61, 39, 30847);
+--서치 2
+insert into tblviewer (seq, movie_seq, gen_10, gen_20, gen_30, gen_40, gen_50, gender_m, gender_w, viewer_sum)
+    values (v_seq.nextval, 17, 1, 34, 38, 20, 8, 51, 49, 412492);
+--마루이 비디오
+insert into tblviewer (seq, movie_seq, gen_10, gen_20, gen_30, gen_40, gen_50, gender_m, gender_w, viewer_sum)
+    values (v_seq.nextval, 18, 2, 30, 40, 22, 6, 66, 34, 165649);
+--이니셰린의 밴시
+insert into tblviewer (seq, movie_seq, gen_10, gen_20, gen_30, gen_40, gen_50, gender_m, gender_w, viewer_sum)
+    values (v_seq.nextval, 19, 2, 18, 46, 24, 10, 66, 34, 16885);    
+--보스턴 교살자
+insert into tblviewer (seq, movie_seq, gen_10, gen_20, gen_30, gen_40, gen_50, gender_m, gender_w, viewer_sum)
+    values (v_seq.nextval, 20, null, null, null, null, null, null, null, null);    
+--드림
+insert into tblviewer (seq, movie_seq, gen_10, gen_20, gen_30, gen_40, gen_50, gender_m, gender_w, viewer_sum)
+    values (v_seq.nextval, 21, null, null, null, null, null, null, null, null);
+--옥수역귀신    
+insert into tblviewer (seq, movie_seq, gen_10, gen_20, gen_30, gen_40, gen_50, gender_m, gender_w, viewer_sum)
+    values (v_seq.nextval, 22, null, null, null, null, null, null, null, null);   
+--TAR 타르
+insert into tblviewer (seq, movie_seq, gen_10, gen_20, gen_30, gen_40, gen_50, gender_m, gender_w, viewer_sum)
+    values (v_seq.nextval, 23, 1, 33, 41, 18, 8, 61, 39, 35236);
+--앤트맨과 와스프: 퀀텀매니아
+insert into tblviewer (seq, movie_seq, gen_10, gen_20, gen_30, gen_40, gen_50, gender_m, gender_w, viewer_sum)
+    values (v_seq.nextval, 24, 2, 27, 42, 21, 7, 61, 39, 1550459);
+--카운트
+insert into tblviewer (seq, movie_seq, gen_10, gen_20, gen_30, gen_40, gen_50, gender_m, gender_w, viewer_sum)
+    values (v_seq.nextval, 25, 1, 24, 41, 24, 10, 49, 51, 391974);    
+--리바운드    
+insert into tblviewer (seq, movie_seq, gen_10, gen_20, gen_30, gen_40, gen_50, gender_m, gender_w, viewer_sum)
+    values (v_seq.nextval, 26, null, null, null, null, null, null, null, null);    
+--오토라는 남자
+insert into tblviewer (seq, movie_seq, gen_10, gen_20, gen_30, gen_40, gen_50, gender_m, gender_w, viewer_sum)
+    values (v_seq.nextval, 27, null, null, null, null, null, null, null, null);
+--포커페이스    
+insert into tblviewer (seq, movie_seq, gen_10, gen_20, gen_30, gen_40, gen_50, gender_m, gender_w, viewer_sum)
+    values (v_seq.nextval, 28, 0, 0, 67, 33, 0, 67, 33, 557);
+--어쩌면 우린 헤어졌는지 모른다
+insert into tblviewer (seq, movie_seq, gen_10, gen_20, gen_30, gen_40, gen_50, gender_m, gender_w, viewer_sum)
+    values (v_seq.nextval, 29, 3, 24, 31, 28, 14, 79, 21, 18238);
+--더 웨일
+insert into tblviewer (seq, movie_seq, gen_10, gen_20, gen_30, gen_40, gen_50, gender_m, gender_w, viewer_sum)
+    values (v_seq.nextval, 30, 0, 34, 38, 19, 9, 62, 38, 48864);
+--스파이 코드명 포춘    
+insert into tblviewer (seq, movie_seq, gen_10, gen_20, gen_30, gen_40, gen_50, gender_m, gender_w, viewer_sum)
+    values (v_seq.nextval, 31, null, null, null, null, null, null, null, null);    
+--어떤 영웅    
+insert into tblviewer (seq, movie_seq, gen_10, gen_20, gen_30, gen_40, gen_50, gender_m, gender_w, viewer_sum)
+    values (v_seq.nextval, 32, 0, 15, 50, 26, 9, 70, 30, 3206);    
+--곰돌이 푸: 피와꿀
+insert into tblviewer (seq, movie_seq, gen_10, gen_20, gen_30, gen_40, gen_50, gender_m, gender_w, viewer_sum)
+    values (v_seq.nextval, 33, null, null, null, null, null, null, null, null);    
+--바빌론    
+insert into tblviewer (seq, movie_seq, gen_10, gen_20, gen_30, gen_40, gen_50, gender_m, gender_w, viewer_sum)
+    values (v_seq.nextval, 34, 1, 36, 39, 16, 8, 60, 40, 209455);
+--아기공룡 둘리: 얼음별 대모험 4K 리마스터링
+insert into tblviewer (seq, movie_seq, gen_10, gen_20, gen_30, gen_40, gen_50, gender_m, gender_w, viewer_sum)
+    values (v_seq.nextval, 35, null, null, null, null, null, null, null, null);
+--거울 속 외딴 성
+insert into tblviewer (seq, movie_seq, gen_10, gen_20, gen_30, gen_40, gen_50, gender_m, gender_w, viewer_sum)
+    values (v_seq.nextval, 36, null, null, null, null, null, null, null, null);
+--에어
+insert into tblviewer (seq, movie_seq, gen_10, gen_20, gen_30, gen_40, gen_50, gender_m, gender_w, viewer_sum)
+    values (v_seq.nextval, 37, null, null, null, null, null, null, null, null);
+--물안에서    
+insert into tblviewer (seq, movie_seq, gen_10, gen_20, gen_30, gen_40, gen_50, gender_m, gender_w, viewer_sum)
+    values (v_seq.nextval, 38, null, null, null, null, null, null, null, null);
+--존윅4   
+insert into tblviewer (seq, movie_seq, gen_10, gen_20, gen_30, gen_40, gen_50, gender_m, gender_w, viewer_sum)
+    values (v_seq.nextval, 39, null, null, null, null, null, null, null, null);
+--서부 전선 이상 없다
+insert into tblviewer (seq, movie_seq, gen_10, gen_20, gen_30, gen_40, gen_50, gender_m, gender_w, viewer_sum)
+    values (v_seq.nextval, 40, null, null, null, null, null, null, null, null);
+--그대 어이가리    
+insert into tblviewer (seq, movie_seq, gen_10, gen_20, gen_30, gen_40, gen_50, gender_m, gender_w, viewer_sum)
+    values (v_seq.nextval, 41, 5, 33, 29, 5, 29, 67, 33, 6906);
+--에브리씽 에브리웨어 올 앳 원스
+insert into tblviewer (seq, movie_seq, gen_10, gen_20, gen_30, gen_40, gen_50, gender_m, gender_w, viewer_sum)
+    values (v_seq.nextval, 42, 3, 47, 34, 12, 4, 53, 47, 364766);
+--팔로우드
+insert into tblviewer (seq, movie_seq, gen_10, gen_20, gen_30, gen_40, gen_50, gender_m, gender_w, viewer_sum)
+    values (v_seq.nextval, 43, 17, 0, 50, 33, 0, 50, 50, 944);
+--날씨의 아이
+insert into tblviewer (seq, movie_seq, gen_10, gen_20, gen_30, gen_40, gen_50, gender_m, gender_w, viewer_sum)
+    values (v_seq.nextval, 44, 14, 54, 19, 9, 4, 71, 29, 742203);
+--너의 이름은.    
+insert into tblviewer (seq, movie_seq, gen_10, gen_20, gen_30, gen_40, gen_50, gender_m, gender_w, viewer_sum)
+    values (v_seq.nextval, 45, 10, 55, 16, 16, 3, 54, 46, 3808383);
+--아바타: 물의 길    
+insert into tblviewer (seq, movie_seq, gen_10, gen_20, gen_30, gen_40, gen_50, gender_m, gender_w, viewer_sum)
+    values (v_seq.nextval, 46, 2, 30, 39, 23, 6, 63, 37, 10799855);
+--교섭    
+insert into tblviewer (seq, movie_seq, gen_10, gen_20, gen_30, gen_40, gen_50, gender_m, gender_w, viewer_sum)
+    values (v_seq.nextval, 47, 2, 26, 38, 22, 11, 55, 45, null);
+--가디언즈 오브 갤럭시: Volume 3    
+insert into tblviewer (seq, movie_seq, gen_10, gen_20, gen_30, gen_40, gen_50, gender_m, gender_w, viewer_sum)
+    values (v_seq.nextval, 48, null, null, null, null, null, null, null, null);
+--인디아나 존스: 운명의 다이얼
+insert into tblviewer (seq, movie_seq, gen_10, gen_20, gen_30, gen_40, gen_50, gender_m, gender_w, viewer_sum)
+    values (v_seq.nextval, 49, null, null, null, null, null, null, null, null);
+--리벤져
+insert into tblviewer (seq, movie_seq, gen_10, gen_20, gen_30, gen_40, gen_50, gender_m, gender_w, viewer_sum)
+    values (v_seq.nextval, 50, 0, 57, 29, 14, 0, 33, 67, null);
 
 
 /*tblNation_List*/ --완료
