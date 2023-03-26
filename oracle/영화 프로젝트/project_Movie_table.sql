@@ -79,16 +79,22 @@ create table tblScore (
 );
 
 -- 관객
+--관객 테이블
 create table tblViewer (
+    seq number primary key not null,                                                 --관객번호(PK)            
+    movie_seq number not null,                                                       --영화번호(FK)
+    gen_10 Integer,                                                                  --10대
+    gen_20 Integer,                                                                  --20대
+    gen_30 Integer,                                                                  --30대
+    gen_40 Integer,                                                                  --40대
+    gen_50 Integer,                                                                  --50대(50대 이상부터는 50대에 모두 편입)
+    gender_m Integer,                                                                --남자비율
+    gender_w Integer,                                                                --여자비율
+    viewer_sum Integer,                                                              --누적관객수(숫자)
     
-    viewer_seq number primary key,  --관객번호(PK)
-    age Integer,                    --나이
-    gender varchar2(30),            --성별(한글로 작성)
-    viewer_sum Integer,             --누적관객수(숫자)
-    movie_seq number not null,      --영화번호(FK)
-    
-    constraint v_movie_fk foreign key(movie_seq) references tblMovie(movie_seq)  
+    constraint v_movie_seq_fk foreign key(movie_seq) references tblMovie(movie_seq)       --tblmovie 기본키를 tblviewer의 movie_seq로 참조
 );
+
 
 
 -- 영화-출연진
