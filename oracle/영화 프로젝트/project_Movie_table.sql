@@ -79,8 +79,8 @@ create table tblScore (
 );
 
 -- 관객
---관객 테이블
 create table tblViewer (
+
     seq number primary key not null,                                                 --관객번호(PK)            
     movie_seq number not null,                                                       --영화번호(FK)
     gen_10 Integer,                                                                  --10대
