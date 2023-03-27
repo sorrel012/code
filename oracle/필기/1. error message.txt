@@ -37,5 +37,9 @@
 
 -- table must be empty to add mandatory (NOT NULL) column
     - 테이블에 이미 데이터가 들어있을 때, not null 제약사항을 가지는 컬럼을 추가하려고 함.
-        > 들어있는 데이터를 delete하고 생성하거나, 테이블을 drop하고 새로 create		
+        > 들어있는 데이터를 delete하고 생성하거나, 테이블을 drop하고 새로 create	
+	
+-- a variable declared NOT NULL must have an initialization assignment
+	- not null로 변수를 선언할 때 기본값을 할당하지 않았음.
+		> 변수 선언 시 초기화해주어야 함.
 		
