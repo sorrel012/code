@@ -1,0 +1,63 @@
+
+-- ANSI-SQL
+    - 비절차 지향 언어
+    - 순서가 없고 문장 간의 행동이 서로 독립적이다.
+    - 문장 단위 구조
+
+-- PL/SQL
+     - Oracle's Procedural Language Extension to SQL
+     - ANSI-SQL에 절차 지향 언어의 기능을 추가한 SQL
+     - ANSI-SQL + 프로그래밍 언어의 기능(변수, 자료형, 제어문, 메소드 ...)
+     
+ -- 프로시저, Procedure
+    - 메소드, 함수 ...
+    - 순서가 있는 명령어(ANSI-SQL + PL/SQL)의 집합
+    
+    1. 익명 프로시저
+        - 일회용 코드 > 재사용 X
+        
+    2. 실명 프로시저
+        - 저장(데이터베이스) > DB Object
+        - 재사용 가능
+        - 계정 간 공유 가능
+        
+    - PL/SQL 프로시저 블럭 구조 > 4개의 키워드(블럭)으로 구성
+        a. declare
+            - 선언부
+            - 프로시저 내에서 사용할 변수, 객체 등을 선언하는 영역
+            - 생략 가능
+        
+        b. begin
+            - 실행부, 구현부
+            - begin ~ end 한 쌍
+            - 구현부의 시작
+            - 생략 불가능
+            - 핵심 파트
+            - 구현 코드 : ANSI-SQL + PL/SQL
+            
+        c. exception
+            - 예외 처리부
+            - 자바에서의 catch 역할 (begin~end가 try 역할까지!)
+            - 예외 처리 코드 작성
+            - 생략 가능
+        
+        d. end
+            - begin ~ end 한 쌍
+            - 구현부의 끝 > begin 블럭의 종료 역할
+            - 생략 불가능
+        
+        
+        declare
+            변수 선언 | 객체 선언
+        begin            
+            구현할 코드(SQL)            
+        exception
+            예외처리 코드            
+        end;
+            
+            
+        begin            
+            구현할 코드(SQL)             
+        end;    
+        
+        
