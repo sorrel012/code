@@ -45,6 +45,5 @@
 		
 -- an INTO clause is expected in this SELECT statement
 	- ANSI-SQL의 값을 PL/SQL에 select로 저장하려고 함.
-		> select into를 사용해야 함.
-		
+		> select into를 사용해야 함.		
 		
