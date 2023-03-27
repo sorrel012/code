@@ -413,36 +413,125 @@ begin
 end;
 
 
+--'신숙주'가 대여한 비디오 제목?
+select * from tblMember;
+select * from tblRent;
+select * from tblVideo;
+
+
+--1. 조인
+--2. 서브쿼리
+
+--3. 프로시저
+declare
+    mseq tblMember.seq%type;
+    vseq tblRent.video%type;
+    vname tblVideo.name%type;
+begin
+    select seq into mseq from tblMember where name = '신숙주';
+    select video into vseq from tblRent where member = mseq;
+    select name into vname from tblVideo where seq = vseq;    
+    dbms_output.put_line(vname);
+end;
 
 
 
+/* 
+    반복문
+    
+    1. loop
+    2. for loop
+    3. while loop
+    
+*/
 
 
+--1. loop
+declare
+    vnum number := 1;
+begin
+
+    loop
+        dbms_output.put_line(to_char(sysdate, 'hh24:mi:ss'));
+        dbms_output.put_line(vnum);
+        vnum := vnum + 1;
+        
+        exit when vnum > 10; --조건 만족 > loop 탈출
+    end loop;
+
+end;
 
 
+-- 더미 데이터 추가 x 1000건
+
+create table tblLoop(
+    seq number primary key,
+    data varchar2(30) not null
+);
+
+create sequence seqLoop;
 
 
+insert into tblLoop values(seqLoop.nextVal, '데이터1');
+insert into tblLoop values(seqLoop.nextVal, '데이터2');
+insert into tblLoop values(seqLoop.nextVal, '데이터3');
+
+declare 
+    vnum number := 4;
+begin   
+
+    loop
+        insert into tblLoop values(seqLoop.nextVal, '데이터' || vnum);
+        vnum := vnum + 1;
+        
+        exit when vnum > 1000;
+    end loop;
+    
+end;
+
+select * from tblLoop;
 
 
+--2. for loop
+
+begin
+    for i in 1..10 loop
+        dbms_output.put_line(i);
+    end loop;
+end;
 
 
+create table tblGugudan(
+    dan number,
+    num number,
+    result number not null,
+    
+    constraint tblgugudan_dan_num_pk primary key(dan, num)
+);
+
+begin    
+    for dan in 2..9 loop
+        for num in 1..9 loop
+            insert into tblGugudan (dan, num, result) values (dan, num, dan * num);
+        end loop;
+    end loop;
+end;
+
+select * from tblGugudan;
 
 
+--3. while loop
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+declare
+    vnum number := 1;
+begin
+    while vnum <= 10 loop
+    
+        dbms_output.put_line(vnum);
+        vnum := vnum + 1;
+    
+    end loop;
+end;
 
 
 
