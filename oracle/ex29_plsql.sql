@@ -535,10 +535,92 @@ end;
 
 
 
+/* 
+    
+    select 결과셋 > PL/SQL 변수에 대입
+    
+    1. select into
+        -결과 셋의 레코드가 1개일 때만 사용 가능
+        
+    2. cursor + loop
+        -결과 셋의 레코드가 n개일 때만 사용 가능
+    
+*/
+
+declare
+    vname tblInsa.name%type;
+begin
+    --      60    :    1    > 에러
+    select name into vname from tblInsa;
+    
+    --      0    :    1     > 에러 > null 처리 필요!
+    select name into vname from tblInsa where name = '유재석';
+    dbms_output.put_outline(vname);
+end;
 
 
+declare
+    cursor vcursor is select name from tblInsa;
+    vname tblInsa.name%type;
+begin
+
+    open vcursor;   -- select문 실행 > 결과셋에 커서 연결(참조) > 탐색 > 자바의 Iterator
+        
+        fetch vcursor into vname;   -- select into와 동일한 역할
+        dbms_output.put_line(vname);
+       
+        fetch vcursor into vname;   
+        dbms_output.put_line(vname);
+        
+        fetch vcursor into vname; 
+        dbms_output.put_line(vname);
+
+        fetch vcursor into vname; 
+        dbms_output.put_line(vname);
+        
+        fetch vcursor into vname; 
+        dbms_output.put_line(vname);
+       
+    close vcursor;
+    
+end;
 
 
+-- 잘 안 씀..
+declare
+    cursor vcursor is select name from tblInsa;
+    vname tblInsa.name%type;
+begin
+
+    open vcursor;  
+        
+        for i in 1..60 loop
+            fetch vcursor into vname;  
+            dbms_output.put_line(vname);
+        end loop;
+    close vcursor;
+    
+end;
+
+
+declare
+    cursor vcursor is select name from tblInsa;
+    vname tblInsa.name%type;
+begin
+
+    open vcursor;  
+        
+        loop
+            fetch vcursor into vname; 
+            --                  boolean
+            exit when vcursor%notfound; --커서가 더이상 다음 레코드를 발견하지 못할 때
+            
+            dbms_output.put_line(vname);            
+        end loop;
+        
+    close vcursor;
+    
+end;
 
 
 
