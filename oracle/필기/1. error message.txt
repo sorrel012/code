@@ -43,3 +43,6 @@
 	- not null로 변수를 선언할 때 기본값을 할당하지 않았음.
 		> 변수 선언 시 초기화해주어야 함.
 		
+-- an INTO clause is expected in this SELECT statement
+	- ANSI-SQL의 값을 PL/SQL에 select로 저장하려고 함.
+		> select into를 사용해야 함.
