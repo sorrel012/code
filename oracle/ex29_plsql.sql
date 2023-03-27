@@ -135,6 +135,55 @@ end;
 
 
 
+/*타입 참조*/
+
+--1. %type
+
+declare
+    vname tblInsa.name%type; -- vname varchar2(20);
+    vbuseo tblInsa.buseo%type;
+    vjikwi tblInsa.jikwi%type;
+begin
+    select name, buseo, jikwi into vname, vbuseo, vjikwi from tblInsa where num = 1002;
+
+    dbms_output.put_line(vname);
+    dbms_output.put_line(vbuseo);
+    dbms_output.put_line(vjikwi);    
+    
+end;
+
+
+-- 특정 직원에게 보너스 지급 > 내역 저장..
+-- 보너스 = basicpay * 1.5
+create table tblBonus (
+    seq number primary key,
+    num number(5) not null,
+    bonus number not null
+);
+
+create sequence seqBonus;
+select * from tblInsa where buseo = '총무부' and jikwi = '부장';
+
+--1. ANSI-SQL
+insert into tblBonus values(seqBonus.nextVal, 
+                        (select num from tblInsa where buseo = '총무부' and jikwi = '부장'),
+                        (select basicpay from tblInsa where buseo = '총무부' and jikwi = '부장') * 1.5);
+                        
+--2. PL/SQL
+declare
+    vnum tblInsa.num%type;
+    vbasicpay tblInsa.basicpay%type;
+begin
+    select num, basicpay into vnum, vbasicpay from tblInsa 
+        where buseo = '총무부' and jikwi = '부장';        
+    insert into tblBonus values (seqBonus.nextVal, vnum, vbasicpay * 1.5);
+end;
+
+select * from tblBonus;
+
+
+
+
 
 
 
