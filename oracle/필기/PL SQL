@@ -161,6 +161,7 @@
                     실행문;
                 end loop;
             
+            
 -- select 결과셋 저장
     - select 결과셋 > PL/SQL 변수에 대입
     
@@ -192,6 +193,5 @@
                     end loop;
                 close 커서명; -- 커서 닫기
 
-            end;
-            
+            end;            
             
