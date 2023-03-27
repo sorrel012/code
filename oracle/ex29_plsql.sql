@@ -158,6 +158,7 @@ end;
 create table tblBonus (
     seq number primary key,
     num number(5) not null,
+    --num number(5) not null references tblInsa(num),
     bonus number not null
 );
 
@@ -182,8 +183,68 @@ end;
 select * from tblBonus;
 
 
+--2. %rowtype
+
+-- 홍길동 > 모든 정보(컬럼 10개) 출력 > 프로시저
+declare
+    vnum tblInsa.num%type;
+    vname tblInsa.name%type;
+    vbuseo tblInsa.buseo%type;
+    vjikwi tblInsa.jikwi%type;
+    vssn tblInsa.ssn%type;
+    vcity tblInsa.city%type;
+    vbasicpay tblInsa.basicpay%type;
+    vsudang tblInsa.sudang%type;
+    vibsadate tblInsa.ibsadate%type;
+    vtel tblInsa.tel%type;
+begin
+    select num, name, buseo, jikwi, ssn, city, basicpay, sudang, ibsadate, tel 
+        into vnum, vname, vbuseo, vjikwi, vssn, vcity, vbasicpay, vsudang, vibsadate, vtel 
+    from tblInsa where name = '홍길동';
+    
+    dbms_output.put_line(vname);
+end;
 
 
+declare
+    vrow tblInsa%rowtype; --테이블 구조 순서대로 컬럼을 가져옴.
+begin
+    select * -- num, name, ssn, ibsadate, city, tel, buseo, jikwi, basicpay, sudang
+        into vrow
+    from tblInsa where name = '이순신';
+    
+    dbms_output.put_line(vrow.name);
+    dbms_output.put_line(vrow.num);
+    dbms_output.put_line(vrow.ssn);
+    dbms_output.put_line(vrow.ibsadate);
+    dbms_output.put_line(vrow.city);
+    dbms_output.put_line(vrow.tel);
+    dbms_output.put_line(vrow.buseo);
+    dbms_output.put_line(vrow.jikwi);
+    dbms_output.put_line(vrow.basicpay);
+    dbms_output.put_line(vrow.sudang);
+end;
+
+
+--1. %type
+declare
+    vname tblInsa.name%type;
+    vbuseo tblInsa.buseo%type;
+    vjikwi tblInsa.jikwi%type;
+    vcity tblInsa.city%type;
+    vbasicpay tblInsa.basicpay%type;
+begin
+    select name, buseo, jikwi, city, basicpay
+        into vname, vbuseo, vjikwi, vcity, vbasicpay
+    from tblInsa where name = '홍길동';
+end;
+
+--2. %rowtype
+declare
+    vrow tblInsa%rowtype;
+begin
+    select * into vrow from tblInsa where name = '홍길동';
+end;
 
 
 
