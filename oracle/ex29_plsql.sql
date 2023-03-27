@@ -157,8 +157,7 @@ end;
 -- 보너스 = basicpay * 1.5
 create table tblBonus (
     seq number primary key,
-    num number(5) not null,
-    --num number(5) not null references tblInsa(num),
+    num number(5) not null references tblInsa(num),
     bonus number not null
 );
 
@@ -245,6 +244,37 @@ declare
 begin
     select * into vrow from tblInsa where name = '홍길동';
 end;
+
+
+-- '하하하' > 성전환 > tblWomen 이동
+-- 1. tblMen > select > 정보
+-- 2. tblWomen > insert(1번) > 복사
+-- 3. tblMen > delete
+
+declare 
+    vrow tblMen%rowtype;
+begin
+    
+    --1.
+    select * into vrow from tblMen where name = '하하하';
+    
+    --2.
+    insert into tblWomen values (vrow.name, vrow.age, vrow.height, vrow.weight, vrow.couple);
+    
+    --3.
+    delete from tblMen where name = '하하하';
+    
+end;
+
+select * from tblMen;
+select * from tblWomen;
+
+
+
+
+
+
+
 
 
 
