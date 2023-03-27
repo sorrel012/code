@@ -277,6 +277,10 @@ select * from tblWomen;
     2. 반복문
 */
 
+/* 조건문*/
+
+--1. if elsif else
+
 declare
     vnum number := 10;
 begin
@@ -344,6 +348,106 @@ select
     (select jikwi from tblInsa where num = b.num) as jikwi,
     (select basicpay from tblInsa where num = b.num) as basicpay
 from tblBonus b;
+
+
+--2. case(if)
+
+declare
+    vcontinent tblCountry.continent%type;
+    vresult varchar2(30);
+begin
+
+    select continent into vcontinent from tblCountry where name = '대한민국';
+    
+    if vcontinent = 'AS' then
+        vresult := '아시아';
+    elsif vcontinent = 'EU' then
+        vresult := '유럽';
+    elsif vcontinent = 'AF' then
+        vresult := '아프리카';
+    else
+        vresult := '기타';
+    end if;
+    
+    dbms_output.put_line(vresult);
+    
+end;
+
+
+declare
+    vcontinent tblCountry.continent%type;
+    vresult varchar2(30);
+begin
+
+    select continent into vcontinent from tblCountry where name = '대한민국';
+    
+    case
+        when vcontinent = 'AS' then vresult := '아시아';
+        when vcontinent = 'EU' then vresult := '유럽';
+        when vcontinent = 'AF' then vresult := '아프리카';
+        else vresult := '기타';
+    end case;
+    
+    dbms_output.put_line(vresult);
+
+end;
+
+
+--3. case(switch)
+declare
+    vcontinent tblCountry.continent%type;
+    vresult varchar2(30);
+begin
+
+    select continent into vcontinent from tblCountry where name = '대한민국';
+    
+    case vcontinent
+        when 'AS' then vresult := '아시아';
+        when 'EU' then vresult := '유럽';
+        when 'AF' then vresult := '아프리카';
+        else vresult := '기타';
+    end case;
+    
+    dbms_output.put_line(vresult);
+
+end;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
