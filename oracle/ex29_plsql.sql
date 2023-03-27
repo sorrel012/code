@@ -271,6 +271,82 @@ select * from tblWomen;
 
 
 
+/* 
+    제어문 
+    1. 조건문
+    2. 반복문
+*/
+
+declare
+    vnum number := 10;
+begin
+    if vnum > 0 then 
+        dbms_output.put_line('양수');
+    end if;
+end;
+
+
+declare
+    vnum number := -10;
+begin
+    if vnum > 0 then 
+        dbms_output.put_line('양수');
+    else 
+        dbms_output.put_line('양수 아님');
+    end if;
+end;
+
+
+
+declare
+    vnum number := 0;
+begin
+    if vnum > 0 then 
+        dbms_output.put_line('양수');
+    elsif vnum < 0 then  
+        dbms_output.put_line('음수');
+    else 
+        dbms_output.put_line('0');
+        -- null > 빈 구문 만들 때 사용
+    end if;
+end;
+
+
+-- 보너스 지급
+-- 부장 or 과장이면 150% 지급
+-- 사원급이면 200% 지급
+
+declare
+    vnum tblInsa.num%type;
+    vbasicpay tblInsa.basicpay%type;
+    vjikwi tblInsa.jikwi%type;
+    vbonus  number;
+begin
+    
+    --1.
+    select num, basicpay, jikwi into vnum, vbasicpay, vjikwi from tblInsa where name = '이순신';
+    
+    --2.
+    if vjikwi = '부장' or vjikwi = '과장' then
+        vbonus := vbasicpay * 1.5;
+    elsif vjikwi in ('사원', '대리') then
+        vbonus := vbasicpay * 2;
+    end if;    
+    
+    --3.
+    insert into tblBonus values (seqBonus.nextVal, vnum, vbonus);
+    
+end;
+
+select 
+    b.*,
+    (select name from tblInsa where num = b.num) as name,
+    (select jikwi from tblInsa where num = b.num) as jikwi,
+    (select basicpay from tblInsa where num = b.num) as basicpay
+from tblBonus b;
+
+
+
 
 
 
