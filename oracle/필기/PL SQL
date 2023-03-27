@@ -90,19 +90,6 @@
         2. PL/SQL
             ~ 변수 := 값;    
 
--- select into 절
-    ~ select 컬럼 into 변수
-    - PL/SQL의 변수에 ANSI-SQL의 결과값을 저장하는 구문
-    - ★★★★★★★select의 결과는 반드시 PL/SQL에 넣어야 한다.
-    - ★★★★★★★PL/SQL 블럭 안에는 ANSI-SQL의 select문을 사용할 수 없다.
-    - ★★★★★★★PL/SQL 블럭 안에서는 select문을 제외한 ANSI-SQL은 그대로 사용 가능하다.(insert, update, delete)
-    
-    - 주의점
-        1. 컬럼의 개수와 변수의 개수가 동일해야 한다.
-        2. 컬럼의 순서와 변수의 순서가 일치해야 한다.
-        3. 컬럼과 변수의 자료형이 일치해야 한다.
-
-
 -- 타입 참조
     - 변수를 선언할 때 같이 사용
     
@@ -123,7 +110,7 @@
         
 -- 제어문
     1. 조건문
-        ~ if elsif else
+        a. if elsif else
         
            if 조건식1 then 
                실행문1;
@@ -133,18 +120,78 @@
                실행문3;
            end if;
        
-        ~ case(≒if)
+        b. case(≒if)
 
             case
                 when 조건식 then 실행문1;
                 else 실행문2;
             end case;
             
-        ~ case(≒switch)
+        c. case(≒switch)
         
             case 변수
                 when 조건 then 실행문1;
                 else 실행문2;
             end case;     
             
+            
     2. 반복문
+        a. loop
+            - 단순 반복(무한 반복)
+            
+                loop
+                    실행문;                    
+                    [exit when 조건식;] --조건 만족시 loop 탈출
+                end loop;   
+                
+        b. for loop
+            - 횟수 반복 (≒자바 for)
+            - loop 기반
+            
+                for i in startIndex..endIndex loop
+                    실행문;
+                end loop;
+            
+        
+        c. while loop
+            - 조건 반복 (≒자바 while)
+            - loop 기반
+            
+                while 조건식 loop
+                    실행문;
+                end loop;
+            
+-- select 결과셋 저장
+    - select 결과셋 > PL/SQL 변수에 대입
+    
+    1. select into
+        ~ select 컬럼 into 변수
+        - PL/SQL의 변수에 ANSI-SQL의 결과값을 저장하는 구문
+        - 결과셋의 레코드가 1개일 때만 가능하다.
+        - ★★★★★★★select의 결과는 반드시 PL/SQL에 넣어야 한다.
+        - ★★★★★★★PL/SQL 블럭 안에는 ANSI-SQL의 select문을 사용할 수 없다.
+        - ★★★★★★★PL/SQL 블럭 안에서는 select문을 제외한 ANSI-SQL은 그대로 사용 가능하다.(insert, update, delete)
+
+        - 주의점
+            1. 컬럼의 개수와 변수의 개수가 동일해야 한다.
+            2. 컬럼의 순서와 변수의 순서가 일치해야 한다.
+            3. 컬럼과 변수의 자료형이 일치해야 한다.
+            
+    2. cursor + loop
+        - 결과셋의 레코드가 n개일 때 사용한다.
+
+            declare
+                변수 선언;
+                cursor 커서명 is select문;
+            begin
+
+                open 커서명; -- 커서 열기 > select문 실행 > 결과셋에 커서 연결(참조) > 탐색 > 자바의 Iterator
+                    loop
+                        fetch 커서명 into 변수; -- 커서 사용 > 데이터 접근 > 조작 > select into와 동일한 역할
+                        exit when vcursor%notfound; --커서가 더이상 다음 레코드를 발견하지 못할 때 탈출
+                    end loop;
+                close 커서명; -- 커서 닫기
+
+            end;
+            
+            
