@@ -621,11 +621,3 @@ begin
     close vcursor;
     
 end;
-
-
-
-
-
-
-
-
