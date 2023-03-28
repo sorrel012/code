@@ -1004,7 +1004,8 @@ create or replace procedure procTest1(
 is
 begin    
     select num into pnum from tblInsa 
-        where basicpay = (select max(basicpay) from tblInsa where buseo = pbuseo);
+        where basicpay = (select max(basicpay) from tblInsa where buseo = pbuseo)
+        and buseo = pbuseo;
 end;
 
 
@@ -1013,7 +1014,7 @@ declare
 begin
     procTest1('기획부', vnum);
     dbms_output.put_line(vnum);
-end;
+end procTest1;
 
 
 -- 2. 직원 번호 지정 > 같이 지역에 사는 직원 수, 같은 직위의 직원 수, 해당 직원보다 급여를 더 많이 받은 직원 수를 반환
@@ -1027,19 +1028,24 @@ create or replace procedure procTest2(
     pcnt3   out number
 )
 is
+    vcity tblInsa.city%type;
+    vjikwi tblInsa.jikwi%type;
+    vbasicpay tblInsa.basicpay%type;
 begin    
+
+    select city, jikwi, basicpay into vcity, vjikwi, vbasicpay
+        from tblInsa where num = pnum;
+
     select count(*) into pcnt1 from tblInsa 
-        where city = (select city from tblInsa where num = pnum) 
-        and num <> pnum;
+        where city = vcity and num <> pnum;
         
     select count(*) into pcnt2 from tblInsa 
-        where jikwi = (select jikwi from tblInsa where num = pnum) 
-        and num <> pnum;    
+        where jikwi = vjikwi and num <> pnum;    
         
     select count(*) into pcnt3 from tblInsa 
-        where basicpay > (select basicpay from tblInsa where num = pnum);
+        where basicpay > vbasicpay;
 
-end;     
+end procTest2;     
 
 
 declare
