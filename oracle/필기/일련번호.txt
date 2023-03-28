@@ -1,0 +1,31 @@
+
+-- 계층형 쿼리를 이용하여 일련번호 만들기
+
+    ~ 숫자 만들기
+        select
+            level
+        from dual
+            connect by level <= 5;
+
+    ~ 날짜 만들기
+        select 
+            to_date('2023-03-01', 'yyyy-mm-dd') + level - 1
+        from dual
+            connect by level <= 31;
+            
+    ~ 근태 관리
+        select 
+            v.regdate,
+            case
+                when to_char(v.regdate, 'd') in ('1') then '일요일'
+                when to_char(v.regdate, 'd') in ('7') then '토요일'
+                when t.state is null and h.name is not null then h.name
+                when t.state is null and h.name is null then '결석'
+                else t.state
+            end state
+        from vwDate v
+            left outer join tblDate t
+                on v.regdate = t.regdate
+                    left outer join tblHoliday h
+                        on v.regdate = h.regdate
+                            order by v.regdate asc;
