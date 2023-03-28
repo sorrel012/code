@@ -229,7 +229,5 @@
         end;
 
     - 예외 상수
-        ~ others : 모든 예외 ≒ catch(Exception e)     
-        
-        
+        ~ others : 모든 예외 ≒ catch(Exception e)                   
         
