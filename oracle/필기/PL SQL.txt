@@ -188,7 +188,9 @@
             
     2. cursor + loop★★★★★★★
         - 결과셋의 레코드가 n개일 때 사용한다.
-
+        
+        a. cursor + loop
+        
             declare
                 변수 선언;
                 cursor 커서명 is select문;
@@ -203,3 +205,29 @@
 
             end;            
             
+        b. cursor + for loop        
+
+            declare
+                cursor 커서명 is select문;
+                변수 선언;
+            begin
+                for 변수명 in 커서명 loop --vcursor(결과 테이블 = 레코드집합)
+                    실행문;
+                end loop;
+            end;
+        
+        
+--예외처리     
+    - 실행부에서 발생하는 예외를 처리하는 블럭
+
+        declare
+            변수 선언;
+        begin
+            실행문;
+        exception
+            when 예외상수 then 처리; 
+        end;
+
+    - 예외 상수
+        ~ others : 모든 예외 ≒ catch(Exception e)                   
+        
