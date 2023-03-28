@@ -70,6 +70,30 @@
         - 저장(데이터베이스) > DB Object
         - 재사용 가능
         - 계정 간 공유 가능
+        - 저장 프로시저(Stored Procedure)
+        - ★★★★★매개변수는 길이와 not null 표현이 불가능하다.
+        
+        1. 저장 프로시저, Stored Procedure
+            - 매개 변수 구성 / 반환값 구성 > 자유
+            
+            -- 선언
+            create [or replace] procedure 프로시저명
+            is(as)
+                [변수 선언;
+                 커서 선언;]
+            begin
+                구현부;
+            [exception
+                처리부;]
+            end;
+            
+            -- 호출
+            begin 
+                프로시저명;   
+            end;
+            
+        2. 저장 함수, Stored Function
+            - 매개변수 필수 / 반환값 필수 > 고정
         
         
 -- 자료형
