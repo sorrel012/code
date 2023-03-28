@@ -956,6 +956,118 @@ begin
 end;
 
 
+/* 매개변수 모드 */
+
+
+-- 1. in 모드
+-- 2. out 모드
+-- 3. in out 모드
+
+create or replace procedure procTest (
+    pnum1 in number, --우리가 알고 있는 기존의 매개변수(호출 때 넘기는 데이터)
+    pnum2 in number,
+    presult1 out number, -- 변수 자체가 전달. 변수의 주소값 전달 > 반환값 역할
+    presult2 out number,
+    presult3 out number
+)
+is
+begin       
+    presult1 := pnum1 + pnum2;
+    presult2 := pnum1 * pnum2;
+    presult3 := pnum1 / pnum2;
+end procTest;
+
+
+declare
+    vresult1 number;
+    vresult2 number;
+    vresult3 number;
+begin    
+    procTest(10, 20, vresult1, vresult2, vresult3);
+    dbms_output.put_line(vresult1);
+    dbms_output.put_line(vresult2);
+    dbms_output.put_line(vresult3);    
+end;
+
+
+-- 프로시저 생성 + 호출
+
+-- 1. 부서 지정 > 해당 부서 직원 중 급여 가장 많이 받는 사람의 번호 반환
+--      in 1개 > out 1개
+-- procTest1
+select * from tblInsa;
+
+create or replace procedure procTest1(
+    pbuseo  in  varchar2,
+    pnum    out number
+)
+is
+begin    
+    select num into pnum from tblInsa 
+        where basicpay = (select max(basicpay) from tblInsa where buseo = pbuseo);
+end;
+
+
+declare
+    vnum number;
+begin
+    procTest1('기획부', vnum);
+    dbms_output.put_line(vnum);
+end;
+
+
+-- 2. 직원 번호 지정 > 같이 지역에 사는 직원 수, 같은 직위의 직원 수, 해당 직원보다 급여를 더 많이 받은 직원 수를 반환
+--      in 1개 > out 3개
+-- procTest2
+
+create or replace procedure procTest2(
+    pnum    in  number,
+    pcnt1   out number,
+    pcnt2   out number,
+    pcnt3   out number
+)
+is
+begin    
+    select count(*) into pcnt1 from tblInsa 
+        where city = (select city from tblInsa where num = pnum) 
+        and num <> pnum;
+        
+    select count(*) into pcnt2 from tblInsa 
+        where jikwi = (select jikwi from tblInsa where num = pnum) 
+        and num <> pnum;    
+        
+    select count(*) into pcnt3 from tblInsa 
+        where basicpay > (select basicpay from tblInsa where num = pnum);
+
+end;     
+
+
+declare
+    vcnt1 number; 
+    vcnt2 number; 
+    vcnt3 number;
+begin
+    procTest2(1001, vcnt1, vcnt2, vcnt3);
+    dbms_output.put_line(vcnt1);
+    dbms_output.put_line(vcnt2);
+    dbms_output.put_line(vcnt3);
+end;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
