@@ -650,3 +650,191 @@ begin
     close vcursor;
     
 end;
+
+
+-- 기획부 직원 > 다른 테이블에 복사
+select * from tblTeam;
+
+select * from tblInsa where buseo = '기획부';
+
+-- ANSI
+insert into tblTeam (select num, name, buseo, jikwi from tblInsa where buseo = '기획부');
+
+-- select into
+
+--PL/SQL
+
+declare
+
+    cursor vcursor is 
+        select num, name, jikwi, buseo from tblInsa where buseo = '기획부';
+        
+    vnum tblInsa.num%type;
+    vname tblInsa.name%type;
+    vjikwi tblInsa.jikwi%type;
+    vbuseo tblInsa.buseo%type;
+    
+begin
+    
+    open vcursor;
+    
+        loop
+        
+            fetch vcursor into vnum, vname, vjikwi, vbuseo;
+            exit when vcursor%notfound;
+            
+            insert into tblTeam values (vnum, vname, vbuseo, vjikwi);
+            
+        end loop;
+    
+    close vcursor;
+    
+end;
+
+--전직원 > 보너스 지급 > 간부 1.5 / 사원2
+select * from tblBonus;
+
+declare
+    cursor vcursor is
+        select * from tblInsa;
+        
+    vrow tblInsa%rowtype;
+begin
+    --반복 패턴 코드 > Boilerplate Code, 축제코드
+    open vcursor;
+        loop
+            fetch vcursor into vrow;
+            exit when vcursor%notfound;
+            
+            -- 간부 vs 사원
+            if vrow.jikwi in('과장', '부장') then
+                insert into tblBonus values(seqBonus.nextVal, vrow.num, vrow.basicpay*1.5);
+            else
+                insert into tblBonus values(seqBonus.nextVal, vrow.num, vrow.basicpay*2);
+            end if;
+            
+        end loop;
+    close vcursor;
+end;
+
+select 
+    b.*,
+    (select name from tblInsa where num = b.num) as name,
+    (select jikwi from tblInsa where num = b.num) as jikwi,
+    (select basicpay from tblInsa where num = b.num) as basicpay
+from tblBonus b;
+
+
+/* 커서 탐색*/
+
+--1. 커서 + loop > 비선호
+
+
+declare
+    cursor vcursor is
+        select * from tblInsa;
+begin
+    open vcursor;
+        loop
+            fetch vcursor into vrow;
+            exit when vcursor%notfound;
+        end loop;
+    close vcursor;
+end;
+
+
+
+--2. 커서 + for loop > 선호
+
+declare
+    cursor vcursor is
+        select * from tblInsa;
+begin
+    -- open + loop + fetch into + vrow + exit when + 
+    for vrow in vcursor loop --vcursor(결과 테이블 = 레코드집합)
+        dbms_output.put_line(vrow.name);
+    end loop;
+end;
+
+
+/*예외 처리*/
+
+declare
+    vname varchar2(15);
+begin
+
+    dbms_output.put_line('시작');
+    select name into vname from tblInsa; --레코드가 1개가 아니라서 에러 발생
+    dbms_output.put_line('종료');
+
+exception
+
+    --when 예외상수 then 처리;
+    when others then --others: 모든 예외
+        dbms_output.put_line('예외 처리');
+
+end;
+
+
+--DB 오류 발생 > 기록 남긴다.
+create table tblError (
+    seq number primary key,
+    code varchar2(4) not null check(code in ('A001', 'B001', 'B002')), --에러 상태 코드
+    regdate date default sysdate not null
+);
+
+delete from tblCountry;
+
+declare
+    vcnt number;
+    vname varchar2(15);
+begin
+    
+    --1. 
+--    select count(*) into vcnt from tblCountry;
+--    dbms_output.put_line(100 / vcnt);
+    
+    --2.
+    select name into vname from tblInsa; -- where num = 1001;
+    dbms_output.put_line(vname);
+
+exception
+    
+    when ZERO_DIVIDE then
+        dbms_output.put_line('0으로 나누었습니다.');
+        insert into tblError values ((select nvl(max(seq), 0) + 1 from tblError), 'A001', default);
+        
+    when TOO_MANY_ROWS then
+        dbms_output.put_line('가져온 행이 많습니다.');
+        insert into tblError values ((select nvl(max(seq), 0) + 1 from tblError), 'B001', default);
+    
+    when others then
+        dbms_output.put_line('예외 처리');
+        insert into tblError values ((select nvl(max(seq), 0) + 1 from tblError), 'B002', default);
+        
+end;
+
+select * from tblError order by regdate desc;
+
+
+--====================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
