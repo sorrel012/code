@@ -820,12 +820,140 @@ select * from tblError order by regdate desc;
 --====================================================================
 
 
+/* 
+    실명 프로시저 
+    - 저장 프로시저(Stored Procedure)
+    
+    1. 저장 프로시저, Stored Procedure
+        - 매개 변수 구성 / 반환값 구성 > 자유
+    2. 저장 함수, Stored Function
+        - 매개변수 필수 / 반환값 필수 > 고정
+    
+*/
+
+
+/* 1. 저장 프로시저
+
+create [or replace] procedure 프로시저명
+is(as)
+    [변수 선언;
+     커서 선언;]
+begin
+    구현부;
+[exception
+    처리부;]
+end;
+*/
+
+
+--익명 프로시저 > 즉시 실행 > 실행 회차별 비용 동일
+declare
+    vnum number;
+begin
+    vnum := 100;
+    dbms_output.put_line(vnum);
+end;
+
+
+-- 저장 프로시저 > 선언 > 오라클 서버에 저장
+create or replace procedure procTest
+is
+    vnum number;
+begin
+    vnum := 100;
+    dbms_output.put_line(vnum);
+end;
+
+-- 저장 프로시저 호출(실행)
+-- 현재 코딩하는 영역 : ANSI-SQL 영역
+
+procTest; 
+--PL/SQL 영역을 만든 뒤 그 안에서 프로시절 호출
+begin 
+    procTest;   
+end;
+
+
+execute procTest;
+exec procTest;
+call procTest();
+
+
+-- 저장 프로시저 = 메소드
+-- 매개변수 & 반환값
+
+--1. 매개변수가 있는 프로시저
+create or replace procedure procTest(pnum number) --매개변수
+is
+ vnum number; --일바년수(지역 변수)
+begin
+    vnum := pnum * 2;
+    dbms_output.put_line(vnum);
+end procTest;
+
+begin
+    procTest(100);
+    procTest(200);
+    procTest(300);
+end;
+
+
+create or replace procedure procTest(
+    width number, 
+    height number
+)
+is 
+    vnum number;
+    vresult number;
+begin
+
+    vnum := width * height;
+    dbms_output.put_line(vnum);
+
+end procTest;
+
+
+begin
+    procTest(10,20);
+end;
+
+
+create or replace procedure procTest(
+    pname varchar2
+)
+is --변수 선언이 없어도 생략 불가!**
+begin
+    dbms_output.put_line('안녕하세요. ' || pname || '님');
+end procTest;
+
+
+begin
+    procTest('홍길동');
+end;
 
 
 
 
+create or replace procedure procTest(
+    width number, 
+    height number default 10
+)
+is 
+    vnum number;
+    vresult number;
+begin
+
+    vnum := width * height;
+    dbms_output.put_line(vnum);
+
+end procTest;
 
 
+begin
+    procTest(10, 20);
+    procTest(10);
+    procTest(20);
+end;
 
 
 
