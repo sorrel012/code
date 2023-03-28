@@ -85,7 +85,7 @@
                 구현부;
             [exception
                 처리부;]
-            end;
+            end ;
             
             -- 호출
             begin 
