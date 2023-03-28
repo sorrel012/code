@@ -559,6 +559,35 @@ begin
 end;
 
 
+-- select into  null처리 함수 > null value 함수
+
+--1. nvl(컬럼, 대체값)
+select 
+    name,
+    case
+        when tel is not null then tel
+        else '대체값' 
+    end tel
+from tblInsa;
+
+
+select name, nvl(tel, '대체값') from tblInsa;
+
+
+--2. nvl2(컬럼, 값A, 값B)
+select 
+    name,
+    case
+        when tel is not null then '값A'
+        else '값B' 
+    end tel
+from tblInsa;
+
+
+select name, nvl2(tel, '값A', '값B') from tblInsa;
+
+-- cursor + loop
+
 declare
     cursor vcursor is select name from tblInsa;
     vname tblInsa.name%type;
