@@ -749,6 +749,7 @@ end;
 declare
     cursor vcursor is
         select * from tblInsa;
+     vrow tblInsa%rowtype;
 begin
     -- open + loop + fetch into + vrow + exit when + 
     for vrow in vcursor loop --vcursor(결과 테이블 = 레코드집합)
@@ -868,7 +869,7 @@ end;
 -- 현재 코딩하는 영역 : ANSI-SQL 영역
 
 procTest; 
---PL/SQL 영역을 만든 뒤 그 안에서 프로시절 호출
+--PL/SQL 영역을 만든 뒤 그 안에서 프로시저를 호출
 begin 
     procTest;   
 end;
