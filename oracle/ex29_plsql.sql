@@ -1231,6 +1231,45 @@ select
 from tblInsa;
 
 
+/* SQL 처리 순서 */
+
+
+/*
+    레코드 삭제 > 관계 맺은 자식 테이블에서 참조가 있는 경우..
+    
+    1. 취소
+    2. 삭제   
+        a. 본인 삭제 + 자식 삭제
+        b. 본인 삭제 + 자식 보존 > 완전완전 비권장
+        c. 본인 변형 + 자식 보존
+*/
+
+--2-a.
+delete from tblBonus where num = 1001;
+delete from tblInsa where name = '홍길동';
+
+select * from tblInsa;
+
+--2-c.
+select * from tblInsa;
+
+update tblInsa set
+    name = '탈퇴',
+    ssn = '탈퇴',
+    ibsadate = sysdate,
+    city = '탈퇴',
+    tel = '탈퇴',
+    buseo = '탈퇴',
+    jikwi = '탈퇴',
+    basicpay = 0,
+    sudang = 0
+        where num = 1001;
+
+drop table tblBonus;
+
+
+
+
 
 
 
