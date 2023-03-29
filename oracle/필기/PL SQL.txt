@@ -377,10 +377,14 @@
             - 행(Record) 단위 트리거        
             - 트리거 실행 반복
             - 적용되는 행의 개수만큼 프로시저 호출 > 개인을 대상으로 실행
-            - :old.컬럼 > 삭제되는 행 참조 객체
+            
+            - :old.컬럼 > 삭제 또는 수정되는 행 참조 객체            
                 ~ dbms_output.put_line('레코드를 삭제했습니다.' || :old.name);
                 ~ delete from tblWomen where name = '하하하'; 
-                ~ 레코드를 삭제했습니다.하하하                    
-            - :new.컬럼 > 새롭게 추가되는 행 참조 객체
-            
+                ~ 레코드를 삭제했습니다.하하하              
+                
+            - :new.컬럼 > 새롭게 추가되거나 수정되는 행 참조 객체
+                ~ dbms_output.put_line('레코드를 추가했습니다' || :new.name || :new.age); 
+                ~ insert into tblWomen values('호호호', 20, 160, 50, null);
+                ~ 레코드를 추가했습니다.호호호20            
             
