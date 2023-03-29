@@ -1530,4 +1530,3 @@ delete from tblStaff where seq = 5;
 
 select * from tblProject;
 
-
