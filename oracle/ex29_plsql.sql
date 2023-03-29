@@ -1230,10 +1230,6 @@ select
     name, buseo, jikwi, fnGender(ssn) as gender
 from tblInsa;
 
-
-/* SQL 처리 순서 */
-
-
 /*
     레코드 삭제 > 관계 맺은 자식 테이블에서 참조가 있는 경우..
     
@@ -1268,20 +1264,121 @@ update tblInsa set
 drop table tblBonus;
 
 
+/* 트리거 */
+
+--tblInsa 직원 삭제
+create or replace trigger trgInsa
+    before      --삭제하기 직전에 프로시저를 실행해라
+    delete      --삭제가 발생하는지 감시해라
+    on tblInsa  -- 감시대상 > tblInsa
+begin
+    dbms_output.put_line('트리거가 실행되었습니다.');
+end trgInsa;
+
+delete from tblInsa where num = 1001;
 
 
 
+create or replace trigger trgInsa
+    before      
+    update      
+    on tblInsa  
+begin
+    dbms_output.put_line('트리거가 실행되었습니다.');
+end trgInsa;
+
+delete from tblInsa where num = 1002;
+
+update tblInsa set city = '서울' where num = 1003;
+
+select * from tblInsa;
 
 
+-- tblInsa > 직원 퇴사
+-- 수요일 > 퇴사 금지
+create or replace trigger trgRemoveInsa
+    before
+    delete on tblInsa
+begin
+    dbms_output.put_line('트리거 실행');
+    
+    --수요일 퇴사 금지
+--    if to_char(sysdate, 'day') = '수요일' then
+--    if to_char(sysdate, 'dy') = '수' then
+    if to_char(sysdate, 'd') = '4' then
+        dbms_output.put_line('수요일');    
+        -- 퇴사 금지 > 지금 트리거 호출의 원인 실행 중인 delete문을 없었던 일로.. > 강제 예외 발생
+        -- 자바 throw new Exeption()
+        -- 예외 숫자 지정: -20000 ~ 29999
+         raise_application_error(-20000, '수요일에는 퇴사가 불가능합니다.');
+    else
+        dbms_output.put_line('다른 요일');
+    end if;
+    
+end trgRemoveInsa;
 
 
+delete from tblInsa where num = 1004;
+
+select * from tblInsa;
 
 
+create table tblLogMen (
+    seq number primary key,
+    message varchar2(1000) not null,
+    regdate date default sysdate not null
+);
+
+create sequence seqLogMen;
+
+create or replace trigger trgLogMen
+    after
+    insert or update or delete
+    on tblMen
+declare
+    vmessage varchar2(1000);
+begin
+    dbms_output.put_line('트리거 실행');
+    
+    -- 호출: insert ? update? delete?
+    if inserting then 
+        dbms_output.put_line('새로운 항목이 추가되었습니다.');
+        vmessage := '새로운 항목이 추가되었습니다.';
+    elsif updating then
+        dbms_output.put_line('항목이 수정되었습니다.');
+        vmessage := '항목이 수정되었습니다.';
+    elsif deleting then
+        dbms_output.put_line('항목이 삭제되었습니다.');
+        vmessage := '항목이 삭제되었습니다.';
+    end if;
+    
+    insert into tblLogMen values (seqLogMen.nextVal, vmessage, default);
+    
+end trgLogMen;
+
+insert into tblMen values ('테스트', 22, 175, 60, null);
+update tblMen set weight = 65 where name = '테스트';
+delete from tblMen where name = '테스트';
+
+select * from tblLogMen;
+/
 
 
+-- 무한루프..
+-- 보통 트리거 선언 시 감시 대상 테이블을 구현부에서 조작하지 않는다.
+create or replace trigger trgCountry
+    after
+    update
+    on tblCountry
+begin
 
+    update tblCountry set
+        population = population * 1.1;
+        
+end trgCountry;
+/
 
-
+update tblCountry set capital = '제주' where name = '대한민국';
 
 
 
