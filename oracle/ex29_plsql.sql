@@ -1182,6 +1182,63 @@ select * from tblStaff;
 select * from tblProject;
 
 
+/* 저장 함수, Sttored Function > 함수, Function */
+
+
+-- 1 + 2 = 3
+create or replace function fnSum (
+    pnum1 number,
+    pnum2 number
+) return number
+is
+begin
+    return pnum1 + pnum2;
+end fnSum;
+/
+
+declare
+    vresult number;
+begin
+-- 함수 return > 개수 딱 1개  <->  프로시저 out > 개수 1개 이상
+    vresult := fnSum(10, 20);
+    dbms_output.put_line(vresult);
+end;
+/
+
+select
+    height, weight,
+    fnSum(height, weight) as sum
+from tblComedian;
+
+
+-- 이름, 부서, 직위, 성별(남자/여자)
+create or replace function fnGender(
+    pssn varchar2
+) return varchar2
+is
+begin
+    
+    return case substr(pssn, 8, 1)
+                when '1' then '남자'
+                when '2' then '여자'
+            end;
+            
+end fnGender;
+
+
+select 
+    name, buseo, jikwi, fnGender(ssn) as gender
+from tblInsa;
+
+
+
+
+
+
+
+
+
+
 
 
 
