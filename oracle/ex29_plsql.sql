@@ -1381,42 +1381,154 @@ end trgCountry;
 update tblCountry set capital = '제주' where name = '대한민국';
 
 
+/* for each row */
+
+select * from tblMen;
+
+-- 문장 단위 트리거
+-- delete 1회 실행 > 적용된 행 1개 > 프로시저 1회 호출
+-- delete 1회 실행 > 적용된 행 10개 > 프로시저 1회 호출
+create or replace trigger trgWomen
+    after
+    delete 
+    on tblWomen
+begin
+    dbms_output.put_line('레코드를 삭제했습니다.');
+end trgWomen;
+/
+
+delete from tblWomen where name = '하하하';
+delete from tblWomen;
+
+select * from tblWomen;
 
 
 
+-- 행 단위 트리거
+-- delete 1회 실행 > 적용된 행 1개 > 프로시저 1회 호출
+-- delete 1회 실행 > 적용된 행 10개 > 프로시저 10회 호출
+create or replace trigger trgWomen
+    after
+    delete 
+    on tblWomen
+    for each row
+begin
+    dbms_output.put_line('레코드를 삭제했습니다.' || :old.name);
+end trgWomen;
+/
+
+delete from tblWomen where name = '하하하';
+delete from tblWomen;
+
+select * from tblWomen;
 
 
+create or replace trigger trgWomen
+    after
+    insert
+    on tblWomen
+    for each row
+begin
+    --  상관관계:new  == 새롭게 추가되는 행 참조 객체
+    dbms_output.put_line('레코드를 추가했습니다' || :new.name || :new.age); 
+end trgWomen;
 
 
+insert into tblWomen values('호호호', 20, 160, 50, null);
 
 
+select * from tblWomen;
 
 
+--상관 관계
+--1. :new
+--2. :old
+
+create or replace trigger trgWomen
+    after
+    insert
+    on tblWomen
+    for each row
+begin
+    dbms_output.put_line(':old > ' || :old.name);
+    dbms_output.put_line(':new > ' || :new.name); -- 테스트
+    dbms_output.put_line(' ');
+end trgWomen;
+
+insert into tblWomen values ('테스트', 22, 175, 60, null);
 
 
+create or replace trigger trgWomen
+    after
+    update
+    on tblWomen
+    for each row
+begin
+    dbms_output.put_line(':old > ' || :old.weight);
+    dbms_output.put_line(':new > ' || :new.weight); 
+    dbms_output.put_line(' ');
+end trgWomen;
+/
+
+update tblWomen set weight = 65 where name = '테스트';
 
 
+create or replace trigger trgWomen
+    after
+    delete
+    on tblWomen
+    for each row
+begin
+    dbms_output.put_line(':old > ' || :old.name);
+    dbms_output.put_line(':new > ' || :new.name); 
+    dbms_output.put_line(' ');
+end trgWomen;
+/
+
+delete from tblWomen where name = '테스트';
 
 
+-- 퇴사 > 위임
+select * from tblStaff;
+select * from tblProject;
+
+--이순신 퇴사
+create or replace trigger trgRemoveStaff 
+    before          --3. 퇴사 직전에
+    delete          --2. 퇴사를 하면
+    on tblStaff     --1. 직원 테이블 감시
+    for each row    --4. 담당 프로젝트를 위임한다.
+declare
+    vdseq number;
+begin
+    
+    --5. 퇴사 전에 담당 프로젝트를 현재 맡고 있는 프로젝트 수가 가장 적은 사람에게 위임한다.
+    
+--    select seq into vdseq from(select 
+--                                    s. seq
+--                                from tblStaff s
+--                                    left outer join tblProject p
+--                                        on s.seq = p.staff_seq
+--                                            having count(p.seq) = (select -- ???????????
+--                                                                        min(count(p.seq)) 
+--                                                                    from tblStaff s
+--                                                                        left outer join tblProject p
+--                                                                            on s.seq = p.staff_seq
+--                                                                                group by s.seq)
+--                                            group by s.seq)
+--                                                where rownum = 1;    
+    
+    update tblProject set
+        staff_seq = 2
+            where staff_seq = :old.seq;
+    
+end trgRemoveStaff;
 
 
+delete from tblStaff where seq = 5;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+select * from tblStaff;
+select * from tblProject;
 
 
 
