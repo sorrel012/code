@@ -1060,6 +1060,156 @@ begin
 end;
 
 
+select * from tblStaff;
+select * from tblProject;
+
+-- A. 신입사원 추가 + 프로젝트 담당
+
+create or replace procedure procAddStaff(
+    pname    in varchar2,   --신입 이름
+    psalary  in number,     --신입 급여
+    paddress in varchar2,   --신입 주소        
+    pproject  in varchar2,   --프로젝트명
+    presult  out number     --피드백(성공/실패)
+)
+is
+    vseq number; -- 신입사원 번호
+begin
+    --1. 신입사원 추가
+    select nvl(max(seq), 0) + 1 into vseq from tblStaff;
+    
+    insert into tblStaff(seq, name, salary, address) 
+        values (vseq, pname, psalary, paddress);
+    
+    insert into tblProject(seq, project, staff_seq)
+        values ((select nvl(max(seq), 0) + 1 from tblProject), pproject, vseq);
+        
+    presult := 1; --성공
+   
+exception
+    when others then
+        presult := 0; --실패
+
+end procAddStaff;
+
+-- 테스트;
+
+declare
+    vresult number;
+begin
+    procAddStaff('이순신', 300, '서울시', '박물관 건립', vresult);
+    
+    if vresult = 1 then
+        dbms_output.put_line('성공');        
+    else
+        dbms_output.put_line('실패');        
+    end if;
+    
+end;
+
+
+select * from tblStaff;
+select * from tblProject;
+
+
+-- B. 사원 퇴사 : 담당 프로젝트 확인 > 다른 직원에게 위임 > 퇴사
+create or replace procedure procRemoveStaff(
+    pseq    in number,    --퇴사할 직원번호
+    pdseq   in number,    --위임받을 직원 번호
+    presult out number    
+)
+is
+    vcnt number;
+begin
+    
+    --1. 퇴사 직원 번호가 유효한지? > 존재하는 번호인지?
+    select count(*) into vcnt from tblStaff where seq = pseq;
+    
+    --2. 확인
+    if vcnt = 1 then
+        --존재
+        
+        --3.위임받을 직원 번호 유효한지 확인
+        select count(*) into vcnt from tblStaff where seq = pdseq;
+        
+        if vcnt = 1 then 
+           
+            --4. 담당 프로젝트 확인 > 위임
+            select count(*) into vcnt from tblProject where staff_seq = pseq;
+            
+            if vcnt > 0 then                
+                --5. 위임
+                update tblProject set
+                    staff_seq = pdseq
+                        where staff_seq = pseq;    
+            end if;            
+            
+            --6. 퇴사
+            delete from tblStaff where seq = pseq;
+            presult := 1;    
+            
+        else 
+            presult := 0;
+        end if;
+            
+        --4.
+    else
+        presult := 0;
+    end if;
+    
+exception
+    when others then
+        presult := 0;
+        
+end procRemoveStaff;
+
+
+--테스트
+declare
+    vresult number;
+begin
+    procRemoveStaff(6, 5, vresult);
+    
+    if vresult = 1 then
+        dbms_output.put_line('성공');        
+    else
+        dbms_output.put_line('실패');        
+    end if;
+    
+end;
+
+select * from tblStaff;
+select * from tblProject;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
