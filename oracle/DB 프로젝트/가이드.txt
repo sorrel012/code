@@ -1,5 +1,0 @@
-DB 프로젝트
-
-1. 주제 동일
-2. DB Modeling > DDl > DML(Data + SQL)
-3. 자세한 사항은 요구사항 참고

@@ -4,3 +4,6 @@
   - 영속성 계층(Persistance Layer)
   
   1. JDBC
+  2. Spring-JDBC
+  3. MyBatis
+  4. JPA
