@@ -67,19 +67,3 @@ select count(*) from tblIndex where substr(ssn, 8, 1) = '1'; --1.875초
 create index idxSsn2 on tblIndex(substr(ssn, 8, 1));
 select count(*) from tblIndex where substr(ssn, 8, 1) = '1'; --0.499초
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
