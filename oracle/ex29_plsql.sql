@@ -1663,39 +1663,96 @@ select * from tblUser;
 
 
 
+/* 
+    커서를 반환하는 프로시저
+        - out parameter > cursor
+        - 리턴문으로는 절대 불가!
+*/
+
+--부서내의 직원 확인
+
+-- 1. loop + cursor
+create or replace procedure procBuseo(
+    pbuseo varchar2
+)
+is
+    cursor vcursor is
+        select * from tblInsa where buseo = pbuseo;
+    vrow tblInsa%rowtype;    
+    
+begin
+    
+    open vcursor;
+    
+        loop
+        
+            fetch vcursor into vrow;
+            exit when vcursor%notfound;
+            
+            dbms_output.put_line(vrow.name);
+            
+        end loop;
+        
+    close vcursor; 
+    
+end procBuseo;
 
 
 
+-- 2. for loop + cursor
+create or replace procedure procBuseo(
+    pbuseo varchar2
+)
+is
+    cursor vcursor is
+        select * from tblInsa where buseo = pbuseo;
+    vrow tblInsa%rowtype; 
+        
+begin
+    
+    for vrow in vcursor loop
+        dbms_output.put_line(vrow.name);
+    end loop;
+    
+end procBuseo;
 
 
 
+begin
+    procBuseo('개발부');
+end;
 
 
+create or replace procedure procBuseo(
+    pbuseo  in  varchar2,
+    pcursor out sys_refcursor -- 커서를 반환값으로 사용할 때 쓰는 자료형
+)
+is
+begin
+
+    open pcursor
+    for
+    select * from tblInsa where buseo = pbuseo;
+    
+end procBuseo;
 
 
+declare
+    vcursor sys_refcursor; -- 커서 참조 변수(out)
+    vrow tblInsa%rowtype;
+begin
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    procBuseo('영업부', vcursor);
+    
+    loop
+        fetch vcursor into vrow;
+        exit when vcursor%notfound;
+        
+        dbms_output.put_line(vrow.name);
+        
+    end loop;
+    
+end;
 
 
 
