@@ -1529,3 +1529,187 @@ delete from tblStaff where seq = 5;
 select * from tblStaff;
 select * from tblProject;
 
+
+
+-- 회원 > 글쓰기 > + 100
+-- 회원 > 글삭제 > -50
+
+--A. 글을 쓴다(삭제한다.) > insert or delete
+--B. 포인트를 누적시킨다. > update
+
+create table tblUser (
+    id varchar2(30) primary key,
+    point number default 1000 not null
+);
+
+
+insert into tblUser values ('hong', default);
+
+
+create table tblBoard(
+    seq number primary key,
+    subject varchar2(1000) not null,
+    id varchar2(30) not null references tblUser(id)
+);
+
+
+create sequence seqBoard;
+
+--Case1. ANSI-SQL
+-- 절차 > 개발자 직접 제어
+-- 실수하면 누락....
+
+-- 1.1 글쓰기
+insert into tblBoard values (seqBoard.nextVal, '게시판입니다.', 'hong');
+
+-- 1.2 포인트 누적하기
+update tblUser set point = point + 100 where id = 'hong';
+
+-- 1.3 글 삭제하기
+delete from tblBoard where seq = 1;
+
+-- 1.4 포인트 누적하기
+update tblUser set point = point - 50 where id = 'hong';
+
+
+--Case2. Procedure
+
+-- ㅠㅠ
+create or replace procedure procAddBoard(
+    psubject varchar2,
+    pid varchar2
+)
+is 
+begin
+
+    -- 2.1 글쓰기
+    insert into tblBoard values (seqBoard.nextVal, psubject, pid);
+    
+    -- 2.2 포인트 누적하기
+    update tblUser set point = point + 100 where id = pid;    
+    
+    commit;
+    
+exception
+    when others then
+        rollback;
+
+end procAddBoard;
+
+
+create or replace procedure procRemoveBoard(
+    pseq number
+)
+is 
+    vid varchar2(30);
+begin
+
+    -- 삭제글을 작성한 id
+    select id into vid from tblBoard where seq = pseq;
+
+    -- 2.3 글 삭제하기
+    delete from tblBoard where seq = pseq;
+    
+    -- 2.4 포인트 누적하기
+    update tblUser set point = point - 50 where id = vid;
+    
+    commit;
+
+exception
+    when others then
+        rollback;
+    
+end procRemoveBoard;
+
+
+begin
+--    procAddBoard('다시 글을 작성합니다.', 'hong');
+    procRemoveBoard(2);
+end;
+
+
+--Case3. Trigger
+
+-- 글쓰기, 글삭제 > 트리거 호출(포인트 누적)
+create or replace trigger trgBoard
+    after
+    insert or delete
+    on tblBoard
+    for each row
+begin
+    if inserting then
+        update tblUser set point = point + 100 where id = :new.id;
+    elsif deleting then
+        update tblUser set point = point - 50 where id = :old.id;
+    end if;
+end;
+
+
+-- 3-1. 글쓰기
+insert into tblBoard values (seqBoard.nextVal, '마지막 글입니다.', 'hong');
+
+
+-- 3-2. 글 삭제하기
+delete from tblBoard where seq = 3;
+
+
+select * from tblBoard;
+select * from tblUser;
+
+
+-- 프로시저 vs 트리거
+-- 프로시저 : 모든 작업을 명시적으로 직접 관리
+-- 트리거 : 메인 작업은 명시적 + 보조작업은 암시적
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
