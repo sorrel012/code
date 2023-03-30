@@ -1,0 +1,6 @@
+
+// JDBC, Java Database Connectivity
+  - 응용 프로그램과 데이터베이스를 연결하는 기술
+  - 영속성 계층(Persistance Layer)
+  
+  1. JDBC
