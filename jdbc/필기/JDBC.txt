@@ -16,3 +16,12 @@
 // java.sql 패키지    
 
 // Java + JDBC > Connection 클래스
+
+
+// JDBC 클래스
+	1. Connection
+	2. Statement
+		a. Statement
+		b. PreparedStatement
+		c. CallableStatement
+	3. ResultSet
