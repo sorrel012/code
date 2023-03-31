@@ -20,7 +20,6 @@ public class Ex02 {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
 
 	} //main
 	
