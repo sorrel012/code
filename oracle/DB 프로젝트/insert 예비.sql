@@ -141,6 +141,49 @@ end;
 
 select * from tblAbsentTest;
 
+/* 교사 테이블 */
+create table tblTeacherTest (
+    teacher_seq number primary key
+)
+insert into tblTeacherTest values(1);
+insert into tblTeacherTest values(2);
+insert into tblTeacherTest values(3);
+insert into tblTeacherTest values(4);
+insert into tblTeacherTest values(5);
+insert into tblTeacherTest values(6);
+insert into tblTeacherTest values(7);
+insert into tblTeacherTest values(8);
+insert into tblTeacherTest values(9);
+insert into tblTeacherTest values(10);
 
+
+/* 과목 테이블 */
+create table tblSubTest (
+    subject_seq number primary key,
+    subjectName varchar2(30) 
+)
+
+insert into tblSubTest values(1, 'Java');
+insert into tblSubTest values(2, 'Oracle');
+insert into tblSubTest values(3, 'Spring');
+insert into tblSubTest values(4, 'React');
+insert into tblSubTest values(5, 'CSS');
+insert into tblSubTest values(6, 'JavaScript');
+insert into tblSubTest values(7, 'HTML');
+insert into tblSubTest values(8, 'JSP');
+insert into tblSubTest values(9, 'Aws');
+insert into tblSubTest values(10, 'Jquery');
+insert into tblSubTest values(11, 'Node.js');
+insert into tblSubTest values(12, 'Kotlin');
+
+
+/* 강의 가능 과목 테이블*/
+create table tblAvailSubTest(
+    teacher_seq number not null,
+    subject_seq number not null,
+    
+    constraint ast_teacher_seq_fk foreign key(teacher_seq) references tblTeacherTest(teacher_seq),
+    constraint ast_subject_seq_fk foreign key(subject_seq) references tblSubTest(subject_seq)
+);
     
     
