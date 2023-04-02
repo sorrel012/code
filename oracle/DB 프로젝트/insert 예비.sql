@@ -57,7 +57,6 @@ update tblAttendanceTest set checkin = 'null' where seq in(4, 5, 11, 12, 18, 19,
 75, 81, 82, 88, 89, 95, 96, 102, 103, 109, 110, 114, 115, 116, 117, 119, 123, 124, 125, 130, 131, 137, 138, 144, 145, 151, 152, 158, 159, 165, 166, 172, 173);
 
 
-
 /* 교육생 테이블  */
 
 create table tblStudentTest(
@@ -186,4 +185,9 @@ create table tblAvailSubTest(
     constraint ast_subject_seq_fk foreign key(subject_seq) references tblSubTest(subject_seq)
 );
     
+    
+    
+/*교육생*/
+
+
     
