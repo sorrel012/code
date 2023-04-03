@@ -101,28 +101,31 @@ order by teacherName;
 
 
 
-/* 특정 교사 정보 출력*/ -- order by
+/* 특정 교사 정보 출력*/ 
     
 select 
-    s.subjectName,
-    cs.cursubStart,
-    cs.cursubEnd,
-    bk.bookName,
-    lt.lectureRoomnum
-    --강의 진행 여부
+    s.subjectName as 과목명,
+    cs.cursubStart as "과목 시작일",
+    cs.cursubEnd as "과목 종료일",
+    bk.bookName as "교재명",
+    lt.lectureRoomnum || '호' as "강의실",
+    case
+        when cs.cursubEnd < sysdate then '강의종료'
+        when cs.cursubStart > sysdate then '강의예정'
+        else '강의중'  
+    end as "강의 여부"       
 from tblCurSub cs
     inner join tblSubject s on s.subject_seq = cs.subject_seq
     inner join tblLecture lt on lt.curriculum_seq = cs.curriculum_seq
     inner join tblSubBook sb on sb.subject_seq = s.subject_seq
     inner join tblBook bk on bk.book_seq = sb.book_seq
-    inner join tblAvailSubject avs on avs.subject_seq = s.subject_seq AND avs.teacher_seq = cs.teacher_seq    
-where cs.teacher_seq = 1 and avs.teacher_seq = 1
+    inner join tblAvailSubject avs on avs.subject_seq = s.subject_seq and avs.teacher_seq = cs.teacher_seq    
+where cs.teacher_seq = 1 
     group by s.subjectName, cs.cursubStart, cs.cursubEnd, bk.bookName, lt.lectureRoomNum
         order by curSubStart;
 
 
-
--- order by check
+-- 프로시저
 create or replace procedure procTeacherInfo(
     teacherSeq number
 )
@@ -133,15 +136,16 @@ is
     vbookName tblBook.bookName%type;
     vlectureRoomnum tblLecture.lectureRoomnum%type;
     vteacherStatus varchar2(50);
-    cursor vcursor is (select s.subjectName, cs.cursubStart, cs.cursubEnd, bk.bookName, lt.lectureRoomnum 
+    cursor vcursor is select s.subjectName, cs.cursubStart, cs.cursubEnd, bk.bookName, lt.lectureRoomnum 
                         from tblCurSub cs
                             inner join tblSubject s on s.subject_seq = cs.subject_seq
                             inner join tblLecture lt on lt.curriculum_seq = cs.curriculum_seq
                             inner join tblSubBook sb on sb.subject_seq = s.subject_seq
                             inner join tblBook bk on bk.book_seq = sb.book_seq
-                            inner join tblAvailSubject avs on avs.subject_seq = s.subject_seq AND avs.teacher_seq = cs.teacher_seq    
-                        where cs.teacher_seq = teacherSeq and avs.teacher_seq = teacherSeq
-                            group by s.subjectName, cs.cursubStart, cs.cursubEnd, bk.bookName, lt.lectureRoomNum);
+                            inner join tblAvailSubject avs on avs.subject_seq = s.subject_seq and avs.teacher_seq = cs.teacher_seq    
+                        where cs.teacher_seq = teacherSeq
+                            group by s.subjectName, cs.cursubStart, cs.cursubEnd, bk.bookName, lt.lectureRoomNum
+                                order by cs.cursubStart;
 begin
      open vcursor;
         loop
@@ -149,7 +153,7 @@ begin
             exit when vcursor%notfound;
             
             if vcursubEnd < sysdate then
-                vteacherStatus := '강의완료';
+                vteacherStatus := '강의종료';
             elsif vcursubStart > sysdate then
                 vteacherStatus := '강의예정';
             else
