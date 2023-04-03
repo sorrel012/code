@@ -37,7 +37,7 @@
 		- select 결과 참조 클래스
 		
 
-//insert 실행
+// insert 실행
 	1. DB 연결
 	2. SQL 실행
 		a. 반환값이 없는 쿼리 > select를 뺀 나머지
@@ -53,4 +53,42 @@
 			
 	3. DB 종료		
 	
+
+// Statement
+	1. Statement
+	2. PreparedStatement
+	3. CallableStatement	> 프로시저 전용
+        
+
+// Statement vs PreparedStatement
+    - 매개변수 처리 지원 유무
+    - Statement > 정적 SQL > 매개변수 X
+    	~ stat = conn.createStatement();
+    	  stat.executeUpdate(sql);
+    
+    - PreparedStatement > 동적 SQL > 매개변수 O
+    	- 유효하지 않은 몇몇 문자의 이스케이프 처리를 자동으로 해준다.
+    	~ pstat = conn.prepareStatement(sql);
+    	  pstat.executeUpdate();         
+                
+
+// SQL Injection        
+	- 해킹 기술
+	
+	~ id: hong
+	~ pw: 1234
+	
+	~ 로그인
+		"select * from tblUser
+			where id = '" + id + "' and pw = '" + pw + "'";
+		
+		"select * from tblUser
+			where id = 'hong' and pw = '1234'";
+			
+		~ id: hong
+		~ pw: 1' or 1=1 or '
+		
+		"select * from tblUser
+			where id = 'hong' and pw = '1' or 1=1 or ''"; > 1=1 때문에 무조건 참 > 로그인 성공		
+		
 	
