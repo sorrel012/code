@@ -7,3 +7,34 @@ A.04 개설 과목 관리
 	- 개설 과목 정보에 대한 입력, 출력, 수정, 삭제
 
 */
+
+
+/*개설 과목 정보*/
+
+
+-- 1. 입력
+
+
+
+-- 2. 출력
+select 
+    c.curriculumName as "과정명",
+    c.curriculumStart as "과정 시작일",
+    c.curriculumEnd as "과정 종료일",
+    l.lectureRoomnum||'호' as "강의실",
+    as "과목명",
+    as "과목 시작일",
+    as "과목 종료일",
+    as "교재명",
+    as "교사명"
+from tblCurriculum c
+    inner join tblLecture l
+        on c.curriculum_seq = l.curriculum_seq
+order by c.curriculumStart;
+
+
+-- 3-1. 수정
+
+
+
+-- 4. 삭제
