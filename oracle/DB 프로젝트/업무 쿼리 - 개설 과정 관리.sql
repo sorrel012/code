@@ -100,6 +100,7 @@ where c.curriculum_seq = 1
     order by s.subjectName, t.teacherName, ap.applicantName;
 
 
+
 /* 강의실 정보 추가 */
 
 insert into tblLecture(lecture_seq, lectureRoomnum, lectureMaxstudent)
