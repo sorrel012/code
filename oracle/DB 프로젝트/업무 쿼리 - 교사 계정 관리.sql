@@ -20,8 +20,8 @@ A.02 교사 계정 관리
 insert all 
     into tblMemberInfo(memberInfo_seq, memberInfoid)
         values((select max(memberinfo_seq) from tblMemberinfo) + 1, 'teacherlllllll')
-    into tblTeacher(teacher_seq, memberinfo_seq, teacherSsn, teacherTel, teacherStatus, teacherName)
-        values((select max(teacher_seq) from tblTeacher) + 1, (select max(memberinfo_seq) from tblMemberinfo), '700127-1684532', '010-6542-0456', '강의예정', '박시원')
+    into tblTeacher(teacher_seq, memberinfo_seq, teacherSsn, teacherTel, teacherName)
+        values((select max(teacher_seq) from tblTeacher) + 1, (select max(memberinfo_seq) from tblMemberinfo), '700127-1684532', '010-6542-0456', '박시원')
 select * from dual;
 
 
@@ -29,8 +29,7 @@ select * from dual;
 select 
     teacherName as 이름, 
     substr(teacherSsn, 8, 7) as 주민등록번호, 
-    teacherTel as 연락처,
-    teacherStatus as "강의 여부"
+    teacherTel as 연락처
 from tblTeacher
     order by teacherName;
 
@@ -43,11 +42,7 @@ update tblTeacher set teacherName = '박준영'
 update tblTeacher set teacherSsn = '700327-1684533'
     where teacher_seq = 11;
 
--- 3-3 강의 여부 수정
-update tblTeacher set teacherStatus = '강의중' 
-    where teacher_seq = 11;
-
--- 3-4 연락처 수정
+-- 3-3. 연락처 수정
 update tblTeacher set teacherTel = '010-2456-7565' 
     where teacher_seq = 11;
 
