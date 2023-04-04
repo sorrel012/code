@@ -33,30 +33,27 @@ select distinct
         when cs.subject_seq is null then 'N'
         else 'Y'        
     end as "과목 등록 여부",   
-    nvl(count(st.student_seq),0 )as "교육생 등록 인원"    
+    nvl(count(st.student_seq),0 ) as "교육생 등록 인원"    
 from tblCurriculum c
-    inner inner join tblLecture l
+    inner join tblLecture l
         on c.curriculum_seq = l.curriculum_seq
-            left outer inner join tblCurSub cs
+            left outer join tblCurSub cs
                 on c.curriculum_seq = cs.curriculum_seq
-                    left outer inner join tblSelect s
+                    left outer join tblSelect s
                         on c.curriculum_seq = s.curriculum_seq
-                            left outer inner join tblStudent st
+                            left outer join tblStudent st
                                 on s.select_seq = st.select_seq
     group by c.curriculumName, c.curriculumStart, c.curriculumEnd, l.lectureRoomnum, cs.cursubStart, cs.subject_seq
         order by c.curriculumStart;
-
 
 
 -- 3-1. 과정 기간 수정
 update tblCurriculum set curriculumStart = '2023-12-04', curriculumEnd = '2024-04-19'
     where curriculum_seq = 37;
 
-
 -- 3-2. 강의실 정보 수정
 update tblLecture set lectureRoomnum = 3
     where curriculum_seq = 37;
-
 
 
 -- 4. 강의실, 과정 삭제
@@ -93,7 +90,6 @@ from tblCurSub cs
     inner join tblBook b on b.book_seq = sb.book_seq
     inner join tblAvailSubject avs on avs.subject_seq = s.subject_seq
     inner join tblTeacher t on t.teacher_seq = avs.teacher_seq
-    inner join tblStudent st on st.student_seq = sb.student_seq
     inner join tblApplicant ap on ap.curriculum_seq = cs.curriculum_seq
     inner join tblCurriculum c on c.curriculum_seq = cs.curriculum_seq
 where c.curriculum_seq = 1
