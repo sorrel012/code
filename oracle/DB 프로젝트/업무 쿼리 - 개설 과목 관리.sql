@@ -16,6 +16,7 @@ A.04 개설 과목 관리
 
 
 
+
 -- 2. 출력
 select 
     c.curriculumName as "과정명",
