@@ -408,4 +408,20 @@ create table tblAvailSubTest(
     constraint ast_teacher_seq_fk foreign key(teacher_seq) references tblTeacherTest(teacher_seq),
     constraint ast_subject_seq_fk foreign key(subject_seq) references tblSubTest(subject_seq)
 );
+
+
+
+update tblAttendanceTest set ATTENDANCEDETAIL = '정상'
+    where ATTENDANCECHECKTIME <> '주말공휴일' and ATTENDANCEDETAIL is null;
+
+
+update tblAttendanceTest set ATTENDANCEDETAIL = null
+    where ATTENDANCEDETAIL = '무단';
+
+update tblAttendanceTest set ATTENDANCEOUTTIME = null, ATTENDANCECHECKTIME = null
+    where ATTENDANCEOUTTIME = '주말공휴일';
+
+
+
+
     
