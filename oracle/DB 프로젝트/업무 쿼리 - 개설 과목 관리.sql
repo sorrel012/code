@@ -18,14 +18,14 @@ insert all
     into tblSubBook(subject_seq, book_seq) 
         values(13, 24)
 select * from dual;
-
+select * from vwCurrinfo;
 
 -- 2. 개설 과정 정보(과정명, 과정기간(시작 년월일, 끝 년월일), 강의실)와 과목명, 과목기간(시작 년월일, 끝 년월일), 교재명, 교사명 출력
 select distinct
-    vc.과정명,
-    vc.과정시작일,
-    vc.과정종료일,
-    vc.강의실,
+    vc.curriculumName as "과정명",
+    vc.curriculumStart as "과정시작일",
+    vc.curriculumEnd as "과정종료일",
+    vc.lectureRoomNum as "강의실",
     vs.subjectName as "과목명",
     vs.cursubStart as "과목시작일", 
     vs.cursubEnd as "과목종료일",
@@ -33,9 +33,9 @@ select distinct
     vs.teacherName as "교사명"
 from vwCurrInfo vc
     inner join vwSubInfo vs
-        on vc.과정번호 = vs.curriculum_seq
+        on vc.curriculum_seq = vs.curriculum_seq
 where vs.subject_seq = 1
-    order by vc.과정명, vs.cursubStart;
+    order by vc.curriculumName, vs.cursubStart;
 
 
 -- 3-1. 과목 기간 수정
@@ -63,7 +63,7 @@ delete tblSubBook
 
 /* 특정 개설 과정 선택 시 개설 과목 정보 출력*/
 select distinct
-    vc.과정명,
+    vc.curriculumName as "과정명",
     vs.subjectName as "과목명",
     vs.cursubStart as "과목시작일", 
     vs.cursubEnd as "과목종료일",
@@ -71,7 +71,7 @@ select distinct
     vs.teacherName as "교사명"
 from vwCurrInfo vc
     inner join vwSubInfo vs
-        on vc.과정번호 = vs.curriculum_seq
+        on vc.curriculum_seq = vs.curriculum_seq
 where vs.curriculum_seq = 1
     order by vs.cursubStart;
     
