@@ -8,6 +8,11 @@ A.04 개설 과목 관리
 
 */
 
+update tblAttendance set ATTENDANCECHECKTIME = null, ATTENDANCEOUTTIME = null
+    where attendanceDetail = '주말';
+
+update tblAttendance set ATTENDANCECHECKTIME = null, ATTENDANCEOUTTIME = null
+    where attendanceDate in ('2023-01-23', '2023-01-24', '2023-03-01');
 
 /*개설 과목 정보*/
 

@@ -112,3 +112,68 @@ begin
     procCurrEndDateU_h(24);
 end;
 
+
+
+/* view */
+create or replace view vwSubInfo_h
+as
+select distinct
+  s.subjectName as "과목명",
+  cs.cursubStart as "과목시작일", 
+  cs.cursubEnd as "과목종료일",
+  b.bookName as "교재명", 
+  t.teacherName as "교사명",
+  cs.curriculum_seq as "과정별과목번호"
+from tblCurSub cs
+    inner join tblSubject s on s.subject_seq = cs.subject_seq
+    inner join tblSubBook sb on sb.subject_seq = s.subject_seq
+    inner join tblBook b on b.book_seq = sb.book_seq
+    inner join tblAvailSubject avs on avs.subject_seq = s.subject_seq  
+    inner join tblTeacher t on t.teacher_seq = avs.teacher_seq
+order by s.subjectName, t.teacherName;  
+
+select * from vwSubInfo_h;
+
+
+/* 특정 개설 과정 정보 과목명, 과목기간(시작 년월일, 끝년월일), 교재명, 교사명) 및 등록된 교육생 정보(교육생 이름, 주민번호 뒷자리, 등록일, 수료 및 중도 탈락) 조회 */
+
+--프로시저
+create or replace procedure procSubInfoR_h(
+    pcurrSeq number
+)
+is 
+    vsubjectName vwSubInfo_h.과목명%type;
+    vsubjectStart vwSubInfo_h.과목시작일%type;
+    vsubjectEnd vwSubInfo_h.과목종료일%type;
+    vsubBookName vwSubInfo_h.교재명%type;
+    vsubTName vwSubInfo_h.교사명%type;
+    vsubStName vwSelectInfo.applicantName%type;
+    vsubStSsn vwSelectInfo.applicantSsn%type;
+    vstRegdate vwSelectInfo.curriculumStart%type;  
+    vstCStatus tblCertificate.certificateDetail%type;
+    
+    cursor vcursor is select distinct v.과목명, v.과목시작일, v.과목종료일, v.교재명, v.교사명, vs.applicantName as "교육생 이름", substr(vs.applicantSsn, 8, 7) as "주민번호 뒷자리", vs.studentRegdate as "등록일"
+                        from vwSubInfo v
+                            inner join vwSelectInfo vs on v.과정번호 = vs.curriculum_seq
+                        where v.과정번호 = 30
+                            order by v.과목시작일, v.교사명, vs.applicantName;
+begin
+    open cursor;
+        loop
+        fetch vcursor into vsubjectName, vsubjectStart, vsubjectEnd, vsubBookName, vsubTName, vsubStName, vsubStSsn, vstRegdate;
+        exit when vcursor%notfound;
+        
+         dbms_output.put_line('과목명: ' ||vsubjectName || ' / 과목 시작일: ' || to_char(vsubjectStart, 'yyyy-mm-dd') || ' / 과목 종료일: ' ||
+                                    to_char(vsubjectEnd, 'yyyy-mm-dd') || ' / 교재명: ' || vsubBookName || ' / 교사명: ' || vsubTName 
+                                    || ' / 교육생명:' || vsubStName || ' / 교육생 주민등록번호 뒷자리 ' || vsubStSsn || ' / 과정 등록일' || vstRegdate );
+            
+        
+        end loop;    
+    close cursor;
+end;
+
+--호출
+
+
+
+
