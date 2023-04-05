@@ -114,66 +114,58 @@ end;
 
 
 
-/* view */
-create or replace view vwSubInfo_h
-as
-select distinct
-  s.subjectName as "과목명",
-  cs.cursubStart as "과목시작일", 
-  cs.cursubEnd as "과목종료일",
-  b.bookName as "교재명", 
-  t.teacherName as "교사명",
-  cs.curriculum_seq as "과정별과목번호"
-from tblCurSub cs
-    inner join tblSubject s on s.subject_seq = cs.subject_seq
-    inner join tblSubBook sb on sb.subject_seq = s.subject_seq
-    inner join tblBook b on b.book_seq = sb.book_seq
-    inner join tblAvailSubject avs on avs.subject_seq = s.subject_seq  
-    inner join tblTeacher t on t.teacher_seq = avs.teacher_seq
-order by s.subjectName, t.teacherName;  
-
-select * from vwSubInfo_h;
-
-
 /* 특정 개설 과정 정보 과목명, 과목기간(시작 년월일, 끝년월일), 교재명, 교사명) 및 등록된 교육생 정보(교육생 이름, 주민번호 뒷자리, 등록일, 수료 및 중도 탈락) 조회 */
-
+select * from vwSelectInfo;
 --프로시저
 create or replace procedure procSubInfoR_h(
     pcurrSeq number
 )
 is 
-    vsubjectName vwSubInfo_h.과목명%type;
-    vsubjectStart vwSubInfo_h.과목시작일%type;
-    vsubjectEnd vwSubInfo_h.과목종료일%type;
-    vsubBookName vwSubInfo_h.교재명%type;
-    vsubTName vwSubInfo_h.교사명%type;
+    vsubjectName vwSubInfo.subjectName%type;
+    vsubjectStart vwSubInfo.cursubStart%type;
+    vsubjectEnd vwSubInfo.cursubEnd%type;
+    vsubBookName vwSubInfo.bookName%type;
+    vsubTName vwSubInfo.teacherName%type;
     vsubStName vwSelectInfo.applicantName%type;
     vsubStSsn vwSelectInfo.applicantSsn%type;
-    vstRegdate vwSelectInfo.curriculumStart%type;  
+    vstRegdate vwSelectInfo.studentRegdate%type;  
     vstCStatus tblCertificate.certificateDetail%type;
     
-    cursor vcursor is select distinct v.과목명, v.과목시작일, v.과목종료일, v.교재명, v.교사명, vs.applicantName as "교육생 이름", substr(vs.applicantSsn, 8, 7) as "주민번호 뒷자리", vs.studentRegdate as "등록일"
-                        from vwSubInfo v
-                            inner join vwSelectInfo vs on v.과정번호 = vs.curriculum_seq
-                        where v.과정번호 = 30
-                            order by v.과목시작일, v.교사명, vs.applicantName;
+    cursor vcursor is select distinct v.subjectName, v.cursubStart, v.cursubEnd, v.bookName, v.teacherName, vs.applicantName, substr(vs.applicantSsn, 8, 7), vs.studentRegdate, c.certificateDetail
+                    from vwSubInfo v
+                        inner join vwSelectInfo vs on v.curriculum_seq = vs.curriculum_seq
+                        inner join tblCertificate c on c.student_seq = vs.student_seq
+                    where v.curriculum_seq = pcurrSeq
+                        order by v.cursubStart, v.teacherName, vs.applicantName;
 begin
-    open cursor;
+    open vcursor;
+    
         loop
-        fetch vcursor into vsubjectName, vsubjectStart, vsubjectEnd, vsubBookName, vsubTName, vsubStName, vsubStSsn, vstRegdate;
-        exit when vcursor%notfound;
         
-         dbms_output.put_line('과목명: ' ||vsubjectName || ' / 과목 시작일: ' || to_char(vsubjectStart, 'yyyy-mm-dd') || ' / 과목 종료일: ' ||
-                                    to_char(vsubjectEnd, 'yyyy-mm-dd') || ' / 교재명: ' || vsubBookName || ' / 교사명: ' || vsubTName 
-                                    || ' / 교육생명:' || vsubStName || ' / 교육생 주민등록번호 뒷자리 ' || vsubStSsn || ' / 과정 등록일' || vstRegdate );
+            fetch vcursor into vsubjectName, vsubjectStart, vsubjectEnd, vsubBookName, vsubTName, vsubStName, vsubStSsn, vstRegdate, vstCStatus;
+            exit when vcursor%notfound;
             
+            if vstCStatus = '졸업' then 
+                vstCStatus := '수료';
+            elsif vstCStatus = '중도탈락' then 
+                vstCStatus := '중도 탈락';
+            else 
+                vstCStatus := '수강 중';
+            end if;
+            
+            dbms_output.put_line('과목명: ' ||vsubjectName || ' / 과목 시작일: ' || to_char(vsubjectStart, 'yyyy-mm-dd') || ' / 과목 종료일: ' ||
+                                        to_char(vsubjectEnd, 'yyyy-mm-dd') || ' / 교재: ' || vsubBookName || ' / 교사: ' || vsubTName 
+                                        || ' / 교육생:' || vsubStName || ' / 교육생 주민등록번호 뒷자리: ' || vsubStSsn || ' / 과정 등록일: ' || vstRegdate || ' /  수료 여부: ' || vstCStatus);            
         
         end loop;    
-    close cursor;
-end;
+        
+    close vcursor;
+end procSubInfoR_h;
+
 
 --호출
-
-
+begin
+    procSubInfoR_h(30);
+end;
 
 
