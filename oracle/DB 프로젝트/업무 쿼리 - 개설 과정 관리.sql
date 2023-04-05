@@ -26,11 +26,11 @@ select * from dual;
 create or replace view vwCurrInfo
 as
 select distinct
-    c.curriculumName as "과정명",
-    c.curriculumStart as "과정시작일",
-    c.curriculumEnd as "과정종료일",
-    l.lectureRoomnum || '호' as "강의실",
-    c.curriculum_seq as "과정번호"
+    c.curriculumName,
+    c.curriculumStart,
+    c.curriculumEnd,
+    l.lectureRoomnum,
+    c.curriculum_seq
 from tblCurriculum c
     inner join tblLecture l
         on c.curriculum_seq = l.curriculum_seq
@@ -44,10 +44,10 @@ from tblCurriculum c
 
 -- 2. 출력
 select distinct
-    v.과정명,
-    v.과정시작일,
-    v.과정종료일,
-    v.강의실,
+    v.curriculumName as "과정명",
+    v.curriculumStart as "과정시작일",
+    v.curriculumEnd as "과정종료일",
+    v.lectureRoomnum || '호' as "강의실",
     case
         when cs.subject_seq is null then 'N'
         else 'Y'        
@@ -55,13 +55,13 @@ select distinct
     nvl(count(st.student_seq), 0) as "교육생 등록 인원"    
 from vwCurrInfo v
     left outer join tblCurSub cs
-        on v.과정번호 = cs.curriculum_seq
+        on v.curriculum_seq = cs.curriculum_seq
             left outer join tblSelect s
-                on v.과정번호 = s.curriculum_seq
+                on v.curriculum_seq = s.curriculum_seq
                     left outer join tblStudent st
                         on s.select_seq = st.select_seq
-group by v.과정명, v.과정시작일, v.과정종료일, v.강의실, cs.cursubStart, cs.subject_seq
-    order by v.과정시작일;
+group by v.curriculumName, v.curriculumStart, v.curriculumEnd, v.lectureRoomnum, cs.cursubStart, cs.subject_seq
+    order by v.curriculumStart;
 
 
 
