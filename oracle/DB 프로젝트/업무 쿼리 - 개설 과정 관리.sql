@@ -94,13 +94,13 @@ update tblCertificate set certificateDate = (select curriculumEnd from tblCurric
 create or replace view vwSubInfo
 as
 select distinct
-  s.subjectName as "과목명",
-  cs.cursubStart as "과목시작일", 
-  cs.cursubEnd as "과목종료일",
-  b.bookName as "교재명", 
-  t.teacherName as "교사명",
-  cs.curriculum_seq as "과정번호",
-  cs.subject_seq as "과목번호"
+  s.subjectName, 
+  cs.cursubStart, 
+  cs.cursubEnd,
+  b.bookName, 
+  t.teacherName,
+  cs.curriculum_seq,
+  cs.subject_seq
 from tblCurSub cs
     inner join tblSubject s on s.subject_seq = cs.subject_seq
     inner join tblSubBook sb on sb.subject_seq = s.subject_seq
@@ -112,11 +112,11 @@ order by s.subjectName, cs.cursubStart;
 /* 특정 개설 과정 정보 과목명, 과목기간(시작 년월일, 끝년월일), 교재명, 교사명) 및 등록된 교육생 정보(교육생 이름, 주민번호 뒷자리, 등록일, 수료 및 중도 탈락) 조회 */
 
 select distinct
-  v.과목명,
-  v.과목시작일, 
-  v.과목종료일,
-  v.교재명, 
-  v.교사명,
+  v.subjectName as "과목명",
+  v.cursubStart as "과목시작일", 
+  v.cursubEnd as "과목종료일",
+  v.bookName as "교재명", 
+  v.teacherName as "교사명",
   vs.applicantName as "교육생 이름",
   substr(vs.applicantSsn, 8, 7) as "주민번호 뒷자리",
   vs.studentRegdate as "등록일",
@@ -126,10 +126,10 @@ select distinct
     else '수강 중'
   end as "수료 여부"
 from vwSubInfo v
-    inner join vwSelectInfo vs on v.과정번호 = vs.curriculum_seq
+    inner join vwSelectInfo vs on v.curriculum_seq = vs.curriculum_seq
     inner join tblCertificate c on c.student_seq = vs.student_seq
-where v.과정번호 = 30
-    order by v.과목시작일, v.교사명, vs.applicantName;
+where v.curriculum_seq = 30
+    order by v.cursubStart, v.teacherName, vs.applicantName;
 
 /* 강의실 정보 추가 */
 
