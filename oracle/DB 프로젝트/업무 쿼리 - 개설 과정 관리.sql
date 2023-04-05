@@ -119,9 +119,15 @@ select distinct
   v.교사명,
   vs.applicantName as "교육생 이름",
   substr(vs.applicantSsn, 8, 7) as "주민번호 뒷자리",
-  vs.studentRegdate as "등록일"
+  vs.studentRegdate as "등록일",
+  case
+    when c.certificateDetail = '졸업' then '수료'
+    when c.certificateDetail = '중도탈락' then '중도 탈락'
+    else '수강 중'
+  end as "수료 여부"
 from vwSubInfo v
     inner join vwSelectInfo vs on v.과정번호 = vs.curriculum_seq
+    inner join tblCertificate c on c.student_seq = vs.student_seq
 where v.과정번호 = 30
     order by v.과목시작일, v.교사명, vs.applicantName;
 
