@@ -31,3 +31,7 @@ update tblWrittenTest set writtenScore = null
 
 update tblBookSign set signature = null
     where book_seq = 9 and student_seq between 841 and 870;
+    
+    
+update tblPracticalTest set practicalScore = null
+    where practicalDate = '23/04/28';
