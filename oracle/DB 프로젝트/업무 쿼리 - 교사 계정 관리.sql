@@ -25,13 +25,26 @@ insert all
 select * from dual;
 
 
--- 2. 출력
+
+/*view*/
+create or replace view vwTeacher
+as
 select 
     teacherName as 이름, 
     substr(teacherSsn, 8, 7) as 주민등록번호, 
-    teacherTel as 연락처
+    teacherTel as 연락처,
+    teacher_seq as "교사번호"
 from tblTeacher
     order by teacherName;
+    
+    
+
+-- 2. 출력
+select
+    이름,
+    주민등록번호,
+    연락처
+from vwTeacher;
 
 
 -- 3-1. 이름 수정
