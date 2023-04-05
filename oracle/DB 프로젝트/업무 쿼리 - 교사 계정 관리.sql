@@ -77,7 +77,7 @@ update tblAvailSubject set subject_seq = 18 where teacher_seq = 6 and subject_se
 
 -- 4. 삭제
 delete tblAvailSubject
-    where subject_Seq = 12;
+    where subject_seq = 20 and teacher_seq = 8;
 
 
 
