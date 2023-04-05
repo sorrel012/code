@@ -22,18 +22,15 @@ insert all
 select * from dual;
 
 
-
--- 2. 출력
+/*view*/
+create or replace view vwCurrInfo_h
+as
 select distinct
     c.curriculumName as "과정명",
-    c.curriculumStart as "과정 시작일",
-    c.curriculumEnd as "과정 종료일",
+    c.curriculumStart as "과정시작일",
+    c.curriculumEnd as "과정종료일",
     l.lectureRoomnum || '호' as "강의실",
-    case
-        when cs.subject_seq is null then 'N'
-        else 'Y'        
-    end as "과목 등록 여부",   
-    nvl(count(st.student_seq),0 ) as "교육생 등록 인원"    
+    c.curriculum_seq as "과정번호"
 from tblCurriculum c
     inner join tblLecture l
         on c.curriculum_seq = l.curriculum_seq
@@ -41,10 +38,31 @@ from tblCurriculum c
                 on c.curriculum_seq = cs.curriculum_seq
                     left outer join tblSelect s
                         on c.curriculum_seq = s.curriculum_seq
-                            left outer join tblStudent st
-                                on s.select_seq = st.select_seq
-    group by c.curriculumName, c.curriculumStart, c.curriculumEnd, l.lectureRoomnum, cs.cursubStart, cs.subject_seq
-        order by c.curriculumStart;
+    group by c.curriculumName, c.curriculumStart, c.curriculumEnd, l.lectureRoomnum, c.curriculum_seq
+        order by c.curriculumStart;      
+        
+
+-- 2. 출력
+select distinct
+    v.과정명,
+    v.과정시작일,
+    v.과정종료일,
+    v.강의실,
+    case
+        when cs.subject_seq is null then 'N'
+        else 'Y'        
+    end as "과목 등록 여부",   
+    nvl(count(st.student_seq),0 ) as "교육생 등록 인원"    
+from vwCurrInfo_h v
+    left outer join tblCurSub cs
+        on v.과정번호 = cs.curriculum_seq
+            left outer join tblSelect s
+                on v.과정번호 = s.curriculum_seq
+                    left outer join tblStudent st
+                        on s.select_seq = st.select_seq
+group by v.과정명, v.과정시작일, v.과정종료일, v.강의실, cs.cursubStart, cs.subject_seq
+    order by v.과정시작일;
+
 
 
 -- 3-1. 과정 기간 수정
@@ -72,7 +90,7 @@ update tblCertificate set certificateDate = (select curriculumEnd from tblCurric
     where certificateDetail = '졸업' and student_seq between ((31 - 1) * 30 + 1) and (31 * 30);
 
 
-
+--TODO view 만들기
 /* 특정 개설 과정 정보 과목명, 과목기간(시작 년월일, 끝년월일), 교재명, 교사명) 및 등록된 교육생 정보(교육생 이름, 주민번호 뒷자리, 등록일, 수료 및 중도 탈락) 조회 */
 
 select distinct
