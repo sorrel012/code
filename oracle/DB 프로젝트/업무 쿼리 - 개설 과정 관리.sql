@@ -52,7 +52,7 @@ select distinct
         when cs.subject_seq is null then 'N'
         else 'Y'        
     end as "과목 등록 여부",   
-    nvl(count(st.student_seq),0 ) as "교육생 등록 인원"    
+    nvl(count(st.student_seq), 0) as "교육생 등록 인원"    
 from vwCurrInfo_h v
     left outer join tblCurSub cs
         on v.과정번호 = cs.curriculum_seq
@@ -90,28 +90,42 @@ update tblCertificate set certificateDate = (select curriculumEnd from tblCurric
     where certificateDetail = '졸업' and student_seq between ((31 - 1) * 30 + 1) and (31 * 30);
 
 
---TODO view 만들기
-/* 특정 개설 과정 정보 과목명, 과목기간(시작 년월일, 끝년월일), 교재명, 교사명) 및 등록된 교육생 정보(교육생 이름, 주민번호 뒷자리, 등록일, 수료 및 중도 탈락) 조회 */
-
+/* view */
+create or replace view vwSubInfo_h
+as
 select distinct
   s.subjectName as "과목명",
-  cs.cursubStart as "과목 시작일", 
-  cs.cursubEnd as "과목 종료일",
+  cs.cursubStart as "과목시작일", 
+  cs.cursubEnd as "과목종료일",
   b.bookName as "교재명", 
   t.teacherName as "교사명",
-  ap.applicantName as "교육생 이름",
-  substr(ap.applicantSsn, 8, 7) as "주민번호 뒷자리",
-  c.curriculumStart as "등록일"
+  cs.curriculum_seq as "과정별과목번호"
 from tblCurSub cs
     inner join tblSubject s on s.subject_seq = cs.subject_seq
     inner join tblSubBook sb on sb.subject_seq = s.subject_seq
     inner join tblBook b on b.book_seq = sb.book_seq
-    inner join tblAvailSubject avs on avs.subject_seq = s.subject_seq
+    inner join tblAvailSubject avs on avs.subject_seq = s.subject_seq  
     inner join tblTeacher t on t.teacher_seq = avs.teacher_seq
-    inner join tblApplicant ap on ap.curriculum_seq = cs.curriculum_seq
-    inner join tblCurriculum c on c.curriculum_seq = cs.curriculum_seq
+order by s.subjectName, t.teacherName;  
+
+select * from vwSubInfo_h;
+
+/* 특정 개설 과정 정보 과목명, 과목기간(시작 년월일, 끝년월일), 교재명, 교사명) 및 등록된 교육생 정보(교육생 이름, 주민번호 뒷자리, 등록일, 수료 및 중도 탈락) 조회 */
+
+select distinct
+  v.과목명,
+  v.과목시작일, 
+  v.과목종료일,
+  v.교재명, 
+  v.교사명,
+  ap.applicantName as "교육생 이름",
+  substr(ap.applicantSsn, 8, 7) as "주민번호 뒷자리",
+  c.curriculumStart as "등록일"
+from vwSubInfo_h v
+    inner join tblApplicant ap on ap.curriculum_seq = v.과정별과목번호
+    inner join tblCurriculum c on c.curriculum_seq = v.과정별과목번호
 where c.curriculum_seq = 1
-    order by s.subjectName, t.teacherName, ap.applicantName;
+    order by v.과목명, v.교사명, ap.applicantName;
 
 
 
