@@ -25,13 +25,26 @@ insert all
 select * from dual;
 
 
--- 2. 출력
+
+/*view*/
+create or replace view vwTeacher
+as
 select 
     teacherName as 이름, 
     substr(teacherSsn, 8, 7) as 주민등록번호, 
-    teacherTel as 연락처
+    teacherTel as 연락처,
+    teacher_seq as "교사번호"
 from tblTeacher
     order by teacherName;
+    
+    
+
+-- 2. 출력
+select
+    이름,
+    주민등록번호,
+    연락처
+from vwTeacher;
 
 
 -- 3-1. 이름 수정
@@ -61,8 +74,8 @@ insert into tblAvailSubject(teacher_seq, subject_seq)
 
 -- 2. 출력
 select 
-    t.teacherName,
-    s.subjectName 
+    t.teacherName as "교사명",
+    s.subjectName as "과목명"
 from tblSubject s
     inner join tblAvailSubject av
         on s.subject_seq = av.subject_seq
@@ -77,7 +90,7 @@ update tblAvailSubject set subject_seq = 18 where teacher_seq = 6 and subject_se
 
 -- 4. 삭제
 delete tblAvailSubject
-    where subject_Seq = 12;
+    where subject_seq = 20 and teacher_seq = 8;
 
 
 
@@ -118,52 +131,3 @@ from tblCurSub cs
 where cs.teacher_seq = 1 
     group by s.subjectName, cs.cursubStart, cs.cursubEnd, bk.bookName, lt.lectureRoomNum
         order by curSubStart;
-
-
--- 프로시저
-create or replace procedure procTeacherInfo(
-    teacherSeq number
-)
-is
-    vsubjectName tblSubject.subjectName%type;
-    vcursubStart tblCurSub.cursubStart%type;
-    vcursubEnd tblCurSub.cursubEnd%type;
-    vbookName tblBook.bookName%type;
-    vlectureRoomnum tblLecture.lectureRoomnum%type;
-    vteacherStatus varchar2(50);
-    cursor vcursor is select s.subjectName, cs.cursubStart, cs.cursubEnd, bk.bookName, lt.lectureRoomnum 
-                        from tblCurSub cs
-                            inner join tblSubject s on s.subject_seq = cs.subject_seq
-                            inner join tblLecture lt on lt.curriculum_seq = cs.curriculum_seq
-                            inner join tblSubBook sb on sb.subject_seq = s.subject_seq
-                            inner join tblBook bk on bk.book_seq = sb.book_seq
-                            inner join tblAvailSubject avs on avs.subject_seq = s.subject_seq and avs.teacher_seq = cs.teacher_seq    
-                        where cs.teacher_seq = teacherSeq
-                            group by s.subjectName, cs.cursubStart, cs.cursubEnd, bk.bookName, lt.lectureRoomNum
-                                order by cs.cursubStart;
-begin
-     open vcursor;
-        loop
-            fetch vcursor into vsubjectName, vcursubStart, vcursubEnd, vbookName, vlectureRoomnum;
-            exit when vcursor%notfound;
-            
-            if vcursubEnd < sysdate then
-                vteacherStatus := '강의종료';
-            elsif vcursubStart > sysdate then
-                vteacherStatus := '강의예정';
-            else
-                vteacherStatus := '강의중';
-            end if;            
-            
-            dbms_output.put_line('과정명: ' ||vsubjectName || ' / 과정 시작일: ' || to_char(vcursubStart, 'yyyy-mm-dd') || ' / 과정 종료일: ' ||
-                                    to_char(vcursubEnd, 'yyyy-mm-dd') || ' / 교재명: ' || vbookName || ' / 강의실: ' || vlectureRoomnum || '호 / 강의 여부:' || vteacherStatus);
-            
-        end loop;
-    close vcursor; 
-    
-end;
-
-
-begin
-    procTeacherInfo(1);
-end;

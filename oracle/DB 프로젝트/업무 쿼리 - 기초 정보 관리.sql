@@ -12,18 +12,22 @@ A.01 기초 정보 관리
 insert into tblCurriculum(curriculum_seq, curriculumName) 
     values ((select max(curriculum_seq) from tblCurriculum) + 1, '(게임콘텐츠제작) 유니티 UNIY 게임프로그래밍 실무과정');
 
+
 --2. 출력
 select distinct 
     curriculumName as 과정명 
 from tblCurriculum;
     
+    
 --3. 수정
 update tblCurriculum set curriculumName = '(게임콘텐츠제작) 유니티&언리얼 게임프로그래밍 실무과정' 
     where curriculum_seq = 37;
 
+
 --4. 삭제
 delete from tblCurriculum 
     where curriculum_seq = 37;
+    
     
     
 
@@ -33,14 +37,17 @@ delete from tblCurriculum
 insert into tblSubject(subject_seq, subjectName) 
     values ((select max(subject_seq) from tblSubject) + 1, '엘라스틱 서치');
 
+
 --2. 출력
 select 
     subjectName as 과목명 
 from tblSubject;
     
+    
 --3. 수정
 update tblSubject set subjectName = 'Elastic Search'
     where subject_seq = 31;
+
 
 --4. 삭제
 delete from tblSubject 
