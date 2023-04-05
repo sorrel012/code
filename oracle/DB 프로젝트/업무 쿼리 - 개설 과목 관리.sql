@@ -20,32 +20,22 @@ insert all
 select * from dual;
 
 
--- 2. 출력
+-- 2. 개설 과정 정보(과정명, 과정기간(시작 년월일, 끝 년월일), 강의실)와 과목명, 과목기간(시작 년월일, 끝 년월일), 교재명, 교사명 출력
 select distinct
-    c.curriculumName as "과정명",
-    c.curriculumStart as "과정 시작일",
-    c.curriculumEnd as "과정 종료일",
-    l.lectureRoomnum||'호' as "강의실",
-    s.subjectName as "과목명",
-    cs.cursubStart as "과목 시작일",
-    cs.cursubEnd as "과목 종료일",
-    b.bookName as "교재명",
-    t.teacherName as "교사명"
-from tblCurriculum c
-    inner join tblLecture l
-        on c.curriculum_seq = l.curriculum_seq
-            inner join tblCurSub cs
-                on c.curriculum_seq = cs.curriculum_seq
-                    inner join tblSubject s
-                        on s.subject_seq = cs.subject_seq
-                            inner join tblSubBook sb
-                                on s.subject_seq = sb.subject_seq
-                                    inner join tblBook b
-                                        on b.book_seq = sb.book_seq
-                                            inner join tblTeacher t
-                                                on t.teacher_seq = cs.teacher_seq
-where s.subject_seq = 1
-    order by c.curriculumStart, cs.cursubStart;
+    vc.과정명,
+    vc.과정시작일,
+    vc.과정종료일,
+    vc.강의실,
+    vs.subjectName as "과목명",
+    vs.cursubStart as "과목시작일", 
+    vs.cursubEnd as "과목종료일",
+    vs.bookName as "교재명", 
+    vs.teacherName as "교사명"
+from vwCurrInfo vc
+    inner join vwSubInfo vs
+        on vc.과정번호 = vs.curriculum_seq
+where vs.subject_seq = 1
+    order by vc.과정명, vs.cursubStart;
 
 
 -- 3-1. 과목 기간 수정
@@ -67,29 +57,21 @@ delete tblCurSub
 
 -- 4-2. 과목별 교재 정보 삭제
 delete tblSubBook
-    where subject_seq = 13;
-    
+    where subject_seq = 13;   
+
 
 
 /* 특정 개설 과정 선택 시 개설 과목 정보 출력*/
 select distinct
-    c.curriculumName as "과정명",
-    s.subjectName as "과목명",
-    cs.cursubStart as "과목 시작일",
-    cs.cursubEnd as "과목 종료일",
-    b.bookName as "교재명",
-    t.teacherName as "교사명"
-from tblCurriculum c
-    inner join tblCursub cs
-        on c.curriculum_seq = cs.curriculum_seq 
-            inner join tblSubject s
-                on s.subject_seq = cs.subject_seq
-                    inner join tblSubBook sb
-                        on sb.subject_seq = s.subject_seq
-                            inner join tblTeacher t
-                                on t.teacher_seq = cs.teacher_seq
-                                    inner join tblBook b
-                                        on b.book_seq = sb.book_seq
-where c.curriculum_seq = 1
-    order by c.curriculumName, cs.cursubStart
+    vc.과정명,
+    vs.subjectName as "과목명",
+    vs.cursubStart as "과목시작일", 
+    vs.cursubEnd as "과목종료일",
+    vs.bookName as "교재명", 
+    vs.teacherName as "교사명"
+from vwCurrInfo vc
+    inner join vwSubInfo vs
+        on vc.과정번호 = vs.curriculum_seq
+where vs.curriculum_seq = 1
+    order by vs.cursubStart;
     
