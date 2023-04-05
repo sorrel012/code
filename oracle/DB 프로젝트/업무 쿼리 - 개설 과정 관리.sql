@@ -23,7 +23,7 @@ select * from dual;
 
 
 /*view*/
-create or replace view vwCurrInfo_h
+create or replace view vwCurrInfo
 as
 select distinct
     c.curriculumName as "과정명",
@@ -53,7 +53,7 @@ select distinct
         else 'Y'        
     end as "과목 등록 여부",   
     nvl(count(st.student_seq), 0) as "교육생 등록 인원"    
-from vwCurrInfo_h v
+from vwCurrInfo v
     left outer join tblCurSub cs
         on v.과정번호 = cs.curriculum_seq
             left outer join tblSelect s
@@ -91,7 +91,7 @@ update tblCertificate set certificateDate = (select curriculumEnd from tblCurric
 
 
 /* view */
-create or replace view vwSubInfo_h
+create or replace view vwSubInfo
 as
 select distinct
   s.subjectName as "과목명",
@@ -108,7 +108,8 @@ from tblCurSub cs
     inner join tblTeacher t on t.teacher_seq = avs.teacher_seq
 order by s.subjectName, t.teacherName;  
 
-select * from vwSubInfo_h;
+select * from vwSubInfo;
+
 
 /* 특정 개설 과정 정보 과목명, 과목기간(시작 년월일, 끝년월일), 교재명, 교사명) 및 등록된 교육생 정보(교육생 이름, 주민번호 뒷자리, 등록일, 수료 및 중도 탈락) 조회 */
 
@@ -121,7 +122,7 @@ select distinct
   ap.applicantName as "교육생 이름",
   substr(ap.applicantSsn, 8, 7) as "주민번호 뒷자리",
   c.curriculumStart as "등록일"
-from vwSubInfo_h v
+from vwSubInfo v
     inner join tblApplicant ap on ap.curriculum_seq = v.과정별과목번호
     inner join tblCurriculum c on c.curriculum_seq = v.과정별과목번호
 where c.curriculum_seq = 1
