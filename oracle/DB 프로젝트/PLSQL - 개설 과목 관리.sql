@@ -8,94 +8,199 @@ A.04 개설 과목 관리
 
 */
 
-update tblAttendance set ATTENDANCECHECKTIME = null, ATTENDANCEOUTTIME = null
-    where attendanceDetail = '주말';
-
-update tblAttendance set ATTENDANCECHECKTIME = null, ATTENDANCEOUTTIME = null
-    where attendanceDate in ('2023-01-23', '2023-01-24', '2023-03-01');
-
 /*개설 과목 정보*/
 
 -- 1. 입력(과목 시작일, 과목 종료일, 과정번호, 과목번호, 교사번호 / 과목 번호, 교재번호)
-insert all
-    into tblCurSub(cursubStart, cursubEnd, curriculum_seq, subject_seq, teacher_seq)
-        values('2023-12-04', '2024-02-02', 37, 13, 11)
-    into tblSubBook(subject_seq, book_seq) 
-        values(13, 24)
-select * from dual;
+
+--프로시저
+create or replace procedure procSubInfoI_h (
+    psubStart date,
+    psubEnd date,
+    pcurrSeq number,
+    pteacherSeq number,
+    psubSeq number,
+    pbookSeq number
+)
+is
+begin
+    insert into tblCurSub(cursubStart, cursubEnd, curriculum_seq, subject_seq, teacher_seq)
+        values(psubStart, psubEnd, pcurrSeq, psubSeq, pteacherSeq);
+    insert into tblSubBook(subject_seq, book_seq) 
+        values(psubSeq, pbookSeq);
+end procSubInfoI_h;
 
 
-select * from vwCurrInfo_h;        
-        
+--호출
+begin
+    procSubInfoI_h('2023-12-04', '2024-02-02', 37, 11, 13, 24);
+end;
+     
+select * from  vwCurrInfo;
 -- 2. 출력
-select distinct
-    c.curriculumName as "과정명",
-    c.curriculumStart as "과정 시작일",
-    c.curriculumEnd as "과정 종료일",
-    l.lectureRoomnum||'호' as "강의실",
-    s.subjectName as "과목명",
-    cs.cursubStart as "과목 시작일",
-    cs.cursubEnd as "과목 종료일",
-    b.bookName as "교재명",
-    t.teacherName as "교사명"
-from tblCurriculum c
-    inner join tblLecture l
-        on c.curriculum_seq = l.curriculum_seq
-            inner join tblCurSub cs
-                on c.curriculum_seq = cs.curriculum_seq
-                    inner join tblSubject s
-                        on s.subject_seq = cs.subject_seq
-                            inner join tblSubBook sb
-                                on s.subject_seq = sb.subject_seq
-                                    inner join tblBook b
-                                        on b.book_seq = sb.book_seq
-                                            inner join tblTeacher t
-                                                on t.teacher_seq = cs.teacher_seq
-where s.subject_seq = 1
-    order by c.curriculumStart, cs.cursubStart;
 
+select lectureRoomnum from vwCurrInfo;
 
--- 3-1. 과목 기간 수정
-update tblCurSub set cursubStart = '2023-12-04', cursubEnd = '2024-02-01'
-    where curriculum_seq = 37 and subject_seq = 13;
+--프로시저
+create or replace procedure procSubInfoR_h(
+    psubSeq number
+)
+is 
+    vscurrtName vwCurrInfo.curriculumName%type;
+    vcurrtStart vwCurrInfo.curriculumStart%type;
+    vcurrtEnd vwCurrInfo.curriculumEnd%type;
+    vlecture vwCurrInfo.lectureRoomnum%type;
+    vsubName vwSubInfo.subjectName%type;
+    vcursubStart vwSubInfo.cursubStart%type;
+    vcursubEnd vwSubInfo.cursubEnd%type;
+    vbookName vwSubInfo.bookName%type;
+    vteacherName vwSubInfo.teacherName%type;
     
--- 3-2. 담당 교사 수정
-update tblCurSub set teacher_seq = 1
-    where curriculum_seq = 37 and subject_seq = 13;
+    cursor vcursor is select distinct vc.curriculumName, vc.curriculumStart, vc.curriculumEnd, vc.lectureRoomnum, vs.subjectName, vs.cursubStart,  vs.cursubEnd, vs.bookName, vs.teacherName
+                        from vwCurrInfo vc
+                            inner join vwSubInfo vs on vc.curriculum_seq = vs.curriculum_seq
+                        where vs.subject_seq = psubSeq
+                            order by vs.subjectName, vs.cursubStart;
+begin
+    open vcursor;
     
--- 3-3. 교재 번호 수정
-update tblSubBook set book_seq = 25
-    where subject_seq = 13 and book_seq = 24;
+        loop
+        
+            fetch vcursor into vscurrtName, vcurrtStart, vcurrtEnd, vlecture, vsubName, vcursubStart, vcursubEnd, vbookName, vteacherName;
+            exit when vcursor%notfound;
+            
+            dbms_output.put_line('과정명: ' ||vscurrtName || ' / 과정 시작일: ' || to_char(vcurrtStart, 'yyyy-mm-dd') || ' / 과정 종료일: ' || to_char(vcurrtEnd, 'yyyy-mm-dd') ||  ' / 강의실: '|| vlecture 
+                                    || '호 / 과목명: ' || vsubName || ' / 과목 시작일: ' || vcursubStart || ' / 과목 종료일: ' || vcursubEnd || ' / 교재명: ' || vbookName || ' / 교사명: ' || vteacherName);            
+        
+        end loop;    
+        
+    close vcursor;
+end procSubInfoR_h;
 
 
--- 4-1. 과목 정보 삭제
-delete tblCurSub 
-    where curriculum_seq = 37 and subject_seq = 13;
+--호출
+begin
+    procSubInfoR_h(1);
+end;
 
--- 4-2. 과목별 교재 정보 삭제
-delete tblSubBook
-    where subject_seq = 13;
 
+-- 3. 수정
+
+-- 프로시저
+
+-- 과목 기간 
+create or replace procedure procSubPerU_h(
+    pstart date,
+    pend date,
+    pcurrSeq number,
+    psubSeq number
+)
+is 
+begin    
+    update tblCurSub set cursubStart = pstart, cursubEnd = pend
+        where curriculum_seq = pcurrSeq and subject_seq = psubSeq;
+end procSubPerU_h;
+
+-- 담당 교사 
+create or replace procedure procSubTeU_h(
+    pteSeq number,
+    pcurrSeq number,
+    psubSeq number
+)
+is 
+begin        
+    update tblCurSub set teacher_seq = pteSeq
+        where curriculum_seq = pcurrSeq and subject_seq = psubSeq;
+end procSubTeU_h;
+    
+-- 교재 번호 
+create or replace procedure procSubBookU_h(
+    poldbkSeq number,
+    pnewbkSeq number,
+    psubSeq number
+)
+is 
+begin    
+    update tblSubBook set book_seq = pnewbkSeq
+        where subject_seq = psubSeq and book_seq = poldbkSeq;
+end procSubBookU_h;
+
+
+-- 호출
+begin
+    procSubPerU_h('2023-12-04', '2024-02-01', 37, 13);
+    procSubTeU_h(1, 37, 13);
+    procSubBookU_h(24, 15, 13);
+end;
+
+
+-- 4. 삭제
+
+--프로시저
+
+--과목 정보
+create or replace procedure procSubD_h(
+    pcurrSeq number,
+    psubSeq number
+)
+is 
+begin    
+    delete tblCurSub 
+        where curriculum_seq = pcurrSeq and subject_seq = psubSeq;
+end procSubD_h;
+
+--과목별 교재 정보
+create or replace procedure procSubBookD_h(
+    psubSeq number
+)
+is 
+begin    
+    delete tblSubBook
+        where subject_seq = psubSeq;
+end procSubBookD_h;
+
+
+--호출
+begin
+    procSubD_h(37, 13);
+    procSubBookD_h(13);
+end;
 
 /* 특정 개설 과정 선택 시 개설 과목 정보 출력*/
-select distinct
-    c.curriculumName as "과정명",
-    s.subjectName as "과목명",
-    cs.cursubStart as "과목 시작일",
-    cs.cursubEnd as "과목 종료일",
-    b.bookName as "교재명",
-    t.teacherName as "교사명"
-from tblCurriculum c
-    inner join tblCursub cs
-        on c.curriculum_seq = cs.curriculum_seq 
-            inner join tblSubject s
-                on s.subject_seq = cs.subject_seq
-                    inner join tblSubBook sb
-                        on sb.subject_seq = s.subject_seq
-                            inner join tblTeacher t
-                                on t.teacher_seq = cs.teacher_seq
-                                    inner join tblBook b
-                                        on b.book_seq = sb.book_seq
-where c.curriculum_seq = 1
-    order by c.curriculumName, cs.cursubStart
+create or replace procedure procCurSubInfoR_h(
+    psubSeq number
+)
+is 
+    vscurrtName vwCurrInfo.curriculumName%type;
+    vsubName vwSubInfo.subjectName%type;
+    vcursubStart vwSubInfo.cursubStart%type;
+    vcursubEnd vwSubInfo.cursubEnd%type;
+    vbookName vwSubInfo.bookName%type;
+    vteacherName vwSubInfo.teacherName%type;
+    
+    cursor vcursor is select distinct vc.curriculumName, vs.subjectName, vs.cursubStart, vs.cursubEnd, vs.bookName, vs.teacherName
+                        from vwCurrInfo vc
+                            inner join vwSubInfo vs on vc.curriculum_seq = vs.curriculum_seq
+                        where vs.subject_seq = psubSeq
+                            order by vs.subjectName, vs.cursubStart;
+begin
+    open vcursor;
+    
+        loop
+        
+            fetch vcursor into vscurrtName, vsubName, vcursubStart, vcursubEnd, vbookName, vteacherName;
+            exit when vcursor%notfound;
+            
+            dbms_output.put_line('과정명: ' ||vscurrtName || ' / 과목명: ' || vsubName || ' / 과목 시작일: ' || vcursubStart || ' / 과목 종료일: ' || vcursubEnd || ' / 교재명: ' || vbookName || ' / 교사명: ' || vteacherName);            
+        
+        end loop;    
+        
+    close vcursor;
+end procCurSubInfoR_h;
+
+
+--호출
+begin
+    procCurSubInfoR_h(1);
+end;
+    
     
