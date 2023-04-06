@@ -167,7 +167,7 @@ end;
 
 /* 특정 개설 과정 선택 시 개설 과목 정보 출력*/
 create or replace procedure procCurSubInfoR_h(
-    psubSeq number
+    pCurSeq number
 )
 is 
     vscurrtName vwCurrInfo.curriculumName%type;
@@ -180,7 +180,7 @@ is
     cursor vcursor is select distinct vc.curriculumName, vs.subjectName, vs.cursubStart, vs.cursubEnd, vs.bookName, vs.teacherName
                         from vwCurrInfo vc
                             inner join vwSubInfo vs on vc.curriculum_seq = vs.curriculum_seq
-                        where vs.subject_seq = psubSeq
+                        where vs.curriculum_seq = pCurSeq
                             order by vs.subjectName, vs.cursubStart;
 begin
     open vcursor;
