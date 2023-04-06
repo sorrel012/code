@@ -113,6 +113,27 @@ begin
 end;
 
 
+/*트리거*/
+create or replace trigger trgEndDate
+    before
+    update of certificateDetail
+    on tblCertificate  
+    for each row
+declare
+    vcurrEndDate date;    
+begin
+    select c.curriculumEnd into vcurrEndDate 
+        from tblCurriculum c
+            inner join vwSelectInfo v
+                on c.curriculum_seq = v.curriculum_seq
+        where v.student_seq = :new.student_seq;
+      
+    if :new.certificateDetail = '졸업' then
+        :new.certificateDate := vcurrEndDate;
+    end if;
+end trgEndDate;
+
+
 
 /* 특정 개설 과정 정보 과목명, 과목기간(시작 년월일, 끝년월일), 교재명, 교사명) 및 등록된 교육생 정보(교육생 이름, 주민번호 뒷자리, 등록일, 수료 및 중도 탈락) 조회 */
 select * from vwSelectInfo;
