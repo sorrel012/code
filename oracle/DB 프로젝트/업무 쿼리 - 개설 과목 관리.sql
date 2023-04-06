@@ -14,11 +14,24 @@ A.04 개설 과목 관리
 -- 1. 입력(과목 시작일, 과목 종료일, 과정번호, 과목번호, 교사번호 / 과목 번호, 교재번호)
 insert all
     into tblCurSub(cursubStart, cursubEnd, curriculum_seq, subject_seq, teacher_seq)
-        values('2023-12-04', '2024-02-02', 37, 13, 11)
+        values('2023-12-04', '2024-02-02', 38, 17, 2)
     into tblSubBook(subject_seq, book_seq) 
-        values(13, 24)
+        values(17, 26)
 select * from dual;
-select * from vwCurrinfo;
+
+insert all
+    into tblCurSub(cursubStart, cursubEnd, curriculum_seq, subject_seq, teacher_seq)
+        values('2024-02-05', '2024-04-28', 38, 19, 5)
+    into tblSubBook(subject_seq, book_seq) 
+        values(19, 26)
+select * from dual;
+
+insert all
+    into tblCurSub(cursubStart, cursubEnd, curriculum_seq, subject_seq, teacher_seq)
+        values('2024-04-29', '2024-06-19', 38, 18,  11)
+    into tblSubBook(subject_seq, book_seq) 
+        values(18, 27)
+select * from dual;
 
 -- 2. 개설 과정 정보(과정명, 과정기간(시작 년월일, 끝 년월일), 강의실)와 과목명, 과목기간(시작 년월일, 끝 년월일), 교재명, 교사명 출력
 select distinct
