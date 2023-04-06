@@ -824,3 +824,25 @@ from tblAttendanceTest
 select * from tblAttendanceTest
     where attendanceDetail = '기타';
     
+    
+create table tblTeams (
+    name varchar2(50) null,
+    count number null
+)
+
+
+
+
+declare
+  vteamName tblTeam.name%type;
+  vteamCount tblTeam.count%type;
+  cursor vcursor is 
+    select * from tblTeam;
+begin
+  open vcursor; 
+    loop
+      fetch vcursor into vteamName, vteamCount; 
+      exit when vcursor%notfound; 
+    end loop;
+  close vcursor;
+end;    
