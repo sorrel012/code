@@ -21,15 +21,70 @@ end;
 declare
     result varchar2(200);
 begin
-    result := fnTeacherInfoI_h('teachermmmmmmm', '850624-2486218', '010-7561-4523', '정소율');
+    result := fnTeacherInfoI_h('teachermmmmmmm', 850624-2486218, '010-7561-4523', '정소율');
     dbms_output.put_line(result);
 exception
     when others then
         dbms_output.put_line('입력에 실패하였습니다.');    
 end;
 
-select * from tblmemberInfo order by memberinfo_seq desc;
-select * from tblTeacher order by teacher_seq desc;
+select * from tblmemberInfo m
+    inner join tblTeacher t on m.memberinfo_seq = t.memberinfo_seq
+order by m.memberinfo_seq desc;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -52,6 +107,60 @@ begin
         :new.certificateDate := vcurrEndDate;
     end if;
 end trgEndDate;
+
+
+update tblCertificate set certificateDetail = '졸업'
+    where student_seq in (select student_seq from vwSelectInfo
+                            where curriculum_seq = 30)
+        and certificateDetail  <> '중도탈락';
+
+
+select * from tblCertificate
+    where student_seq in (select student_seq from vwSelectInfo
+                            where curriculum_seq = 30);
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -131,7 +240,7 @@ from tblCurSub cs
 where cs.teacher_seq = 1 
     group by s.subjectName, cs.cursubStart, cs.cursubEnd, bk.bookName, lt.lectureRoomNum
         order by curSubStart;
-        
+/        
         
         
 
@@ -151,7 +260,7 @@ is
                         from vwCurrInfo vc
                             inner join vwSubInfo vs on vc.curriculum_seq = vs.curriculum_seq
                         where vs.curriculum_seq = pCurSeq
-                            order by vs.subjectName, vs.cursubStart;
+                            order by vs.cursubStart, vs.subjectName;
 begin
     open vcursor;
     
@@ -160,19 +269,22 @@ begin
             fetch vcursor into vscurrtName, vsubName, vcursubStart, vcursubEnd, vbookName, vteacherName;
             exit when vcursor%notfound;
             
-            dbms_output.put_line('과정명: ' ||vscurrtName || ' / 과목명: ' || vsubName || ' / 과목 시작일: ' || vcursubStart || ' / 과목 종료일: ' || vcursubEnd || ' / 교재명: ' || vbookName || ' / 교사명: ' || vteacherName);            
-        
+            dbms_output.put_line('과정명: ' || vscurrtName || ' / 과목명: ' || rpad(vsubName, 20) || ' / 과목 시작일: ' || vcursubStart || ' / 과목 종료일: ' || vcursubEnd || 
+            ' / 교재명: ' || rpad(vbookName, 30) || ' / 교사명: ' || vteacherName);           
+            
+            
+
         end loop;    
         
     close vcursor;
 end procCurSubInfoR_h;
-
+/
 
 --호출
 begin
-    procCurSubInfoR_h(1);
+    procCurSubInfoR_h(38);
 end;
-    
+/
 
 select distinct
     vc.curriculumName as "과정명",
