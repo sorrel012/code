@@ -34,4 +34,5 @@
 ## 3️⃣ HTML + CSS + JavaScript
 ### 🖥Apache Tomcat 8.5
 #### https://tomcat.apache.org/download-80.cgi
+##### apache-tomcat-8.5.87\bin\startup.bat  > 아파치 톰캣 실행을 도와주는 배치 파일
 
