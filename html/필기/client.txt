@@ -4,6 +4,10 @@
 - 웹브라우저(서버로부터 웹페이지를 다운로드 받아) >그 안의 HTML,CSS,JavaScript 해석 + 실행 > 결과 화면 출력
 
 - HTML,CSS,JsvaScript > 정적페이지(Static Page)
-
 - 정적페이지 + Java(JSP/Servlet/Spring)) > 동적페이지(Dynamic Page)
+
+- 이클립스 새 프로젝트(Web)
+    1. Dynamic Web Project > 정적 페이지 + 동적 페이지 > 얘만 사용!
+    2. Static Web Project > 정적 페이지 
+    3. Web Fragment Project > 조각 페이지(웹 관리 기법)
 
