@@ -1,10 +1,9 @@
 
-<!-- HTML -->
+<!-- client -->
 
-4. 웹브라우저(크롬, 엣지, 사파리 등..)
-5. http://localhost:8090/weather.html
-6. 웹브라우저(서버로부터 웹페이지를 다운로드 받아) > HTML,CSS,JavaScript 해석 + 실행 > 결과 화면 출력
-
+- 웹브라우저(서버로부터 웹페이지를 다운로드 받아) >그 안의 HTML,CSS,JavaScript 해석 + 실행 > 결과 화면 출력
 
 - HTML,CSS,JsvaScript > 정적페이지(Static Page)
+
 - 정적페이지 + Java(JSP/Servlet/Spring)) > 동적페이지(Dynamic Page)
+
