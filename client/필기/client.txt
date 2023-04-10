@@ -11,3 +11,17 @@
     2. Static Web Project > 정적 페이지 
     3. Web Fragment Project > 조각 페이지(웹 관리 기법)
 
+- URL(Uniform Resource Locator), URI(Uniform Resource Identifier)
+    - 인터넷 상의 자원을 구분하는 식별자 > 인터넷 주소
+    - 자원: 웹페이지(HTML), 이미지, 동영상, 파일 등..
+    
+    - http://localhost:8090/ClientTest/hello.html
+        a. http:// > 프로토콜(Protocol, 통신규약) > Hyper Test Transfer Protocol
+        b. localhost > 서버 주소(도메인, IP Address) > 호스트(Host) 주소
+            ~ naver.com, google.com
+            - 도메인 <= DNS(Domain Name Server) -> IP Address
+            - localhost <-> 127.0.0.1
+        c. 8090 > 포트번호 > 특정 프로그램(톰캣) 할당
+        d. ClientTest > 톰캣이 운영 중인 프로젝트명
+        e. hello.html > 프로젝트 내의 자원 경로 + 이름
+
