@@ -1,0 +1,42 @@
+
+<!-- HTML, Hyper Text Markup Language -->
+    - 하이퍼텍스트 마크업 언어
+    - 프로그래밍 언어 X
+    - 프레젠테이션 언어 > 무엇인가를 표현하는 기능을 가지는 언어
+    
+    - Hyper Test > 링크
+    
+    - Markup Langauge > 언어 표기법 : <명령어>
+        ~ SGML > 모든 마크업 언어의 시조
+        ~ HTML > 표현 언어
+        ~ XML > eXtensible Markup Language > 데이터 통신 or 저장(CSV)
+        - XHTML > XML + HTML
+    
+    
+<!-- HTML 주관 단체 -->
+    - W3C, World WIde Web Consortium
+    - https://w3.org
+    - HTML 1.0 ~ HTML 5
+    - HTML 4.01, XHTML 1.0, HTML5
+        ~ HTML 4.01: 가장 대중화된 버전(웹을 활성화시킴) 
+        ~ XHTML 1.0: XML + HTML > 문법 강력하게 준수 
+        ~ HTML5: 2014년
+ 
+ 
+ <!-- HTML 언어 구성 요소 -->
+    1. 태그(Tag), 엘리먼트(Element)
+    2. 속성(Atributet)
+    3. 텍스트(PCDATA)
+    4. 엔티티(Entity)
+    5. 주석(Comment)
+    6. 선언문(Declaration)
+    7. 외부 요소
+    8. 기타
+    
+
+    
+<!-- HTML 문서 확장자 -->
+    - *.html
+    - *.htm    
+    
+    
