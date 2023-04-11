@@ -107,8 +107,14 @@
         - 제목 역할
         - 작은 상자
 
+    5. <thead>
+
+    6. <tbody>
+    
+    7. <tfoot>
+
     - 속성
         ~ align: 수평정렬
         ~ valign: 수직정렬
         ~ bgcolor: 배경색
-
+    
