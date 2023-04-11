@@ -215,18 +215,3 @@
             - line break
                    
         
-
-<!-- <p>, paragraph -->
-    - 문단 태그
-    - 문단을 표현(=텍스트 집합)
-    - 쌍태그(<p>문단의내용</p>)
-    - 혼합용(텍스트 + 자식 태그)
-    
-    - 속성
-        ~ align
-            - 내용물의 수평 정렬
-            - horizontal alignment
-            - 열거형 > left|center|right|justify(양쪽정렬)
-    
-        
-        
