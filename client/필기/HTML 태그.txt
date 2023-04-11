@@ -37,4 +37,29 @@
         ~ noshade: 그림자 유무
         ~ titleL 풍선 도움말
 
+
+<!-- <a>, anchor -->
+    1. 링크, Link 역할
+
+    - 속성
+        ~ href: 클릭하면 이동하는 URL 지정
+        ~ target:페이지 이동 방식
+            - _self|_blank|_paren_top|프레임명
+                ~ _self: 보고 있는 창에서 페이지 이동 > 내부 링크
+                ~ _blank: 새 창에서 페이지 이동 > 외부 링크
+
+    2. anchor 역할
+
+
+<!-- <img>, image -->
+    - 이미지
+    - 단독 태그
+
+    - 속성
+        ~ src: 이미지 파일 URL > 필수 속성
+        ~ alt: 대체 문자열 > 필수 속성
+            - 이미지가 올바르게 표시되지 않았을 때 대신 보여주는 문자열
+        ~ width
+        ~ height
+
         
