@@ -11,7 +11,8 @@
             - 열거형 > left|center|right|justify(양쪽정렬)
     
 
-<!-- <hn>, heading -->
+<!-- 헤딩, heading -->
+    - <hn>
     - 제목 태그
     - n: 1~6
     - <h1>,<h2>,<h3>,<h4>,<h5>,<h6>
@@ -24,7 +25,8 @@
     - 속성
         ~ align: 수평 정렬
 
-<!-- <hr>, Horizontal Rule -->
+<!-- hr, Horizontal Rule -->
+    - <hr>
     - 수평바, 구분자
     - 문단과 문단을 구분하는 역할
     - 단독 태그
@@ -38,8 +40,10 @@
         ~ titleL 풍선 도움말
 
 
-<!-- <a>, anchor -->
-    1. 링크, Link 역할
+<!-- 링크, Link  -->
+    - <a>, anchor
+
+    1. link 역할
 
     - 속성
         ~ href: 클릭하면 이동하는 URL 지정
@@ -51,8 +55,8 @@
     2. anchor 역할
 
 
-<!-- <img>, image -->
-    - 이미지
+<!-- 이미지, image -->
+    - <img>
     - 단독 태그
 
     - 속성
@@ -81,5 +85,25 @@
         ~ <p>, <h1>....<h6> , blockquote, <ol>, <ul>, <dl>, <hr>;
 
 
-<!-- <table>, table -->
+<!-- 표, table -->
+
+    1. <table>
+        - 큰 상자
+        - 전체 컨테이너
+
+    2. <tr>
+        - table row
+        - 중간 상자
+        - 행 역할
+
+    3.<td>
+        - table data
+        - 작은 상자
+        - 셀 역할
+        - 데이터를 저장하는 역할
+
+    - 속성
+        ~ align: 수평정렬
+        ~ valign: 수직정렬
+        ~ bgcolor: 배경색
 
