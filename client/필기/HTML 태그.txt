@@ -154,98 +154,98 @@
                 > 데이터를 수신할 능력이 있는 프로그램의 주소
 
 
-    <input>
-        - 인라인 태그
-        - 단독 태그
-
-        - 속성
-            ~ type: 입력 컨트롤의 종류
-            ~ name: 식별자
-            ~ id: 식별자. CSS/JavaScript에서 사용
-            ~ class: 식별자. CSS/JavaScript에서 사용
-            ~ size: 길이(문자 개수)
-            ~ maxlength: 최대 입력 길이(문자 개수)
-            ~ value: 컨트롤의 입력값(현재 입력값)
-            ~ readonly: 읽기 전용(전원 ON) > 서버로 전송 가능
-            ~ disabled: 비활성화(전원 OFF) > 서버로 전송 불가능
-            ~ accesskey: 바로가기(Alt+조합키)
-            ~ autofocus: 자동 포커스
-            ~ autocomplete
-            ~ text: 암호 상자, Masked Text Box
-                - 모든 속성이 텍스트박스와 동일
-                - value 속성은 사용 금지!! > 항상 새로 입력받게 만든다.
-            ~ checkbox: 논리값 입력
-            ~ radio: 단일 선택 > 반드시 2개 이상 함께 사용
-            ~ type="file": 파일 업로드
-                - 첨부 파일
-                - Open Dialog Box를 호출하는 역할
-            ~ type="hidden": 히든 태그
-                - 눈에 보이지 않는 태그
-                - 개발자용
-                - 사용자 모르게 서버로 데이터를 전송하는 역할(지저분하지 않게..)
-            ~ type="submit": 입력값 제출(전송)
-            ~ type="reset": 선택값 초기화 (요즘은 잘 안 씀.. > 그냥 새로고침 함)
-            ~ type="button": 일반 버튼
-                - 기능을 자유롭게 정의할 수 있음.
-                    ~~ onclik="alter('값')": 안내창 띄우기
-                    
-            ~ placeholder: 입력창에 안내 문구를 넣을 수 있다.(입력하면 자동으로 지워짐!)
-            ~ required: 값을 필수로 입력하도록 설정함.
-            ~ type="email|url": "이메일 주소|url"의 간단한 유효성 검사를 해준다.
-            ~ type="tel": 휴대폰으로 접속하면 숫자 키패드로 바로 입력할 수 있게 띄워준다.
-            ~ type="number": 숫자 유효성 검사 + 입력하기 쉽게 해준다.
-                ~~ min: 최솟값
-                ~~ max: 최댓값
-                ~~ step: 증감치(사이값은 유효성 검사로 거름)
-            ~ type="range": 숫자 근사치 입력
-                - <input type="range" onchange="document.getElementById('txt2').value = this.value;" min="50" max="500" step="50"> <input type="txt" id="txt2" size = 10>  :  값을 알 수 있다.
-            ~ type="color":
-                - <input type="color" onchange="document.getElementById('txt3').value = this.value;">
-                    <input type="text" id="txt3" size="10">  : 색상값을 알 수 있다.
-            
-            ~ type="date|month|week|time|datetime-local" : 시간 관련 입력
-
-
-    <textarea>
-        - 다중라인 입력
-        - 쌍태그
-        - 대부분의 속성은 텍스트 박스와 동일
-        - value 속성이 없다.
-        - textarea내의 영역 > 일반 문서 영역(X), 컨트롤 영역(O) > 편집기의 공백이 그대로 적용된다.
-
-        - 속성
-            ~ cols: 행 글자 수
-            ~ rows: 열 수
-            
-
-    <select>
-        - 셀렉트 박스, 콤보(Combo) 박스, 드랍 다운 리스트(DropDownList)
-    
-        - 속성
-            ~ size: 한번에 표시할 수 있는 옵션의 수
-            ~ multiple: 다중 선택 가능
-
-        <optgroup>
-            - 셀렉트 박스의 카테고리를 나누어 준다.
+        <input>
+            - 인라인 태그
+            - 단독 태그
 
             - 속성
-                ~ label: 카테고리 이름을 지정한다.
+                ~ type: 입력 컨트롤의 종류
+                ~ name: 식별자
+                ~ id: 식별자. CSS/JavaScript에서 사용
+                ~ class: 식별자. CSS/JavaScript에서 사용
+                ~ size: 길이(문자 개수)
+                ~ maxlength: 최대 입력 길이(문자 개수)
+                ~ value: 컨트롤의 입력값(현재 입력값)
+                ~ readonly: 읽기 전용(전원 ON) > 서버로 전송 가능
+                ~ disabled: 비활성화(전원 OFF) > 서버로 전송 불가능
+                ~ accesskey: 바로가기(Alt+조합키)
+                ~ autofocus: 자동 포커스
+                ~ autocomplete
+                ~ text: 암호 상자, Masked Text Box
+                    - 모든 속성이 텍스트박스와 동일
+                    - value 속성은 사용 금지!! > 항상 새로 입력받게 만든다.
+                ~ checkbox: 논리값 입력
+                ~ radio: 단일 선택 > 반드시 2개 이상 함께 사용
+                ~ type="file": 파일 업로드
+                    - 첨부 파일
+                    - Open Dialog Box를 호출하는 역할
+                ~ type="hidden": 히든 태그
+                    - 눈에 보이지 않는 태그
+                    - 개발자용
+                    - 사용자 모르게 서버로 데이터를 전송하는 역할(지저분하지 않게..)
+                ~ type="submit": 입력값 제출(전송)
+                ~ type="reset": 선택값 초기화 (요즘은 잘 안 씀.. > 그냥 새로고침 함)
+                ~ type="button": 일반 버튼
+                    - 기능을 자유롭게 정의할 수 있음.
+                        ~~ onclik="alter('값')": 안내창 띄우기
+                        
+                ~ placeholder: 입력창에 안내 문구를 넣을 수 있다.(입력하면 자동으로 지워짐!)
+                ~ required: 값을 필수로 입력하도록 설정함.
+                ~ type="email|url": "이메일 주소|url"의 간단한 유효성 검사를 해준다.
+                ~ type="tel": 휴대폰으로 접속하면 숫자 키패드로 바로 입력할 수 있게 띄워준다.
+                ~ type="number": 숫자 유효성 검사 + 입력하기 쉽게 해준다.
+                    ~~ min: 최솟값
+                    ~~ max: 최댓값
+                    ~~ step: 증감치(사이값은 유효성 검사로 거름)
+                ~ type="range": 숫자 근사치 입력
+                    - <input type="range" onchange="document.getElementById('txt2').value = this.value;" min="50" max="500" step="50"> <input type="txt" id="txt2" size = 10>  :  값을 알 수 있다.
+                ~ type="color":
+                    - <input type="color" onchange="document.getElementById('txt3').value = this.value;">
+                        <input type="text" id="txt3" size="10">  : 색상값을 알 수 있다.
+                
+                ~ type="date|month|week|time|datetime-local" : 시간 관련 입력
 
 
-    <button>
-        - 속성
-            ~type="submit"
-            ~type="reset"
-            ~type="button"
+        <textarea>
+            - 다중라인 입력
+            - 쌍태그
+            - 대부분의 속성은 텍스트 박스와 동일
+            - value 속성이 없다.
+            - textarea내의 영역 > 일반 문서 영역(X), 컨트롤 영역(O) > 편집기의 공백이 그대로 적용된다.
 
-    ※ <input>의 button vs <button>
-        - <input>의 button: 또다른 태그를 넣을 수 없다.
-        - <button>: 또다른 태그를 넣을 수 있다.
+            - 속성
+                ~ cols: 행 글자 수
+                ~ rows: 열 수
+                
+
+        <select>
+            - 셀렉트 박스, 콤보(Combo) 박스, 드랍 다운 리스트(DropDownList)
+        
+            - 속성
+                ~ size: 한번에 표시할 수 있는 옵션의 수
+                ~ multiple: 다중 선택 가능
+
+            <optgroup>
+                - 셀렉트 박스의 카테고리를 나누어 준다.
+
+                - 속성
+                    ~ label: 카테고리 이름을 지정한다.
 
 
-    <datalist>
-        - <option>에 value 속성 필요
-        - 셀렉트 박스처럼 선택지를 생성할 수 있다.
+        <button>
+            - 속성
+                ~type="submit"
+                ~type="reset"
+                ~type="button"
+
+        ※ <input>의 button vs <button>
+            - <input>의 button: 또다른 태그를 넣을 수 없다.
+            - <button>: 또다른 태그를 넣을 수 있다.
+
+
+        <datalist>
+            - <option>에 value 속성 필요
+            - 셀렉트 박스처럼 선택지를 생성할 수 있다.
 
 
 <!-- progress -->
@@ -265,4 +265,9 @@
     -   <summary>제목</summary>
         <p>본문</p>
 
-        
+
+
+<!-- 목적이 없는 태그 -->   - 매우 많이 사용!!
+    1. <div>: 블럭 태그
+    2. <span>: 인라인 태그
+
