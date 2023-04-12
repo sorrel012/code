@@ -188,7 +188,23 @@
             ~ type="button": 일반 버튼
                 - 기능을 자유롭게 정의할 수 있음.
                     ~~ onclik="alter('값')": 안내창 띄우기
-                    ~~
+                    
+            ~ placeholder: 입력창에 안내 문구를 넣을 수 있다.(입력하면 자동으로 지워짐!)
+            ~ required: 값을 필수로 입력하도록 설정함.
+            ~ type="email|url": "이메일 주소|url"의 간단한 유효성 검사를 해준다.
+            ~ type="tel": 휴대폰으로 접속하면 숫자 키패드로 바로 입력할 수 있게 띄워준다.
+            ~ type="number": 숫자 유효성 검사 + 입력하기 쉽게 해준다.
+                ~~ min: 최솟값
+                ~~ max: 최댓값
+                ~~ step: 증감치(사이값은 유효성 검사로 거름)
+            ~ type="range": 숫자 근사치 입력
+                - <input type="range" onchange="document.getElementById('txt2').value = this.value;" min="50" max="500" step="50"> <input type="txt" id="txt2" size = 10>  :  값을 알 수 있다.
+            ~ type="color":
+                - <input type="color" onchange="document.getElementById('txt3').value = this.value;">
+                    <input type="text" id="txt3" size="10">  : 색상값을 알 수 있다.
+            
+            ~ type="date|month|week|time|datetime-local" : 시간 관련 입력
+
 
     <textarea>
         - 다중라인 입력
@@ -200,6 +216,7 @@
         - 속성
             ~ cols: 행 글자 수
             ~ rows: 열 수
+            
 
     <select>
         - 셀렉트 박스, 콤보(Combo) 박스, 드랍 다운 리스트(DropDownList)
@@ -209,10 +226,10 @@
             ~ multiple: 다중 선택 가능
 
         <optgroup>
-            - 셀렉트 박스의 카테고리를 나누어 줌
+            - 셀렉트 박스의 카테고리를 나누어 준다.
 
             - 속성
-                ~ label: 카테고리 이름을 지정
+                ~ label: 카테고리 이름을 지정한다.
 
 
     <button>
@@ -222,6 +239,27 @@
             ~type="button"
 
     ※ <input>의 button vs <button>
-        - <input>의 button: 또다른 태그를 넣을 수 없음
-        - <button>: 또다른 태그를 넣을 수 있음
+        - <input>의 button: 또다른 태그를 넣을 수 없다.
+        - <button>: 또다른 태그를 넣을 수 있다.
 
+
+    <datalist>
+        - <option>에 value 속성 필요
+        - 셀렉트 박스처럼 선택지를 생성할 수 있다.
+
+
+<progress>
+    - 진행률을 나타낸다.
+    ~ <progress max="100" value="60"></progress>
+    ~ <progress value="0.6"></progress>
+
+<meter>
+    - 수치를 나타낸다.
+    ~ <meter value="1"></meter>
+    ~ <meter min="0" max="100" value="70" high="80"></meter>
+
+
+<detail>
+    - 내용을 요약해준다.
+    -   <summary>제목</summary>
+        <p>본문</p>
