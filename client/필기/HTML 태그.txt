@@ -117,4 +117,9 @@
         ~ align: 수평정렬
         ~ valign: 수직정렬
         ~ bgcolor: 배경색
+        
+        ~ colspan: 가로 셀병합
+        ~ rowspan: 세로 셀병합
+        ※ 셀병합 시 각각의 <tr>내의 <td> 개수는 동일해야 한다.★★★★★★★★★
+            - colspan="2"이면 2개로 세고, rowspan="2"면 1개로 센다. > 행단위                
     
