@@ -248,18 +248,21 @@
         - 셀렉트 박스처럼 선택지를 생성할 수 있다.
 
 
-<progress>
+<!-- progress -->
     - 진행률을 나타낸다.
     ~ <progress max="100" value="60"></progress>
     ~ <progress value="0.6"></progress>
 
-<meter>
+
+<!-- meter -->
     - 수치를 나타낸다.
     ~ <meter value="1"></meter>
     ~ <meter min="0" max="100" value="70" high="80"></meter>
 
 
-<detail>
+<!-- detail -->
     - 내용을 요약해준다.
     -   <summary>제목</summary>
         <p>본문</p>
+
+        
