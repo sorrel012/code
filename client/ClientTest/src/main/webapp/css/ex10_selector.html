@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        /* 선택자 충돌
+        div { color: red; }
+        div{ font-style: italic; } 
+        */
+        
+        /* 선택자 충돌 + 속성 충돌
+        div { color: red; }
+        div { color: orange; }
+        */
+
+        /*
+        .box { color: orange; } 10점
+         div { color: red; } 1점
+         #box1 { color: green; } 100점
+        */
+
+        /*
+        body > div {color: blue;} 2점
+        html > body > div {color: red;} 3점
+        div {color: purple;} 1점
+        */
+
+        /*
+        div#box1 { color: red; } 101점
+        #box
+        */
+
+        /* div.box{} 1점 */
+
+        /* div#box1.box {} 11점 */
+
+        /* div#box1.box{} 111점 */
+
+        /* div#box1.box.one.two {} 131점 */        
+
+        div > div > div > div > div > div > div > div > div > div > div {
+            color: blue;
+        }
+
+        .box2{
+            color: red;
+        }
+
+        #box1 {
+            color: blue;
+        }
+
+        /* #box1.one {
+            color: orange;
+        } */
+
+        /* 최후의 수단(최대한 사용xxx) */
+        .one {
+            color: orange !important;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div id="box1" class="box one two">상자</div>
+
+    <div>
+        <div>
+            <div>
+                <div>
+                    <div>
+                        <div>
+                            <div>
+                                <div>
+                                    <div>
+                                        <div>
+                                            <div class="box2">상자</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
