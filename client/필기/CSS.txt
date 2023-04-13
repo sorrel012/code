@@ -36,6 +36,7 @@
 
 /* CSS 서식 적용 */
     - 원하는 태그(들)를 찾아서 태그 자체 or 태그 내용물에 원하는 서식을 적용
+    - CSS의 대부분의 속성은 모든 태그에 적용이 가능하다.★★★
 
 
 /* CSS 문법 */
@@ -134,5 +135,27 @@
     - CSS 선택자 문법을 사용해서 HTML/CSS 코드를 손쉽게 작성하는 기능
     - 생산성 도구
     - https://emmet.io/
+
+
+/* 배경 */
+    1. 배경색
+        - backgroud-color
+        
+    2. 배경 이미지
+        - backgroud-image
+        - backgroud-repeat
+        - backgroud-position
+            - 수평: left|center|right
+            - 수직: top|center|bottomB
+            - 수치(px): 절대위치
+            - 수치(%): 상대위치
+
+
+/* CSS 색상 표현법 */
+    1. Color name: red, yellow, blue ...
+    2. RGB color(HEX): #FF0055
+    3. RGB color(DEC): rgb(255,0,128)
+    4. RGBA color(DEC): rgba(255,255,255,1)
+        - a(alpha channel): 불투명도(0~1)
 
     
