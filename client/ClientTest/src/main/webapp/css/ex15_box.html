@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        #box1 {
+            background-color: orange;
+        }
+
+        #box2 {
+            border-color: black; 
+            border-width: 1px;
+            border-style: solid;
+        }
+
+        #box3 {
+            border: 1px solid red;
+        }
+
+        #box4 {
+            border-top: 1px solid blue;
+            border-right: 5px solid green;
+            border-bottom: 10px solid red;
+            
+            border-left: 20px solid pink;
+            /* border-left-color: pink;
+            border-left-width: 20px;
+            border-left-style: solid; */
+
+        }
+
+        #box5 {
+            border-width: 10px;
+            border-style: solid;
+            /* border-color: red orange blue purple; */
+            /* border-color: red orange blue; */
+            /* border-color: pink purple; */
+            border-color: pink;
+        }
+        
+        .txt {
+            outline: none;
+            border: 1px solid #999;
+        }
+
+        .txt:focus {
+            background-color: rgb(255, 232, 198);
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <div id="box1" class="box">상자1</div>
+    <div id="box2" class="box">상자2</div>
+    <div id="box3" class="box">상자3</div>
+
+    <br>
+    <br>
+
+    <div id="box4" class="box">상자4</div>
+    
+    <br>
+    <br>
+    
+    <div id="box5" class="box">상자5</div>
+
+    <br>
+    <hr>
+    <br>
+    
+    <input type="text" class="txt">
+
+</body>
+</html>
