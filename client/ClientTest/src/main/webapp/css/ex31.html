@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .content {
+            width: 300px;
+        }
+
+        div.content > img {
+            float: right;
+            position: absolute;
+            left: 220px;
+            cursor: pointer;
+        }
+
+        .content .news .author > img {
+            float: left;
+            margin-right: 5px;
+            margin-bottom: 15px;
+            width: 15px;
+            cursor: pointer;
+        }
+
+        .content .news .author > div {
+            float: left;
+            font-size: 12px;
+            color: #888;
+            letter-spacing: -0.5px;
+            cursor: pointer;
+        }
+
+        .content .news {
+            float: lef;
+            width: 200px;
+            font-size: 13px;
+            letter-spacing: -0.5px;
+            color: #303038;
+            line-height: 18px;
+            padding-top: 3px;
+            margin-bottom: 5px;
+            cursor: pointer;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .content .news:last-child {
+            border-bottom: 0px;
+        }
+
+        .content .news .summary:hover,  .content .news .author > div:hover {
+            text-decoration: underline;
+        }
+
+        /* .content .news .author {
+            border: 1px solid #DDD;
+        } */
+
+    </style>
+</head>
+<body>
+
+    <!-- 네이버 뉴스 기사 연령대별-->
+
+    <div class="content">
+        <img src="images/news_03.jpg">
+        <div class="news">
+            <div class="summary">아파트수영장서 아이 잃은 부모 “비영리 체육시설에도 안전요 …</div>
+            <div class="author">
+                <img src="images/journal01.png">
+                <div class="author-name">경향신문</div>
+            </div>
+            <div style="clear:left";></div>
+        </div>
+        <img src="images/news_04.jpg">
+        <div class="news">
+            <div class="summary">전기차 1대 1,300만원…테슬라발 가격인하 경쟁 시작</div>
+            <div class="author">
+                <img src="images/journal02.png">
+                <div class="author-name">한국경제TV</div>
+            </div>
+            <div style="clear:left";></div>
+        </div>
+        <img src="images/news_05.jpg">
+        <div class="news">
+            <div class="summary">[인터뷰] 29세에 스타벅스 이사회 입성한 테크우먼... …</div>
+            <div class="author">
+                <img src="images/journal03.png">
+                <div class="author-name">조선비즈</div>
+            </div>
+            <div style="clear:left";></div>
+        </div>
+        <img src="images/news_06.jpg">
+        <div class="news">
+            <div class="summary">"삼각김밥에 컵라면? 사치네요"...MZ에 뜨는 '거지방' …</div>
+            <div class="author">
+                <img src="images/journal04.png">
+                <div class="author-name">파이낸셜뉴스</div>
+            </div>
+            <div style="clear:left";></div>
+        </div>
+        <img src="images/news_07.jpg">
+        <div class="news">
+            <div class="summary">교도소 가기 직전 새벽에 이웃 차량 26대 '벽돌 테러'한 …</div>
+            <div class="author">
+                <img src="images/journal05.png">
+                <div class="author-name">부산일보</div>
+                <div style="clear:left";></div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
