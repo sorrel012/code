@@ -273,6 +273,8 @@
 
     - 좌표값 사용 > 위치 지정
     - x(left), y(top)
+        ~ left / right > x 
+        ~ top / bottom > y
     - 좌표를 지정하는 방식을 여러 개 제공
 
     ~ static
@@ -310,4 +312,18 @@
         - 원래 있던 공간이 그대로 유지된다.
         - 화면에 보일 때는 static처럼 동작 + 사라질 때 fixed처럼 동작
         ~ left, top
+
+
+/* 시맨틱 태그(HTML5) */
+- <main>
+    ~ <div id="main"></div>
+- <header>: 머릿말 컨테이너
+- <section>: 본문 컨테이너
+
+
+/* list-style-type */
+    - ul 태그에서 앞에 나타나는 기호를 조작할 수 있다.
+
+    ~ none: 기호를 사라지게 한다.
+
 
