@@ -244,4 +244,14 @@
     ~ block: 인라인 태그를 블록 태그로 지정
     ~ inline-block: 인라인 태그처럼 출력되면서 너비/높이를 지정할 수 있다.
 
-    
+
+/* float */
+    - 원래 출력되던 위치를 벗어나, 라인의 맨 왼쪽 끝 또는 맨 왼쪽 오른쪽 끝으로 이동
+
+    ~ none
+    ~ left
+    ~ right
+
+    ~ clear: float 속성을 빠져나갈 수 있다. *블럭 태그에만 적용 가능한 속성!
+        > float 성질을 제거할 떄는 보통 새로운 div를 생성해서 clear를 부여한다.
+            ~~ <div style="clear: left;"></div>
