@@ -255,3 +255,10 @@
     ~ clear: float 속성을 빠져나갈 수 있다. *블럭 태그에만 적용 가능한 속성!
         > float 성질을 제거할 떄는 보통 새로운 div를 생성해서 clear를 부여한다.
             ~~ <div style="clear: left;"></div>
+
+
+/* CSS 초기값 */
+    1. Reset CSS
+    2. Normalize.css
+    3. 디자인 프레임워크 or 라이브러리
+        ~ Bootstrap
