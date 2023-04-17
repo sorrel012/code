@@ -253,7 +253,7 @@
     ~ right
 
     ~ clear: float 속성을 빠져나갈 수 있다. *블럭 태그에만 적용 가능한 속성!
-        > float 성질을 제거할 떄는 보통 새로운 div를 생성해서 clear를 부여한다.
+        > float 성질을 제거할 때는 보통 새로운 div를 생성해서 clear를 부여한다.
             ~~ <div style="clear: left;"></div>
 
 
