@@ -10,6 +10,7 @@
         div.whole {
             width: 700px;
             border: 1px solid #CCC;
+            padding: 0px 25px;
             margin: 0px;
         }
 
@@ -21,6 +22,7 @@
 
         .whole h4 {
             margin-block-start: 10px;
+            margin-block-end: 0;
         }
 
         .whole h4 > span {
@@ -50,10 +52,10 @@
         }
 
         .whole .journal > img{
-            width: 125px;
+            width: 135px;
             float: right;
             position: absolute;
-            left: 568px;
+            left: 590px;
         }
 
         .whole .journal > img {
@@ -61,15 +63,76 @@
         }
          
         .whole .journal .author .author-name {
-            float: left;
+            float: left;            
         }
         
         .whole .journal .author img {
             float: left;
+            width: 20px;
+            margin-right: 5px;
         }
 
-        .whole .journal .info{
+        .whole .journal .info,  .whole .journal .info2 {
             float: left;
+            margin-bottom: 5px;
+            color: #505050;
+            font-size: 14px;
+            padding-top: 0px;
+        }
+
+        .whole .journal .info2 {
+            border-left: 2px solid #e9e7e7;
+            padding-left: 5px;
+        }
+        
+        .whole .journal .info .pick {
+            color: #8a8a8a;
+            font-size: 15px;
+            font-weight: bold;
+            padding-left: 3px;
+        }
+
+        .whole .news .journal .title {
+            white-space: nowrap;
+            letter-spacing: -.25px;
+            font-size: 17px;
+            color: #0c43b7;
+            margin-bottom: 5px;
+        }
+
+        .whole .journal .summary {
+            width: 520px;
+            font-size: 14px;
+            word-break: break-all;
+            color: #424242;
+            line-height: 21px;
+            margin-bottom: 11px;
+        }
+
+        .whole .news .or {
+            color: #EFF2F4;
+            font-size: 12px;            
+        }
+
+        .whole .journal .info2 .rel-title {
+            color: #0c43b7;
+        }
+
+        .whole .journal .rel-entire {
+            margin-top: 6px;
+            color: #666;
+            font-size: 14.3px;
+        }
+
+        .whole .journal {
+            padding-top: 17px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .naver-news:hover, .author:hover, .title:hover, .summary:hover, .rel-entire:hover, .rel:hover, .new:hover {
+            cursor: pointer;
+            text-decoration: underline;
         }
 
     </style>
@@ -89,81 +152,97 @@
                 <img src="images/news_08.jpg">
                 <div class="author">
                     <img src="images/journal06.png">
-                    <div class="author-name"></div>
+                    <div class="author-name">KBS</div>
                 </div>
-                <div class="info"></div>
-                <div class="title"></div>
-                <div class="summary"></div>
+                <div class="info">
+                    <span class="pick">PiCK</span>
+                    <span class="or">|</span>
+                    <span class="time">9시간 전</span>
+                    <span class="or">|</span>
+                    <span class="naver-news">네이버뉴스</span>
+                </div>
+                <div style="clear:left";></div>
+                <div class="title">[출근길 날씨] 오전까지 수도권·충청 황사…밤에 경기·강원 비</div>
+                <div class="summary">바다의 물결은 동해 먼바다와 서해 먼바다에서 최고 3m 안팎으로 높겠습니다. 내일 비는 늦은 오후에 대부분 그치겠습니다. 날씨 전해드렸습니다. 최현미 기상캐...</div>
+                <div style="clear:left";></div>
                 <div class="relavance">
-                    <div class="rel-news">
-                        <span class="rel-title"></span>
-                        <span class="rel-author"></span>
+                    <div class="info2">
+                        <div class="rel-news">
+                            <span class="rel-title">[날씨] 일교차 커요…오전까지 중부 황사</span>
+                            <span class="rel-author">TV조선</span>
+                            <span class="or">|</span>
+                            <span class="time">9시간 전</span>
+                            <span class="or">|</span>
+                            <span class="naver-news">네이버뉴스</span>     
+                        </div>     
+                        <div class="rel-news">
+                            <span class="rel-title">[날씨] 황사 오후부터 해소…내일 전국 비</span>
+                            <span class="rel-author">연합뉴스TV</span>
+                            <span class="or">|</span>
+                            <span class="time">11시간 전</span>
+                            <span class="or">|</span>
+                            <span class="naver-news">네이버뉴스</span>     
+                        </div>                 
                     </div>
-                    <div class="rel-news"></div>
                 </div>
-                <div class="rel-entire"></div>
-            </div>    
-
+                <div style="clear:left";></div>
+                <div class="rel-entire">관련뉴스 전체보기 ></div>
+            </div> 
             <div class="journal">
                 <img src="images/news_09.jpg">
                 <div class="author">
                     <img src="images/journal07.png">
-                    <div class="author-name"></div>
+                    <div class="author-name">연합뉴스</div>
                 </div>
-                <div class="info"></div>
-                <div class="title"></div>
-                <div class="summary"></div>
-                <div class="relavance">
-                    <div class="rel-news">
-                        <span class="rel-title"></span>
-                        <span class="rel-author"></span>
-                    </div>
-                    <div class="rel-news"></div>
+                <div class="info">
+                    <span class="pick">PiCK</span>
+                    <span class="or">|</span>
+                    <span class="time">18시간 전</span>
+                    <span class="or">|</span>
+                    <span class="naver-news">네이버뉴스</span>
                 </div>
-                <div class="rel-entire"></div>
-            </div>    
-
+                <div style="clear:left";></div>
+                <div class="title">4월 중순 부산 우박 내려…날씨 변덕에 시민 '깜짝'</div>
+                <div class="summary">16일 오후 부산 일부 지역에 우박이 내렸다. 기상청 등에 따르면 이날 오후 2시부터 부산에 비가 내린 가운데, 금정구와 동래구, 부산진구 등 일부 지역에는 30분가량...</div>
+                <div style="clear:left";></div>
+            </div> 
             <div class="journal">
                 <img src="images/news_10.jpg">
                 <div class="author">
                     <img src="images/journal08.png">
-                    <div class="author-name"></div>
+                    <div class="author-name">YTN</div>
                 </div>
-                <div class="info"></div>
-                <div class="title"></div>
-                <div class="summary"></div>
-                <div class="relavance">
-                    <div class="rel-news">
-                        <span class="rel-title"></span>
-                        <span class="rel-author"></span>
-                    </div>
-                    <div class="rel-news"></div>
+                <div class="info">
+                    <span class="pick">PiCK</span>
+                    <span class="or">|</span>
+                    <span class="time">3시간 전</span>
+                    <span class="or">|</span>
+                    <span class="naver-news">네이버뉴스</span>
                 </div>
-                <div class="rel-entire"></div>
-            </div>    
-
+                <div style="clear:left";></div>
+                <div class="title">[날씨] 변화무쌍 봄 날씨...요란한 비바람 뒤 초여름 더위</div>
+                <div class="summary">오늘 밤부터 내일까지 초속 20m 안팎의 돌풍을 동반한 비가 내리겠는데요, 비가 그치고 나면 서울에는 때 이른 초여름 날씨가 나타난다고 합니다. 기상·재난 기자 연...</div>
+                <div style="clear:left";></div>                
+            </div> 
             <div class="journal">
                 <img src="images/news_11.jpg">
                 <div class="author">
                     <img src="images/journal09.png">
-                    <div class="author-name"></div>
+                    <div class="author-name">한국경제언론사</div>
                 </div>
-                <div class="info"></div>
-                <div class="title"></div>
-                <div class="summary"></div>
-                <div class="relavance">
-                    <div class="rel-news">
-                        <span class="rel-title"></span>
-                        <span class="rel-author"></span>
-                    </div>
-                    <div class="rel-news"></div>
+                <div class="info">
+                    <span class="pick">PiCK</span>
+                    <span class="or">|</span>
+                    <span class="time">59분 전</span>
+                    <span class="or">|</span>
+                    <span class="naver-news">네이버뉴스</span>
                 </div>
-                <div class="rel-entire"></div>
+                <div style="clear:left";></div>
+                <div class="title">따뜻한 날씨·과잉 생산…LNG값 연초 대비 '반토막'</div>
+                <div class="summary">지난 겨울 따뜻한 날씨가 이어지면서 수요가 예상을 밑돌았고, 각 국가의 재고량도 넘치고 있다는 분석이 나온다. 따뜻한 날씨와 넘치는 재고 17일 미 뉴욕상업거래...</div>
+                <div style="clear:left";></div>
             </div> 
-        </div>
-        <div class="desc"></div>
-        <div class="more"></div>
+        </div>   
     </div>
-
 </body>
 </html>
