@@ -412,6 +412,8 @@
     ~ column-gap: 단과 단 사이 간격
     ~ column-rule: 단과 단 사이 선
     
+    ~ page-break-inside: avoid > 단이 끊겨서 다음 단으로 이어지는 것을 방지한다.
+    
 
 /* 변형, transform */    
     - 위치, 크기, 회전, 왜곡 등
