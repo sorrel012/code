@@ -239,6 +239,7 @@
             ~~ solid
             ~~ dashed
             ~~ dotted
+        ~ border-radius: px, %
 
     2. width, height: 개체의 너비, 개체의 높이
         - 블럭 태그에만 적용된다.
