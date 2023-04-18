@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        .box {
+            border: 1px solid black;
+            width: 200px;
+            height: 200px;
+            margin: 50px;
+            margin-left: 300px;
+            margin-top: 200px;
+        }
+        
+        #box1 {
+            background-color: tomato;
+            
+            /* 위치 변헝 */
+            /* transform: translate(100px, 100px); */
+            
+            /* 크기, 배율 변형 */
+            /* transform: scale(2, 2); */
+            /* transform: scale(-2, 2); */
+            /* transform: scale(-2, -2); */
+                        
+            /* 회전 변형 */
+            /* transform: rotate(60deg); */
+            /* transform: rotate(-70deg); */
+            
+            /* 왜곡 변형 */
+            /* transform: skew(10deg, 10deg); */
+        }        
+            
+        body  {
+                margin-bottom: 300px;
+        }
+            
+        #cat > img:hover {
+            /* transform: translate(0px, -10px); */
+            /* transform: scale(1.2, 1.2); */
+            /* transform: rotate(30deg); */
+            /* transform: translate(0px, -50px)
+                        scale(1.4, 1.4); */
+                        
+            transform:rotate(45deg);
+        }
+        
+        #box3:hover {
+            transform-origin: 300px 0px;
+            transform: rotate(45deg);
+        }
+            
+    </style>
+</head>
+<body>
+    
+    <div id="box1" class="box">상자1</div>
+    <div id="box2" class="box">상자2</div>
+    <div id="box3" class="box">상자3</div>
+    
+    <hr>
+    
+    <h1>고양이</h1>
+    
+    <div id="cat">
+        <img src="images/catty01.png">
+        <img src="images/catty02.png">
+        <img src="images/catty03.png">
+        <img src="images/catty04.png">
+        <img src="images/catty05.png">
+    </div>
+    
+</body>
+</html>
