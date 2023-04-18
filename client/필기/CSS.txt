@@ -396,3 +396,10 @@
         - 압축률 높음(무손실)
         - 아이콘, 사진 등
 
+
+/* 그림자, shadow */
+    1. text-shadow
+        ~ x y blur color
+        
+    2. box-shadow
+        ~ x y blur color
