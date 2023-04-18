@@ -176,6 +176,10 @@
             - 수직: top|center|bottomB
             - 수치(px): 절대위치
             - 수치(%): 상대위치
+        - backgroud-size
+            ~ auto: 원래 배경 이미지 크기
+            ~ contain: 배경 이미지가 다 들어오게 확대/축소
+            ~ cover: 배경 이미지가 여백 없이 다 들어오게 확대/축소
 
 
 /* CSS 색상 표현법 */
