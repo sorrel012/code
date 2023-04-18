@@ -405,3 +405,22 @@
         
     2. box-shadow
         ~ x y blur color
+        
+
+/* 다단 구조 */
+    ~ column-count: 단 수
+    ~ column-gap: 단과 단 사이 간격
+    ~ column-rule: 단과 단 사이 선
+    
+
+/* 변형, transform */    
+    - 위치, 크기, 회전, 왜곡 등
+    
+    ~ transform: translate(): 위치 변형(이동)
+    ~ transform: scale(): 크기, 배율 변형(확대/축소)
+        - 단지 크기만 키우는 것이 아님! 그 안의 모든 것이 늘어나고 줄어든다.
+    ~ transform: rotate(): 회전 변형
+    ~ transform: skew(): 왜곡 변형(비틀기)
+    ~ transform: matrix(): 위의 4개 포함. 사용자 정의형 > 행렬
+    ~ transform-origin: 변형 기준점 (원점)
+    
