@@ -239,7 +239,8 @@
             ~~ solid
             ~~ dashed
             ~~ dotted
-        ~ border-radius: px, %
+        ~ border-radius: px, %: 모서리의 둥글기
+            - width와 height 중 더 짧은 쪽의 길이의 절반이 최댓값이다.
 
     2. width, height: 개체의 너비, 개체의 높이
         - 블럭 태그에만 적용된다.
