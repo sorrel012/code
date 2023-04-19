@@ -281,6 +281,29 @@
     ~ inline: 블록 태그를 인라인 태그로 지정
     ~ block: 인라인 태그를 블록 태그로 지정
     ~ inline-block: 인라인 태그처럼 출력되면서 너비/높이를 지정할 수 있다.
+    
+    ~ flex: 내부 요소의 배치
+        - flex box, flexible        
+        - 메인축 방향: 가로(아이템이 나열되는 방향)
+        - 수직축 방향: 세로
+        - 아이템 크기: 너비, 메인축(요소 크기만큼) / 높이, 수직축(부모 크기만큼)    
+        
+        ~ justify-xxx: 메인축 방향 관련 속성
+            ~~ justify-content: 메인축 방향으로 아이템 정렬
+                
+        ~ align-xxx: 수직축 방향 관련된 속성
+            ~~ align-items : 수직축 방향으로 아이템 정렬
+        
+    ~ flex-direction: 메인 축 방향을 지정하는 속성
+        ~~ row: 기본값
+        ~~ row-reverse
+        ~~ column
+        ~~ column-reverse
+        
+    ~ flex-wrap: 자동 줄바꿈
+        ~~ nowrap: 기본값
+        ~~ wrap
+        ~~ wrap-reverse
 
 
 /* float */
