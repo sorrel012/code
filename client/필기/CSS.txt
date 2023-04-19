@@ -473,4 +473,39 @@
     ~ transition-timing-function: 트랜지션 가속도
         ~~ linear / ease / ease-in ease-out / ease-in-out
     
+
+/* animation */
+    - transition + 버전업    
     
+    ~ animation-name: 식별자명 
+        - 움직임을 정의한다.
+    ~ animation-duration: 시간
+        - 소요시간을 정의한다.
+    ~ animation-fill-mode: 애니메이션이 끝난 후 어떤 상태를 유지할 것인지 설정
+        ~~ backgwards: 초기값, 기본값
+        ~~ forwards: 변화후 값
+    ~ animation-timing-function
+    ~ animation-iteration-count: 반복 횟수
+    ~ animation-direction: 방향 정의
+        ~~ reverse: 반대로
+        ~~ alternate: 횟수마다 반대로 (정방향 -> 역방향 -> 정방향....)
+        ~~ alternate-reverse: reverse로 시작해서 alternate
+    
+    @keyframes 식별자명 {  >    
+        /* 어떤 속성이(from) 어떤 변화를(to) 일으키는지? */
+                   
+        from { > 0s
+            속성:값
+        } 
+        to { > animation-duration으로 적용한 기간
+            속성:값
+        }
+    }
+    
+    @keyframes 식별자명 { > 시간을 세분화할 수도 있다.
+        0%    {  }
+        25%   {  }
+        50%   {  }
+        75%   {  }
+        100%  {  }                         
+    }
