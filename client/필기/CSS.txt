@@ -464,3 +464,13 @@
 /* 전환, transition */
     - 객체의 속성(상태) 값이 변화되는 과정을 시간 순서대로 보여주는 속성
     - 수치형 속성에만 적용 가능(숫자, 색상)  
+    
+    ~ transition-property: 트랜지션을 적용할 속성 
+        ※ all : 모든 속성
+        
+    ~ transition-duration: 트랜지션이 적용되는 시간
+    
+    ~ transition-timing-function: 트랜지션 가속도
+        ~~ linear / ease / ease-in ease-out / ease-in-out
+    
+    
