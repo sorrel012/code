@@ -611,3 +611,6 @@
     - Grid Gap: Grid Cell 사이의 간격
     
     - fr: 비율 단위 (1fr 2fr > 1:2)
+    
+    ~ grid-column-start + grid-column-end
+        /grid-row-start + grid-rpw-end : 셀병합
