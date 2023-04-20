@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        :root {
+            /* --background-color: skyblue; */
+            
+            --main-background-color: #dad7cd;
+            --main-text-color: #344e41;
+            --main-title-color: #588157;
+            
+            --main-title-size: 20px;
+            --main-text-size: 18px;
+            
+            --logo: url(images/catty01.png);
+            --link: url(htps://naver.com)
+        }
+        
+        #list {
+            --main-color: tomato;
+        }
+        
+        #box1 {
+            
+            /* 변수 선언 */
+            --fore-color: blue;
+            color: var(--main-color);
+        }
+        
+        #box2 {
+            /* 선언되지 않은 변수 > 초기값(기본값) 적용 */
+            color: var(--fore-color);
+            
+            color: var(--main-color);
+        }
+        
+        #box3 {
+            color: tomato;   
+            color: var(--main-color);         
+        }
+        
+        
+        body {
+            background-color: var(--main-background-color);
+            background-image: var(--logo);
+        }
+        
+        h1.title {
+            color: var(--main-title-color);
+            font-size: var(--main-title-size)
+        }
+        
+        p.content {
+            font-size: var(--main-text-size)
+        }
+        
+        
+    </style>
+</head>
+<body>
+    
+    <!-- <div id="list">
+        <div id="box1" class="box">상자1</div>
+        <div id="box2" class="box">상자2</div>
+        <div id="box3" class="box">상자3</div>
+    </div> -->
+    
+    <h1 class="title">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi, ad.</h1>
+    <p class="content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui ad, libero, voluptatum repudiandae, harum provident sit eligendi necessitatibus atque ut debitis. Doloribus illum dolorum dolores aliquid quasi sit repellat reiciendis.</p>
+    <p class="content">Minus consectetur commodi rerum repellat ipsam, tempore, error molestiae eum suscipit nihil corporis dicta voluptatem recusandae et amet velit assumenda, nulla libero? Qui ipsam laudantium voluptatem expedita incidunt quam fugit!</p>
+    <p class="content">Quae fugit possimus aperiam? Architecto, repellat iure quis debitis eum sapiente temporibus. Enim provident ipsum explicabo in voluptatem? Impedit soluta vitae facere expedita rem. Molestias similique est corporis ad eaque?</p>
+    <p class="content">Excepturi exercitationem autem sapiente incidunt cum ut corporis, ipsum ad enim, veritatis quia alias pariatur nihil, facilis ducimus maiores maxime quos nobis! Nam voluptatibus aliquid beatae cupiditate, voluptatum minus vitae.</p>
+    <p class="content">Doloremque omnis nihil reiciendis voluptatum voluptas fugiat eaque ea soluta numquam iste velit, magnam asperiores amet dolorum in error qui culpa dicta alias veritatis ipsa inventore cumque, illum molestias? Illum.</p>
+    <h1 class="title">Recusandae quae vero similique natus explicabo beatae? Distinctio, recusandae assumenda.</h1>
+    <p class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos magnam mollitia praesentium saepe et minima illum aperiam ex qui laboriosam culpa dignissimos, expedita deleniti incidunt maiores? Distinctio explicabo quod maiores!</p>
+    <p class="content">Dolores, incidunt facilis quae ab, cum enim aliquid similique neque accusamus ex voluptate placeat totam. Laboriosam qui quidem omnis blanditiis architecto earum, perferendis illo modi voluptatibus possimus. Nam, quos doloribus.</p>
+    <p class="content">Culpa nemo non sapiente, animi illum eos rerum quod enim minima. Esse accusamus autem, sint, laborum cumque sunt eveniet dolore quisquam, eaque corporis aspernatur corrupti architecto placeat omnis voluptatibus quia.</p>
+    <p class="content">Similique, aliquid tempore ipsam quia amet ad ex ratione quo quam minus in. Repudiandae repellat pariatur praesentium hic, commodi doloremque doloribus, voluptates quia illo ad, corrupti excepturi veniam architecto nesciunt!</p>
+    <p class="content">Autem harum quidem blanditiis odit quam beatae laudantium pariatur provident, a non repudiandae aspernatur eos, voluptatibus culpa, aperiam modi minima impedit corrupti minus eum temporibus voluptas cumque sint! Perspiciatis, eos.</p>
+    <h1 class="title">Magni, quisquam commodi sequi corrupti officia molestiae asperiores expedita ab?</h1>
+    <p class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, tenetur quas eius unde similique ad pariatur architecto, id magni reprehenderit animi quis vel beatae necessitatibus. Labore veniam fugiat animi ullam.</p>
+    <p class="content">Asperiores incidunt itaque consequatur debitis delectus, rem quibusdam hic! Quam, rem magnam optio hic voluptates nihil totam cum dolor sed et porro architecto voluptatibus, eius aliquam quis repudiandae at id?</p>
+    <p class="content">Corrupti necessitatibus perferendis fugiat odio a, reprehenderit itaque ut accusamus, autem aperiam officiis quidem, quod aliquid eaque! Vel doloribus excepturi aperiam quisquam culpa natus similique obcaecati, voluptatem ullam, dolore ipsum.</p>
+    <p class="content">Omnis cumque exercitationem, distinctio officiis at ea, praesentium, animi ex modi doloribus odit quos ratione. Placeat facilis nesciunt iusto incidunt, optio hic cupiditate et, magnam cumque qui, necessitatibus adipisci odit.</p>
+    <p class="content">Officiis minima possimus, accusantium voluptatum quasi nobis necessitatibus odit distinctio rem! In corrupti, nulla eligendi optio iusto magni consectetur, totam possimus officiis praesentium quas ab. Explicabo quos eum adipisci expedita.</p>
+    
+</body>
+</html>
