@@ -594,5 +594,20 @@
         2. print    > 프린트 장치. 인쇄용 CSS
         3. speech   > 스크린 리더기
         4. all
-        
+
+
+/* grid */
+    - flex가 선형 레이아웃이라면, grid는 평면 레이아웃이다.
+    - 비는 공간이 생겨도 괜찮다.
     
+    ~ grid-template-rows: 행의 개수와 크기
+    ~ grid-template-columns : 열의 개수와 크기
+    
+    - Grid Container: Grid 전체 영역
+    - Grid Item: 내부 요소
+    - Grid Cell: Grid의 한 칸
+    - Grid Line: Grid Cell을 구분하는 각각의 선
+    - Grid Number: Grid Line 번호
+    - Grid Gap: Grid Cell 사이의 간격
+    
+    - fr: 비율 단위 (1fr 2fr > 1:2)
