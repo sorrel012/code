@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    /* 화면 크기가 최대 767px 이하일 때 적용 */
+    @media (max-width: 767px) {
+        #box {
+        border: 1px solid black;
+        width: 200px;
+        height: 200px;
+        background-color: gold;
+        } 
+    }
+    
+    /* 화면 크기가 최소 768px 이상일 때 적용 */
+    @media (min-width: 768px) {
+        
+        #box {
+            background-color: tomato;
+        }
+        
+    }
+    
+    
+       
+    </style>
+</head>
+<body>
+    
+    <div id="box">
+        상자
+    </div>
+    
+    
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        /* PC 우선 */
+        main {
+            width: 1000px;
+            border: 10px solid cornflowerblue;
+            margin: 0px auto;
+            padding: 20px;
+        }
+        
+        header {
+            padding: 20px;
+            border: 10px solid orange;
+            margin-bottom: 20px;
+        }
+        
+        section {
+            width: 650px;
+            border: 10px solid tomato;
+            padding: 20px;
+            float: left;
+            margin-bottom: 20px;            
+        }
+        
+        aside {
+            border: 10px solid skyblue;
+            width: 220px;
+            padding: 20px;
+            float: right;
+        }
+        
+        footer {
+            border: 10px solid greenyellow;
+            padding: 20px;
+            clear: both;            
+        }
+        
+        /* 모바일 작업 */
+        @media screen and (max-width:640px) {
+            
+            /* 작은 해상도 지원 */
+            main {
+                width: auto;
+            }
+            
+            section {
+                width: auto;
+                float: none;
+            }
+            
+            aside {
+                width: auto;
+                float: none;
+                margin-bottom: 20px;
+            }
+            
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <main>
+        <header>
+            <h1>Responsive Layout</h1>
+        </header>
+        <section>
+            <h2>Main Content</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit eum provident inventore neque quibusdam cupiditate voluptatibus nobis. Praesentium dolor fugiat laborum at autem, et harum. Accusamus cum iste qui suscipit!</p>
+        </section>
+        <aside>
+            <h2>Sidebar</h2>
+            <div>item</div>
+            <div>item</div>
+            <div>item</div>
+        </aside>
+        <footer>
+            &copy;Copyright test.com 2023 All rights reserved
+        </footer>
+    </main>
+    
+</body>
+</html>
