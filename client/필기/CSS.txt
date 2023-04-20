@@ -581,4 +581,18 @@
     @media (min-width: 1200px) {
         
     }
-                
+    
+    ~ 세로모드    
+    @media screen and (orientation: portrait){}
+    
+    ~ 가로모드    
+    @media screen and (orientation: landscape){}
+    
+    
+    - 미디어 종류, Media Type        
+        1. screen   > 모니터, 태블릿, 스마트폰 화면 등
+        2. print    > 프린트 장치. 인쇄용 CSS
+        3. speech   > 스크린 리더기
+        4. all
+        
+    
