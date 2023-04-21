@@ -100,7 +100,13 @@
     5. 기타(=상수)
         a. null
         b. undefined
-        c. NaN(Not a Number)       
+        c. NaN(Not a Number) 
+
+
+// 형변환
+    - 함수 제공
+        1. number parseInt(value)
+        2. number parseFloat(value)            
         
 
 // 변수, 상수(리터럴)
@@ -123,16 +129,45 @@
         - === : 동등 비교 연산자/ 자료형의 비교(O), 값만 비교(O) > 우리가 아는 동등 비교 연산자 <-> !==
     
 
-// 함수  
-    
+// 함수      
     function m1(num)  {
         return 10;
-    }
-    
+    }    
 
-// 형변환
-    - 함수 제공
-        1. number parseInt(value)
-        2. number parseFloat(value)
+
+// Date
+    - 내장 객체
+    ~ var 변수명 = new Date();
+    
+    - 요소 출력
+        ~ getYear: 두 자리 연도
+        ~ getFullYear: 네 자리 연도
+        ~ getMonth: 월-1        
+        ~ getDate: 일
+        ~ getDay: 요일(숫자, 일요일이 0부터 시작)
+        ~ getHours: 시
+        ~ getMinutes: 분
+        ~ getSeconds: 초
+        ~ getMilliseconds: 밀리초
+        ~ getTime: 틱(ms)
+        
+    - 출력
+        ~ toLocaleString: 날짜 + 시간
+        ~ toLocaleDateString: 날짜만
+        ~ toLocaleTimeString: 시간만
+        
+    - 특정시각 만들기
+        ~ setFullYear(4자리 연도): 연도 설정
+        ~ setMonth(월-1): 월 설정
+        ~ setDate: 날짜 설정
+        
+        
+    - 연산
+        1. 시각 - 시각
+            ~ 시각변수 - 시각변수: 틱값 반환
+            ~ (시각변수 - 시각변수)/1000/60/60/24: 일수로 표현
+            
+        2. 시각 + 시간 / 시각 - 시간
+            ~ setTime(getTime() + (원하는 일수 * 24 * 60 * 60 * 1000))        
     
     
