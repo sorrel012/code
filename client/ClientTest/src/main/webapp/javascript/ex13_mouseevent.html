@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        textarea, input {
+            display: block;
+            margin-bottom: 10px;
+        }        
+        
+        textarea {
+            width: 500px;
+            height: 300px;
+            outline: none;
+            resize: none;
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <h1>마우스 관련 이벤트</h1>
+    
+    <form name="form1">
+        <textarea name="txt1"></textarea>
+        <input type="button" value="확인" name="btn1">
+    </form>
+    
+    <script>
+        
+        function message(txt) {
+            var now = new Date();
+            txt1.value = txt + '-' + now.toLocaleTimeString() + '\r\n' + txt1.value;            
+        }
+        
+        var txt1 = window.document.form1.txt1;
+        var btn1 = window.document.form1.btn1;
+        
+        txt1.onmouseover = m1;
+        
+        function m1() {
+            // message('mouseover');
+            // window.document.body.bgColor = 'gold';
+        }
+        
+        txt1.onmouseout = m2;
+        
+        function m2() {            
+            // message('mouseout');
+            // window.document.body.bgColor = 'white';
+        }
+        
+        txt1.onmousedown = m3;
+        
+        function m3() {
+            // message('messagedown');
+            // window.document.body.bgColor = 'ivory';
+            
+            // message(event.buttons); //마우스 어떤 버튼인지 알 수 있다.
+            if(event.buttons == 2) {
+                alert('오른쪽 버튼 클릭 금지');
+            }
+            
+            // message(event.x + ',' + event.y); 
+            // message(event.clientX + ',' + event.clientY);
+            // message(event.screenX + ',' + event.screenY);
+            // message(event.offsetX + ',' + event.offsetY);
+            
+        }
+        
+        txt1.onmouseup = m4;
+        
+        function m4() {
+            // message('messageup');
+            // window.document.body.bgColor = 'white';
+        }
+        
+        var n = 1;
+        
+        txt1.onmousemove = m5;
+        
+        function m5() {  
+            // message('messagemove - ' + n);
+            n++
+        }                
+        
+        //onclick > 마우스 이벤트 x
+        btn1.onclick = m6;
+        
+        function m6() {
+            
+            //onclick 내에서는 마우스에 대한 정보를 알 수 없다.
+            message('onclick' + event.buttons);
+        }        
+        
+    </script>
+    
+</body>
+</html>
