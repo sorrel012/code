@@ -8,8 +8,36 @@
 </head>
 <body>
     
+    <!-- 
+        
+        1. 태그 검색 
+        2. 태그 조작
+    
+    -->
+    
+    <img src="images/catty01.png" name="cat1">
+    
+    <hr>
+    <form name="form1">
+        <div>
+            <input type="text" name="txt1">
+        </div>
+    </form>  
+      
+    <form name="form2">
+        <div>
+            <input type="text" name="txt2">
+        </div>
+    </form>    
+    
     <script>
         
+        window.document.images[0].title = '고양이';
+        window.document.form1.txt1.size = 10;
+        window.document.form2.txt2.value = '홍길동';
+        
+        // window.close(); > 윈도우 창 닫기
+        // document: 문서 객체
         
     </script>    
     
