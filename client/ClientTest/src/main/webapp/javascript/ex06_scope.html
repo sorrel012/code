@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        
+        var num1 = 100; //전역 변수. script 태그 내에서 직접 선언
+        
+        function m1()    {
+            var num2 = 200; //지역 변수
+            console.log('m1', num2); //지역 내 지역 변수 접근
+            console.log('m1', num1); //지역 내 전역 변수 접근
+            
+            if (true) {
+                var num3 = 300; //지역변수.
+                console.log('if', num3);
+            }
+            
+            console.log('m1',num3);
+            
+            
+        }
+        
+        m1();
+        
+        // console.log(num2); //m2 is not defined
+        // console.log(num3); //m3 is not defined
+        
+        var a = 10;
+        var a = 20; //재정의 가능 > However, 절대 하지 말 것!!
+        console.log('a', a);
+        
+        var b = 30;
+        c = 40; //변수 선언문(var)을 사용하지 않고도 변수 생성 가능 > However, 절대 하지 말 것
+        
+        console.log('c', c);
+        
+        
+        function m2() {
+            var d = 50;
+            e = 60; //변수 선언문을 사용하지 않은 변수는 선언 위치 무관 > 전역 변수
+        }
+        
+        m2();
+        
+        console.log(d); ///d is not defim
+        
+        
+    </script>
+    
+</body>
+</html>
