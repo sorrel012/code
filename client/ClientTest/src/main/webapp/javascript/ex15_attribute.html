@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>JavaScript로 HTML 태그의 속성을 제어하기</h1>
+    
+    <form name="form1">
+        <input type="text" name="txt1">
+        <input type="button" value="확인" name="btn1">
+        <hr>        
+        <input type="button" value="끄기" name="btn2">
+    </form>
+    
+    <script>
+        
+        var txt1 = window.document.form1.txt1;
+        var btn1 = window.document.form1.btn1;
+        var btn2 = window.document.form1.btn2;
+        
+        btn1.onclick = m1;
+        btn2.onclick = m2;
+        
+        function m1() {
+            
+            // txt1.size = 100;
+            // txt1.value = '홍길동'; //쓰기
+            // alert(txt1.value); //읽기
+            
+            // txt1.type = 'radio';
+            // txt1.name = 'txt3';
+            
+            // txt1.readOnly = true;
+            
+            window.document.body.bgColor = 'gold';
+            
+        }
+        
+        function m2() {
+            
+            // 하나의 버튼(스위치) > On/Off > 토글 버튼(Toggle Button)
+            if(btn2.value == 끄기) {
+                window.document.body.bgColor = 'black';
+                btn2.value = '켜기';
+            } else {
+                window.document.body.bgColor = 'white';
+                btn2.value = '끄기';
+            }
+            
+        }
+        
+    </script>
+    
+</body>
+</html>
