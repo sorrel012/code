@@ -287,6 +287,9 @@
 
     ~ event.target, event.srcElement : 눌린 버튼의 프로퍼티 제공
 
+    * onclick: 클릭했을 때 나타나는 이벤트
+    * onchange: 입력 컨트롤의 값이 변할 때 발생하는 이벤트
+
 
 // 키 관련 이벤트        
     - onkeyXXX
