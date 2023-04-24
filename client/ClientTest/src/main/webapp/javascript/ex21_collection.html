@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>이미지</h1>
+    <img src="images/catty01.png">
+    <img src="images/catty02.png">
+    <img src="images/catty03.png" name="cat3">
+    <img src="images/catty04.png">
+    <img src="images/catty05.png">
+
+    <h1>링크+앵커</h1>
+    <a href="#1" name="link1">링크1</a>
+    <a href="#2">링크2</a>
+    <a href="#3">링크3</a>
+    <a name="a1">앵커1</a>
+    <a name="a2">앵커2</a>
+
+    <h1>폼</h1>
+    <form name="form1">
+        <input type="text" name="txt1">
+        <input type="text" name="txt2">
+        <input type="text" name="txt3">
+    </form>
+
+    <script>
+
+        // console.log(document.images.length);
+        
+        // for (var i = 0; i < 5; i++) {
+        //     console.log(document.images[i].src);            
+        // }
+
+        // document.images[0].width = 230;
+        // document.images['cat3'].width = 300
+
+
+        // console.log(document.links.length);s
+        // console.log(document.links[0].href);
+        // console.log(document.links['link1'].href);
+        
+        // console.log(document.anchors.length);
+        // console.log(document.anchors[0].name);
+        // console.log(document.anchors['a1'].name);
+
+        
+        // console.log(document.forms.length);
+        // console.log(document.form1.elements.length);
+        // document.form1.txt1.value = '홍길동';
+        // document.form1.elements[1].value = '아무개'
+        
+            
+        // all  > 문서상의 모든 폼 + 입력 + 이미지 + 링크 태그 > 옛날
+        //      > 문서상의 모든 태그 > 현재
+        console.log(document.all.length);
+
+    </script>
+
+</body>
+</html> 
