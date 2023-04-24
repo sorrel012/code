@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>    
+    
+    <h1>window 객체</h1>
+    <form name="form1">
+        <fieldset>
+            <legend>창 제어</legend>
+            <input type="button" value="자식창 띄우기" name="btn1" >
+            <input type="button" value="자식창 닫기" name="btn2" >    
+            <hr>
+            <input type="button" value="자식창 조작하기" name="btn3" >    
+        </fieldset>
+
+        <fieldset>
+            <legend>아이디</legend>
+            <input type="text" name="txtid" size="10">
+            <input type="button" value="중복검사" name="btncheck">
+        </fieldset>
+    </form>
+    
+    <script>
+        
+        var btn1 = window.document.form1.btn1;
+        var btn2 = window.document.form1.btn2;
+        var btn3 = window.document.form1.btn3;
+        var btncheck = window.document.form1.btncheck;
+
+        var child;
+        
+        btn1.onclick = m1;
+        btn2.onclick = m2;
+        btn3.onclick = m3;
+        btncheck.onclick = m4;
+
+        function m4() {
+            window.open('ex17_idcheck.html', 'check', 'width=300, height=200')
+        }
+
+        function m3() {
+            child.document.form1.txt1.value = '부모창에서 왔습니다.';
+        }
+
+        function m1() {
+
+            // window.open(); //부모창 > 자식창 생성
+            // window.close(); //자기 스스로 종료
+
+            // window.open('https://naver.com', 'naver','');
+            child = window.open('./ex17_child.html', 'child', 'width=300 height=200, left=0, top=0');
+
+            // alert(child);
+        }
+        
+        function m2() {
+
+            //자식창 닫기
+            
+        }
+        
+    </script>
+    
+</body>
+</html>
