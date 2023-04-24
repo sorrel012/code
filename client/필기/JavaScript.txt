@@ -365,3 +365,15 @@
     ~ go(-2) : 2단계 뒤로 가기
     ~ go(2) : 2단계 앞으로 가기
 
+
+// 내장 배열(컬렉션)
+    - 문서 코드를 기반으로 자동 생성되는 배열을 제공한다.
+
+    1. window.document.images: 문서 내의 모든 <img> 태그
+    2. window.document.links: 문서 내의 모든 <a href=""> 태그
+    3. window.document.anchors: 문서 내의 모든 <a name=""> 태그
+    4. window.document.forms: 문서 내의 모든 <form> 태그
+    5. window.document.forms[index].elements: 특정 <form> 태그 내의 모든 입력 태그
+    6. window.document.forms[index].select.options: <option> 태그
+    7. window.document.all: 문서상의 모든 태그: 비표준(MS)
+
