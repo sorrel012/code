@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .pic {
+            border: 1px solid #CCC;
+            padding: 5px;
+            width: 432px;
+        }
+
+        img {
+            width: 140px;
+        }
+
+        input {
+            border: 0;
+            width: 435px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="pic">
+        <img src="../images/img01.jpg" name="img1" onmouseover="m1(1);" onmouseout="m2(1);">
+        <img src="../images/img02.jpg" name="img2" onmouseover="m1(2);" onmouseout="m2(2);">
+        <img src="../images/img03.jpg" name="img3" onmouseover="m1(3);" onmouseout="m2(3);">
+    </div>
+    <form name="form1">
+        <input type="text" name="desc">
+    </form>
+
+    <script>
+
+        var desc = window.document.form1.desc;
+
+        function m1(num) {            
+            event.target.src = '../images/img0' + (num+3) + '.jpg';
+
+            if(num == 1) {
+                desc.value = '\'스키\' 타는 사람이 \'당근\'으로 변했습니다.';
+            } else if(num == 2) {
+                desc.value = '\'해바라기\'가 \'피망\'으로 변했습니다.';             
+            } else if(num == 3) {
+                desc.value = '\'나무\'가 \'개\'가 됐습니다.';
+            }
+
+        }
+        
+        function m2(num) {            
+            event.target.src = '../images/img0' + num + '.jpg';
+            desc.value = '';
+        }
+
+    </script>
+
+    
+</body>
+</html>
