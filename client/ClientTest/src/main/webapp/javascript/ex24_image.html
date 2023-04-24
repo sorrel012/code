@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>이미지</h1>
+
+    <input type="button" value="확인" name="btn1">
+    <hr>
+
+    <img src="images/cat01.jpg" name="cat1">
+
+    <hr>
+
+    <img src="images/cat01.jpg" name="cat2">
+
+    <script>
+
+        document.all.btn1.onclick = m1;
+
+        function m1() {
+            var cat1 = document.images['cat1']
+
+            // cat1.width = 500;
+
+            cat1.src = 'images/cat02.jpg';
+        }
+
+        var cat2 = document.images['cat2'];
+
+        //롤오버 이미지
+        cat2.onmouseover = m2;
+        cat2.onmouseout = m3;
+
+        function m2() {
+            cat2.src = 'images/cat02.jpg'
+        }
+
+        function m3() {
+            cat2.src = 'images/cat01.jpg'
+        }
+
+    </script>
+
+</body>
+</html>
