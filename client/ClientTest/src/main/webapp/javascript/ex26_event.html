@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .item {
+            border: 1px solid #CCC;
+            background-color: #EEE;
+            padding: 10px;
+            margin: 15px;
+            width: 400px;
+            text-align: center;
+        }
+
+        .item > input[type=button] {
+            border: 1px solid #CCC;
+            background-color: #FFF;
+            width: 100px;
+            height: 60px;
+            margin: 10px;
+            outline: none;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <h1>다량의 요소(태그)의 이벤트 처리</h1>
+
+    <div class="item">
+        <input type="button" name="btnRed" value="빨강" onclick="m1();">
+        <input type="button" name="btnYellow" value="노랑" onclick="m2();">
+        <input type="button" name="btnBlue" value="파랑" onclick="m3();">
+    </div>
+
+    <div class="item">
+        <input type="button" name="btnRed2" value="빨강">
+        <input type="button" name="btnYellow2" value="노랑">
+        <input type="button" name="btnBlue2" value="파랑">
+    </div>
+
+    <div class="item">
+        <input type="button" value="빨강" onclick="m7('tomato');">
+        <input type="button" value="노랑" onclick="m7('gold');">
+        <input type="button" value="파랑" onclick="m7('cornflowerblue');">
+    </div>
+
+    <div class="item">
+        <input type="button" value="빨강" onclick="m8(this);">
+        <input type="button" value="노랑" onclick="m8(this);">
+        <input type="button" value="파랑" onclick="m8(this);">
+    </div>
+
+    <div class="item">
+        <input type="button" name="btnTomato" value="빨강" onclick="m9(this);">
+        <input type="button" name="btnGold" value="노랑" onclick="m9(this);">
+        <input type="button" name="btnCornflowerblue" value="파랑" onclick="m9(this);">
+    </div>
+
+    <div class="item">
+        <input type="button" name="btnRed" value="빨강" onclick="m10(this);" data-color="tomato">
+        <input type="button" name="btnYellow" value="노랑" onclick="m10(this);" data-color="gold">
+        <input type="button" name="btnBlue" value="파랑" onclick="m10(this);" data-color="cornflowerblue">
+    </div>
+
+    <div class="item">
+        <input type="button" name="btnRed" value="빨강" onclick="m11();" data-color="tomato">
+        <input type="button" name="btnYellow" value="노랑" onclick="m11();" data-color="gold">
+        <input type="button" name="btnBlue" value="파랑" onclick="m11();"  data-color="cornflowerblue">
+    </div>
+
+    <div class="item">
+        <input type="button" name="btnRed3" value="빨강" data-color="tomato">
+        <input type="button" name="btnYellow3" value="노랑" data-color="gold">
+        <input type="button" name="btnBlue3" value="파랑" data-color="cornflowerblue">
+    </div>
+
+    <div class="item">
+        <input type="button" name="btn" value="빨강" data-color="tomato">
+        <input type="button" name="btn" value="노랑" data-color="gold">
+        <input type="button" name="btn" value="파랑" data-color="cornflowerblue">
+    </div>
+
+    <hr>
+
+    <div>
+        <img src="images/catty01.png" name="cat">
+        <img src="images/catty02.png" name="cat">
+        <img src="images/catty03.png" name="cat">
+        <img src="images/catty04.png" name="cat">
+        <img src="images/catty05.png" name="cat">
+    </div>
+
+    <script>
+
+        // alert(document.all.cat.length);
+
+        for(var i = 0; i < document.all.cat.length; i++) {
+            document.all.cat[i].onclick = m14;
+        }
+
+        function m14() {
+            event.target.width = 200;
+        }
+
+        function m1() {
+            document.body.bgColor = 'tomato';
+        }
+
+        function m2() {
+            document.body.bgColor = 'gold';
+        }
+
+        function m3() {
+            document.body.bgColor = 'cornflowerblue';
+        }
+
+        document.all.btnRed2.onclick = m4;
+        document.all.btnYellow2.onclick = m5;
+        document.all.btnBlue2.onclick = m6;
+
+        function m4() {
+            document.body.bgColor = 'tomato';
+        }
+
+        function m5() {
+            document.body.bgColor = 'gold';
+        }
+
+        function m6() {
+            document.body.bgColor = 'cornflowerblue';
+        }
+
+        function m7(color) {
+            document.body.bgColor = color;
+        }
+
+        //함수 내의 this는 window 객체를 말한다.
+        function m8(btn) {
+            // alert(btn.value);
+            // alert(this.value)
+
+            if (btn.value == '빨강') {
+                document.body.bgColor = 'tomato'; 
+            } else if(btn.value == '노랑') {
+                document.body.bgColor = 'gold';
+            } else if(btn.value == '파랑'){
+                document.body.bgColor = 'cornflowerblue';
+            }
+        }
+
+        function m9(btn) {
+            document.body.bgColor = btn.name.substring(3);
+        }
+
+        function m10(btn) {
+            // alert(btn.dataset['color']);
+            document.body.bgColor = btn.dataset['color']
+        }
+
+        function m11() {
+            
+            //어떤 버튼이 눌렸는지?
+            //- event 객체 > 눌린 버튼 프로퍼티 제공
+            // alert(event.srcElement)
+            // alert(event.target)
+
+            // alert(event.target.dataset['color']);
+
+            document.body.bgColor = event.target.dataset['color'];
+        }
+
+        document.all.btnRed3.onclick = m12;
+        document.all.btnYellow3.onclick = m12;
+        document.all.btnBlue3.onclick = m12;
+
+        function m12() {
+            document.body.bgColor = event.target.dataset['color'];
+        }
+
+        //name='btn' 배열
+        //1. name 유일 > 단일 객체
+        //2. name 중복 > 배열
+        // alert(document.all.btn.length);
+
+        for(var i = 0; i < document.all.btn.length; i++) {
+            document.all.btn[i].onclick = m13;
+        }
+
+        function m13() {
+            document.body.bgColor = event.target.dataset['color'];
+        }
+
+    </script>
+
+</body>
+</html>
