@@ -245,6 +245,9 @@
     2. 동적
         - JavaScript 코드를 사용    
 
+    - this: 이벤트 주체(이벤트가 걸린 태그)
+        ※ 함수 내의 this는 window 객체(전역 객체)를 말한다.
+
 
 // 마우스 관련 이벤트
     - onmouseXXX
@@ -281,6 +284,8 @@
             - 이벤트 객체의 좌측 상단을 기준
             - 자기 자신이 기준이 된다.
             ≒ CSS > position: relative;
+
+    ~ event.target, event.srcElement : 눌린 버튼의 프로퍼티 제공
 
 
 // 키 관련 이벤트        
@@ -377,3 +382,9 @@
     6. window.document.forms[index].select.options: <option> 태그
     7. window.document.all: 문서상의 모든 태그: 비표준(MS)
 
+
+// 메시지 박스, 대화 상자(Dialog Box)
+    1. void alert(message): 메시지 전달용
+    2. boolean confirm(message): : 메시지 전달용(선택)
+    -----------------------------
+    3. string prompt(message, value): 
