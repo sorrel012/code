@@ -38,7 +38,7 @@
         g. 폼태그 조작
         h. 이미지 조작
         i. 링크 조작
-        j 기타 객체 조작
+        j. 기타 객체 조작
     
     3. 서버 제작, 응용 프로그램 제작
         - Node.js
@@ -102,6 +102,28 @@
         - 객체형
         - JavaScript에는 클래스가 없지만 객체는 있다.
         - 자바스크립트 > 객체 기반 프로그래밍 언어 (≠ 자바 > 객체 지향 프로그래밍 언어)
+        
+        a. 내장 객체
+            - Date, Array, Math, Object. Option 등
+            ~ new Date()
+            ~ new Array()
+
+        b. BOM 객체
+            - window, document, form, text, button 등록
+            - BOM 트리의 구성 요소들
+
+        c. DOM 객체
+            - element, attribute, text 등
+
+        d. 사용자 정의 객체
+            - JavaScript에는 클래스가 없다 > 원하는 형태(구조)의 객체를 만들 수 있다.
+            - ES6에서 클래스 문법이 만들어졌다.
+                > 진짜 클래스는 아니고 클래스를 흉내낸 문법 도입
+
+            - 만드는 방법
+                ① Object 클래스 사용
+                ② {} : 객체 리터럴 표기법 사용               
+
         
     5. 기타(=상수)
         a. null
@@ -426,7 +448,6 @@
 // 타이머, toLocaleTimeString   
     
     - 타이머 생성
-
         1. setTimeout(함수, 시간)
             - 일회성 타이머
 
@@ -434,6 +455,10 @@
             - 반복성 타이머
 
     - 타이머 종료
-
         1. clearTimeout(id)
         2. clearInterval(id)
+
+
+// 호이스팅, Hoisting
+    - 코드를 실행하기 전, 변수 선언문과 함수 선언문은 해당 스코프의 최상단으로 끌어올려진다. > 코드 재배치
+    - 함수 호이스팅★, 변수 호이스팅
