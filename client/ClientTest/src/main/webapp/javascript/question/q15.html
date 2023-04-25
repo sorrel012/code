@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .frame {
+            margin: 40px;
+            width: 600px;
+            height: 170px;
+            text-align: center;
+        }
+
+        input[name=txt] {
+            width: 580px;
+            height: 170px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-align: center;
+            font-size: 130px;
+            color: rgb(56, 56, 56);
+        }
+
+        input[type=button] {
+            width: 175px;
+            height: 50px;
+            font-weight: bold;
+            color: rgb(56, 56, 56);
+            font-size: 20px;
+            border: 1px solid rgb(150, 149, 149);
+        }
+
+        input[name=btn1] {
+            background-color: white;
+        }
+
+    </style>
+</head>
+<body>
+
+     <div class="frame">
+        <div class="clock">
+            <input type="text" name="txt">
+        </div>
+        <div class="buttons">
+            <input type="button" value="시작" name="btn1">
+            <input type="button" value="멈춤" name="btn2">
+            <input type="button" value="종료" name="btn3">
+        </div>
+     </div>
+
+    <script>
+
+        var txt = document.all.txt;
+        var btn1 = document.all.btn1;
+        var btn2 = document.all.btn2;
+        var btn3 = document.all.btn3;
+
+        btn1.onclick = m1;
+
+        function m1(){
+            setInterval(f1, 1000);
+        }
+
+        function f1() {          
+            var date = new Date();
+              //setdate
+            txt.value = (.toLocaleTimeString();
+        }
+    
+    </script>
+
+</body>
+</html>
