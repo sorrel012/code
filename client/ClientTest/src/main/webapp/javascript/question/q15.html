@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,27 +30,31 @@
             font-weight: bold;
             color: rgb(56, 56, 56);
             font-size: 20px;
+            cursor: not-allowed;
             border: 1px solid rgb(150, 149, 149);
+            background-color: rgb(235, 235, 235);
         }
 
         input[name=btn1] {
             background-color: white;
+            cursor: pointer;
         }
 
     </style>
 </head>
+
 <body>
 
-     <div class="frame">
+    <div class="frame">
         <div class="clock">
-            <input type="text" name="txt">
+            <input type="text" name="txt" value="00:00:00">
         </div>
         <div class="buttons">
             <input type="button" value="시작" name="btn1">
-            <input type="button" value="멈춤" name="btn2">
-            <input type="button" value="종료" name="btn3">
+            <input type="button" value="멈춤" name="btn2" readonly>
+            <input type="button" value="종료" name="btn3" readonly>
         </div>
-     </div>
+    </div>
 
     <script>
 
@@ -58,19 +63,92 @@
         var btn2 = document.all.btn2;
         var btn3 = document.all.btn3;
 
+        let n = 0;
+        let hour;
+        let minute;
+        let second;
+
+        var timer = [];
+
         btn1.onclick = m1;
 
-        function m1(){
-            setInterval(f1, 1000);
+        function m1() {     
+            btn1.style.cursor = 'not-allowed';       
+            btn2.style.cursor = 'pointer'; 
+            btn3.style.cursor = 'pointer'; 
+            btn1.style.backgroundColor = 'rgb(235, 235, 235)';
+            btn2.style.backgroundColor = 'white';
+            btn3.style.backgroundColor = 'white';
+            btn1.readOnly = true;
+            btn1.readOnly = false;
+            btn1.readOnly = false;
+            f1();
+            timer.push(setInterval(f1, 1000));
         }
 
-        function f1() {          
-            var date = new Date();
-              //setdate
-            txt.value = (.toLocaleTimeString();
+        function f1() {
+            n++;
+            calT();
         }
-    
+
+        function calT() {
+            minute = parseInt(n / 60);
+            hour = parseInt(minute / 60);
+            second = n % 60
+
+            if (hour < 10) {
+                hour = '0' + hour;
+            }
+
+            if (minute < 10) {
+                minute = '0' + minute;
+            }
+
+            if (second < 10) {
+                second = '0' + second;
+            }
+
+            txt.value = hour + ':' + minute + ':' + second;
+
+        }
+
+        btn2.onclick = m2;
+
+        function m2() {
+            btn1.style.cursor = 'pointer';       
+            btn2.style.cursor = 'not-allowed'; 
+            btn3.style.cursor = 'pointer'; 
+            btn1.style.backgroundColor = 'white';
+            btn2.style.backgroundColor = 'rgb(235, 235, 235)';
+            btn3.style.backgroundColor = 'white';
+            btn1.readOnly = false;
+            btn1.readOnly = true;
+            btn1.readOnly = false;
+            for (var i = 0; i < timer.length; i++) {
+                clearInterval(timer[i]);
+            }
+        }
+
+        btn3.onclick = m3;
+
+        function m3() {
+            btn1.style.cursor = 'pointer';       
+            btn2.style.cursor = 'not-allowed'; 
+            btn3.style.cursor = 'not-allowed'; 
+            btn1.style.backgroundColor = 'white';
+            btn2.style.backgroundColor = 'rgb(235, 235, 235)';
+            btn3.style.backgroundColor = 'rgb(235, 235, 235)';
+            btn1.readOnly = false;
+            btn1.readOnly = true;
+            btn1.readOnly = true;
+            for (var i = 0; i < timer.length; i++) {
+                clearInterval(timer[i]);
+            }
+            txt.value = '00:00:00';
+        }
+
     </script>
 
 </body>
+
 </html>
