@@ -52,6 +52,11 @@
         - Vue.js
 
 
+// 프로퍼티 
+    1. HTML 속성을 그대로 똑같이 만들어 놓은 프로퍼티
+    2. JavaScript가 독자적으로 만들어 놓은 프로퍼티
+
+
 // HTML 문서에 JavaScript를 적용하는 방법
 
     1. 인라인 방식(X) > 이벤트 핸들러(Event Handler) == 이벤트
@@ -214,6 +219,7 @@
     - 이미지, 링크, 폼 태그 이외에는 조작이 불필요하다고 판단        
     - 태그의 name을 사용해서 접근한다.
     - id, class는 인식하지 못 한다.
+    - HTML 태그의 속성만 조작 가능하다. > HTML RGB 16진수만 지원
     
     - 예약어
         ~ window: 창
@@ -289,6 +295,7 @@
 
     * onclick: 클릭했을 때 나타나는 이벤트
     * onchange: 입력 컨트롤의 값이 변할 때 발생하는 이벤트
+    * oninput: 입력 컨트롤의 값이 변하는 것을 실시간으로 보여주는 이벤트
 
 
 // 키 관련 이벤트        
@@ -383,6 +390,12 @@
     4. window.document.forms: 문서 내의 모든 <form> 태그
     5. window.document.forms[index].elements: 특정 <form> 태그 내의 모든 입력 태그
     6. window.document.forms[index].select.options: <option> 태그
+        ~ var 변수명 = new Option(content, value); > option 연결
+        ~ document.all.select의 name 이름.selectedIndex; > 선택된 항목의 인덱스 반환
+        ~ document.all.select의 name 이름.options.add(변수명); > 동적으로 추가
+        ~ document.all.select의 name 이름.options.remove(index); > 특정 index의 요소 삭제(shift 발생)
+        ~ document.all.select의 name 이름.options.remove(selectedIndex); > 선택된 요소 삭제
+
     7. window.document.all: 문서상의 모든 태그: 비표준(MS)
 
 
