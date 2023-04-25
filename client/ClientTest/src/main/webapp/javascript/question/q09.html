@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-weight: bold;
+            color: rgb(90, 90, 90);
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        #check {
+            margin-top: 15px;
+            margin-bottom: 20px;
+        }
+
+        input {
+            outline: none;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h3>주문하기</h3>
+
+    <fieldset class="order">
+        <legend>주문하시는 분</legend>
+        <label>이름: <input type="text" name="oname"></label>
+        <label>주소: <input type="text" name="oaddress"></label>
+    </fieldset>
+    
+    <label id="check"><input type="checkbox" name="ch"> 주문하시는 분과 정보가 동일합니다.</label>
+
+    <fieldset class="order">
+        <legend>받으시는 분</legend>
+        <label>이름: <input type="text" name="gname"></label>
+        <label>주소: <input type="text" name="gaddress"></label>
+    </fieldset>
+
+    <script>
+
+        var oname = document.all.oname;
+        var oaddress = document.all.oaddress;
+        var gname = document.all.gname;
+        var gaddress = document.all.gaddress;
+        var ch = document.all.ch;
+        
+        ch.onchange = m1;
+
+        function m1() {
+            
+            if(ch.checked) {
+                gname.value = oname.value;
+                gaddress.value = oaddress.value;
+            } else {
+                gname.value = '';
+                gaddress.value = '';
+            }
+
+        }
+
+    </script>    
+
+</body>
+</html>
