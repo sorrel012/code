@@ -103,18 +103,12 @@
             }
         }
 
-        var cball = document.all.cabll;
+        var cball = document.all.cball;
         var cbitem = document.all.cbitem; //배열
 
         cball.onchange = m4;
 
-        function m2() {
-            // if(cball.checked) {
-            //     for (var i = 0; i < cbitem.length; i++) {
-            //         cbitem[i].checked = true
-            //     }
-
-            // }
+        function m4() {
 
             for (var i = 0; i < cbitem.length; i++) {
                 cbitem[i].checked = cball.checked;
