@@ -405,3 +405,19 @@
     2. boolean confirm(message): : 메시지 전달용(선택)
     -----------------------------
     3. string prompt(message, value): 
+
+
+// 타이머, toLocaleTimeString   
+    
+    - 타이머 생성
+
+        1. setTimeout(함수, 시간)
+            - 일회성 타이머
+
+        2. setInterval(함수, 시간)
+            - 반복성 타이머
+
+    - 타이머 종료
+
+        1. clearTimeout(id)
+        2. clearInterval(id)
