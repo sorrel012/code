@@ -79,12 +79,12 @@
             // alert(me.childNodes.length);
 
             // for(let i = 0; i < me.childNodes.length; i++) {
-            //     // console.log(me.childNodes[i].nodeType
-            //     //             , me.childNodes[i].nodeName
-            //     //             , me.childNodes[i].nodevalue);
+            //     console.log(me.childNodes[i].nodeType
+            //                 , me.childNodes[i].nodeName
+            //                 , me.childNodes[i].nodevalue);
 
-            //     if(me.childNodes[i].nodeType == 1 && me.childeNodes[i].nodeName =='DIV') {
-            //         me.childNodes[i].className
+            //     if(me.childNodes[i].nodeType == 1 && me.childNodes[i].nodeName =='DIV') {
+            //         console.log(me.childNodes[i].className);
             //     }
             // }
 
@@ -93,8 +93,8 @@
             // me.firstElementChild.className = 'check';
             // me.lastElementChild.className = 'check';
 
-            // for (let i = 0; i < me.children.length)  {
-            //     me.children[i].className = 'check;'
+            // for (let i = 0; i < me.children.length; i++)  {
+            //     me.children[i].className = 'check';
             // }
 
             //손자
@@ -126,11 +126,13 @@
             // me.parentElement.children[3].className = 'check';
             // me.parentElement.lastElementChild.className = 'check';
 
+            //바로 위 형제
             // me.previousElementSibling.className = 'check';
             // me.previousElementSibling.previousElementSibling.className = 'check';
 
+            //바로 밑 형제
             me.nextElementSibling.className = 'check';
-            me.nextElementSibling.nextElementSibling.className = 'check';
+            // me.nextElementSibling.nextElementSibling.className = 'check';
 
         }
     </script>
