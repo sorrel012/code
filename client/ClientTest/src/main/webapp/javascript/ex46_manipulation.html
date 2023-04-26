@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    
+    </style>
+</head>
+<body>
+
+    <h1>DOM</h1> 
+
+    <input type="button" value="확인1" id="btn1">
+    <input type="button" value="확인2" id="btn2">
+    <input type="button" value="확인3" id="btn3">
+    <input type="button" value="확인4" id="btn4">
+    <hr>
+    <div id="div1"></div>
+
+    <script>
+    
+        const btn1 = document.getElementById('btn1')
+        const btn2 = document.getElementById('btn2')
+        const btn3 = document.getElementById('btn3')
+        const btn4 = document.getElementById('btn4')
+        const div1 = document.getElementById('div1')
+
+        btn1.addEventListener('click', function() {
+
+            //innerHTML > 모든 걸 문자열로 처리한다는 문제가 있다.
+
+            //1. innerHTML
+            // div1.innerHTML = '<input type="text" size="10">';
+
+            //2-1. 태그 생성
+            const input = document.createElement('input'); //<input>
+
+            // console.log(input.nodeType);
+            // console.log(input.nodeName);
+
+            //2-2. 속성 추가
+            const type = document.createAttribute('type'); //type=""
+            type.value = 'text'; //type="text"
+            input.setAttributeNode(type); //<input type="text">
+
+            const size = document.createAttribute('size');
+            size.value = '10';
+            input.setAttributeNode(size); //<input type="text" size="10">
+
+            //2-3. div1의 자식으로 추가
+            div1.appendChild(input);
+
+        });
+
+        btn2.addEventListener('click', function() {
+            
+            const input = document.createElement('input');
+
+            input.setAttribute('type', 'text');
+            input.setAttribute('size', '10');
+
+            div1.appendChild(input);
+
+        });
+
+        btn3.addEventListener('click', function() {
+
+            //<h1>제목입니다.</h1>
+            //<p>문단입니다.</p>
+
+            const h1 = document.createElement('h1'); //<h1></h1>
+            const txt = document.createTextNode('제목입니다.');
+            h1.appendChild(txt);
+
+            const p = document.createElement('p'); //<p></p>
+            p.textContent = '문단입니다.'; //<p>문단입니다.</p>
+
+            //뒤에 추가 > 젤 자주 씀!
+            div1.appendChild(h1);
+            div1.appendChild(p);
+            
+            //뒤에 추가2
+            // div1.appendChild(h1);
+            // div1.appendChild(p);
+            
+            //앞에 추가
+            // div1.prepend(h1);
+            // div1.prepend(p);
+
+        });
+
+
+        btn4.addEventListener('click', function() {
+            //동적으로 테이블 생성하기
+            // - 5 x 5 테이블
+            
+            const table = document.createElement('table'); //<table></table>
+
+            table.setAttribute('border', '1'); //<table border="1"></table>
+
+            for (let i=0; i<5; i++) {
+                const tr = document.createElement('tr'); //<tr></tr>
+
+                for (let j=0; j<5; j++) {
+
+                    const td = document.createElement('td'); //<td></td>
+                    td.textContent = i + ',' + j;
+                    tr.appendChild(td);
+
+                    td.onclick = function() {
+                        event.target.bgColor = 'gold';
+                    }
+                }
+
+                table.appendChild(tr);
+            }
+
+            div1.appendChild(table);
+        });
+
+    </script>
+
+</body>
+</html>
