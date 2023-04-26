@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+			margin: 20px;
+			margin-top: 40px;
+            color: rgb(54, 54, 54);
+	    }
+
+		#frame {
+			width: 800px;
+			display: flex;
+			justify-content: space-between;
+		}
+
+        #frame div{
+            padding-top: 40px;
+        }
+
+		#tbl {
+			border: 1px solid #999;
+			border-collapse: collapse;
+			width: 805px;
+		}
+
+		#tbl th, #tbl td {
+			border: 1px solid #999;
+		}
+
+		#tbl th {
+			background-color: #444;
+			color: white;
+			padding-top: 7px;
+			padding-bottom: 7px;
+			width: 85px;
+		}
+
+		#tbl td {
+			height: 85px;
+			width: 85px;
+			vertical-align: top;
+			padding: 10px;
+			position: relative;
+		}
+
+		#tbl .no {
+			position: absolute;
+			right: 10px;
+			top: 9px;
+		}
+
+		#tbl td div {
+			font-size: .9em;
+            margin-bottom: 5px;
+		}
+
+		#tbl td:first-child .no {
+			color: tomato;
+		}
+
+		#tbl td:last-child .no {
+			color: cornflowerblue;
+		}
+
+    </style>
+</head>
+<body>
+
+	<div id="frame">
+		<h1 id="yearMon"></h1>
+		<div id="buttons">
+			<button id="btn1">이전달</button>
+			<button id="btn2">이번달</button>
+			<button id="btn3">다음달</button>
+		</div>
+	</div>
+
+	<table id="tbl">
+		<thead>
+			<tr>
+				<th>SUN</th>
+				<th>MON</th>
+				<th>TUE</th>
+				<th>WED</th>
+				<th>THU</th>
+				<th>FRI</th>
+				<th>SAT</th>
+			</tr>
+		</thead>
+		<tbody id="tblb"></tbody>
+	</table>     
+
+    <script>
+
+        const btn1 = document.getElementById('btn1');
+        const btn2 = document.getElementById('btn2');
+        const btn3 = document.getElementById('btn3');
+        const tblb = document.getElementById('tblb');
+        const h1 = document.getElementById('yearMon');
+
+
+        //이번달 정보들
+        var now = new Date();
+        makeCal(now.getFullYear(), now.getMonth());
+
+        btn1.onclick = function() {
+            now.setMonth(now.getMonth() - 1)
+            makeCal(now.getFullYear(), now.getMonth());
+        };
+
+        btn2.onclick = function() {
+            now = new Date();
+            makeCal(now.getFullYear(), now.getMonth());
+        };
+
+        btn3.onclick = function() {
+            now.setMonth(now.getMonth() + 1)
+            makeCal(now.getFullYear(), now.getMonth());
+        };        
+
+        function makeCal(year, mon) {
+
+            var dt = new Date(year, mon, 1);
+            mon = dt.getMonth()+1;
+            let day = dt.getDay();
+            let lastdate = new Date(year, mon-1, -1).getDate();
+            let startday = new Date(year, mon-1, 1).getDay();
+
+            var tmp = "";
+            tmp += '<tr>';
+            var cnt = 0;
+            var weeks = 0;
+            //빈칸 만들기
+            for(let i = 0; i < startday; i++) {
+                tmp += '<td></td>';
+                cnt++;
+            }
+
+            //실제 날짜 만들기
+            for(let i = 1; i <= lastdate; i++) {
+                if(cnt == 7) {
+                    tmp += '</tr>';
+                    tmp += '<tr>';
+                    cnt = 0;      
+                    weeks += 1;              
+                }              
+                tmp += '<td><div>할일</div><div>또 할일</div><div>더 많은 할일</div><span class=no>'+ i +'</span></td>';
+                cnt++;
+            }
+
+            dt.setDate(lastdate);
+
+            //뒤에 남는 빈칸 만들기
+            for(let i = dt.getDay(); i < 6; i++) {
+                console.log(dt.getDay());
+                tmp += '<td></td>';
+                cnt++;
+            }
+            h1.innerHTML = year + "." + mon;
+            tblb.innerHTML = tmp;
+        }
+
+    
+    </script>
+
+</body>
+</html>
