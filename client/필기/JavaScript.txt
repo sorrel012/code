@@ -204,7 +204,7 @@
     - 같은 구조(★)의 객체를 생성하는 것이 목표
     - 대문자로 시작한다.(일반 함수와 구분하기 위해)
     - new 연산자와 함께 호출해야 한다.
-    
+
 
 // Date
     - 내장 객체
@@ -294,10 +294,27 @@
 // DOM, Document Object Model > 돔
     - BOM을 개선한 모델
     - 현재까지 계속 사용(주력)
-    - BOM 기반 + 기능 추가
+    - BOM 기반 + 기능 추가 
+    - DOM > BOM 확장 > DOM의 모든 기능을 BOM의 document 내부에 구현해놨다.
     - 모든 태그를 인식 > 모든 태그 조작 가능
-    - name, id, class 모두 인식할 수 있다.
-    
+    - name, id, class 모두 인식할 수 있다.(name 비권장)
+    - 버전이 있다. (DOM Level 1 > DOM Level 2 > DOM Level 3)
+        ~ DOM Level 0: BOM을 일컫기도 한다.
+
+    - 태그 검색
+        1. id 검색          > document.getElementById('id')
+        2. class 검색       > document.getElementByClassName('id')
+        3. name 검색        > document.getElementByName('id')
+        4. 태그명 검색       > document.getElementByTagName('id')
+        5. CSS 선택자 검색   > document.querySelector('selector')
+                              document.querySelectorAll('selector')
+
+
+// BOM, DOM > 태그 조작
+    1. 태그 검색(BOM, DOM)    
+    2. 속성 조작(BOM, DOM)    
+    3. PCDATA 조작(DOM) > innerText, textContent
+
     
 // 이벤트, Event
     - 사건
