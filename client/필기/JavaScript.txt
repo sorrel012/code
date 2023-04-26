@@ -309,29 +309,69 @@
         5. CSS 선택자 검색   > document.querySelector('selector')
                               document.querySelectorAll('selector')
 
+    - DOM 트리 구성 요소(노드): 태그뿐만 아니라 다른 요소들도 포함
+        1. 태그(1)
+        2. 속성(2)
+        3. PCDATA(3)
+        4. 주석(8)
+        5. 선언문(13)
 
-// BOM, DOM > 태그 조작
-    - 태그 검색(BOM, DOM)    
-    - 속성 조작(BOM, DOM)    
-    - PCDATA 조작(DOM) > 콘텐츠 조작 > 시작 태그와 끝 태그 사이의 내용물 조작
-        1. innerText
-            - 시작 태그와 끝 태그 사이의 문자열 읽기/쓰기 프로퍼티
-            - 비표준(MS)
+    - DOM 트리 구성 노드의 프로퍼티 
+        1. nodeType > 해당 노드가 어떤 형식인지 > 열거형(숫자)
+        2. nodeName > 태그(태그명), 속성(속성명), PCDATA(#text)
+        3. nodeValue > 태그(null), 속성(속성값), PCDATA(문자열)
 
-        2. innerHTML
-            - 시작 태그와 끝 태그 사이의 문자열과 태그 읽기/쓰기 프로퍼티
-            - 문자열 + 태그
-            - 태그를 인식한다.
+    - 이벤트
+        ~ addEventListener(원하는조작, 함수)    > 이벤트 설정
+        ~ removeEventListener(원하는조작, 함수) > 이벤트 제거
+        - 이벤트 매핑을 관리할 수 있다.
+            > Invocation List(이벤트 함수 목록)
 
-        3. outerText
-            - 사용 안 함
 
-        4. outerHTML
-            - 사용 안 함
+// BOM, DOM 
+    1.태그 조작getElementsByTagName
+        - 태그 검색(BOM, DOM)    
+        - 속성 조작(BOM, DOM)    
+        - PCDATA 조작(DOM) > 콘텐츠 조작 > 시작 태그와 끝 태그 사이의 내용물 조작
+            a. innerText
+                - 시작 태그와 끝 태그 사이의 문자열 읽기/쓰기 프로퍼티
+                - 비표준(MS)
 
-        5. textContent
-            - 시작 태그와 끝 태그 사이의 문자열 읽기/쓰기 프로퍼티
-            - 표준
+            b. innerHTML
+                - 시작 태그와 끝 태그 사이의 문자열과 태그 읽기/쓰기 프로퍼티
+                - 문자열 + 태그
+                - 태그를 인식한다.
+
+            c. outerText
+                - 사용 안 함
+
+            d. outerHTML
+                - 사용 안 함
+
+            e. textContent
+                - 시작 태그와 끝 태그 사이의 문자열 읽기/쓰기 프로퍼티
+                - 표준
+
+    2. document
+        - BOM: window가 document의 부모
+        - DOM: document가 최상위 객체
+
+
+// Axis(Traversing)
+    - 본인을 기준으로 주변의 요소(부모, 자식, 형제)를 검색하는 도구
+        
+    - 자식 태그
+        - childNodes: 자식 노드들
+        - firstChild; 첫 번째 자식 노드 > me.childNodes[0];
+        - lastChild> 마지막 자식 노드 > 
+
+    - 바로 위의 형제
+        ~ previousSibling
+        ~ previousElementSibling
+
+    - 바로 밑의 형제
+        ~ nextSibling
+        ~ nextElementSibling
 
     
 // 이벤트, Event
