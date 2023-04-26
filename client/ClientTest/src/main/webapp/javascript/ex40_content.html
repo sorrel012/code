@@ -64,7 +64,7 @@
                 temp += '<tr>';
 
                 for (let j = 0; j < selcolumn.value; j++) { //열 생성<td>
-                    temp += '<td>';
+                    temp += '<td onclick="changeColor();">';
                     temp += i + ',' + j;
                     temp += '</td>';
                 }
@@ -75,6 +75,10 @@
 
             tbl1.innerHTML = temp;
         };
+
+        function changeColor() {
+            event.target.bgColor = 'gold';
+        }
 
     </script>
 
