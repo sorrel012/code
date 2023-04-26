@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        #frame {
+            border: 1px solid gray;
+            height: auto;
+            min-height: 140px;
+            overflow: hidden;
+            padding: 20px;
+        }
+    
+    </style>
+</head>
+<body>
+
+    <div id="frame"></div>
+
+    <script>
+        
+        const frame = document.getElementById('frame');
+
+        document.body.onkeyup = function() {
+
+            if(event.keyCode == 48 || event.keyCode == 96) {
+                frame.innerHTML += '<img src="../images/0.png">';
+            } else if(event.keyCode == 49 || event.keyCode == 97) {
+                frame.innerHTML += '<img src="../images/1.png">';
+            } else if(event.keyCode == 50 || event.keyCode == 98) {
+                frame.innerHTML += '<img src="../images/2.png">';
+            } else if(event.keyCode == 51 || event.keyCode == 99) {
+                frame.innerHTML += '<img src="../images/3.png">';
+            } else if(event.keyCode == 52 || event.keyCode == 100) {
+                frame.innerHTML += '<img src="../images/4.png">';
+            } else if(event.keyCode == 53 || event.keyCode == 101) {
+                frame.innerHTML += '<img src="../images/5.png">';
+            } else if(event.keyCode == 54 || event.keyCode == 102) {
+                frame.innerHTML += '<img src="../images/6.png">';
+            } else if(event.keyCode == 55 || event.keyCode == 103) {
+                frame.innerHTML += '<img src="../images/7.png">';
+            } else if(event.keyCode == 56 || event.keyCode == 104) {
+                frame.innerHTML += '<img src="../images/8.png">';
+            } else if(event.keyCode == 57 || event.keyCode == 105) {
+                frame.innerHTML += '<img src="../images/9.png">';
+            } 
+        };
+
+    </script>
+
+</body>
+</html>

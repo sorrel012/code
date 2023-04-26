@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        body {
+            color: rgb(77, 77, 77);
+        }
+        
+        fieldset {
+            width: 200px;
+        }
+
+        .name {
+            margin-top: 12px;
+        }
+
+        #txt {
+            margin-bottom: 5px;
+        }
+
+        table {
+            margin-top: 15px;
+            border-left: 1px solid gray;
+            border-top: 1px solid gray;
+            border-right: 1px solid gray;
+            width: 350px;
+            text-align: center;
+        }
+
+        th {
+            border-bottom: 1px solid gray;
+        }
+
+        .r {
+            border-left: 1px solid gray;
+        }
+
+        .r, .l {
+            border-bottom: 1px solid gray;
+        }
+
+        input {
+            outline: none;
+        }
+
+    </style>
+</head>
+<body>
+
+     <h1>테이블</h1>
+
+     <fieldset>
+            <legend>색상 입력</legend>
+            <div class="color">
+                <span>색상 : </span>
+                <input type="color" id="color">
+            </div>
+            <div class="name">
+                <div>이름 : </div>
+                <input type="text" id="txt">
+            </div>
+            <input type="button" value="추가하기" id="btn">
+     </fieldset>
+
+     <table id="tbl1">
+     </table>
+
+    <script>
+        
+        const tbl1 = document.getElementById('tbl1');
+        const preview = document.getElementsByClassName('r');
+        const col = document.getElementById('color');
+        const name = document.getElementById('txt');
+        const btn = document.getElementById('btn');
+        
+        let tmp = '<th>색상명</th>';
+        tmp += '<th>미리보기</th>';
+        tmp += '<tr><td class="l">노랑</td><td class="r">#FFFF00</td></tr>';
+        tmp += '<tr><td class="l">풀색</td><td class="r">#ACEF12</td></tr>';
+        
+        tbl1.innerHTML = tmp;
+        color();
+
+        btn.onclick = content;
+        document.body.onkeyup = function() {
+            if(event.keyCode == 13) {
+                content();
+            }
+        }
+
+        function color() {
+            for(var i = 0; i < preview.length; i++){
+                preview[i].bgColor = preview[i].innerText;
+            }   
+        }
+
+        function content() {
+            tmp += '<tr>';
+
+            tmp += '<td class="l">';
+            tmp += name.value;
+            tmp += '</td>';
+
+            tmp += '<td class="r">';
+            tmp += col.value;
+            tmp += '</td>';
+
+            tmp += '</tr>';
+
+            tbl1.innerHTML = tmp;
+
+            color();
+        }
+
+    </script>
+
+</body>
+</html>
