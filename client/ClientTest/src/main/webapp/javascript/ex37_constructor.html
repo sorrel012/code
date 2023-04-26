@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    
+    </style>
+</head>
+<body>
+
+     <button name="btn1" type="button">버튼</button>
+
+    <script>
+        const m1 = {
+            name: '홍길동',
+            age: 20
+        };
+
+        const m2 = {
+            name: '아무개',
+            age: 22
+        };
+
+        //생성자 함수
+        function User(name, age) {
+            this.name = name;
+            this.age = age;;
+            this.hello = function() {
+                console.log('내 이름은 ' + this.name);                
+            }
+        }
+
+        const m3 = new User('홍길동', 26);
+        console.log(m3);
+        
+        // new > 빈 객체를 생성!
+        const m4 = {};
+        
+        //User('홍길동', 20) > 왼쪽에서 new가 만든 빈객체를 초기화하는 역할
+        m4.name = '홍길동';
+        m4.age = 20;
+
+        const m5 = new User('이순신', 25);
+        console.log(m5);
+
+
+        document.all.btn1.onclick = f2;
+        
+        function f2() {
+            //event.target == event.srcElement == this > 이벤트를 발생시킨 주체 > 누가 호출했는지에 따라 달라진다.
+            alert(this.name);
+        };
+
+        function f1() {
+            alert(this);
+        }
+        
+        // 전역 변수와 전역 함수는 무조건 window 객체의 프로퍼티가 된다.
+        // f1();
+        // window.f1();
+
+        const now = new Date();
+        const list = []; //new Array();
+
+        console.log(typeof m5, m5.constructor.name); //object User
+        console.log(typeof now); //object Date
+        console.log(typeof list); //object Array
+        
+    </script>
+
+</body>
+</html>
