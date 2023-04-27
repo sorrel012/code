@@ -132,7 +132,7 @@
 
 
 // 형변환
-    - 함수 제공
+    - 함수 제공(정수로 바꿔주고, 숫자 외에는 제거해준다.)
         1. number parseInt(value)
         2. number parseFloat(value)            
         
