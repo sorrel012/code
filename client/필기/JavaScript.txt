@@ -434,6 +434,10 @@
 
     - addEventListener(원하는조작, 함수, true): 이벤트 터널링 구현
 
+    - 이벤트 버블링 중단(이벤트 발생 사실을 상위 계층에 알리지 않는다.)
+        1. event.cancelBubble = true; > 비표준(MS) > IE 전용
+        2. event.stopPropagation();   > 표준 > 권장
+
 
 // 마우스 관련 이벤트
     - onmouseXXX
