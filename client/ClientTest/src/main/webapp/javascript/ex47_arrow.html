@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    
+    </style>
+</head>
+<body>
+
+     <input type="button" id="btn1" value="확인">
+
+    <script>
+    
+        //화살표 함수 = 익명 함수
+        const f3 = () => {console.log('f3');};
+        f3();
+
+        //실행문 1줄 > 블럭 생략
+        const f4 = () => console.log('f4');
+
+        //매개변수
+        const f5 = (num) => console.log(num);
+        const f6 = num => console.log(num); //매개변수가 하나면 () 생략 가능
+        const f7 = (a,b) => console.log(a + b);
+
+        //반환값
+        const f8 = () => { return 100; }
+        const f9 = () => 200; //반환값이 유일하면 {}와 return문 생략 가능
+
+        document.getElementById('btn1').onclick = function() {
+            // alert('익명 함수');
+
+            /*
+                이벤트 호출한 주체 > 버튼
+                1. event.target
+                2. event.srcElement
+                3. this
+            */
+
+            // alert(event.target);
+            // alert(event.srcElement);
+            // alert(this);
+        };
+
+        document.getElementById('btn1').onclick = () => {
+            // alert('화살표 함수');
+            // alert(event.target);
+            // alert(event.srcElement);
+            // alert(this);
+        };
+
+        // setTimeout(function() {
+        //     alert('확인');
+        // }, 3000);
+
+        // setTimeout(() => {
+        //     alert(this);
+        // }, 3000);
+
+        //자바 > list.stream().forEach(Consumer)
+
+        const list = [5, 1, 9, 3, 7, 6, 8, 2, 4, 10];
+
+        //콜백 메소드, 콜백 함수 > Callback > 시스템(환경)에 의해서 호출되는 메소드
+        list.forEach(function(num) {
+            console.log(num);
+        });
+
+        list.forEach(num => console.log(num));
+        console.clear();
+
+        list.forEach((item, index) => console.log(item, index));
+        console.clear();
+
+        //map()
+        //- 앞의 요소를 가공해서 다른 요소로 반환
+        // list.map(num => 100).forEach(item => console.log(item));
+        list.map(num => num % 2 == 0 ? '짝수' : '홀수').forEach(item => console.log(item));
+
+        const names = ['홍길동', '아무개', '호호호'];
+
+        // const obj = {
+        //     name: '홍길동',
+        //     age: 20,
+        //     address: '서울시'
+        // };
+        
+        names.map(name => {
+            return {
+                name: name,
+                age: 20,
+                address: '서울시'
+            };
+        }).forEach(obj => console.log(obj));
+
+        //filter()
+        list.filter(num => num > 5).forEach(num => console.log(num));
+        
+        console.clear();
+        console.log(list.sort((a,b) => a - b));
+        
+
+        //ES6
+
+        //find
+        const mlist = ['홍길동', '아무개', '하하하', '호호호', '후후후'];
+
+        //요구사항] '하'씨가 있습니까?
+        for (let i = 0; i < mlist.length; i++) {
+            if (mlist[i].startsWith('하')) {
+                console.log(mlist[i]);
+                break;
+            }
+        }
+
+        console.log(mlist.find(name => name.startsWith('하')));
+
+    </script>
+
+</body>
+</html>
