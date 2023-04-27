@@ -422,6 +422,11 @@
     - this: 이벤트 주체(이벤트가 걸린 태그)
         ※ 함수 내의 this는 window 객체(전역 객체)를 말한다.
 
+    - 이벤트 중단
+        a. return false;            > 비표준(MS) > IE 전용
+        b. event.preventDefault();  > 표준 > 권장
+
+
 // 이벤트 버블링(Event Bubbling), 이벤트 터널링(Event Tunneling, 이벤트 캡쳐링(Event Capturing))
     - 이벤트는 태그 계층구조에 따라 순차적으로 전달 및 실행된다.
         ~ 이벤트 터널링: 상위 계층부터 하위 계층까지 순차적으로 이벤트를 전달한다.
@@ -622,3 +627,4 @@
     2. "string"
     3. `string`: `(역따옴표, backtick, backquote)
         - 엔터도 입력이 가능하다.
+
