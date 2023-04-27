@@ -11,6 +11,7 @@
             border: 1px solid black;
             padding: 50px;
         }
+
     </style>
 </head>
 <body>
@@ -53,8 +54,8 @@
 
         /*
             2. 이벤트 중단
-                a. return false;
-                b. event.preventDefault();
+                a. return false;            > 비표준(MS) > IE 전용
+                b. event.preventDefault();  > 표준 > 권장
         */
 
         const link1= document.getElementById('link1');
@@ -66,8 +67,15 @@
             return false;
         }
 
-        txt1.onkeydown = function() {
-            return false;
+        txt1.onkeydown = function() {      
+            // if(event.keyCode >= 48 && event.keyCode < 57) {
+            //     return true;
+            // } else {
+            //     return false;
+            // }
+
+            // return false;
+            event.preventDefault();
         }
 
     </script>
