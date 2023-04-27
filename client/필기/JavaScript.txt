@@ -419,6 +419,19 @@
     - this: 이벤트 주체(이벤트가 걸린 태그)
         ※ 함수 내의 this는 window 객체(전역 객체)를 말한다.
 
+// 이벤트 버블링(Event Bubbling), 이벤트 터널링(Event Tunneling, 이벤트 캡쳐링(Event Capturing))
+    - 이벤트는 태그 계층구조에 따라 순차적으로 전달 및 실행된다.
+        ~ 이벤트 터널링: 상위 계층부터 하위 계층까지 순차적으로 이벤트를 전달한다.
+        ~ 이벤트 버블링: 하위 계층부터 상위 계층까지 순차적으로 이벤트를 수행한다.
+            ※event.cancelBubble = true; > 이벤트 버블링 중단(이벤트 발생 사실을 상위 계층에 알리지 않는다.)
+    
+    - 자바스크립트는 기본적으로 이벤트만 발생한다.(원하면 이벤트 터널링도 발생시킬 수는 있다. > DOM으로만 가능)
+        > 내려가다가 이벤트가 걸린 곳에서 유턴한다.
+            - event.target★★ , event.srcElement: 유턴하는 객체
+            - this, event.currentTarget★★: 이벤트를 소유하는 객체
+
+    - addEventListener(원하는조작, 함수, true): 이벤트 터널링 구현
+
 
 // 마우스 관련 이벤트
     - onmouseXXX
