@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/example.css">
+    <style>
+        .box {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+
+        //화면 클릭 > 상자 생성 > 이동
+
+        const colors = ['bg-red', 'bg-yellow', 'bg-green', 'bg-blue', 'bg-orange'];
+        let index = 0;
+        
+        window.onmousedown = function () {
+
+            // console.log(event.ctrlKey);
+
+            if (event.buttons == 1 && !event.ctrlKey) {
+
+                let box = document.createElement('div'); //<div></div>
+                box.classList.add('box'); //<div class="box"></div>
+
+                box.classList.add(colors[index++]) //<div class="box bg-red"></div>
+                if (index >= colors.length) {
+                    index = 0;
+                }
+
+                box.style.left = event.clientX - 100 + 'px';
+                box.style.top = event.clientY - 100 + 'px';
+
+                document.body.appendChild(box);
+
+            } else if(event.buttons == 1 && event.ctrlKey) {
+                
+                // alert(event.target);
+                // if(event.target.nodeName == 'DIV') 
+                if (event.target.classList.contains('box')) {                    
+                    
+                    if (confirm('delete?')) {
+                        // document.body.removeChild(event.target);// 방금 삭제된 태그까지 반환
+                        event.target.remove(); //반환 타입 void
+                    }
+                }
+            }
+            
+        };
+
+    </script>
+
+</body>
+
+</html>
