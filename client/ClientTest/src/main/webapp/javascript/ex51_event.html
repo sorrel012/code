@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        #tbl1 {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        #tbl1 td{
+            border: 1px solid black;
+            padding: 5px 15px;
+        }
+
+        #tbl2 {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        #tbl2 td{
+            border: 1px solid black;
+            width: 126px;
+            height: 126px;
+            font-size: 0px;
+        }
+
+    </style>
+</head>
+<body oncontextmenu="return false";>
+
+    <h1>테이블</h1>
+
+    <table id="tbl1">
+        <tr>
+            <td>lorem2</td>
+            <td>lorem2</td>
+            <td>lorem2</td>
+            <td>lorem2</td>
+            <td>lorem2</td>
+        </tr>
+        <tr>
+            <td>lorem2</td>
+            <td>lorem2</td>
+            <td>lorem2</td>
+            <td>lorem2</td>
+            <td>lorem2</td>
+        </tr>
+        <tr>
+            <td>lorem2</td>
+            <td>lorem2</td>
+            <td>lorem2</td>
+            <td>lorem2</td>
+            <td>lorem2</td>
+        </tr>
+        <tr>
+            <td>lorem2</td>
+            <td>lorem2</td>
+            <td>lorem2</td>
+            <td>lorem2</td>
+            <td>lorem2</td>
+        </tr>
+        <tr>
+            <td>lorem2</td>
+            <td>lorem2</td>
+            <td>lorem2</td>
+            <td>lorem2</td>
+            <td>lorem2</td>
+        </tr>
+        <tr>
+            <td>lorem2</td>
+            <td>lorem2</td>
+            <td>lorem2</td>
+            <td>lorem2</td>
+            <td>lorem2</td>
+        </tr>
+        <tr>
+            <td>lorem2</td>
+            <td>lorem2</td>
+            <td>lorem2</td>
+            <td>lorem2</td>
+            <td>lorem2</td>
+        </tr>
+        <tr>
+            <td>lorem2</td>
+            <td>lorem2</td>
+            <td>lorem2</td>
+            <td>lorem2</td>
+            <td>lorem2</td>
+        </tr>
+        <tr>
+            <td>lorem2</td>
+            <td>lorem2</td>
+            <td>lorem2</td>
+            <td>lorem2</td>
+            <td>lorem2</td>
+        </tr>
+        <tr>
+            <td>lorem2</td>
+            <td>lorem2</td>
+            <td>lorem2</td>
+            <td>lorem2</td>
+            <td>lorem2</td>
+        </tr>
+    </table>
+    
+    <h1>테이블</h1>
+
+    <table id="tbl2">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <script>
+
+        /*
+
+        //<tr>
+
+        // const list = document.getElementsByTagName('tr');
+        
+        //tbody의 자식 <tr> * 10 > HTMLCollection
+        const list1 = document.getElementById('tbl1').firstElementChild.children; 
+        // list1.forEach(tr => tr.bgColor = 'gold'); // > 안 됨
+        // Array.from(list1).forEach(tr => tr.bgColor = 'gold'); // > 됨
+
+        //NodeList
+        const list2 = document.querySelectorAll('#tbl1 tr');
+        // list2.forEach(tr => tr.bgColor = 'gold');
+
+        // console.log(list1.length);
+        // console.log(list2.length);
+
+        // alert(list1 == list2);
+
+        console.log(typeof list1, typeof list2);
+        console.log(list1.constructor.name, list2.constructor.name);        
+    
+        const nums = [10, 20, 30];
+        console.log(Array.isArray(nums));
+
+        //유사 배열 : 배열은 아닌데, 배열처럼 보이게 만든 객체        
+        console.log(Array.isArray(list1)); //HTMLCollection
+        console.log(Array.isArray(list2)); //NodeList
+
+        const names = {
+            0: '홍길동',
+            1: '아무개',
+            2: '하하하',
+            length: 3
+        }
+
+        console.log(names[0]);
+        console.log(names[1]);
+        console.log(names[2]);
+        console.log(names.length);
+
+        console.clear();
+        
+        //nums vs names > 출력
+        for (let i=0; i<nums.length; i++) {
+            console.log(i, nums[i]);
+        }
+
+        for (let i=0; i<names.length; i++) {
+            console.log(i, names[i]);
+        }
+
+        nums.forEach(num => console.log(num));
+
+        //유사배열 > 스트림 계열 메소드 미지원
+        // names.forEach(name => console.log(name));
+        Array.from(names).forEach(name => console.log(name));
+        
+        */
+    
+        const list = document.querySelectorAll('#tbl1 tr');
+
+        for (let i=0; i<list.length; i++) {
+
+            list[i].onmouseover = function() {
+                
+                //<td>를 가리킴
+                // event.target.bgColor = 'gold';
+
+                //<tr>을 가리킴
+                event.currentTarget.bgColor = 'gold';
+                // this.bgColor = 'gold';
+                // event.target.parentElement.bgColor = 'gold';
+
+            };
+
+            list[i].onmouseout = function() {
+                event.currentTarget.bgColor = 'transparent';
+            }
+        }
+
+        const list2 = document.querySelectorAll('#tbl2 td');
+
+        for (let i=0; i<list2.length; i++) {
+
+            list2[i].onmousedown = function() {
+                //마우스 다운 >> <td>
+                
+                // TODO: 이미 이미지가 존재하면 제거 후 새로운 이미지 추가
+                if (event.buttons == 1) {      
+                    
+                    if(event.target.nodeName == 'IMG') {
+                        event.currentTarget.removeChild(event.currentTarget.firstElementChild);
+                    }
+                    let img = document.createElement('img');  
+                    img.setAttribute('src', 'images/rect_icon01.png');                    
+                    event.currentTarget.appendChild(img);
+
+                } else if (event.buttons == 2) {
+                    
+                    if(event.target.nodeName == 'IMG') {
+                        event.currentTarget.removeChild(event.currentTarget.firstElementChild);
+                    }
+                    let img = document.createElement('img');  
+                    img.setAttribute('src', 'images/rect_icon02.png');                    
+                    event.currentTarget.appendChild(img);
+
+                } else if (event.buttons == 4) {
+
+                    // 이미지 삭제
+                    // td태그의 자식인 img태그 삭제
+
+                    // img 태그가 추가 되었으니 event.target은 <img>를 가리킴 
+                    event.currentTarget.removeChild(event.currentTarget.firstElementChild);
+                    // event.target.parentElement.removeChild(event.target);
+                    
+                }
+            };
+        }
+    </script>
+
+</body>
+</html>
