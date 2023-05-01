@@ -1,0 +1,25 @@
+
+// 순수 JavaScript
+    - Vanila JavaScript
+
+
+// JavaScript Library(API)
+    - jQuery
+
+
+// JavaScript Framework
+    - React
+    - Angular
+    - Vue
+
+
+// jQuery 
+    - https://jquery.com/
+    - Lightweight Footprint
+    - CSS Compliant > CSS 선택자 지원 : ES6
+    - Cross-Brower
+
+    - 설치
+        1. 직접 설치 > 파일 다운로드 + 참조
+        2. Node.js > NPM > 설치
+        3. CND 사용 > URL 참조
