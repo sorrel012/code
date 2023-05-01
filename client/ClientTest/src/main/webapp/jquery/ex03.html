@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/example.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <h1>jQuery Event</h1>
+
+    <input type="button" value="버튼1" id="btn1" class="btn">
+    <input type="button" value="버튼2" id="btn2" class="btn">
+    <input type="button" value="버튼3" id="btn3" class="btn">
+    <input type="button" value="버튼4" id="btn4" class="btn">
+    <input type="button" value="버튼5" id="btn5" class="btn">
+    <input type="button" value="버튼6" id="btn6" class="btn">
+
+    <script src="js/jquery-3.6.4.js"></script>
+    <script>
+
+        //1. BOM
+        document.getElementById('btn1').onclick = function () {
+            alert('BOM');
+        };
+
+        //2. DOM
+        document.getElementById('btn2').addEventListener('click', function () {
+            alert('DOM');
+        });
+
+        //3. jQuery
+        // a. 이벤트 전용 함수
+        // b. 이벤트 범용 함수
+
+        jQuery('#btn3').mouseover(function () {
+            // alert('jQuery');
+            event.target.style.backgroundColor = 'gold';
+        });
+
+        jQuery('#btn3').mouseout(function () {
+            event.target.style.backgroundColor = 'white';
+        });
+
+        // const obj = {
+        //     name: '홍길동',
+        //     hello: function() {
+        //         alert(this.name);
+        //     }
+        // };
+
+        const obj = {
+            mouseover: function () {
+                event.target.style.backgroundColor = 'tomato';
+            }
+        };
+
+        jQuery('#btn4').on({
+            mouseover: function () {
+                event.target.style.backgroundColor = 'tomato';
+            },
+            mouseout: function() {
+                event.target.style.backgroundColor = 'white';
+            }
+            });
+
+            jQuery('#tbn4').off('mouseout');
+
+        jQuery('#btn5').click(function() {
+            
+            //이벤트 주체
+            // alert(event.target.value);
+            // alert(event.srcElement.value);
+            // alert(this.value);
+
+            //DOM 문법
+            jQuery(this).css('backgroung-color', 'gold');
+
+            jQuery(document.body).css('background-color','orange');
+
+        });
+
+        //메소드 체이닝
+        jQuery('#btn6').mouseover(function() {
+            $(this).css('background-color', 'gold');
+        }).mouseout(function() {
+            $(this).css('backgroundColor', 'white');
+        });
+
+
+    </script>
+
+</body>
+
+</html>
