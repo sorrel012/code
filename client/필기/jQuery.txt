@@ -58,6 +58,60 @@
     4. animate() > 사용자 정의
 
 
-// CSS 조작
+// CSS, HTML 조작
     - css('속성')       > getter
     - css('속성', 값)   > setter
+
+    ~ $().addClass : class 선택자 추가
+    ~ $().removeClass : class 선택자 제거
+
+    - 너비/높이
+        ~ width / height : 수치(px)
+        ~ innerWidth / innerHeight : width / height + padding
+        ~ outerWidth / outerHeight : width/height + padding + border 
+        ~ outerWidth(true) / outerHeight(true) : width/height + padding + border + margin
+
+
+// HTML 조작
+    1. 콘텐츠 조작
+        ~ innerText, textContent > text()
+        ~ innerHTML > html()
+        ~ value > val()
+
+    2. 속성 조작
+        - HTML 속성을 조작하는 메소드
+            ~ obj.attr('name')
+            ~ obj.attr('name', value)
+
+        - JavaScript 프로퍼티를 조작하는 메소드(HTML 속성에는 없고, JavaScript에만 있는 프로퍼티)
+            ~ obj.prop('name')
+            ~ obj.prop('name', value)
+
+    3. 태그 생성
+        ~ 부모.append(자식)
+        ~ 부모.prepend(자식)
+
+        ~ 자식.appendTo(부모)
+        ~ 자식.prependTo(부모)
+
+    4. Axis
+        - 자식 탐색
+            ~ children()
+            ~ children().first()
+            ~ children().last()
+            ~ children().eq() : children[]
+            ~ 상위태그.find('CSS 선택자') : 특정 태그를 기점으로 하위 태그를 검색 > 지역 검색
+        
+        - 조상 탐색
+            ~ parent()
+            ~ parents()
+            ~ parentsUntil(태그)☆: 특정 부모 태그 전까지 탐색
+        
+        - 형제 탐색
+            ~ prev()
+            ~ next()
+            ~ prevAll()
+            ~ nextAll()
+            ~ preveUntil(조건)
+            ~ siblings()
+
