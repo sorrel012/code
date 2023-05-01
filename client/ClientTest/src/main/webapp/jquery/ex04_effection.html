@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/example.css">
+    <style>
+    
+    </style>
+</head>
+<body>
+
+    <h1>jQuery Effect</h1>
+
+    <input type="button" value="버튼1" id="btn1">
+    <input type="button" value="버튼2" id="btn2">
+    <input type="button" value="버튼3" id="btn3">
+    <input type="button" value="버튼4" id="btn4">
+    <input type="button" value="버튼5" id="btn5">
+
+    <hr class="">
+
+    <div id="box" class="box bg-yellow">상자</div>
+
+    <script src="js/jquery-3.6.4.js"></script>
+    <script>
+
+        //jQuery Alias > $
+
+        //jQuery('#btn1')
+
+        $('#btn1').click(() => {
+            // $('#box').hide();
+            // $('#box').fadeOut(1000);
+            // $('#box').slideUp(1000);
+            $('#box').animate( {
+                width: '400px',
+                height: '400px'
+            });
+        });
+
+        $('#btn2').click(() => {
+            // $('#box').show(1000);
+            // $('#box').fadeIn(1000);
+            // $('#box').slideDown(1000);
+            $('#box').animate({
+                width: 200,
+                height: 200,
+            });
+        });
+
+        $('#btn3').click(() => {
+            // $('#box').toggle(1000);
+            // $('#box').fadeToggle();
+            // $('#box').slideToggle();
+            $('#box').animate({
+                //box.style.width = parseInt(box.style.width) + 100 + 'px'
+                width: '+=100',
+                height: '+=50px',
+                'margin-left': '+=50px',
+                marginTop:  '+=50px'
+            });
+        });
+
+        $('#btn4').click(function() {
+            
+            $('#box').slideUp().slideDown().hide(500).show(500);
+
+            // $('#box').animate({transform: 'translate(200px, 0)'})
+            //         .animate({transform: 'translate(200px, 200px)'})
+            //         .animate({transform: 'translate(0, 200px)'})
+            //         .animate({transform: 'translate(0, 0)'})
+
+        });
+
+        // $('#btn5').hide(3000, function() {
+        //     $('#box').hide(3000, function() {
+        //         //Effect 종료 직후 처리 업무
+        //         $(document.body).css('background-color', 'grey');
+        //     });
+
+        //     // setTimeout(function() {}, 3000);
+        // });
+
+    </script>
+
+</body>
+</html>
