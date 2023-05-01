@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/example.css">
+    <style>
+    
+    </style>
+</head>
+<body>
+
+    <h1>jQuery() 함수</h1>
+
+    <input type="button" value="확인" id="btn" name="btn">
+    <hr>
+
+    <div id="box1" class="box small inline">상자1</div>
+    <div id="box2" class="box small inline">상자2</div>
+    <div id="box3" class="box small inline">상자3</div>
+    <div id="box4" class="box small inline">상자4</div>
+    <div id="box5" class="box small inline">상자5</div>
+
+    <script src="js/jquery-3.6.4.js"></script>
+    <script>
+    
+        const btn = document.getElementById('btn');
+
+        btn.addEventListener('click', function() {
+            
+            //1. 첫 번째 상자
+            const box1 = document.getElementById('box1');
+
+            box1.style.backgroundColor = 'gold';
+
+            jQuery('#box1').css('background-color', 'yellowgreen');
+
+            //2. 상자 5개
+            const list = document.getElementsByClassName('box');
+
+            for (let i=0; i<list.length; i++) {
+                list[i].style.borderWidth = '5px';
+            }
+
+            jQuery('.box').css('font-size','3rem');
+
+
+            //jQuery 함수 > CSS 선택자 지원
+            // alert(document.getElementById('box1')); //[object HTMLDivElement]
+            // alert(jQuery('#box1')); //[object Object]
+
+            //태그 선택자
+            jQuery('div').css('color', 'blue');
+            
+            //클래스 선택자
+            jQuery('.box').css('background-color', 'gold');
+
+            //아이디 선택자
+            jQuery('#box3').css('font-style', 'italic');
+
+            //
+            jQuery('div:nth-child(odd)').css('text-decoration', 'underline');
+
+        })
+
+    </script>
+
+</body>
+</html>
