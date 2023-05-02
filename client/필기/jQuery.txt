@@ -115,3 +115,43 @@
             ~ preveUntil(조건)
             ~ siblings()
 
+
+// jQuery UI
+    - jQuery에 애니메이션 기능을 확장한 것
+
+    - draggable(): 마우스로 클릭해서 드래그할 수 있다.
+        draggable({
+            axis: 'x' > 좌우로만 이동 가능
+            axis: 'y' > 상하로만 이동 가능
+            grid:[x,y] > 한번에 이동 가능한 범위 제한
+            containment > 지정 태그의 영역을 벗어날 수 없음
+            snap > 지정 태그에 가까이 가면 자석에 끌리듯 붙음
+            cursor > 커서 모양을 바꿀 수 있음
+        });
+
+    - droppable(): 드래그 후 놓였을 때 발생하는 이벤트를 설정할 수 있다.
+        droppable({
+            tolerance: 'fit' > 무엇인가가 완전히 들어올 때 이벤트 함수 발생
+            tolerance: 'touch' > 무엇인가가 살짝만 닿아도 이벤트 함수 발생
+            drop: function() {} > 이벤트 함수
+        });
+
+    - resizable(): 사이즈를 조절할 수 있다.
+        resizable({
+            maxWidth: 500 > 최대 너비
+            maxHeight: 500 > 최대 높이
+            minWidth: 100 > 최소 너비
+            minHeight: 100 > 최소 높이
+            grid: [100, 100] > 한번에 조절 가능한 크기
+
+            animate: true
+            helper: 'helper' > helper로 가이드를 표시하고, 마우스를 놓을 때 사이즈 조절
+
+            alsoResize: '다른오브젝트' > 다른 오브젝트의 사이즈도 조절
+            aspectRatio: true > 비율 유지
+        
+        });
+
+    - selectable(): 리스트 사용 시 요소를 선택하면 해당 요소에 ui-selected 클래스를 추가해준다. (class는 직접 구현해야 함)
+
+    - sortable(): 사용자가 직접 순서를 변경할 수 있다.
