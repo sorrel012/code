@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <style>
+    
+    </style>
+</head>
+<body oncontextmenu="return false;">
+
+    <h1>Interactions <small>Sortable</small></h1> 
+
+    <h1>목록</h1>
+
+    <ul id="list1">
+        <li>Java</li>
+        <li>Oracle</li>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+    </ul> 
+
+    <hr>
+
+    <h1>프로젝트 팀원 선택(1명 이상)</h1>
+    <div id="list3">
+        <img src="images/man_01.png">
+        <img src="images/man_02.png">
+        <img src="images/man_03.png">
+        <img src="images/woman_01.png">
+        <img src="images/woman_02.png">
+        <img src="images/woman_03.png">
+    </div>
+
+    <script src="js/jquery-3.6.4.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script>
+    
+        $('#list1, #list3').sortable();
+    </script>
+
+</body>
+</html>
