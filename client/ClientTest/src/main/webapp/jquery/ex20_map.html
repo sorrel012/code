@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+
+<body>
+
+    <h1>지도</h1>
+
+    <div id="main">
+        <div id="map" style="width: 1200px; height: 550px;"></div>
+        <ul id="plist">
+        </ul>
+    </div>
+    <hr>
+
+    <div id="message"></div>
+
+    <script src="js/data.js"></script>
+    <script src="js/jquery-3.6.4.js"></script>
+    <script type="text/javascript"
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6d88daddca380ab9ff45e48fab144915"></script>
+    <script>
+
+        const map = new kakao.maps.Map(document.getElementById('map'), {
+            center: new kakao.maps.LatLng(37.4993, 127.0331),
+            level: 3
+        });
+
+        // $(map).click(function() {
+        //     alert();
+        // });
+
+        /*
+        kakao.maps.event.addListener(map, 'click', function(event) {
+            // alert();
+
+            document.getElementById('message').innerText = `클릭한 위치: 위도(${event.latLng.getLat()}), 경도(${event.latLng.getLng()})`
+
+            // map.panTo(new kakao.maps.LatLng(event.latLng.getLat(), event.latLng.getLng()))
+
+            //마커 표시
+            const marker = new kakao.maps.Marker({
+                position: event.latLng
+            });
+
+            marker.setMap(map);
+        });
+        */
+
+        /*
+        list.forEach((item, index) => {
+
+            // console.log(item.name, item.position.lat, item.position.lng);
+
+            const marker = new kakao.maps.Marker({
+                position: new kakao.maps.LatLng(item.position.lat, item.position.lng)
+            });
+
+            marker.setMap(map);
+        });
+        */
+
+        let marker = null;
+
+        list.forEach((item) => {
+
+            // $('#plist').append(`
+            //     <li>${item.name}</li>
+            // `);
+
+            $(`<li>${item.name}</li>`)
+                .css('cursor', 'pointer')
+                .click(() => {
+
+                    // alert($(event.target).text());
+                    $('#plist li').css('color', 'black');
+                    $(event.target).css('color', 'red');
+                    // alert(item.position.lat);
+
+
+                    if (marker != null) {
+                        //마커 삭제
+                        marker.setMap(null);
+                    }
+
+                    // if (marker == null) {
+                        marker = new kakao.maps.Marker({
+                            position: new kakao.maps.LatLng(item.position.lat, item.position.lng)
+                        });
+                        marker.setMap(map);
+
+                        map.panTo(new kakao.maps.LatLng(item.position.lat, item.position.lng));
+                    // } 
+                })
+                .appendTo('#plist');
+
+        });
+
+
+
+    </script>
+
+</body>
+
+</html>

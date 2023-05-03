@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <style>
+        #map {
+            width: 1200px;
+            height: 550px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>지도</h1>
+
+    <hr>
+
+    <input type="button" value="한독빌딩으로 이동하기" id="btn1" data-lat="37.4993" data-lng="127.0331">
+    <input type="button" value="신촌으로 이동하기" id="btn2" data-lat="37.5592" data-lng="126.9365">
+    <input type="button" value="잠실로 이동하기" id="btn3" data-lat="37.5092" data-lng="127.0997">
+    <input type="button" value="역삼역으로 이동하기" id="btn4">
+
+    <hr>
+
+    <input type="button" value="확대하기" id="btn5">
+    <input type="button" value="축소하기" id="btn6">
+
+    <div id="map"></div>
+    <script src="js/jquery-3.6.4.js"></script>
+    <script src="js/data.js"></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6d88daddca380ab9ff45e48fab144915"></script>
+	<script>
+
+		var container = document.getElementById('map');
+        
+		var options = {
+			center: new kakao.maps.LatLng(37.4993, 127.0331),
+			level: 2
+		};
+
+		var map = new kakao.maps.Map(container, options);
+
+        // $('input[type=button]').click(function() {
+
+        //     //JavaScript
+        //     //  - obj.dataset['lat']
+        //     //  - obj.dataset['lng']
+
+        //     //jQuery
+        //     // alert($(this).data('lat'));
+
+        //     // 지도 포인트 이동
+        //     const point = new kakao.maps.LatLng($(this).data('lat'), $(this).data('lng'));
+        //     map.setCenter(point);
+        // });
+
+        //한독빌딩
+        $('#btn1').click(function() {
+            const point = new kakao.maps.LatLng(list[0].position.lat, list[0].position.lng);
+            // map.setCenter(point);
+            map.panTo(point);
+        });
+
+        //역삼역
+        $('#btn4').click(function() {
+            const point = new kakao.maps.LatLng(list[1].position.lat, list[1].position.lng);
+            // map.setCenter(point);
+            map.panTo(point);
+        });
+
+        // map.setDraggable(false);
+        // map.setZoomable(false);
+
+        $('#btn5').click(function() {
+            // alert(map.getLevel());
+            map.setLevel(map.getLevel() + 1);
+        });
+
+        $('#btn6').click(function() {
+            // alert(map.getLevel());
+            map.setLevel(map.getLevel() - 1);
+        });
+
+	</script>
+</body>
+</html>
