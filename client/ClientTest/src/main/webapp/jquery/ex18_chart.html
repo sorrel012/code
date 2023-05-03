@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <h1>라인 차트</h1>
+
+    <div id="chart"></div>
+
+    <script src="js/jquery-3.6.4.js"></script>
+    <script src="js/highcharts.js"></script>
+    <script>
+        Highcharts.chart('chart', {
+
+            title: {
+                text: '몸무게 변화, 2022년',
+                align: 'center'
+            },
+
+            subtitle: {
+                text: '작년 몸무게 변화 과정',
+                align: 'center'
+            },
+
+            yAxis: {
+                title: {
+                    text: '몸무게(kg)'
+                }
+            },
+
+            xAxis: {
+                accessibility: {
+                    rangeDescription: 'Range: 2010 to 2020'
+                }
+            },
+
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle'
+            },
+
+            plotOptions: {
+                series: {
+                    label: {
+                        connectorAllowed: false
+                    },
+                    pointStart: 1
+                }
+            },
+
+            series: [{
+                name: '홍길동',
+                data: [65, 65.8, 70.2, 72, 78, 79,
+                    82, 98, 70, 68, 72, 70]
+            },
+            {
+                name: '호호호',
+                data: [55, 62, 58.5, 54, 60, 58, 51, 53.5, 54, 55, 57, 60, 62, 63]
+            }],
+
+            responsive: {
+                rules: [{
+                    condition: {
+                        maxWidth: 500
+                    },
+                    chartOptions: {
+                        legend: {
+                            layout: 'horizontal',
+                            align: 'center',
+                            verticalAlign: 'bottom'
+                        }
+                    }
+                }]
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>
