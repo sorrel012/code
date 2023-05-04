@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    
+    </style>
+</head>
+<body>
+     
+    <script>
+        
+        //JSON
+        const hong = {
+            name: '홍길동',
+            age: 20,
+            gender: 'male',
+            hello: function() {
+                console.log(this.names);
+            },
+            nick: ['고양이', '바보'],
+            address: {
+                sido: '서울시',
+                gugun: '강남구',
+                dong: '역삼동'
+            }
+        };
+
+        let str = JSON.stringify(hong); //JSON 형태로 인코딩한 결과물 > 직렬화
+        console.log(str);
+
+        console.log(typeof hong);
+        console.log(typeof str);
+
+        //JSON -> Object
+
+        //JSON 형식의 문자열 수신
+        const data =  '{"name": "홍길동", "age": 20}';
+
+        const result = JSON.parse(data);
+        console.log(result.age);
+
+
+    </script>
+
+</body>
+</html>
