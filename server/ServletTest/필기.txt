@@ -109,7 +109,18 @@
         - 기본 액션 태그
         - 확장 액션 태그
         - 사용자 정의 액션 태그
-        
+
+
+// HTML 페이지 만들기
+
+    1. SSR(Server Side Rendering)   
+        - HTML 페이지를 서버측에서 만든다.
+        - 전통적 방식
+    
+    2. CSR(Client Side Rendering) + REST API(Restful API) + MSA
+        - HTML 페이지를 JavaScript로 만든다.
+        - 필요한 데이터만 서버랑 송수신을 통해 얻는다.
+        - Ajax, JavaScript Framework(Angular, React 등)
         
         
     
