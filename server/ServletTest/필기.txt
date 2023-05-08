@@ -167,4 +167,13 @@
         - 내장객체.setAttribute(key, value)
         - 내장객체.getAttribute(key) 
        
+        
+    1. request 
+        - 클라이언트 -> (행동) -> 서버
+        a. 전송된 데이터 가져오기
+        b. 전송된 데이터 인코딩
+        c. 요청에 관련된 정보 가져오기
+        
+    2. response
+        - 서버 -> (행동) -> 클라이언트
     
