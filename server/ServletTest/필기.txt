@@ -154,4 +154,17 @@
         - Ajax, JavaScript Framework(Angular, React 등)
         
         
+ // JSP(Servlet) 내장 객체, JSP Implicit Object
+    - 개발자가 직접 생성하는 객체가 아니라, JSP(톰캣)가 미리 만들어서 제공하는 객체
+    - 예약어 형태로 제공
+    ~ request, response, session, pageContext  ★★★★4가지 매우 중요★★★★
+    ~ out, application
+    ~ config, page, exception 등
+ 
+    
+    ~ pageContext, request, session, application 
+        - 객체 내부에 사용자(개발자) 데이터를 관리하는 저장소(컬렉션)를 가진다.★★★★
+        - 내장객체.setAttribute(key, value)
+        - 내장객체.getAttribute(key) 
+       
     
