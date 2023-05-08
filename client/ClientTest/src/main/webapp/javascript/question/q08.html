@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .search {
+            width: 600px;
+        }
+
+        .category {
+            outline: 1px solid gray;
+            float: left;
+            width: 100px;
+            height: 30px;
+            text-align: center;
+            padding-top: 5px;
+            vertical-align: middle;
+            background-color: #DDD;
+        }
+
+        .content {            
+            outline: 1px solid gray;
+            float: left;
+            width: 430px;
+            height: 30px;
+            padding-top: 5px;
+            padding-left: 5px;
+            vertical-align: middle;
+            margin: 0px;
+        }
+        
+        .box {
+            width: 415px;
+        }
+
+        input:focus {
+            outline: none;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <h1>우편 번호 검색</h1>
+
+    <div class="search">
+        <div class="code">
+            <span class="category">우편번호</span>
+            <span class="content">
+                <input type="text" name="codetxt" readonly>
+                <input type="button" name="codecheck" value="우편번호검사하기">
+            </span>
+        </div>
+        <div class="address">
+            <span class="category">주소</span>
+            <span class="content">
+                <input type="text" name="addresstxt" class="box" readonly>
+            </span>
+        </div>
+        <div class="detail">
+            <span class="category">상세주소</span>
+            <span class="content">
+                <input type="text" name="detailaddtxt" id="auto" class="box" autofocus>
+            </span>
+        </div>
+    </div>
+
+    <script>
+        
+        var codecheck = document.all.codecheck;
+        var detailaddtxt = document.all.detailaddtxt;
+
+        codecheck.onclick = m1;
+
+        function m1() {
+            window.open('q08_check.html', 'check', 'width=300, height=200');
+            const $auto = document.getElementById('auto');
+            $auto.focus();
+        }
+
+    </script>
+
+</body>
+</html>

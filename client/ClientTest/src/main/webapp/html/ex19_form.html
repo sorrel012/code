@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>데이터 입력</h1>
+
+    <!-- <form method="get" action="ex19.jsp">
+        <input type="text" name="data">
+        <input type="submit" value="전송하기">
+    </form> -->
+
+    <form method="post" action="ex19.jsp">
+        <input type="text" name="data" value="아무개" reaadonly>
+        <input type="submit" value="전송하기">
+    </form>
+
+    <br>
+    <hr>
+    
+    <h1>네이버 검색</h1>
+    
+    <form method="get" action="https://search.naver.com/search.naver">
+        <input type="text" name="query">
+        <input type="submit" value="검색하기">
+    </form>
+
+    <br>
+    <hr>
+
+    <h1>폼 컨트롤</h1>
+
+    <form>
+
+        텍스트 박스(단일라인):
+        <input type="text" name="txt1" id="txt1" class="txt1" size="20"
+                accesskey="s" autofocus autocomplete="off">
+
+
+    <br>
+    <hr>
+
+    <!-- 암호 상자 -->
+
+        텍스트박스(암호):
+        <input type="password">
+
+
+    <br>
+    <hr>
+
+    <!-- 다중 라인 입력 상자 -->
+
+        텍스트박스(다중라인):
+        <textarea cols="50" rows="5">
+                안녕하세요.
+        </textarea>
+
+
+    <br>
+    <hr>
+
+    <!-- 
+        체크박스
+     -->
+     체크박스:
+    <input type="checkbox" disabled> 
+
+    <input type="checkbox" id="cb1"> <label for="cb1">독서</label>
+    <label><input type="checkbox"> 수영</label>
+    <label><input type="checkbox" checked> 영화</label>
+
+    <br>
+    <hr>
+
+    <!-- 
+       라디오 버튼
+     -->
+
+    <input type="radio" name="rbGender"> 남자
+    <input type="radio" name="rbGender"> 여자
+
+
+    <br>
+    <hr>
+
+    <!-- 
+        셀렉트 박스
+     -->
+
+        셀렉트 박스:
+        <select>
+            <option>강아지</option>
+            <option>고양이</option>
+            <option>병아리</option>
+        </select>
+
+        셀렉트 박스:
+        <select size="5">
+            <option>강아지</option>
+            <option>고양이</option>
+            <option>병아리</option>
+        </select>
+
+        셀렉트 박스:
+        <select size="5" multiple>
+            <option>강아지</option>
+            <option>고양이</option>
+            <option>병아리</option>
+        </select>
+
+        <br>
+        <br>
+
+        셀렉트 박스:
+        <select>
+            <option disabled>▣▣▣ 자바 ▣▣▣</option>
+            <option>클래스</option>
+            <option>메소드</option>
+            <option>배열</option>
+
+            <option disabled> ▣▣▣ 오라클 ▣▣▣</option>
+            <option>테이블</option>
+            <option>프로시저</option>
+            <option>조인</option>
+            <option>서브쿼리</option>
+            
+            <option disabled>▣▣▣ HTML ▣▣▣</option>
+            <option>head태그</option>
+            <option>body태그</option>
+        </select>
+
+        셀렉트 박스:
+        <select>
+
+            <optgroup label="자바"> 
+                <option>클래스</option>
+                <option>메소드</option>
+                <option>배열</option>
+            </optgroup>
+
+            <optgroup label="오라클">
+                <option>테이블</option>
+                <option>프로시저</option>
+                <option>조인</option>
+                <option>서브쿼리</option>
+            </optgroup>
+            
+            <optgroup label="HTML">
+                <option>head태그</option>
+                <option>body태그</option>
+            </optgroup>
+        </select>
+
+        <br>
+        <hr>
+
+        <!-- 
+            파일 업로드
+        -->
+
+        파일 선택:
+        <input type="file">
+
+        <br>
+        <hr>
+
+        <!-- 
+            히든태그
+        -->
+
+        히든 태그:
+        <input type="hidden" name="id" value="hong">
+
+        <br>
+        <hr>
+
+        <!-- 
+            버튼
+        -->
+
+        전송버튼: <input type="submit" value="보내기">
+        <br>
+        취소버튼: <input type="reset" value="초기화">
+        <br>
+        일반버튼: <input type="button" value="일반 버튼"
+                    onclick="alert('안녕하세요!!');">
+        
+        <br>
+
+        전송버튼: <button type="submit">보내기</button>
+        <br>
+        취소버튼: <button type="reset">보내기</button>
+        <br>
+        일반버튼: <button type="button">보내기</button>
+
+        <br>
+        <hr>
+
+        <!-- 속성값 > CDATA -->
+        <input type="submit" value="<img src=''> 보내기">
+        <button type="button">
+            <img src="images/bullet01.png">
+            보내기
+        </button>
+
+    </form>
+        
+</body>
+</html>

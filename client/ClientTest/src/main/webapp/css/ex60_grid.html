@@ -1,0 +1,204 @@
+<!-- grid -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        html, body {
+            margin: 0;    
+            padding: 0;
+        }
+        
+        main {
+            /* border: 10px solid blackDD; */
+            display: grid;
+            
+            grid-template-columns: 200px auto;
+            grid-template-rows: 50px 223px 1fr;
+        }
+        
+        .menu {
+            background-color: tomato;
+            grid-row: 1/4;
+            text-align: center;
+            color: white;
+        }
+        
+        .menu h1 {
+            font-variant: small-caps;
+        }
+        
+        .menu ul {
+            list-style-type: none;
+            padding: 0px;
+        }
+        
+        .menu div {
+            font-size: 12px;
+        }
+        
+        .menu hr {
+            border: 0;
+            border-bottom: 1px dashed white;
+        }
+        
+        .search {
+            background-color: gold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .search input {
+            border: 1px solid yellow;
+            width: 400px;
+            padding: 4px;
+            outline: none;
+        }
+        
+        .search button {
+            border: 1px solid yellow;
+            width: 100px;
+            height: 26px;
+            background-color: rgba(255,255,0, .5);
+        }
+        
+        .banner {
+            background-color: yellowgreen;
+        }
+        
+        .banner img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .list { 
+            background-color: royalblue;
+            
+            display: grid;
+            
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+        
+        .list div {
+            background-color: cornflowerblue;
+            font-weight: bold;
+        }
+        
+        .list div img {
+            display: block;
+            margin: 20px auto;
+            border: 5px solid white;
+            padding: 3px;
+        }
+        
+        .list div div {
+            margin: 30px;
+            font-size: 14px;
+            color: #3d3d3d;
+        }
+        
+        @media screen and (max-width: 768px) {
+            main {
+                grid-template-columns: 1fr;
+                grid-template-rows: 200px 50px 200px 1fr;
+            }
+            
+            .menu {
+                grid-row: auto;
+            }
+            
+            .menu ul{
+                display: flex;
+                justify-content: center;
+                margin: 0;
+            }
+            
+            .menu li {
+                margin: 0 7px;
+            }
+            
+            .menu hr {
+                display: none;
+            }
+            
+            .menu div {
+                margin-top: 12px;
+            }
+            
+            .list {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        
+    </style>
+</head>
+<body>
+    
+    <main>
+        <div class="menu">
+            <h1>Study</h1>
+            <ul>
+                <li>JDK</li>
+                <li>Java</li>
+                <li>Oracle</li>
+                <li>SQL</li>
+                <li>JDBC</li>
+            </ul>
+            <hr>
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>jQuery</li>
+            </ul>
+            <hr>
+            <div>
+                &copy;Copyright test.com 2023<br>All rights reserved.
+            </div>
+        </div>
+        <div class="search">
+            <input type="text">
+            <button>Search</button>
+        </div>
+        <div class="banner">
+            <img src="images/gimbal.jpg">
+        </div>
+        <div class="list">
+            <div>
+                <img src="images/rect_icon01.png">
+                <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum ab rerum maiores at error voluptates doloremque voluptatibus fuga, commodi nostrum velit delectus aperiam perferendis quia porro, architecto distinctio? Ad, reiciendis?</div>
+            </div>
+            <div>
+                <img src="images/rect_icon02.png">
+                <div>A nulla eveniet deserunt velit. Fuga eveniet dicta cupiditate eligendi ipsa nesciunt placeat, amet, ratione consequuntur ea temporibus, quibusdam id vitae quod doloribus error obcaecati natus sequi odio assumenda itaque?</div>
+            </div>
+            <div>
+                <img src="images/rect_icon03.png">
+                <div>Assumenda, incidunt dignissimos maiores provident nesciunt doloribus possimus quis totam molestias ea. Architecto itaque enim tenetur illum repellendus sapiente sed, voluptate sint dicta. Nostrum, commodi ipsum enim non totam distinctio.</div>
+            </div>
+            <div>
+                <img src="images/rect_icon04.png">
+                <div>Odit, distinctio suscipit facilis eaque atque ratione nesciunt dolor quidem culpa sit maxime voluptas excepturi temporibus eveniet ad, consequuntur eum totam a voluptatum quo quos dolorem dolores corporis. Facere, aliquam?</div>
+            </div>
+            <div>
+                <img src="images/rect_icon05.png">
+                <div>Sit minima, dolorem nesciunt rem iure sint voluptatum dolor, hic nobis dicta corporis reprehenderit aspernatur? Quam, vitae sed quaerat ipsum minima non magnam, qui officia alias pariatur sint dolore quod.</div>
+            </div>
+            <div>
+                <img src="images/rect_icon06.png">
+                <div>Quia enim temporibus ullam, dicta quidem quos! Quo odio molestias sunt, similique neque labore quibusdam cupiditate, natus consequatur, placeat sapiente. Provident maxime, dignissimos quod ipsum mollitia quis eius suscipit quidem.</div>
+            </div>
+        </div>    
+    </main>
+        
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            width: 400px;
+            height: 400px;
+            margin: auto;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        input {
+            width: 380px;
+            height: 380px;
+            font-size: 200px;
+            font-weight: bold;
+            text-align: center;
+            color: rgb(44, 44, 44);
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <input type="text" name="txt">
+
+    <script>
+
+        var txt = document.all.txt;
+        
+        var cnt = 10;
+        var ctimer = 0;
+
+        m1();
+
+        function m1() {
+            if(ctimer == 0) {
+                ctimer = setInterval(f1, 1000); //1초 후에 f1()을 호출해라.
+                f1();
+            }
+        }        
+
+        function f1() {
+            txt.value = cnt--;
+            if(cnt == -1) {          
+                clearInterval(ctimer);
+            }
+        }
+    </script>
+
+</body>
+</html>

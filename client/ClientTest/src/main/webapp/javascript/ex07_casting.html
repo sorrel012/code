@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        
+        var n1 = 3.14;
+        console.log(parseInt(n1));
+        
+        n1 = 3.99
+        console.log(parseInt(1));
+        
+        var n2 = '300';
+        console.log(n2, typeof n2);
+        console.log(parseInt(n2), typeof parseInt(n2));
+        
+        var n3 = 100;
+        console.log(parseFloat(n3));
+        
+        var n4 = '3.14';
+        console.log(parseFloat(n4));
+        
+        var n5 = '100점';
+        console.log(parseInt(n5)); //100 > 한글 버림
+        
+        var n6 = '점수100';
+        console.log(parseInt(n6)); //NaN
+        
+        var n7 = '100점이 아니라 50점입니다.';
+        console.log(parseInt(n7));
+        
+        //javascript > CSS w조작
+        var width = '200[px]'
+        
+        console.log(width + 100); // 200px 100
+        
+        console.log(parseInt(width) + 100);
+        
+        
+        // boolean isNaN(value)
+        //     - is not a numebr?
+        // 자료형 검사X, 데이터 형식만 검사O
+        
+        //사용자 입력 <input type="text"> : 나이 입력
+        var age = '20';
+        
+        if(isNaN(age)) {
+            console.log('나이가 올바르지 않습니다.');
+        } else {
+            console.log('올바른 나이 입력');
+            
+        }
+        
+    </script>
+    
+</body>
+</html>

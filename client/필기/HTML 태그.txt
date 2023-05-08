@@ -1,0 +1,275 @@
+
+<!-- <p>, paragraph -->
+    - 문단 태그
+    - 문단을 표현(=텍스트 집합)
+    - 쌍태그(<p>문단의내용</p>)
+    - 혼합용(텍스트 + 자식 태그)
+    
+    - 속성
+        ~ align : 내용물의 수평 정렬
+            - horizontal alignment
+            - 열거형 > left|center|right|justify(양쪽정렬)
+    
+
+<!-- 헤딩, heading -->
+    - <hn>
+    - 제목 태그
+    - n: 1~6
+    - <h1>,<h2>,<h3>,<h4>,<h5>,<h6>
+    - 쌍태그
+    - 혼합형
+    - 숫자는 중요도를 나타낸다. > 보이는 형태는 중요하지 않음!
+        ~ <h1>: 문서 내에서 가장 중요한 제목
+        ~ <h6>: 문서 내에서 가장 덜 중요한 제목
+
+    - 속성
+        ~ align: 수평 정렬
+
+<!-- hr, Horizontal Rule -->
+    - <hr>
+    - 수평바, 구분자
+    - 문단과 문단을 구분하는 역할
+    - 단독 태그
+
+    - 속성
+        ~ size: 선의 두께
+        ~ width: 선의 너비(픽셀: 절대크기 / %: 상대크기)
+        ~ align: 수평 정렬
+        ~ color: 선의 색상
+        ~ noshade: 그림자 유무
+        ~ titleL 풍선 도움말
+
+
+<!-- 링크, Link  -->
+    - <a>, anchor
+
+    1. link 역할
+
+    - 속성
+        ~ href: 클릭하면 이동하는 URL 지정
+        ~ target:페이지 이동 방식
+            - _self|_blank|_paren_top|프레임명
+                ~ _self: 보고 있는 창에서 페이지 이동 > 내부 링크
+                ~ _blank: 새 창에서 페이지 이동 > 외부 링크
+
+    2. anchor 역할
+
+
+<!-- 이미지, image -->
+    - <img>
+    - 단독 태그
+
+    - 속성
+        ~ src: 이미지 파일 URL > 필수 속성
+        ~ alt: 대체 문자열 > 필수 속성
+            - 이미지가 올바르게 표시되지 않았을 때 대신 보여주는 문자열
+        ~ width
+        ~ height
+
+
+<!-- 인라인 태그 vs 블럭 태그 -->
+    - 모든 태그는 위의 두 분류 중 하나에 속한다.
+    - 렌더링(Rendering, 태그를 화면에 출력하는 작업) 규칙이 서로 다르다.
+
+    - 인라인 태그, Inline tag
+        - 자신의 내용물과 앞뒤의 다른 태그의 내용물을 같은 라인에 출력한다.
+        - 내용물의 크기가 태그의 영역이다.
+        - 엔터를 치지 않으면 한 줄로 나타난다.
+        - PCDATA(텍스트)는 인라인 태그로 취급한다.
+        - 간격을 조절할 때 <br> 사용
+        ~ 스타일 태그, <a>, <img>
+
+    - 블럭 태그, Block Tag
+        - 자신의 내용물과 앞뒤의 다른 태그의 내용물을 다른 라인에 출력한다.
+        - 내용물의 크기와 상관없이 한 라인을 독점한다.(너비 100%) 높이는 내용물의 크기와 동일하다.
+        - 엔터를 치지 않아도 줄바꿈이 된다.
+        - 간격을 조절할 때 <br> 사용 금지★ > margin 사용
+        ~ <p>, <h1>....<h6> , blockquote, <ol>, <ul>, <dl>, <hr>;
+
+
+<!-- 표, table -->
+
+    1. <table>
+        - 큰 상자
+        - 전체 컨테이너
+
+    2. <tr>
+        - table row
+        - 중간 상자
+        - 행 역할
+
+    3.<td>
+        - table data
+        - 작은 상자
+        - 셀 역할
+        - 데이터를 저장하는 역할
+
+    4. <th>
+        - table header
+        - 제목 역할
+        - 작은 상자
+
+    5. <thead>
+
+    6. <tbody>
+    
+    7. <tfoot>
+
+    - 속성
+        ~ align: 수평정렬
+        ~ valign: 수직정렬
+        ~ bgcolor: 배경색
+        
+        ~ colspan: 가로 셀병합
+        ~ rowspan: 세로 셀병합
+        ※ 셀병합 시 각각의 <tr>내의 <td> 개수는 동일해야 한다.★★★★★★★★★
+            - colspan="2"이면 2개로 세고, rowspan="2"면 1개로 센다. > 행단위                
+    
+
+<!-- 폼, Form -->
+    - 입력 양식, 입력 컨트롤
+    - 클라이언트(사용자)로부터 입력장치(키보드, 마우스 등)를 통해서 데이터를 입력받는 역할
+    - 입력 데이터 > 서버로 전송 > 업무 활용 or DB 저장 등
+    
+    <form>
+        - 모든 입력 컨트롤을 감싸는 컨테이너
+        - 입력값을 서버로 전송하는 역할
+        - 렌더링 결과 없음 > 눈에 보이지 않음
+
+        - 속성
+            ~ method: 데이터를 전송하는 방식
+                1. get
+                    - 전송되는 데이터를 URL에 붙여서 전송하는 방식
+                    - 편법
+                    - 전송되는 데이터가 주소창에 노출됨 > 보안 문제 有
+                    - 노출되면 안 되는 데이터는 절대로 get 방식으로 전송하면 안 된다.
+                    - URL(최대 256자, 65535byte) > 넘어가면 Overflow > 짤림 > 대량의 데이터 전송 불가
+                    - 아주 짧은 데이터(식별자, 숫자 등)만 전송하는 용도
+
+                2. post
+                    - 전송되는 데이터를 패킷 안에 넣어서 전송하는 방식
+                    - FM
+                    - 데이터가 외부로 노출되지 않는다. > get방식에 비해 보안 괜찮..
+                    - 전송 길이 무제한
+
+            ~ action: 데이터를 수신하는 서버측 주소(URL)
+                > 데이터를 수신할 능력이 있는 프로그램의 주소
+
+
+        <input>
+            - 인라인 태그
+            - 단독 태그
+
+            - 속성
+                ~ type: 입력 컨트롤의 종류
+                ~ name: 식별자
+                ~ id: 식별자. CSS/JavaScript에서 사용
+                ~ class: 식별자. CSS/JavaScript에서 사용
+                ~ size: 길이(문자 개수)
+                ~ maxlength: 최대 입력 길이(문자 개수)
+                ~ value: 컨트롤의 입력값(현재 입력값)
+                ~ readonly: 읽기 전용(전원 ON) > 서버로 전송 가능
+                ~ disabled: 비활성화(전원 OFF) > 서버로 전송 불가능
+                ~ accesskey: 바로가기(Alt+조합키)
+                ~ autofocus: 자동 포커스
+                ~ autocomplete
+                ~ text: 암호 상자, Masked Text Box
+                    - 모든 속성이 텍스트박스와 동일
+                    - value 속성은 사용 금지!! > 항상 새로 입력받게 만든다.
+                ~ checkbox: 논리값 입력
+                ~ radio: 단일 선택 > 반드시 2개 이상 함께 사용
+                ~ type="file": 파일 업로드
+                    - 첨부 파일
+                    - Open Dialog Box를 호출하는 역할
+                ~ type="hidden": 히든 태그
+                    - 눈에 보이지 않는 태그
+                    - 개발자용
+                    - 사용자 모르게 서버로 데이터를 전송하는 역할(지저분하지 않게..)
+                ~ type="submit": 입력값 제출(전송)
+                ~ type="reset": 선택값 초기화 (요즘은 잘 안 씀.. > 그냥 새로고침 함)
+                ~ type="button": 일반 버튼
+                    - 기능을 자유롭게 정의할 수 있음.
+                        ~~ onclick="alter('값')": 안내창 띄우기
+                        
+                ~ placeholder: 입력창에 안내 문구를 넣을 수 있다.(입력하면 자동으로 지워짐!)
+                ~ required: 값을 필수로 입력하도록 설정함.
+                ~ type="email|url": "이메일 주소|url"의 간단한 유효성 검사를 해준다.
+                ~ type="tel": 휴대폰으로 접속하면 숫자 키패드로 바로 입력할 수 있게 띄워준다.
+                ~ type="number": 숫자 유효성 검사 + 입력하기 쉽게 해준다.
+                    ~~ min: 최솟값
+                    ~~ max: 최댓값
+                    ~~ step: 증감치(사이값은 유효성 검사로 거름)
+                ~ type="range": 숫자 근사치 입력
+                    - <input type="range" onchange="document.getElementById('txt2').value = this.value;" min="50" max="500" step="50"> <input type="txt" id="txt2" size = 10>  :  값을 알 수 있다.
+                ~ type="color":
+                    - <input type="color" onchange="document.getElementById('txt3').value = this.value;">
+                        <input type="text" id="txt3" size="10">  : 색상값을 알 수 있다.
+                
+                ~ type="date|month|week|time|datetime-local" : 시간 관련 입력
+
+
+        <textarea>
+            - 다중라인 입력
+            - 쌍태그
+            - 대부분의 속성은 텍스트 박스와 동일
+            - value 속성이 없다.
+            - textarea내의 영역 > 일반 문서 영역(X), 컨트롤 영역(O) > 편집기의 공백이 그대로 적용된다.
+
+            - 속성
+                ~ cols: 행 글자 수
+                ~ rows: 열 수
+                
+
+        <select>
+            - 셀렉트 박스, 콤보(Combo) 박스, 드랍 다운 리스트(DropDownList)
+        
+            - 속성
+                ~ size: 한번에 표시할 수 있는 옵션의 수
+                ~ multiple: 다중 선택 가능
+
+            <optgroup>
+                - 셀렉트 박스의 카테고리를 나누어 준다.
+
+                - 속성
+                    ~ label: 카테고리 이름을 지정한다.
+
+
+        <button>
+            - 속성
+                ~type="submit"
+                ~type="reset"
+                ~type="button"
+
+        ※ <input>의 button vs <button>
+            - <input>의 button: 또다른 태그를 넣을 수 없다.
+            - <button>: 또다른 태그를 넣을 수 있다.
+
+
+        <datalist>
+            - <option>에 value 속성 필요
+            - 셀렉트 박스처럼 선택지를 생성할 수 있다.
+
+
+<!-- progress -->
+    - 진행률을 나타낸다.
+    ~ <progress max="100" value="60"></progress>
+    ~ <progress value="0.6"></progress>
+
+
+<!-- meter -->
+    - 수치를 나타낸다.
+    ~ <meter value="1"></meter>
+    ~ <meter min="0" max="100" value="70" high="80"></meter>
+
+
+<!-- detail -->
+    - 내용을 요약해준다.
+    -   <summary>제목</summary>
+        <p>본문</p>
+
+
+
+<!-- 목적이 없는 태그 -->   - 매우 많이 사용!!
+    1. <div>: 블럭 태그
+    2. <span>: 인라인 태그
+

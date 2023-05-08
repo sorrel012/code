@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/example.css">
+    <style>
+        #box {
+            position: absolute;
+            left: 10px;
+            top: 100;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Drag & Drop</h1>
+    
+    <div id="box" class="box bg-yellow"></div>
+
+    <script>
+
+        const box = document.getElementById('box');
+        let isDown = false;
+        let x = 0;
+        let y = 0;
+
+        window.onmousedown = function() {
+            
+            //지금 누른 곳이 상자면 움직이기
+            if(event.target.id == 'box') {
+                isDown = true;
+                x = event.offsetX; //상자 내에서 눌린 마우스 좌표
+                y = event.offsetY; 
+            }
+
+        };
+
+        window.onmousemove = function() {
+            if (isDown) {
+                box.style.left = event.clientX - x + 'px';
+                box.style.top = event.clientY - y + 'px';
+            }
+        };  
+
+        window.onmouseup = function() {
+            isDown = false;
+        };
+    
+    </script>
+
+</body>
+</html>

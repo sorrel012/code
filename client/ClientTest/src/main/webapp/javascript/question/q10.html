@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        body {
+            color: rgb(77, 76, 76);
+            font-weight: bold;
+        }
+
+        .search {
+            width: 600px;
+        }
+
+        .category {
+            outline: 1px solid gray;
+            float: left;
+            width: 100px;
+            height: 30px;
+            text-align: center;
+            padding-top: 5px;
+            vertical-align: middle;
+            background-color: #DDD;
+        }
+
+        .content {            
+            outline: 1px solid gray;
+            float: left;
+            width: 430px;
+            height: 30px;
+            padding-top: 5px;
+            padding-left: 10px;
+            vertical-align: middle;
+            margin: 0px;
+        }
+        
+        .box {
+            width: 50px;
+        }
+
+        .box1 {
+            width: 30px;
+        }
+
+        input:focus {
+            outline: none;
+        }
+
+        .ssnb {
+            width: 80px;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <h1>우편 번호 검색</h1>
+
+    <div class="search">
+        <div class="ssn">
+            <span class="category">주민번호</span>
+            <span class="content">
+                <input type="text" name="ssnf" class="ssnb">
+                -
+                <input type="text" name="ssnb" class="ssnb" id="ssnbk">
+            </span>
+        </div>
+        <div class="birth">
+            <span class="category">생년월일</span>
+            <span class="content">
+                <input type="text" name="byear" class="box"> 년
+                <input type="text" name="bmon" class="box1"> 월
+                <input type="text" name="bdate" class="box1"> 일
+            </span>
+        </div>
+        <div class="gender">
+            <span class="category">성별</span>
+            <span class="content">
+                <input type="radio" name="genderc" value="m">남자
+                <input type="radio" name="genderc" value="f">여자
+            </span>
+        </div>
+    </div>
+
+    <script>
+        
+        var ssnf = document.all.ssnf;
+        var ssnb = document.all.ssnb;
+        var byear = document.all.byear;
+        var bmon = document.all.bmon;
+        var bdate = document.all.bdate;
+        var genderc = document.all.genderc
+
+        ssnf.onkeyup = m1;
+
+        function m1() {
+            if(ssnf.value.length == 6) {     
+                byear.value = '19' + ssnf.value.substring(0, 2);
+                bmon.value = ssnf.value.substring(2, 4);
+                bdate.value = ssnf.value.substring(4);                
+                //포커스 넘기기
+                const $ssnbk = document.getElementById('ssnbk');
+                $ssnbk.focus();
+            }
+        }
+
+        ssnb.onkeyup = m2;
+
+        function m2() {
+            if(ssnb.value.substring(0,1) == 1) {
+                genderc[0].checked = true;
+            } if(ssnb.value.substring(0,1) == 2) {
+                genderc[1].checked = true;
+            }
+        }
+
+    </script>
+
+</body>
+</html>

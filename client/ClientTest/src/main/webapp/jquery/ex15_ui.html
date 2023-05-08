@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <style>
+        body {
+            width: 880px;
+            margin: 20px auto;
+        }
+
+        #list::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        #list .item {
+            border: 1px solid #999;
+            width: 150px;
+            height: 220px;
+            text-align: center;
+            padding: 20px 10px;
+            margin: 15px;
+            float: left;
+        }
+
+        #list .item img {
+            display: block;
+            margin: 0 auto;
+            width: 126px;
+            height: 126px;
+            object-fit: cover;
+        }
+
+        #list .item div:nth-child(2) {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        #list .item div:nth-child(3) {
+            color: tomato;
+            font-weight: bold;
+        }
+
+        #search {
+            border: 1px solid #999;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px;
+            width: 745px;
+        }
+
+        #price {
+            margin: 15px;
+        }
+
+        #add {
+            border: 1px solid #CCC;
+            ;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+            margin-left: 15px;
+        }
+
+        #add th,
+        #add td {
+            border: 1px solid #CCC;
+            padding: 5px;
+        }
+
+        #btnadd {
+            margin-left: 15px;
+        }
+
+        .ui-selected {
+            background-color: gold;
+        }
+        
+    </style>
+</head>
+
+<body>
+
+    <h1>List</h1>
+
+    <div id="search">
+        가격: <span> 35,000원 ~ 70,000원</span>
+        <div id="price"></div>
+    </div>
+
+    <div id="list">
+
+        <div class="item">
+            <img src="images/rect_icon01.png">
+            <div>헤드셋</div>
+            <div>28000</div>
+        </div>
+        <div class="item">
+            <img src="images/rect_icon02.png" alt="">
+            <div>침대</div>
+            <div>10000</div>
+        </div>
+        <div class="item">
+            <img src="images/rect_icon03.png" alt="">
+            <div>미미 하우스</div>
+            <div>99000</div>
+        </div>
+        <div class="item">
+            <img src="images/rect_icon04.png" alt="">
+            <div>미미폰</div>
+            <div>35000</div>
+        </div>
+        <div class="item">
+            <img src="images/rect_icon05.png" alt="">
+            <div>인터넷 전화</div>
+            <div>85000</div>
+        </div>
+        <div class="item">
+            <img src="images/rect_icon06.png" alt="">
+            <div>휠체어</div>
+            <div>66000</div>
+        </div>
+        <div class="item">
+            <img src="images/rect_icon07.png" alt="">
+            <div>안테나</div>
+            <div>23000</div>
+        </div>
+        <div class="item">
+            <img src="images/rect_icon08.png" alt="">
+            <div>wifi 공유기</div>
+            <div>77000</div>
+        </div>
+        <div class="item">
+            <img src="images/rect_icon09.png" alt="">
+            <div>노트</div>
+            <div>19000</div>
+        </div>
+        <div class="item">
+            <img src="images/rect_icon10.png" alt="">
+            <div>시계</div>
+            <div>31000</div>
+        </div>
+        <div class="item">
+            <img src="images/rect_icon11.png" alt="">
+            <div>운동기구</div>
+            <div>98000</div>
+        </div>
+        <div class="item">
+            <img src="images/rect_icon12.png" alt="">
+            <div>운동화</div>
+            <div>12000</div>
+        </div>
+        <div class="item">
+            <img src="images/rect_icon13.png" alt="">
+            <div>여성복</div>
+            <div>98000</div>
+        </div>
+        <div class="item">
+            <img src="images/rect_icon14.png" alt="">
+            <div>남성복</div>
+            <div>80500</div>
+        </div>
+        <div class="item">
+            <img src="images/rect_icon15.png" alt="">
+            <div>금고</div>
+            <div>43000</div>
+        </div>
+        <div class="item">
+            <img src="images/rect_icon16.png" alt="">
+            <div>편지지</div>
+            <div>72000</div>
+        </div>
+        <div class="item">
+            <img src="images/rect_icon17.png" alt="">
+            <div>클라우드 1TB</div>
+            <div>70000</div>
+        </div>
+        <div class="item">
+            <img src="images/rect_icon18.png" alt="">
+            <div>국내후원</div>
+            <div>10000</div>
+        </div>
+    </div>
+
+    <div id="adddialog">
+        <table id="add">
+            <tr>
+                <th>이미지</th>
+                <td><input type="file" id="txtimg"></td>
+            </tr>
+            <tr>
+                <th>상품명</th>
+                <td><input type="text" id="txtname"></td>
+            </tr>
+            <tr>
+                <th>가격</th>
+                <td><input type="number" id="txtprice" min="10000" max="100000"></td>
+            </tr>
+        </table>
+
+        <input type="button" value="추가하기" id="btnadd">
+    </div>
+    
+    <input type="button" value="추가하기" id="btndialog">
+    <input type="button" value="삭제하기" id="btnremove">
+
+    <script src="js/jquery-3.6.4.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script>
+
+        $('.item').each((index, item) => {
+            let price = parseInt($(item).children().eq(2).text()).toLocaleString();
+            $(item).children().eq(2).text(price);
+        });
+
+        $('#price').slider({
+            range: true,
+            min: 10000,
+            max: 100000,
+            step: 1000,
+            values: [35000, 70000],
+            slide: function (event, ui) {
+
+                //가격 범위 출력
+                $('#search > span').text(
+                    // ui.value.toLocaleString() //버튼이 1개일 때
+                    ui.values[0].toLocaleString()
+                    + '원 ~ ' +
+                    ui.values[1].toLocaleString()
+                    + '원'
+                );
+
+                init(ui.values[0], ui.values[1]);
+
+            }
+
+        });
+
+        function init(low, high) {
+
+
+            $('#list .item').each((index, item) => {
+                // console.log($(item).children().eq(2).text().replace(/,/g,''));
+                let price = parseInt($(item).children().eq(2).text().replace(/,/g, ''));
+
+                if (price >= parseInt(low)
+                    && price <= parseInt(high)) {
+                    $(item).show();
+                } else {
+                    $(item).hide();
+                }
+
+            });
+
+            // console.log($(item).children().eq(2).text().replace(/,/g,''));
+
+        }
+
+        $('#btnadd').click(function () {
+
+            // alert($('#txtimg').val().replace('C:\\fakepath\\',''));
+
+            // $('#txtimg').val();
+            // $('#txtname').val();
+            // $('#txtprice').val();
+
+            $('#list').append(
+                `                
+                <div class="item">
+                    <img src="images/${$('#txtimg').val().replace('C:\\fakepath\\', '')}" alt="">
+                    <div>${$('#txtname').val()}</div>
+                    <div>${parseInt($('#txtprice').val()).toLocaleString()}</div>
+                </div>
+                `
+            );
+
+            $('#txtimg').val('');
+            $('#txtname').val('');
+            $('#txtprice').val('');
+
+            $('#adddialog').dialog('close');
+
+        });
+
+        $('#adddialog').hide();
+        
+        $('#btndialog').click(function() {
+            $('#adddialog').dialog({
+                width: 460,
+                height: 230,
+                title: '상품 추가',
+                resizable: false,
+                // draggable: false
+                modal: true
+            });
+        });
+
+        $('#btnremove').click(function() {
+            // $(item).remove();
+            item.forEach((item) =>{
+                $(item).remove();
+            })
+        });
+        
+        let item = [];
+
+        $('#list').selectable({
+            selected: function(event, ui) {
+                // console.log(ui.selected);
+                if ($(ui.selected).hasClass('item')) {
+                    // item = ui.selected;
+                    item.push(ui.selected);
+                }
+            }
+        });
+
+    </script>
+
+</body>

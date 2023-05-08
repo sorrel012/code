@@ -1,0 +1,46 @@
+// 자료형, Data Type
+	- 데이터(자료)의 형태
+	- 데이터의 길이(범위)와 생김새를 미리 정의하고 분류해놓은 규칙 > 이름
+
+// 자바의 자료형
+	1. 원시형(Primitive Type), 값형(Value Type)
+		a. 숫자형
+			1. 정수형
+				a. byte 
+					- 1byte
+					- -128 ~ 127
+					
+				b. short 
+					- 2byte
+					- -32768 ~ 32767
+					
+				c. int★★
+					- 4byte
+					- -21억 ~ 21억
+					
+				d. long★
+					- 8byte
+					- -922경 ~ 922경
+				
+			2. 실수형
+				a. float
+					- 4byte
+					- 단정도형(정밀도 > 유효 숫자를 저장할 범위)
+					
+				b. double★★
+					- 8byte
+					- 배정도형
+				
+		b. 문자형
+			1. 문자형
+				a. char
+					- 문자 저장
+					- 1byte > 아스키코드(ASCII)
+					- 2byte > 유니코드
+		c. 논리형
+			1. 논리형
+				a. boolean
+					- 명제 > 참/거짓 (true/false > 예약 상수)
+					- 1byte
+	
+	2. 참조형(Reference Type)

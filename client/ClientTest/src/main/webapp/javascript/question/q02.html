@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        body {
+            /* display: flex;
+            flex-wrap: wrap;
+            justify-content: center; */
+            color: #666666;
+            font-weight: bold;
+        }
+        
+        form {
+            width: 200px;
+            margin: 20px auto;
+        }
+        
+        input[name="id"] {        
+            margin-top: 5px;    
+            display: block;
+        }
+        
+        input[name="check"] {        
+            margin-top: 10px;    
+            border: 0;
+            font-weight: bold;
+            color: red;
+        }
+        
+        
+        
+    </style>
+</head>
+<body>
+    
+    <form name="form1">
+        <h1>회원 가입</h1>
+    
+        아이디: <input type="text" name="id">
+        <input type="text" name="check">
+    </form>
+    <script>
+        
+        var txt1 = window.document.form1.id;
+        var txt2 = window.document.form1.check;
+        
+        txt1.onkeyup = m1;
+        
+        function m1() {
+            var intxt = txt1.value;            
+            if(intxt.length < 4) {                        
+                txt2.value = '아이디가 너무 짧습니다.'
+            } else if(intxt.length < 13) {
+                txt2.value = '아이디가 적합합니다.'                
+            } else {    
+                txt2.value = '아이디가 너무 깁니다.'
+            }
+        }
+        
+        
+        
+        
+    </script>
+    
+</body>
+</html>

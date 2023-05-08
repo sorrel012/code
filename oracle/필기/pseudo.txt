@@ -1,0 +1,27 @@
+
+-- pseudo, 의사컬럼
+    - 실제 컬럼이 아닌데 컬럼처럼 행동하는 요소
+
+
+-- rownum
+    - 오라클 전용
+    - 행번호 > 레코드의 일련번호
+    - from절이 실행될 때 각 레코드에 일련벊를 할당한다.★★★★
+    - where절의 영향을 받으면 일련번호를 다시 정비한다.(reindexing) ★★★
+        ~ where rownum = 5 > null값 반환... > 반드시 1~ 조건의 범위로 사용해야 한다.
+    - order by 전에 rownum이 매겨지기 때문에 order by를 할 경우 rownum이 뒤죽박죽 섞인다.  > 서브쿼리 사용해야 함..
+        ~ select name, buseo, basicpay, rownum from (select name, buseo, basicpay, rownum from tblInsa order by basicpay desc);    
+    - 서브 쿼리를 자주 사용한다.
+  
+    - order by와 where 후 rownum 사용하는 방법 
+        
+        1. 정렬
+            SELECT * FROM tblcomedian ORDER BY weight DESC;
+
+        2. 서브쿼리 > rownum 별칭
+            SELECT a.*, ROWNUM AS rnum FROM(SELECT * FROM tblcomedian ORDER BY weight DESC) a;
+
+        3. 서브쿼리 > rownum 고정시키기 위해서
+            SELECT * FROM (SELECT a.*, ROWNUM AS rnum FROM(SELECT * FROM tblcomedian ORDER BY weight DESC) a)
+                WHERE rnum = 5;                
+                

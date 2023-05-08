@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        
+        //내장 객체
+        // - Date
+        
+        //현재 시각
+        var now = new Date(); //new 생성자 함수
+        console.log(now);
+        console.log(now.toString());
+        
+        //년, 일, 시, 분, 초: 1부터 시작
+        //월, 요일 :
+        
+        //요소 추출
+        console.log(now.getYear());             //23
+        console.log(now.getFullYear());         //2023
+        console.log(now.getMonth());
+        console.log(now.getDate());
+        console.log(now.getDay());
+        console.log(now.getHours());
+        console.log(now.getMinutes());
+        console.log(now.getSeconds());
+        console.log(now.getMilliseconds());
+        console.log(now.getTime());
+        
+        //츨력
+        console.log(now.toLocaleString());      //시간까지 모두
+        console.log(now.toLocaleDateString());  //날짜만
+        console.log(now.toLocaleTimeString());  //시간만
+        
+        //특정 시각 만들기
+        var christmas = new Date();
+        
+        christmas.setFullYear(2023);
+        christmas.setMonth(11);
+        christmas.setDate(25);
+        
+        console.log(christmas.toLocaleDateString());
+        
+        //연산
+        //시각 - 시각
+        console.log(christmas - now);
+        
+        console.log((christmas-now) / 1000 / 60 / 60 / 24);
+        
+        
+        //시각 + 시간
+        //시각 - 시간
+        
+        now.setTime(now.getTime() + (100 * 24 * 60 * 60 * 1000))
+        console.log(now.toLocaleDateString());
+        
+    </script>
+    
+</body>
+</html>

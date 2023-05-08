@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/example.css">
+    <style>
+
+        .box.one {
+            background-color: darkgoldenrod;
+        }
+
+        .box.two {
+            font-size: 5rem;
+        }
+    
+    </style>
+</head>
+<body>
+
+    <h1>jQuery + CSS</h1>
+
+    <input type="button" value="확인" id="btn">
+    <hr>
+    <div id="box" class="box bg-yellow">상자</div>
+
+    <script src="js/jquery-3.6.4.js"></script>
+    <script>
+        
+        $('#btn').click(function() {
+
+            //CSS조작
+            
+            // alert(document.getElementById('box').style.backgroundColor);
+            // alert(getComputedStyle(document.getElementById('box')).getPropertyValue('background-color'));
+
+            // alert($('#box').css('background-color'));
+
+            // $('#box')
+            //     .css('color','blue')
+            //     .css('background-color', 'gold')
+            //     .css('width', 300)
+            //     .css('height', 100);
+
+            $('#box').css({
+                color: 'tomato',
+                'background-color': 'cornflowerblue',
+                width: 100,
+                height: 300
+            });
+
+            
+            //BOM
+            // document.all.box.className = 'one two';
+
+            //DOM
+            // document.getElementById('box').classList.add('one');
+            // document.getElementById('box').classList.add('two');
+            // document.getElementById('box').classList.remove('one');
+            // document.getElementById('box').classList.toggle('two');
+
+            //jQuery
+            // $('#box').addClass('one');
+            // $('#box').addClass('two');
+            // $('#box').removeClass('one');
+            $('#box').toggleClass('two');
+        });
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+
+<!-- client -->
+
+- 웹브라우저(서버로부터 웹페이지를 다운로드 받아) >그 안의 HTML,CSS,JavaScript 해석 + 실행 > 결과 화면 출력
+
+- HTML,CSS,JsvaScript > 정적페이지(Static Page)
+- 정적페이지 + Java(JSP/Servlet/Spring)) > 동적페이지(Dynamic Page)
+
+- 이클립스 새 프로젝트(Web)
+    1. Dynamic Web Project > 정적 페이지 + 동적 페이지 > 얘만 사용!
+    2. Static Web Project > 정적 페이지 
+    3. Web Fragment Project > 조각 페이지(웹 관리 기법)
+
+- URL(Uniform Resource Locator), URI(Uniform Resource Identifier)
+    - 인터넷 상의 자원을 구분하는 식별자 > 인터넷 주소
+    - 자원: 웹페이지(HTML), 이미지, 동영상, 파일 등..
+    
+    - http://localhost:8090/ClientTest/hello.html
+        a. http:// > 프로토콜(Protocol, 통신규약) > Hyper Test Transfer Protocol
+        b. localhost > 서버 주소(도메인, IP Address) > 호스트(Host) 주소
+            ~ naver.com, google.com
+            - 도메인 <= DNS(Domain Name Server) -> IP Address
+            - localhost <-> 127.0.0.1
+        c. 8090 > 포트번호 > 특정 프로그램(톰캣) 할당
+        d. ClientTest > 톰캣이 운영 중인 프로젝트명
+        e. hello.html > 프로젝트 내의 자원 경로 + 이름
+        
+
+<!-- HTML -->
+    - 웹페이지 골격(뼈대) 작성 > 레이아웃 작성  > 블럭테그
+    - 웹페이지 내용물 작성 > 텍스트, 이미지, 동영상 등등    > 인라인 태그 + 텍스트
+    - 태그 + 틀 + 데이터
+    - 케밥 표기법 많이 사용
+        ~ aaa-bbb-cc
+
+    - 수치 표현
+        1. 숫자 > px, 문자수, 셀병합크기
+        2. 숫자%
+
+
+/* CSS */
+    - 웹페이지 서식 작성
+    - 디자인 작성 언어
+    - HTML + 서식
+    - 케밥 표기법 많이 사용
+        ~ aaa-bbb-cc
+
+    - 수치 표현
+        1. pt   > 포인트(글꼴), 절댓값, 1/72인치
+        2. px   > 픽셀(크기, 위치, 여백, 글꼴 등), 절댓값
+        3. em   > 기본 글꼴 크기를 기준으로 하는 상태 크기(%), 상댓값
+            - 알파벳 대문자 M의 높이를 100% 기준으로 하는 상태 크기
+            - 상속을 받음
+        4. rem  > em과 동일
+            - 상속을 받지 않음.
+        5. %    > 백분율(크기, 여백, 위치, 정렬 등). 상댓값
+            - 부모를 기준으로 한다.
+        ------------------------------------------------------------------- ↑ 아주 중요
+        6. ex   > 알파벳 소문자 x의 높이를 100% 기준으로 하는 상대 크기
+        7. mm   
+        8. cm   
+        9. in   
+        10. 기타
+        
+    
+// JavaScript
+   - 웹페이지 기능 작성
+   - 프로그래밍 구현
+

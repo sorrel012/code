@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/example.css">
+    <style>
+
+        img {
+            position: absolute;
+            left: 0;
+            top: 0;
+            user-select: none;
+        }
+    
+    </style>
+</head>
+<body>     
+
+    <div id="div1"></div>
+
+    <script>
+
+        div1 = document.getElementById("div1");
+        
+        window.onclick = function() {
+
+            let x = event.offsetX;
+            let y = event.offsetY;
+
+            const img = document.createElement('img');
+            img.setAttribute('src', '../images/m01.png');
+
+            div1.appendChild(img);
+            
+            img.style.top = (event.clientY-50) + 'px';
+            img.style.left = (event.clientX-50) + 'px';
+        };
+
+    </script>
+
+</body>
+</html>

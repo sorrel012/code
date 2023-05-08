@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/example.css">
+    <style>
+
+        #box {
+            padding: 20px;
+            margin: 30px;
+            border-width: 10px;
+            /* box-sizing: content-box; */
+            box-sizing: border-box;
+        }
+    
+    </style>
+</head>
+<body>
+
+    <h1>jQuery + Box Model</h1> 
+    
+    <input type="button" value="확인" id="btn">
+    <hr>
+
+    <div id="box" class="box bg-orange"></div>
+
+    <script src="js/jquery-3.6.4.js"></script>
+    <script>
+
+        $('#btn').click(function() {
+
+            //1. CSS
+            console.log('width', $('#box').css('width'));
+            console.log('height', $('#box').css('height'));            
+            // $('#box').css('width', '500px');
+
+
+            //2.
+            console.log('width', $('#box').width());    //수치(px)
+            console.log('height', $('#box').height());
+            // $('#box').width(300);
+
+
+            //3. width/height + padding = orange 영역
+            console.log('innerWidth', $('#box').innerWidth());
+            console.log('innerHeight', $('#box').innerHeight());
+
+
+            //4. width/height + padding + border = 실제 사각형 영역
+            console.log('outerWidth', $('#box').outerWidth());
+            console.log('outerHeight', $('#box').outerHeight());
+
+
+            //5. width/height + padding + border + margin = 실제 사각형 영역 + margin
+            console.log('outerWidth(true)', $('#box').outerWidth(true));
+            console.log('outerHeight(true)', $('#box').outerHeight(true));
+
+        });
+    
+    </script>
+
+</body>
+</html>

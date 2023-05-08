@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <style>
+    
+    </style>
+</head>
+<body>
+
+    <h1>Interactions <small>Draggable</small></h1>
+
+    <img src="images/catty01.png" id="cat1">
+    <img src="images/catty01.png" class="cat">
+    <img src="images/catty02.png" class="cat">
+    <img src="images/catty03.png" class="cat">
+    <img src="images/catty04.png" class="cat">
+    <img src="images/catty05.png" class="cat">
+    <img src="images/catty06.png" class="cat">
+    <img src="images/catty07.png" class="cat">
+    <img src="images/catty08.png" class="cat">
+    <img src="images/catty09.png" class="cat">
+
+    <hr>
+
+    <div style="border: 1px solid black; width: 400px; height: 300px;" id="box">
+        <img src="images/catty09.png" id="cat2">
+    </div>
+
+    <script src="js/jquery-3.6.4.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script>
+
+        $('#cat1').draggable();
+        $('.cat').draggable({
+            // axis: 'x'
+            // axis: 'y'
+            // grid:[128,128]
+            snap: '#box'
+        });
+
+        $('#cat2').draggable({
+            containment: 'parent'
+            // snap: '#box'
+        });
+    
+    </script>
+
+</body>
+</html>

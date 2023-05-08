@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        h1 {
+            color: #666666;    
+        }
+        
+        div {
+            display: block;
+            margin: 15px 0;
+            color: #666666;
+            font-weight: bold;
+        }
+        
+        input[type="text"] {
+            outline: none;
+        }
+        
+        input[type="button"] {
+            color: #666666;
+            font-weight: bold;
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <h1>데이터 입력</h1>
+    
+    <form name="form1">
+        <div>이름 : <input type="text" name="txt1"></div>
+        <div>나이 : <input type="text" name="txt2"></div>
+        <div>별명 : <input type="text" name="txt3"></div>
+        <input type="button" value="Long" name="btn1">
+        <input type="button" value="Short" name="btn2">
+    </form>
+        
+    <script>
+        
+        var txt1 = window.document.all.txt1;
+        var txt2 = window.document.all.txt2;
+        var txt3 = window.document.all.txt3;    
+        
+        var btn1 = window.document.form1.btn1;
+        var btn2 = window.document.form1.btn2;
+        
+        btn1.onclick = m1;
+        btn2.onclick = m2;
+        
+        function m1() {    
+            txt1.size=55;
+            txt2.size=55;
+            txt3.size=55;
+        }
+        
+        function m2() {            
+            txt1.size=20;
+            txt2.size=20;
+            txt3.size=20;         
+        }
+        
+    </script>
+    
+</body>
+</html>

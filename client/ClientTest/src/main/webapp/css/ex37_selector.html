@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        /* span {
+            color: blue;
+        }
+        
+        span::before {
+            content: '<span>';
+            color: tomato;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        span::after {
+            content: '</span>';
+            color: tomato;
+            font-weight: bold;
+            font-size: 1.2rem;
+        } */
+        
+        /* #list {
+            font-size: 0px;
+        }
+        
+        
+        #list div {
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            font-size: 1rem;
+        } */
+        
+        #list .item {
+            width: 100px;
+            height: 100px;
+            float: left;
+        } 
+        
+        /* float 뒷처리 용도 */
+        #list::after {
+            content: '';
+            display: block;
+            clear: left;
+        }
+        
+        #list div:nth-child(1) { background-color: tomato; }
+        #list div:nth-child(2) { background-color: gold; }
+        #list div:nth-child(3) { background-color: cornflowerblue; }
+        #list div:nth-child(4) { background-color: forestgreen; }
+        #list div:nth-child(5) { background-color: plum; }
+        
+    </style>
+</head>
+<body>
+    
+    <p>Lorem ipsum dolor sit amet <span>consectetur </span>adipisicing elit. Optio, accusamus corrupti asperiores placeat fugiat illo <span>necessitatibus</span> cum numquam excepturi, quidem sunt rem ipsum <span>consectetur</span> quibusdam quis maiores iure vitae?</p>
+    
+    <hr>
+    <br>
+    
+    <div id="list">
+        <div class="item">빨강</div>
+        <div class="item">노랑</div>
+        <div class="item">파랑</div>
+        <div class="item">초록</div>
+        <div class="item">보라</div>
+    </div>
+    <div>다른 내용들..</div>
+    
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/example.css">
+    <style> 
+        #img1 {
+            position: absolute;
+            user-select: none;
+        }    
+    </style>
+</head>
+<body>
+
+    <img src="../images/item15.gif" style="left: 550px; top: 180px;" id="img1">
+
+    <script>
+
+        img = document.getElementById('img1')
+
+        window.onmousemove = function() {
+
+            let userX = event.clientX;
+            
+            let userY = event.clientY;
+
+            let imgX = parseInt(img.style.left);
+            let imgY = parseInt(img.style.top);
+
+            if((userX >= imgX) && (userX <= imgX+img.width/2) 
+                && (userY >= imgY) && (userY <= imgY+img.height)) {
+                imgX += 50;
+            } else if((userX >= imgX+img.width/2) && (userX <= imgX+img.width) 
+                    && (userY >= imgY) && (userY <= imgY+img.height)) {
+                imgX -= 50;
+            }
+
+            img.style.left = imgX + 'px';
+
+        }
+    
+    </script>
+
+</body>
+</html>

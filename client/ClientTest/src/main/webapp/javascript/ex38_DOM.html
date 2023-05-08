@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            display: block;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>DOM</h1>     
+
+    <form name="form1">
+        <h2 id="title">Control</h2>
+        <div>
+            <input type="text" name="txt1" id="txt1" class="txt">
+            <input type="text" name="txt2" id="txt2" class="txt">
+            <input type="text" name="txt3" id="txt3" class="txt">
+            <input type="button" value="확인" name="btn1" id="btn1">
+        </div>
+    </form>
+
+    <script>
+        
+        /* 1.id 검색 */
+
+        //BOM
+        window.document.form1.txt1.value = 'BOM';
+
+        //DOM
+        document.getElementById('txt2').value = 'DOM';
+        // console.log(document.form1.txt1 == document.getElementById('txt1'));
+
+
+        /* 2. class 검색*/
+        
+        //DOM
+        let txt = document.getElementsByClassName('txt');
+        console.log((txt.length));
+
+        for (let i = 0; i < txt.length; i++) {
+            txt[i].value = i;
+        }
+        
+
+        /* 3. name 검색 */
+        document.getElementsByName('txt1')[0].value = '홍길동'
+        
+        
+        /* 4. 태그명 검색 */
+        let input = document.getElementsByTagName('input');
+
+        for (let i = 1; i < input.length; i++) {
+            input[i].value = i;
+        }
+
+        
+        /* 5. CSS 선택자 검색 */
+        document.querySelector('#txt1').value = 'CSS'
+        document.querySelectorAll('.txt')[1].value = 'CSS All'
+
+
+    </script>
+
+</body>
+</html>

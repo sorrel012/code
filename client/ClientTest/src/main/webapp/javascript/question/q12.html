@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            color: rgb(83, 83, 83);
+            font-weight: bold;
+        }
+
+        .category {
+            padding-left: 0px;
+            margin-bottom: 10px;
+        }
+
+        .list {
+            width: 550px;
+            text-align: center;
+        }
+
+        .f {
+            display: inline-block;
+            width: 60px;
+        }
+
+        .s {
+            display: inline-block;
+            width: 400px;
+        }
+
+        .t {
+            display: inline-block;
+            width: 60px;
+        }
+
+        input {
+            outline: none;
+            border: 1px solid gray;
+            border-radius: 4px;
+        }
+
+        input[type=text] {
+            height: 18px;
+            margin-top: 5px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="list">
+        <div class="category">
+            <span class="f">번호</span>
+            <span class="s">입력</span>
+            <span class="t">잠금</span>
+        </div>
+        <div class="content">
+            <span class="f">1</span>
+            <input type="text" name="txt" class="s" data-txt="1" onkeyup="m2();" ondblclick="m3();">
+            <input type="checkbox" name="check" value="1" class="t" onchange="m1();">
+        </div>
+        <div class="content">
+            <span class="f">2</span>
+            <input type="text" name="txt" class="s" data-txt="2" onkeyup="m2();" ondblclick="m3();">
+            <input type="checkbox" name="check" value="2" class="t" onchange="m1();">
+        </div>
+        <div class="content">
+            <span class="f">3</span>
+            <input type="text" name="txt" class="s" data-txt="3" onkeyup="m2();" ondblclick="m3();">
+            <input type="checkbox" name="check" value="3" class="t" onchange="m1();">
+        </div>
+        <div class="content">
+            <span class="f">4</span>
+            <input type="text" name="txt" class="s" data-txt="4" onkeyup="m2();" ondblclick="m3();">
+            <input type="checkbox" name="check" value="4" class="t" onchange="m1();">
+        </div>
+        <div class="content">
+            <span class="f">5</span>
+            <input type="text" name="txt" class="s" data-txt="5" onkeyup="m2();" ondblclick="m3();">
+            <input type="checkbox" name="check" value="5" class="t" onchange="m1();">
+        </div>
+        <div class="content">
+            <span class="f">6</span>
+            <input type="text" name="txt" class="s" data-txt="6" onkeyup="m2();" ondblclick="m3();">
+            <input type="checkbox" name="check" value="6" class="t" onchange="m1();">
+        </div>
+        <div class="content">
+            <span class="f">7</span>
+            <input type="text" name="txt" class="s" data-txt="7" onkeyup="m2();" ondblclick="m3();">
+            <input type="checkbox" name="check" value="7" class="t" onchange="m1();">
+        </div>
+        <div class="content">
+            <span class="f">8</span>
+            <input type="text" name="txt" class="s" data-txt="8" onkeyup="m2();" ondblclick="m3();">
+            <input type="checkbox" name="check" value="8" class="t" onchange="m1();">
+        </div>
+        <div class="content">
+            <span class="f">9</span>
+            <input type="text" name="txt" class="s" data-txt="9" onkeyup="m2();" ondblclick="m3();">
+            <input type="checkbox" name="check" value="9" class="t" onchange="m1();">
+        </div>
+        <div class="content">
+            <span class="f">10</span>
+            <input type="text" name="txt" class="s" data-txt="10" onkeyup="m2();" ondblclick="m3();">
+            <input type="checkbox" name="check" value="10" class="t" onchange="m1();">
+        </div>
+    </div>
+
+    <script>
+
+        var check = document.all.check;
+        var txt = document.all.txt;
+
+        function m1() {
+            if (event.target.checked) {
+                txt[event.target.value - 1].readOnly = true;
+                modifyCheckedStyle(event.target.value-1);
+            } else {
+                txt[event.target.value - 1].readOnly = false;
+                modifyNotCheckedStyle(event.target.value-1);
+            }
+        }
+
+        function m2() {
+            if (event.keyCode == 13) {
+                m3();
+            }
+        }
+
+        function m3() {
+
+            if (check[event.target.dataset['txt'] - 1].checked) {
+                check[event.target.dataset['txt'] - 1].checked = false;
+                txt[event.target.dataset['txt'] - 1].readOnly = false;
+                modifyNotCheckedStyle(event.target.dataset['txt'] - 1);
+
+            } else if (!check[event.target.dataset['txt']].checked) {
+                check[event.target.dataset['txt'] - 1].checked = true;
+                txt[event.target.dataset['txt'] - 1].readOnly = true;
+                modifyCheckedStyle(event.target.dataset['txt'] - 1);
+
+            }
+        }
+
+        function modifyCheckedStyle(index) {
+                txt[index].style.backgroundColor = '#EEE';
+                txt[index].style.border = '1px solid gray';
+                txt[index].style.borderRadius = '4px';
+                txt[index].style.cursor='not-allowed';
+        }
+
+        function modifyNotCheckedStyle(index) {
+                txt[index].style.backgroundColor = 'white';
+                txt[index].style.border = '1px solid gray';
+                txt[index].style.borderRadius = '4px';
+                txt[index].style.cursor='auto';
+        }
+
+    </script>
+
+</body>
+
+</html>

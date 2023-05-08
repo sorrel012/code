@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input, textarea {
+            display: block;
+            margin-bottom: 10px;
+            outline: none;
+        }        
+    </style>
+</head>
+<body>
+    
+    <h1>키 이벤트</h1>
+    
+    <form name="form1">
+        <input type="text" name="txt1">
+        <input type="text" name="txt2">        
+        <textarea name="txt3"></textarea>
+    </form>
+    
+    <script>
+        
+        var txt1 = window.document.form1.txt1;
+        var txt2 = window.document.form1.txt2;
+        var txt3 = window.document.form1.txt3;
+        
+        txt1.onkeydown = m1;
+        txt1.onkeyup = m2;
+        txt1.onkeypress = m3;        
+        
+        function m1(evt) {
+            // console.log('keydown');        
+            
+            //event.keyCode
+            // console.log(event.keyCode);     //비표준 방법
+            // console.log(evt.keyCode);       //표준 방법
+            
+            // if (evt.keyCode == 37) {
+            //     txt3.cols--;
+            // } else if (evt.keyCode == 39) {
+            //     txt3.cols++;
+            // } else if (evt.keyCode == 38) {
+            //     txt3.rows++;
+            // } else if (evt.keyCode == 40) {
+            //     txt3.rows--;
+            // }                 
+            
+            // txt2.value = txt1.value;
+            
+        }
+        
+        
+        function m2() {
+            // console.log('keyup');     
+            // console.log(event.keyCode); 
+            
+            txt2.value = txt1.value;
+        }
+        
+        function m3() {
+            // console.log('keypress');       
+            // console.log(event.keyCode);          
+        }                
+        
+    </script>
+    
+</body>
+</html>

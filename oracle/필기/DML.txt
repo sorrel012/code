@@ -1,0 +1,110 @@
+
+-- DML
+    - Data Manipulation Language
+    - 데이터 조작어
+    - 사용 빈도가 가장 높음
+    - 데이터베이스에 데이터를 추가/수정/삭제/조회하는 명령어(CRUD)
+        a. select: 조회(읽기)	> R ★★★★★★★★★★★
+        b. insert: 추가(생성)	> C
+        c. update: 수정		> U
+        d. delete: 삭제		> D
+    - 데이터베이스 관리자
+    - 데이터베이스 담당자
+    - 프로그래머★★
+	
+===========================================================================================================
+
+-- insert
+    - 테이블에 데이터를 추가하는 명령어 (행 추가)	
+    ~ insert into 테이블명(컬럼리스트) values 값리스트
+        - 컬럼 리스트의 컬럼 개수와 값리스트의 값 개수는 반드시 일치해야 한다. 	
+	
+    create table tblMemo (
+    
+        seq number(3) primary key,
+        name varchar2(50),
+        memo varchar2(1000) not null,
+        regdate date default sysdate
+    
+    );	
+	
+    1. 표준(권장)
+        - 원본 테이블에 정의된 컬럼 순서와 개수대로 컬럼리스트를 만들고 그에 따라 값리스트를 구성하는 방법
+        ~ insert into tblMemo (seq, name, memo, regdate) 
+            values(seqMemo.nextVal, '홍길동', 'memo', sysdate);
+			
+    2. 컬럼리스트 순서 변경
+        - 원본 테이블에 정의된 컬럼 순서대로 컬럼리스트를 만드는 것이 아니라 자유롭게 순서를 바꾸어 컬럼리스트를 만들고 그에 따라 값리스트를 구성하는 방법
+        - 컬럼리스트의 순서와 값리스트의 순서를 반드시 일치시켜야 한다.★★★★★★
+        ~ insert into tblMemo (name, memo, regdate, seq)             
+            values('gildong', 'memo2', sysdate, seqMemo.nextVal);		
+			
+    3. null 조작
+        3-1. null 상수 사용 > 명시적
+            ~ insert into tblMemo (seq, name, memo, regdate)
+                values(seqMemo.nextVal, null, 'memo', sysdate);
+			
+        3-2. 컬럼 생략 > 암시적
+            ~ insert into tblMemo (seq, memo, regdate)
+                values(seqMemo.nextVal, 'memo', sysdate); 
+				
+    4. default 조작
+        4-1. default 상수 사용 > 명시적
+            ~ insert into tblMemo (seq, name, memo, regdate)
+                values(seqMemo.nextVal, 'honggildong', 'memo', default); 
+			
+        4-2. 컬럼 생략 > 암시적
+            ~ insert into tblMemo (seq, name, memo)
+                values(seqMemo.nextVal, 'honggildong', 'memo'); 
+		
+        ※주의! null 상수를 사용하면 사용자의 의사를 우선해서 default가 동작하지 않음.
+
+    5. 단축 표현
+        - 원본 테이블에 정의된 모든 컬럼에 해당하는 값리스트를 insert 할 때는 컬럼리스트를 생략할 수 있다.
+            ~ insert into tblMemo values(seqMemo.nextVal, 'honggildong', 'memo', sysdate);
+        ※원본 테이블의 컬럼 순서와 값리스트의 순서가 일치해야 한다. > 값리스트의 순서를 절대 변경할 수 없다!!
+		
+    6. 테이블 복사
+	
+        6-1. 새 테이블 생성 후 값 복사
+		
+            create table tblMemoCopy (
+    
+                seq number(3) primary key,
+                name varchar2(50),
+                memo varchar2(1000) not null,
+                regdate date default sysdate
+
+            );
+
+            insert into tblMemoCopy select * from tblMemo;
+			
+        6-2. 새 테이블 생성 시 값 복사
+            - 컬럼 구조는 복사가 되는데, 제약 사항은 복사되지 않는다.★★★★★
+            - 실사용은 힘들고, 개발용으로 대용량의 더미가 필요한 경우에 사용
+			  
+            create table tblMemoCopy as select * from tblMemo;
+
+
+-- update
+    - 데이터를 수정하는 명령어
+    - 원하는 행의 원하는 컬럼값을 수정하는 명령어
+	
+    ~ update 테이블명 set 컬럼명=값 [, 컬럼명=값] x N [where절];
+	
+	
+-- delete
+    - 데이터를 삭제하는 명령어
+    - 원하는 행을 삭제하는 명령어
+    - where절을 지정하지 않을 경우 테이블의 모든 데이터가 삭제된다.★★
+        > 테이블의 모든 데이터가 삭제되더라도 구조가 사라지진 않기 때문에 DDL의 drop과는 다르다.
+    ~ delete from 테이블명 [where절];
+	
+	
+
+※ update, delete 실수
+    1. 백업
+    2. commit/rollback > 현재 세션에 한해서 트랜잭션 단위로
+    3. 스크립트
+    
+    

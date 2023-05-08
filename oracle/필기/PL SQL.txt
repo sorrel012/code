@@ -1,0 +1,397 @@
+
+-- ANSI-SQL
+    - 비절차 지향 언어
+    - 순서가 없고 문장 간의 행동이 서로 독립적이다.
+    - 문장 단위 구조
+
+
+-- PL/SQL
+     - Oracle's Procedural Language Extension to SQL
+     - ANSI-SQL에 절차 지향 언어의 기능을 추가한 SQL
+     - ANSI-SQL + 프로그래밍 언어의 기능(변수, 자료형, 제어문, 메소드 ...)
+     - ANSI-SQL의 환경과 거의 동일하게 구현
+     
+     
+ -- 프로시저, Procedure
+    - 메소드, 함수 ...
+    - 순서가 있는 명령어(ANSI-SQL + PL/SQL)의 집합
+    - 장점
+        1. 단순화(모듈화)
+        2. 팀작업 원활
+        3. 저장 객체 > 공유 원활
+        4. 속도 향상★
+    
+    - PL/SQL 프로시저 블럭 구조 > 4개의 키워드(블럭)으로 구성
+        a. declare
+            - 선언부
+            - 프로시저 내에서 사용할 변수, 객체 등을 선언하는 영역
+            - 생략 가능
+        
+        b. begin
+            - 실행부, 구현부
+            - begin ~ end 한 쌍
+            - 구현부의 시작
+            - 생략 불가능
+            - 핵심 파트
+            - 구현 코드 : ANSI-SQL + PL/SQL
+            
+        c. exception
+            - 예외 처리부
+            - 자바에서의 catch 역할 (begin~end가 try 역할까지!)
+            - 예외 처리 코드 작성
+            - 생략 가능
+        
+        d. end
+            - begin ~ end 한 쌍
+            - 구현부의 끝 > begin 블럭의 종료 역할
+            - 생략 불가능    
+            
+    1. 익명 프로시저
+        - 일회용 코드 > 재사용 X
+        
+            declare
+                변수 선언 | 객체 선언
+            begin            
+                구현할 코드(SQL)            
+            exception
+                예외처리 코드            
+            end;
+
+
+            begin            
+                구현할 코드(SQL)             
+            end;            
+        
+        - 값 출력 
+            ~ dbms_output.put_line(값) : 값을 출력할 수 있다.
+                ≒ System.out.println()
+
+            ~ set serveroutput on | set serverout on : dbms_output.put_line(값)의 결과가 보이게 설정 
+              set serveroutput off | set serverout off : dbms_output.put_line(값)의 결과가 안 보이게 설정
+              > 접속할 때마다 실행해줘야 함.
+        
+        
+    2. 실명 프로시저
+        - 저장(데이터베이스) > DB Object
+        - 재사용 가능
+        - 계정 간 공유 가능
+        - 저장 프로시저(Stored Procedure)
+        - ★★★★★매개변수는 길이와 not null 표현이 불가능하다.
+        
+        1. 저장 프로시저, Stored Procedure
+            - 매개 변수 구성 / 반환값 구성 > 자유
+            
+            -- 선언
+            create [or replace] procedure 프로시저명
+            is(as)
+                [변수 선언;
+                 커서 선언;]
+            begin
+                구현부;
+            [exception
+                처리부;]
+            end ;
+            
+            -- 호출
+            begin 
+                프로시저명;   
+            end;
+            
+        2. 저장 함수, Stored Function
+            - 저장 프로시저와 동일하지만 프로시저와 조금 다른 상황에서 사용★★★
+            - 매개변수 필수 / 반환값 필수 > 고정
+            - out 파라미터 사용 X > return 문 사용 O 
+            - in 파라미터는 사용!
+            - ANSI-SQL에서도 사용할 수 있다. > 이 용도로 저장 함수 사용
+            
+           create or replace function 프로시저명 (
+                매개변수
+            ) return 반환타입
+            is
+            begin
+                return 반환값;
+            end 프로시저명;
+
+
+            declare
+                변수 선언;
+            begin
+                변수명 := 프로시저명(매개변수);
+                dbms_output.put_line(변수명);
+            end;
+
+        
+-- 자료형
+    - ANSI-SQL과 거의 동일
+  
+  
+-- 변수 선언
+    ~ 변수명 자료형 [not null] [default 값];
+    - 일반적인 데이터를 저장하는 용도
+    - 주로 질의(select)의 결과값을 저장하는 용도로 사용됨.
+    - 초기화를 하지 않더라도 null 상태로 사용 가능 (but 그렇게 사용할 일이 딱히 x)
+    
+
+-- 연산자
+    - ANSI-SQL과 거의 동일하지만, 대입 연산자의 표기법이 다름!
+        1. ANSI-SQL
+            ~ update table set column = 값;
+        2. PL/SQL
+            ~ 변수 := 값;    
+
+-- 타입 참조
+    - 변수를 선언할 때 같이 사용
+    
+    1. %type
+        - 사용하는 테이블의 특정 컬럼의 스키마를 알아내서 변수에 적용
+        - 컬럼 1개 참조
+        - 복사되는 정보
+            a. 자료형
+            b. 길이
+        ~ 변수 테이블명.컬럼%type;
+    
+    2. %rowtype
+        - 레코드 전체 참조(모든 컬럼 참조)
+        - 와일드 카드의 성질
+        - 테이블 구조 순서대로 컬럼을 가져온다.
+        ~ 변수 테이블명%rowtype;
+        
+        
+-- 제어문
+    1. 조건문
+        a. if elsif else
+        
+           if 조건식1 then 
+               실행문1;
+           elsif 조건식2 then
+               실행문2;
+           else 
+               실행문3;
+           end if;
+       
+        b. case(≒if)
+
+            case
+                when 조건식 then 실행문1;
+                else 실행문2;
+            end case;
+            
+        c. case(≒switch)
+        
+            case 변수
+                when 조건 then 실행문1;
+                else 실행문2;
+            end case;     
+            
+            
+    2. 반복문
+        a. loop
+            - 단순 반복(무한 반복)
+            
+                loop
+                    실행문;                    
+                    [exit when 조건식;] --조건 만족시 loop 탈출
+                end loop;   
+                
+        b. for loop
+            - 횟수 반복 (≒자바 for)
+            - loop 기반
+            
+                for i in startIndex..endIndex loop
+                    실행문;
+                end loop;
+            
+        
+        c. while loop
+            - 조건 반복 (≒자바 while)
+            - loop 기반
+            
+                while 조건식 loop
+                    실행문;
+                end loop;
+            
+            
+-- select 결과셋 저장
+    - select 결과셋 > PL/SQL 변수에 대입
+    
+    1. select into
+        ~ select 컬럼 into 변수
+        - PL/SQL의 변수에 ANSI-SQL의 결과값을 저장하는 구문
+        - 결과셋의 레코드가 1개일 때만 가능하다.
+        - ★★★★★★★select의 결과는 반드시 PL/SQL에 넣어야 한다.
+        - ★★★★★★★PL/SQL 블럭 안에는 ANSI-SQL의 select문을 사용할 수 없다.
+        - ★★★★★★★PL/SQL 블럭 안에서는 select문을 제외한 ANSI-SQL은 그대로 사용 가능하다.(insert, update, delete)
+
+        - 주의점
+            1. 컬럼의 개수와 변수의 개수가 동일해야 한다.
+            2. 컬럼의 순서와 변수의 순서가 일치해야 한다.
+            3. 컬럼과 변수의 자료형이 일치해야 한다.
+            4. 컬럼에 해당하는 값이 null이면 따로 처리해주어야 한다.
+            
+        - null 처리 함수(null value 함수)
+            1. nvl(컬럼, 대체값)
+                - 컬럼의 값이 null이면 대체값 반환
+                
+            2. nvl2(컬럼, 값A, 값B)
+                - 컬럼의 값이 null이 아니면 값A 반환, null이면 값B 반환
+            
+    2. cursor + loop★★★★★★★
+        - 결과셋의 레코드가 n개일 때 사용한다.
+        
+        a. cursor + loop
+        
+            declare
+                변수 선언;
+                cursor 커서명 is select문;
+            begin
+
+                open 커서명; -- 커서 열기 > select문 실행 > 결과셋에 커서 연결(참조) > 탐색 > 자바의 Iterator
+                    loop
+                        fetch 커서명 into 변수; -- 커서 사용 > 데이터 접근 > 조작 > select into와 동일한 역할
+                        exit when vcursor%notfound; --커서가 더이상 다음 레코드를 발견하지 못할 때 탈출
+                    end loop;
+                close 커서명; -- 커서 닫기
+
+            end;            
+            
+        b. cursor + for loop        
+
+            declare
+                cursor 커서명 is select문;
+                변수 선언;
+            begin
+                for 변수명 in 커서명 loop --vcursor(결과 테이블 = 레코드집합)
+                    실행문;
+                end loop;
+            end;
+        
+        
+--예외처리     
+    - 실행부에서 발생하는 예외를 처리하는 블럭
+
+        declare
+            변수 선언;
+        begin
+            실행문;
+        exception
+            when 예외상수 then 처리; 
+        end;
+
+    - 예외 상수
+        ~ others : 모든 예외 ≒ catch(Exception e)                   
+  
+  
+-- 매개변수 모드
+    - 매개변수가 값을 전달하는 방식
+    - call by value
+    - call by reference
+    
+    1. in 모드 > 기본 모드
+        - 키워드가 생략되어 있을 경우 in이 생략되어 있는 것
+        - 호출 때 넘기는 데이터
+        
+    2. out 모드 
+        - 변수 자체가 젼달된다.
+        - 변수의 주소값 전달
+        - 반환값 역할, but 여러 개를 사용할 수 있다.
+    
+    3. in out 모드 > 거의 안 씀
+    
+ 
+-- SQL 처리 순서
+    - select문 실행 
+ 
+    1. ANSI-SQL or PL/SQL - 익명 프로시저
+    
+        a. 클라이언트 > 구문 작성(select)
+        b.           > 실행(Ctrl+Enter)
+        c. 명령어를 오라클 서버로 전송
+        d. 서버  > 명령어 수신
+        e.      > 파싱(토큰 단위로 분해) > 문법 검사
+        f.      > 컴파일(기계어로)
+        g.      > 실행(SQL)
+        h.      > 결과셋 생성
+        i.      > 결과셋을 클라이언트에게 반환
+        j. 클라이언트 > 결과셋을 받아 화면에 출력
+        
+        - 동일한 명령어를 재실행해도 실행 비용이 항상 동일하다.
+
+    2. PL/SQL - 저장 프로시저(프로시저 or 함수)
+
+        a. 클라이언트 > 구문 작성(create)
+        b.           > 실행(Ctrl+Enter)
+        c. 명령어를 오라클 서버로 전송
+        d. 서버  > 명령어 수신
+        e.      > 파싱(토큰 단위로 분해) > 문법 검사
+        f.      > 컴파일(기계어로)
+        g.      > 실행(SQL)
+        h.      > 프로시저 생성 > 영구 저장(하드디스크)
+        i.      > 종료
+        
+        a. 클라이언트 > 구문 작성(호출)
+        b.           > 실행(Ctrl+Enter)
+        c. 명령어를 오라클 서버로 전송
+        d. 서버  > 명령어 수신
+        e.      > 파싱(토큰 단위로 분해) > 문법 검사        
+        f.      > 컴파일(기계어로)
+        g.      > 실행(SQL)
+        h.      > 아까 컴파일 완료된 프로시저가 실행 > 프로시저에 관련된 작업 재사용ㅇ
+        i.      > 결과셋 반환(select)
+        j. 클라이언트 > 결과셋을 받아 화면에 출력
+              
+        - 동일한 명령어를 재실행할 때 반복 비용 저렴(컴파일된 프로시저 호출 > 파싱 + 컴파일 생략)
+
+
+-- 트리거
+    - 프로시저의 한 종류
+    - 개발자가 호출하는 것이 아니라, 미리 지정한 특정 사건이 발생하면 자동으로 실행되는 프로시저
+    - 예약(사건) > 사건 발생 > 프로시저 호출
+    - 특정 테이블 지정 > 감시(insert or update or delete) > 미리 준비해놓은 프로시저 호출
+    - 보통 트리거 선언 시 감시 대상 테이블을 구현부에서 조작하지 않는다.
+    
+    ~ create or replace trigger 트리거명
+          befor|after
+          insert|update|delete on 테이블명
+          [for each row]
+      [declare
+          선언부;]
+      begin
+          실행부;
+      [exception
+          예외처리부;]
+      end;
+    
+    - 강제 예외 발생
+        ~ raise_application_error(예외 번호, '에러 메시지');
+        - 예외 번호 지정: -20000 ~ 29999
+    
+    - inserting | updating | deleting : insert | update | deleting 이 실행되었는지 여부를 담는 변수
+    
+    - [for each row]
+        1. 사용 X
+            - 문장(Query) 단위 트리거
+            - 트리거 실행 1회
+            - 적용되는 행의 개수가 n개여도 프로시저 1회 호출 > 집단을 대상으로 실행
+            
+        2. 사용 O
+            - 행(Record) 단위 트리거        
+            - 트리거 실행 반복
+            - 적용되는 행의 개수만큼 프로시저 호출 > 개인을 대상으로 실행
+            
+            - :old.컬럼 > 삭제 또는 수정되는 행 참조 객체            
+                ~ dbms_output.put_line('레코드를 삭제했습니다.' || :old.name);
+                ~ delete from tblWomen where name = '하하하'; 
+                ~ 레코드를 삭제했습니다.하하하              
+                
+            - :new.컬럼 > 새롭게 추가되거나 수정되는 행 참조 객체
+                ~ dbms_output.put_line('레코드를 추가했습니다' || :new.name || :new.age); 
+                ~ insert into tblWomen values('호호호', 20, 160, 50, null);
+                ~ 레코드를 추가했습니다.호호호20            
+
+
+-- 커서를 반환하는 프로시저
+    - 결과셋을 반환(테이블을 통쨰로 반환)
+    - out 파라티머 > 가능
+    - return > 불가능
+    - sys_refcursor > 커서를 반환값으로 사용할 때 쓰는 자료형
+    

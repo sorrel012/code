@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        
+        //문자열 함수
+        var txt = 'Hello~ Hong~'
+        
+        //1. 문자열 길이
+        console.log(txt.length); //자바 > field / 자바스크립트 > property        
+        
+        //2. 검색
+        console.log(txt.indexOf('~'));      //5
+        console.log(txt.indexOf('~', 6));   //11
+        console.log(txt.lastIndexOf('~'));  //11       
+        
+        //3. 대소문자 변환
+        console.log(txt.toUpperCase());
+        console.log(txt.toLowerCase());
+        
+        //4. 추출
+        console.log(txt.substring(2, 8));
+        console.log(txt.substring(2));
+        
+        console.log(txt.substr(2, 4));
+        console.log(txt.substr(2));
+        
+        console.log(txt.charAt(2));
+        console.log(txt.charCodeAt(2)); //문자 코드값 추출 > 형변환 연산..
+        
+        //5. 치환***
+        // - 처음 만나는 요소만 치환한다.(반복X)
+        // - 반복을 원하면 정규 표현식 사용
+        txt = 'Hello~ Hong~ Bye~ Hong~';
+        console.log(txt.replace('Hello', 'Hi'));
+        console.log(txt.replace('Hong', 'Lee'));
+        
+        console.log(txt.replace(/Hong/gi, 'Lee'));
+        
+        // 6. 공백 제거
+        txt = '          하나    둘      셋          ';
+        console.log(txt.trim());
+        console.log(txt.trimStart());
+        console.log(txt.trimEnd());
+        
+        //7. 분할
+        txt = '홍길동,아무개,하하하,호호호,후후후';
+        console.log(txt.split(','));
+        
+        //8. 검색
+        txt = '홍길동';
+        console.log(txt.startsWith('홍'));
+        console.log(txt.endsWith('홍'));
+        
+        
+    </script>
+    
+</body>
+</html>

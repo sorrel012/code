@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/example.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <h1>jQuery 태그 조작</h1>
+
+    <input type="button" value="확인" id="btn">
+    <hr>
+    <div id="box" class="box bg-yellow"></div>
+    <hr>
+    <input type="text" id="txt1" style="size: 50px">
+
+    <script src="js/jquery-3.6.4.js"></script>
+    <script>
+
+        $('#btn').click(function () {
+
+            //1. 콘텐츠 조작
+            // alert($('#box').text());
+            // $('#box').text('홍길동');
+
+            // $('box').html('<b>안녕하세요.</b>');
+
+            // alert($('#txt1').val());
+            // $('#txt1').val('값을 대입합니다.');
+
+            //2. 속성 조작
+
+            // $('#txt1').attr('size, 50');
+            // $('#txt1').prop('size, 50');
+
+            // $('#txt1')
+            //     .attr('size', 50)
+            //     .attr('maxlength', 10);
+
+            // $('#txt1').attr({
+            //     size: 100,
+            //     maxlength: 10
+            // });
+
+            //3. 태그 생성
+            // $('#box').html('<img src="images/catty01.png">');
+
+            // $('#box').append(`<img src="images/catty0${n}.png">`);  //막내 추가
+            // $('#box').prepend(`<img src="images/catty0${n}.png">`); //첫째 추가
+            // n++;
+
+            // $('#box').append(`<img src="images/catty0${n}.png">`);
+
+            // $('#box').append(
+            //     $(`<img src="images/catty0${n}.png">`)
+            //         .css('border', '5px solid black')
+            //         .click(function () {
+            //             alert(this.src);
+            //         })
+            // );
+
+
+            // $(`<img src="images/catty0${n}.png">`)
+            //     .css('border', '5px solid black')
+            //         // alert(this.src);
+            //         $(this).remove();
+            //     })
+            //     .appendTo($('#box'));
+
+            n++;
+
+        });
+
+        let n = 1;
+
+    </script>
+
+</body>
+
+</html>

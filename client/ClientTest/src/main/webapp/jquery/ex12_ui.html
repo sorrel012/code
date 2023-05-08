@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <style>
+        #box, #box2 {
+            width: 200px;
+            height: 200px;
+            background-color: gold;
+            margin-bottom: 20px;
+        }
+
+        .helper {
+            border: 1px dotted #333;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Interactions <small>Resizable</small></h1> 
+
+    <div id="box"></div>
+    <div id="box2"></div>
+
+    <img src="images/catty01.png" id="cat">
+
+    <script src="js/jquery-3.6.4.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script>
+
+        $('#cat').resizable({
+            aspectRatio: true
+        });
+
+        $('#box').resizable({
+            maxWidth: 500,
+            maxHeight: 500,
+            minWidth: 100,
+            minHeight: 100,
+            // griid: [100, 100]
+            animate: true,
+            helper: 'helper'
+        });
+
+        $('.cat').resizable({
+            alsoResize: '.cat'
+        });
+
+        $('#box2').resizable({
+            alsoResize: '#box'
+        })
+    
+    </script>
+
+</body>
+</html>

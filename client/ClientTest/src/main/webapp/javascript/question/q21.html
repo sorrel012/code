@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        table {
+            border: 1px solid gray;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table td {
+            border: 1px solid gray;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+        }
+    
+    </style>
+</head>
+<body>
+
+    <div id="div1">
+        <table></table>
+    </div>
+
+    <script>
+        const div1 = document.getElementById('div1');
+        let table = document.getElementsByTagName('table');
+        
+
+        createTbl(2,2);    
+        
+        var rowCnt = document.getElementsByTagName('tr').length;
+        var colCnt = (document.getElementsByTagName('td').length)/rowCnt;
+
+        document.body.onkeyup = function() {
+            
+            if(event.keyCode == 37) { //좌
+                createTbl(rowCnt, colCnt-1);
+            } else if(event.keyCode == 38) {//상
+                createTbl(rowCnt-1, colCnt);
+            } else if(event.keyCode == 39) {//우
+                createTbl(rowCnt, colCnt+1);
+            } else if(event.keyCode == 40) {//하 
+                createTbl(rowCnt+1, colCnt);
+            }
+
+        }
+    
+        function createTbl(num1, num2) {
+
+            let cnt = 1;
+
+            //TODO 수 계산
+            if (num1 < 1) {
+                num1 = 1;
+            }
+
+            if (num2 < 1) {
+                num2 = 1;
+            }
+
+            if(table.parentNode){                
+                table.parentNode.removeChild(table);   
+            }            
+
+            table = document.createElement('table');
+
+            for (let i=0; i<num1; i++) {
+                const tr = document.createElement('tr'); //<tr></tr>
+
+                for (let j=0; j<num2; j++) {
+
+                    const td = document.createElement('td'); //<td></td>
+                    td.textContent = cnt++;
+                    tr.appendChild(td);
+                }
+
+                table.appendChild(tr);
+            }
+            div1.appendChild(table);
+            
+            rowCnt = document.getElementsByTagName('tr').length;
+            colCnt = (document.getElementsByTagName('td').length)/rowCnt;
+        };
+    
+    </script>
+
+</body>
+</html>

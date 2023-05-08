@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box { padding: 50px; }
+        #p1 { background-color: tomato;}
+        #p2 { background-color: gold;}
+        #p3 { background-color: cornflowerblue;}
+    </style>
+</head>
+<body>
+
+    <div id="p1" class="box">
+        <div id="p2" class="box">
+            <div id="p3" class="box"></div>
+        </div>
+    </div>
+
+    <script>
+        
+        
+        const p1 = document.getElementById('p1')
+        const p2 = document.getElementById('p2')
+        const p3 = document.getElementById('p3')
+
+        //이벤트 버블링(Event Bubbling) 
+        // vs 이벤트 터널링(Event Tunneling, 이벤트 캡쳐링(Event Capturing))
+        
+        /*
+
+        //BOM
+
+        p1.onclick = function () {
+            alert('빨강' + event.target.id);
+        };
+
+        p2.onclick = function() {
+            // alert('노랑' + event.target.id + event.srcElement.id + this.id + event.currentTarget.id);
+            alert('노랑' + event.target.id);
+        };
+
+        p3.onclick = function() {
+            alert('파랑' + event.target.id);
+            event.cancelBubble = true;
+        };
+
+        */
+
+
+        //DOM
+
+        //이벤트 터널링
+
+        p1.addEventListener('click', function() {
+            alert('빨강');
+        }, true);
+
+        p2.addEventListener('click', function() {
+            alert('노랑');
+        }, true);
+
+        p3.addEventListener('click', function() {
+            alert('파랑');
+        }, true);
+
+        //이벤트 버블링
+
+        p1.addEventListener('click', function() {
+            alert('빨강');
+        });
+
+        p2.addEventListener('click', function() {
+            alert('노랑');
+        });
+
+        p3.addEventListener('click', function() {
+            alert('파랑');
+        });
+
+    </script>
+
+</body>
+</html>

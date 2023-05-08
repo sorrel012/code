@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+    #frame {
+        color: #797979;
+    }
+
+    #pattern {
+        padding: 0px;
+        margin: 0 auto;
+        width: 510px;
+        height: 500px;
+        padding: 20px;
+    }
+
+    img {
+        border: 10px solid #b9b9b9;
+        margin: 10px;
+    }
+
+    #buttons {
+        width: 600px;
+        margin: 10px auto ; 
+        text-align: center;       
+    }    
+
+    #reset, #input {
+        display: inline-block;
+        border: 10px solid #b9b9b9;
+        background-color: #EEE;
+        width: 250px;
+        height: 60px;
+        font-size: 30px;
+        padding-top: 0;
+        margin-left: 5px;
+        margin-right: 5px;
+        color: gray;
+        text-align: center;;
+    }
+
+</style>
+<body>
+    
+    <div id="frame">
+        <h1>Pattern Lock</h1>
+        <div id="pattern">
+            <img src="../images/rect_icon01.png" name="img1">
+            <img src="../images/rect_icon02.png" name="img2">
+            <img src="../images/rect_icon03.png" name="img3">
+            <img src="../images/rect_icon04.png" name="img4">
+            <img src="../images/rect_icon05.png" name="img5">
+            <img src="../images/rect_icon06.png" name="img6">
+            <img src="../images/rect_icon07.png" name="img7">
+            <img src="../images/rect_icon08.png" name="img8">
+            <img src="../images/rect_icon09.png" name="img9">
+        </div>            
+        <form id="buttons">
+            <input type="button" name="re" id="reset" value="RESET"> 
+            <input type="button" name="inp" id="input" value="INPUT"> 
+        </form>
+    </div>
+    
+    <script>
+        
+        var img1 = document.all.img1;
+        var img2 = document.all.img2;
+        var img3 = document.all.img3;
+        var img4 = document.all.img4;
+        var img5 = document.all.img5;
+        var img6 = document.all.img6;
+        var img7 = document.all.img7;
+        var img8 = document.all.img8;
+        var img9 = document.all.img9;
+        
+        img1.onmouseover = m1;
+        img2.onmouseover = m1;
+        img3.onmouseover = m1;
+        img4.onmouseover = m1;
+        img5.onmouseover = m1;
+        img6.onmouseover = m1;
+        img7.onmouseover = m1;
+        img8.onmouseover = m1;
+        img9.onmouseover = m1;
+        
+        var selected;
+        var user = [];
+        function m1() {                 
+            selected = event.target.src;
+            user.push(selected);              
+            event.target.src = '../images/rect_icon10.png';
+        }
+        
+        var re = document.all.re;
+        var inp = document.all.inp;
+        
+        re.onclick = m2;
+        inp.onclick = m3;
+        
+        function m2() {
+            window.location.reload();
+        }
+        
+        function m3() {            
+            
+            check = true;            
+            
+            if(user.length != 5) {
+                check = false;
+            }
+            if(user[0] != 'http://127.0.0.1:5500/ClientTest/src/main/webapp/javascript/images/rect_icon01.png') {
+                check = false;
+            }            
+            if(user[1] != 'http://127.0.0.1:5500/ClientTest/src/main/webapp/javascript/images/rect_icon04.png') {
+                check = false;
+            }
+            if(user[2] != 'http://127.0.0.1:5500/ClientTest/src/main/webapp/javascript/images/rect_icon07.png') {
+                check = false;
+            }
+            if(user[3] != 'http://127.0.0.1:5500/ClientTest/src/main/webapp/javascript/images/rect_icon08.png') {
+                check = false;
+            }
+            if(user[4] != 'http://127.0.0.1:5500/ClientTest/src/main/webapp/javascript/images/rect_icon09.png') {
+                check = false;
+            }
+            
+            console.log(check);
+            
+            if(check) {
+                window.location.href = 'https://google.com';
+            } else {
+                alert('Error!');
+                window.location.reload();
+            }
+            
+        }
+        
+        
+    </script>
+    
+</body>
+</html>

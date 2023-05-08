@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+
+        .frame {
+            margin-top: 40px;
+            margin-left: 40px;
+            margin-right: 40px;
+            width: 900px;
+            height: 170px;
+            text-align: center;
+        }
+
+        .clock {
+            width: 750px;
+            height: 170px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: rgb(56, 56, 56);
+            border: 1px solid rgb(150, 149, 149);
+            padding: 25px;
+            font-weight: bold;
+            float: left;
+        }
+
+        #col1, #col2 {
+            font-size: 130px;
+        }
+
+        input[type=button] {
+            width: 220px;
+            height: 50px;
+            font-weight: bold;
+            color: rgb(56, 56, 56);
+            font-size: 20px;
+            cursor: not-allowed;
+            border: 1px solid rgb(150, 149, 149);
+            background-color: rgb(235, 235, 235);
+        }
+
+        input[name=btn1] {
+            background-color: white;
+            cursor: pointer;
+        }
+
+        .buttons {
+            padding-right: 120px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="frame">
+        <div class="clock">
+            <img src="../images/0.png"  name="img1">
+            <img src="../images/0.png"  name="img2">
+            <span id="col1">:</span>
+            <img src="../images/0.png"  name="img3">
+            <img src="../images/0.png"  name="img4">
+            <span id="col2">:</span>
+            <img src="../images/0.png"  name="img5">
+            <img src="../images/0.png"  name="img6">
+        </div>
+        <div class="buttons">
+            <input type="button" value="시작" name="btn1">
+            <input type="button" value="멈춤" name="btn2" readonly>
+            <input type="button" value="종료" name="btn3" readonly>
+        </div>
+    </div>
+
+    <script>
+
+        var txt = document.all.txt;
+        var btn1 = document.all.btn1;
+        var btn2 = document.all.btn2;
+        var btn3 = document.all.btn3;
+
+        var img1 = document.all.img1;
+        var img2 = document.all.img2;
+        var img3 = document.all.img3;
+        var img4 = document.all.img4;
+        var img5 = document.all.img5;
+        var img6 = document.all.img6;
+
+        let n = 0;
+        let hour;
+        let minute;
+        let second;
+
+        var timer = [];
+
+        btn1.onclick = m1;
+
+        function m1() {     
+            btn1.style.cursor = 'not-allowed';       
+            btn2.style.cursor = 'pointer'; 
+            btn3.style.cursor = 'pointer'; 
+            btn1.style.backgroundColor = 'rgb(235, 235, 235)';
+            btn2.style.backgroundColor = 'white';
+            btn3.style.backgroundColor = 'white';
+            btn1.readOnly = true;
+            btn1.readOnly = false;
+            btn1.readOnly = false;
+            f1();
+            timer.push(setInterval(f1, 1000));
+        }
+
+        function f1() {
+            n++;
+            calT();
+        }
+
+        function calT() {
+            minute = parseInt(n / 60);
+            hour = parseInt(minute / 60);
+            second = n % 60
+
+            if (hour < 10) {
+                img1.src = '../images/0.png';
+                img2.src = '../images/' + hour + '.png'
+            } else {
+                img1.src = '../images/' + parseInt(hour/10) + '.png'
+                img2.src = '../images/' + hour%10 + '.png'
+            }
+
+            if (minute < 10) {
+                img3.src = '../images/0.png';
+                img4.src = '../images/' + minute + '.png'
+            } else {
+                img3.src = '../images/' + parseInt(minute/10) + '.png'
+                img4.src = '../images/' + minute%10 + '.png'
+            }
+
+            if (second < 10) {
+                img5.src = '../images/0.png';
+                img6.src = '../images/' + second + '.png'
+            } else {
+                img5.src = '../images/' + parseInt(second/10) + '.png'
+                img6.src = '../images/' + second%10 + '.png'
+            }
+            
+            
+
+        }
+
+        btn2.onclick = m2;
+
+        function m2() {
+            btn1.style.cursor = 'pointer';       
+            btn2.style.cursor = 'not-allowed'; 
+            btn3.style.cursor = 'pointer'; 
+            btn1.style.backgroundColor = 'white';
+            btn2.style.backgroundColor = 'rgb(235, 235, 235)';
+            btn3.style.backgroundColor = 'white';
+            btn1.readOnly = false;
+            btn1.readOnly = true;
+            btn1.readOnly = false;
+            for (var i = 0; i < timer.length; i++) {
+                clearInterval(timer[i]);
+            }
+        }
+
+        btn3.onclick = m3;
+
+        function m3() {
+            btn1.style.cursor = 'pointer';       
+            btn2.style.cursor = 'not-allowed'; 
+            btn3.style.cursor = 'not-allowed'; 
+            btn1.style.backgroundColor = 'white';
+            btn2.style.backgroundColor = 'rgb(235, 235, 235)';
+            btn3.style.backgroundColor = 'rgb(235, 235, 235)';
+            btn1.readOnly = false;
+            btn1.readOnly = true;
+            btn1.readOnly = true;
+            for (var i = 0; i < timer.length; i++) {
+                clearInterval(timer[i]);
+            }
+            // txt.value = 
+        }
+
+    </script>
+
+</body>
+
+</html>

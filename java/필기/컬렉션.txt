@@ -1,0 +1,283 @@
+//컬렉션, Collection
+	- JCF, Java Collection Framework
+	- (향상된) 배열
+	- 기존의 순수 배열 > 성능, 사용법 등 개량 > 클래스
+	- 가변적 길이 > 방의 개수를 마음대로 늘리거나 줄이는 것이 가능
+	
+	1. List 계열
+		- 순서가 있는 집합
+		- 첨자(index)
+		- 데이터 중복을 허용한다.
+		
+		a. ArrayList★★★★★ > implement Serializable, Cloneable, Iterable<E>, Collection<E>, List<E>, RandomAccess
+			- 내부에 배열을 가지고 있다.
+			- 내부 배열을 조작하는 기능들이 대부분이다.
+			- 배열이 가득 차면 (현재 배열의 길이 * 3)/2 + 1 만큼의 새로운 길이의 배열을 만든다. > resizing
+			- 잦은 배열 교체가 일어나는 경우 효율을 높여주기 위해 배열의 길이를 지정해줄 수 있다.
+				~ ArrayList<Integer> list = new ArrayList<Integer>(100);
+			- 더이상 데이터를 추가할 일이 없을 경우 trimToSize()를 사용해도 된다. > 최후의 수단
+			
+			1. 생성하기
+				- ArrayList<String> list = new ArrayList<String>(); 
+			
+			2. 요소 추가하기
+				- boolean add(T value)
+				- 배열의 맨 마지막에 추가하기 > Append Mode
+		
+			3. 요소의 개수
+				- int size()
+			
+			4. 요소 읽기
+				- T get(int index)
+		
+			5. 요소의 수정
+				- T set(int index, T newValue)
+			
+			6. 요소의 삭제
+				- T remove(int index)
+			
+			7. 탐색
+				- 루프 
+				
+			8. 요소의 검색
+				- int indexOf(T value)
+				- int lastIndexOf(T value)
+				- boolean contains(T value)
+				
+			9. 초기화
+				- 모든 요소 삭제
+				- void clear()
+				
+			10. 빈 배열 확인
+				- boolean isEmpty()
+				
+			11. 요소 추가 
+				- 중간에 삽입
+				- void add(int index, T value)
+				- ★★★우측 시프트 발생 > 삽입한 위치 이후의 모든 요소의 방번호 + 1
+			
+		b. LinkedList
+			- LinkedList: 단방향 탐색
+			- Double LinkedList: 양방향 탐색
+			- Double Circular LinkedList : 순환 탐색 > 자바의 LinkedList
+		
+		c. Stack
+			- ADT(Abstract Data Type)
+			- 후입선출(LIFO, Last Input First Output)		
+			~ 메모리 구조, 되돌리기(Ctrl+Z), 다시하기(Ctrl+Y)
+			
+			1. 생성하기
+				- Stack<T> stack = new Stack<T>(); 
+			
+			2. 요소 추가하기 > push down
+				- T push(T value)
+		
+			3. 요소의 개수
+				- int size()
+			
+			4. 요소 읽기(= 꺼내기 = 삭제하기) > pop up
+				- T pop()
+				
+			5. 빈 스택 확인
+				- boolean isEmpty()
+			
+			6. 마지막 요소 확인
+				- T peek()				
+		
+		d. Queue
+			- ADT(Abstract Data Type) : 물리적인 특성은 배열과 동일한데, 사용법이 특별한 자료형
+			- 선입선출(FIFO, First Input First Output)
+			~ 줄서기			
+			
+			1. 생성하기
+				- Queue<T> queue = new LinkedList<T>();
+			
+			2. 요소 추가하기 > push down
+				- boolean add(T value)
+		
+			3. 요소의 개수
+				- int size()
+			
+			4. 요소 읽기(= 꺼내기 = 삭제하기) > 
+				- T poll() //deque()
+				
+			5. 빈 스택 확인
+				- boolean isEmpty()
+			
+			6. 마지막 요소 확인
+				- T peek()
+		
+		e. Vector(legacy)
+		
+	2. Map 계열
+		- 순서가 없는 집합
+		- 키(key)
+		- 데이터 중복을 허용한다. 
+	
+		a. HashMap★★★
+			- 키와 값을 저장하는 컬렉션
+			- HashMap의 특징을 살리기 위해서 key는 거의 String을 사용한다.
+			- Hash 구조 + Map 사용법
+			
+			1. 생성하기
+				-HashMap<String, String> map = new HashMap<String, String>();
+			
+			2. 요소 추가하기
+				- V put(K key, V value)
+		
+			3. 요소의 개수
+				- int size()
+			
+			4. 요소 읽기
+				- V get(Object key)
+		
+			5. 요소의 수정
+				- V put(K key, V value) > 키가 유일하기 때문
+			
+			6. 요소의 삭제
+				- boolean remove(Object key, Object value)
+				
+			7. 요소의 검색
+				- boolean containsKey(Object key)
+				- boolean containsValue(Object value)				
+				
+			8. 초기화
+				- void clear()
+				
+			9. 빈 배열 확인
+				- boolean isEmpty()
+				
+			10. 루프(향상된 for문)를 통한탐색
+				- Set<K> keySet() 				> 키들만 모아놓은 배열을 반환
+				- Collections<String> values()	> 값들만 모아놓은 배열
+		
+		b. TreeMap
+			- Tree 구조 + Map 사용법
+			- 이진 탐색 트리 >자동 정렬 + 범위(부분) 추출 용이
+			
+			1. K firstEntry().getKey()
+				- 맨 앞에 있는 키+값 엔트리세트에서 키 반환
+				
+			2. K firstEntry().getValue()
+				- 맨 앞에 있는 키+값 엔트리세트에서 값 반환
+			
+			3. SortedMap<K,V> headMap(K toKey)
+				- 맨 앞부터 toKey 이전까지 추출하여 반환
+				
+			4. SortedMap<K,V> tailMap(K fromKey)
+				- fromKey부터 끝까지 추출하여 반환
+			
+			5. SortedMap<K,V> subMap(K fromKey, K toKey)
+				- fromKey부터 toKey 이전까지 추출하여 반환
+		
+		c. Properties(legacy)
+		d. HashTaable(legacy)		
+		 
+	3. Set 계열
+		- 순서가 없는 집합
+		- 식별자가 없다.(index X, key X) > 구분 불가
+		- 데이터 중복을 허용한다.
+		 
+		a. HashSet★★★
+			- Hash 구조 + Set 사용법
+			
+			1. 생성하기
+				-HashSet<String> set = new HashSet<String>();
+			
+			2. 요소 추가하기
+				- boolean add(E e)
+		
+			3. 요소의 개수
+				- int size()
+			
+			4. 요소의 삭제
+				- boolean remove(Object o)
+				
+			5. 요소의 검색
+				- boolean contains(Object o)		
+				
+			6. 요소 읽기(향상된 for문)			
+				
+		b. TreeSet
+			- Tree 구조 + Set 사용법
+			- 이진 탐색 트리 >자동 정렬 + 범위(부분) 추출 용이
+			
+			1. E first()
+				- 맨 앞에 있는 요소 반환
+				
+			2. E last()
+				- 맨 뒤에 있는 요소 반환
+			
+			3. SortedSet<E> headSet(E toElement)
+				- 맨 앞부터 toElement 이전까지 추출하여 반환
+				
+			4.  SortedSet<E> tailSet(E fromElement)
+				- fromElement부터 끝까지 추출하여 반환
+			
+			5. SortedSet<E> subSet(E fromElement, E toElement)
+				- fromElement부터 toElement 이전까지 추출하여 반환
+		
+※ ArrayList vs LinkedList
+	- 사용법은 아주 유사하다.
+	- 내부 구조가 달라 사용 용도가 다르다. > 능률 차이 有
+	
+	1. ArrayList
+		- 순차적인 데이터 추가 / 삭제
+		- 탐색 위주 작업
+		
+	2. LinkedList
+		- 중간 데이터 추가/삭제		
+		
+※ ArrayList vs HashMap		
+	1. ArrayList
+		- 요소 접근 > 첨자(index) 사용
+			~ list[0]
+		- 요소 : 첨자(index) + 값(value)
+			~ 첨자: 유일
+			~ 값: 중복 가능
+		- 순서가 있는 데이터 집합(첨자 == 요소의 순서)
+		- 첨자 > 의미 모호
+			
+		
+	2. HashMap
+		- 요소 접근 > 키(key) 사용
+			~ list["햇님"];
+		- 요소 : 키(key) + 값(value)
+			~ 키: 유일
+			~ 값: 중복 가능
+		- 순서가 없는 데이터 집합
+		- 키 > 의미 명확
+		
+		
+※ Class vs HashMap
+	- 다회성(개수가 많으면): Class
+	- 일회성(개수가 적으면): HashMap, Class				
+
+
+// 최종 정리
+
+	- 일반적인 자료 집합 > ArrayList
+	- 중간 추가/삭제 > LinkedList
+	- 선입선출 > Queue 
+	- 후입선출 > Strack
+	- 중복값(X) > HashSet(★★★) or TreeSet(정렬, 범위 추출)
+	- 연관배열(사전 구조) > HashMap(★★★) or TreeMap(정렬, 범위 추출)
+	
+	★★★★★★ ArrayList, HashSet, HashMap + Queue(Stack)
+
+//Iterator
+	- 데이터 집합을 탐색하는 도구
+	- 탐색기
+	- ★★★끝까지 읽고 나면 다시 읽을 수 없다.
+	
+	~ Iterator<String> iter = 컬렉션.iterator()
+	
+	~ iter.hasNext() : 다음 칸으로 이동하여 데이터가 있는지 없는지 확인 > boolean 값 반환
+	~ iter.next() : 해당 칸에 있는 데이터 반환
+	
+	while(iter.hasNext()) {
+			System.out.println(iter.next());
+		} 		
+		
+		
+		
