@@ -96,9 +96,23 @@
 
 // JSP 구성 요소
     1. JSP 지시자, JSP Directive
-        - page 지시자
-        - include 지시자
-        - taglib 지시자
+        - 톰캣에게 JSP 페이지와 관련된 여러 가지 상황을 알려주는 역할 > 환경설정
+        - <%@ %>
+        
+        a. page 지시자
+            - JSP 페이지 관련 설정            
+             
+            - <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>      
+                ~ language="java" : 현재 페이지를 처리하는 서버측 언어가 java임을 안내
+                ~ contentType="text/html; charset=UTF-8" : 브라우저에게 돌려줄 임시페이지에 관련된 설정
+                ~ pageEncoding="UTF-8" : 현재 JSP 페이지의 인코딩
+                
+            - <%@page import="java.util.Calendar"%> : 자바의 import
+            
+            - errorPage="URL" : 오류가 발생하면 자동으로 URL로 이동. 오류 페이지
+              
+        b. include 지시자
+        c. taglib 지시자
         
     2. 스크립트 요소, Scripting Elements
         - 스크립틀릿
