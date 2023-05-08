@@ -28,6 +28,14 @@ public class Ex04 extends HttpServlet {
         writer.println("<div></div>");
         writer.println("<div><input type='submit' value='보내기'></div>");
         writer.println("</form>");
+        
+        writer.println("<a href='/servlet/ex04ok?name=hong'>Ok 페이지</a>");
+        
+        writer.println("<script>");
+//        writer.println("window.onclick = function() { location.href='/servlet/ex04ok?'; };");
+        writer.println("window.onclick = function() { location.href='/servlet/ex04ok?name=lee'; };");
+        writer.println("</script>");
+        
         writer.println("</body>");
         writer.println("</html>");
         
