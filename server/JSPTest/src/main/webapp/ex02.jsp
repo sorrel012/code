@@ -31,7 +31,9 @@
     <div><%= dan %> x <%= i %> = <%= dan*i %></div>
     <%
         } //for
-    %>
+    %>    
+    
+    <%@ include file="inc/sub.jsp" %>
     
 </body>
 </html>

@@ -21,5 +21,7 @@
     <p>오늘은 <%= String.format("%qtF", now) %>입니다.</p>
     <p>지금은 <%= String.format("%tT", now) %>입니다.</p>
     
+    <%@ include file="inc/sub.jsp" %>
+    
 </body>
 </html>
