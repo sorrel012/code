@@ -1,3 +1,4 @@
+<%@page import="com.test.jsp.Util"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
@@ -50,7 +51,8 @@
     
     <hr>
     
-    결과: <%-- <%= add(100,200) --%> --%>
+    결과: <%-- <%= add(100,200) %> --%>
+    결과: <%= Util.add(100,200) %>
     
     <script>
     
