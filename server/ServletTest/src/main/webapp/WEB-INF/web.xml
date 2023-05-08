@@ -27,6 +27,7 @@
       <url-pattern>/ex02</url-pattern>
    </servlet-mapping>
 
+
    <servlet>
       <servlet-name>ex03</servlet-name>
       <servlet-class>com.test.servlet.Ex03</servlet-class>
@@ -35,6 +36,28 @@
    <servlet-mapping>
       <servlet-name>ex03</servlet-name>
       <url-pattern>/ex03</url-pattern>
+   </servlet-mapping>
+
+
+   <servlet>
+      <servlet-name>ex04</servlet-name>
+      <servlet-class>com.test.servlet.Ex04</servlet-class>
+   </servlet>
+
+   <servlet-mapping>
+      <servlet-name>ex04</servlet-name>
+      <url-pattern>/ex04</url-pattern>
+   </servlet-mapping>
+
+
+   <servlet>
+      <servlet-name>ex04ok</servlet-name>
+      <servlet-class>com.test.servlet.Ex04Ok</servlet-class>
+   </servlet>
+
+   <servlet-mapping>
+      <servlet-name>ex04ok</servlet-name>
+      <url-pattern>/ex04ok</url-pattern>
    </servlet-mapping>
 
 </web-app>
