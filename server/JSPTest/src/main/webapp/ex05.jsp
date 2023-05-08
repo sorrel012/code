@@ -48,6 +48,10 @@
     
     <input type="button" value="확인" id="btn1" style="color:<%= color %>">
     
+    <hr>
+    
+    결과: <%-- <%= add(100,200) --%> --%>
+    
     <script>
     
         document.getElementById('btn1').onclick = function() {
