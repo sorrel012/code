@@ -216,5 +216,13 @@
     
     
     6. application
+        - 전역 변수
+        
+        
+    ※ pageContext, request, session, application 생명 주기
+        
+        - pageContext < request < session < application
+        
+        - A 페이지(데이터 저장) > B 페이지(데이터 접근)
     
     
