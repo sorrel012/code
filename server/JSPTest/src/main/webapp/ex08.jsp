@@ -9,8 +9,12 @@
 <link rel="stylesheet" href="css/jquery-ui.css">
 <style>
 
-    #memberlist img {
+    #memberlist img{
         opacity: .3;
+    }
+   
+    #memberlist img.ui-selected{
+        opacity: 1;
     }
 
 </style>
@@ -105,16 +109,16 @@
                 <td><input type="range" name="range1"></td>
             </tr>
             <tr>
-                <th>사용자 정의 컨트롤</th>
-                <td>
-                    <div id="memberlist">
-                        <img src="images/man_01.png" data-name="홍길동">
-                        <img src="images/man_02.png" data-name="아무개">
-                        <img src="images/man_03.png" data-name="하하하">
-                    </div>
-                    <input type="hidden" name="member" id="member">
-                </td>
-            </tr>
+	            <th>사용자 정의 컨트롤</th>
+	            <td>
+	               <div id = "memberlist">
+	                  <img src = "images/man_01.png" data-name = "홍길동">
+	                  <img src = "images/man_02.png" data-name = "아무개">
+	                  <img src = "images/man_03.png" data-name = "호호호">
+	               </div>
+	               <input type = "hidden" name = "member" id = "member">
+	            </td>
+            </tr> 
         </table>
         
         <div>
