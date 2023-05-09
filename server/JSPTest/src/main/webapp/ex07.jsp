@@ -11,7 +11,7 @@
     <h1>데이터 보내기</h1>
     
     <!-- <form method="GET" action="ex07ok.jsp"> -->  <!-- 상대 경로 -->
-    <form method="GET" action="ex07ok.jsp"> <!-- 절대 경로 -->
+    <form method="POST" action="ex07ok.jsp"> <!-- 절대 경로 -->
     
         <div>이름: <input type="text" name="name"></div>
         
