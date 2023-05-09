@@ -44,10 +44,6 @@
     <p>프로토콜: <%= request.getProtocol() %></p>
     <p>요청 메소드: <%= request.getMethod()%></p>
     <p>컨텍스트 경로: <%= request.getContextPath() %></p>
-    
-    request.get
-
-request.
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script>
