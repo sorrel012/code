@@ -196,6 +196,7 @@
     - webapp > address > "asset" 폴더 생성
                             > "main.css"
  
+ ※ 폼 컨트롤의 name을 데이터베이스 테이블의 컬럼 이름과 똑같이 주는 것이 좋다!!
  
  
     
