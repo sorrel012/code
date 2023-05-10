@@ -1,5 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+
+	//로그아웃 > 인증 티켓 제거
+	session.removeAttribute("id");
+	session.removeAttribute("name");
+	session.removeAttribute("lv");
+	
+	response.sendRedirect("index.jsp");
+	
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +22,7 @@
 </head>
 <body>
 
+	<h1>로그아웃</h1>		
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script>
