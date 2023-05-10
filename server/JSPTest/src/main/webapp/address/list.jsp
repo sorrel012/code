@@ -89,7 +89,7 @@ table td:nth-child(5) span {
 				<td>
 				    <%= rs.getString("address") %>
 				    <span><a href="edit.jsp?seq=<%= rs.getString("seq") %>">[edit]</a></span>  
-				    <span>[delete]</span>  
+				    <span><a href="del.jsp?seq=<%= rs.getString("seq") %>">[delete]</a></span>  
 				</td>
 			</tr>
 			<% } %>
