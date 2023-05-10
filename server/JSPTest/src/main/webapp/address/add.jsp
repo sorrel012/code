@@ -45,7 +45,7 @@
 			</table>
 
 			<div>
-				<button type="button">
+				<button type="button" onclick="location.href='list.jsp';">
 					<span class="material-symbols-outlined">list</span> 목록보기
 				</button>
 				<button type="submit">
