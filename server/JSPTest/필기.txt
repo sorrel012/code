@@ -169,4 +169,33 @@
                 - 브라우저가 종료돼도 유지
                 - 하드 디스크에 저장
     
+ 
+ * DB 작업 *
+
+- 주제
+    > 주소록
+    > CRUD
+    
+1. 업무 > 생략
+2. DB 작업 > ERD (X) > 테이블 생성
+3. 클라이언트 작업 > 레이아웃 + 페이지 구현 > HTML, CSS, JavaScript 
+    - webapp > "address" 폴더 생성
+                > "list.jsp"        목록 보기
+                > "add.jsp"         추가하기(폼)
+                > "addok.jsp"       추가하기(처리)
+                > "edit.jsp"        수정하기(폼)
+                > "editok.jsp"      수정하기(처리)
+                > "del.jsp"         삭제하기(폼)
+                > "delok.jsp"       삭제하기(처리)
+                > "template.jsp"    임시페이지
+                
+    - webapp > address > "inc" 폴더 생성
+                            > "header.jsp"
+                            > "asset.jsp"
+                            
+    - webapp > address > "asset" 폴더 생성
+                            > "main.css"
+ 
+ 
+ 
     
