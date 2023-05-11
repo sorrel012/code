@@ -123,12 +123,14 @@
         - 페이지 실행(요청~응답)중에 관련된 데이터를 저장하는 객체
         a. 페이지 이동하기
         
-        ~ page.Context.forward(): 데이터를 넘기면서 이동할 때 주로 사용 > 주소 바뀌지 않음
+        ~ pageContext.forward(): 데이터를 넘기면서 이동할 때 주로 사용 > 주소 바뀌지 않음
             <-> 일반적으로는 response.sendRedirect() 사용   > 주소 바뀜
     
     4. out
         - 응답 페이지 출력 스트림 객체
         - 서블릿 PrintWriter와 같은 역할
+        
+        ~ out.close(): 렌더링을 중단하고, 출력 버퍼 안의 내용을 클라이언트에게 반환한다.
         
         
     5. session
