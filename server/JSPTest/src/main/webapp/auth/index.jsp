@@ -43,7 +43,14 @@
         <a href="#!" onclick="alert('회원 전용 페이지입니다.\n 로그인하세요.'); location.href='login.jsp';" >회원 전용 페이지</a> <!-- 눌러도 아무런 이동x일 때 #! -->
         <% } %>
         
+        <hr>
         
+        <!-- 노출 제어 -->
+        
+        <% if (session.getAttribute("id") != null
+        		&& session.getAttribute("lv").toString().equals("2")) { %>
+        <a href="admin.jsp">관리자 전용 페이지</a>
+        <% } %>
         
         
     </div>

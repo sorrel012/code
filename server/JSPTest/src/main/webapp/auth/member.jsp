@@ -1,5 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	//페이지 열람 권한 확인 > 로그인 여부 확인
+	
+	if (session.getAttribute("id") == null) {
+		//미인증 유저	
+		
+		out.println("<html>");
+		out.println("<head>");
+		out.println("<meta charset='UTF-8'>");
+		out.println("</head>");
+		out.println("<body>");
+		out.println("<script>alert('회원만 접근이 가능합니다.'); location.href='index.jsp';</script>");
+		out.println("</body>");
+		out.println("</html>");
+		
+		//렌더링을 중단하고, 출력 버퍼 안의 내용을 클라이언트에게 반환한다.
+		out.close();
+	}
+%>
 <!DOCTYPE html>
 <html>
 <head>
