@@ -75,12 +75,12 @@
         	- 프로그래밍 기능이 있는 태그 모음        	
         	- 태그라이브러리를 먼저 불러와야 한다.<%@ taglib @>
         	         		
-        	~ <c:out value="값"></c:out> : 값 출력 명령        	
-        	~ <c:set var="변수명" value="값" scope="내장 객체"></c:set> : 원하는 내장 객체에 변수 생성     
-		 	~ <c:remove var="변수명"></c:remove> : 변수 삭제
+        	~ <c:out value="값"/> : 값 출력 명령        	
+        	~ <c:set var="변수명" value="값" scope="내장 객체"/> : 원하는 내장 객체에 변수 생성     
+		 	~ <c:remove var="변수명"/> : 변수 삭제
 		 	~ <c:if 조건식>실행문</c:if> : 조건문
 		 	~ <c:choose>
-			 	<c:when 조건식}">실행문</c:when>
+			 	<c:when 조건식>실행문</c:when>
 			 	<c:otherwise>실행문</c:otherwise>
 		 	  </c:choose> : 조건문 ≒ java switch-case
 		    ~ <c:forEach items="" var="">실행문</c:forEach> : 반복문 ≒ for(String name : names)
@@ -290,14 +290,19 @@
 	- webapp > mvc > "address.jsp"		: view       
 	
 	
+// 파일 업로드/다운로드
+	- 클라이언트 > (복사) > 서버 : 업로드	
+	- 서버 > (복사) > 클라이언트 : 다운로드	
+	- 파일 업로드 라이브러리: cos.jar
+
+
+* 파일 업로드 작업*
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	- "com.test.file" > "FileTest.java"			 //서블릿
+					  > "FileTestOk.java"
+					  
+	- webapp > WEB-INF > "file" > "filetest.jsp" //JSP	
+				       > "filetestok.jsp"
+				       
+	- webapp > "uploads" 폴더 (업로드 파일)
 	             
