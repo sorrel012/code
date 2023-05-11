@@ -13,10 +13,13 @@
 <body>
 
 	<!-- Hello.java와 세트 -->
+	<!-- View > 뷰 -->
 	
 	<h1>Hello</h1>
 	
 	<p>안녕하세요.</p>
+	
+	<p><%= request.getAttribute("count") %></p>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script>
