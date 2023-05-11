@@ -78,9 +78,9 @@
         	~ <c:out value="값"/> : 값 출력 명령        	
         	~ <c:set var="변수명" value="값" scope="내장 객체"/> : 원하는 내장 객체에 변수 생성     
 		 	~ <c:remove var="변수명"/> : 변수 삭제
-		 	~ <c:if 조건식>실행문</c:if> : 조건문
+		 	~ <c:if test=${조건식}>실행문</c:if> : 조건문
 		 	~ <c:choose>
-			 	<c:when 조건식>실행문</c:when>
+			 	<c:when test=${조건식}>실행문</c:when>
 			 	<c:otherwise>실행문</c:otherwise>
 		 	  </c:choose> : 조건문 ≒ java switch-case
 		    ~ <c:forEach items="" var="">실행문</c:forEach> : 반복문 ≒ for(String name : names)
