@@ -9,23 +9,35 @@
 <link rel="stylesheet" href="https://me2.do/5BvBFJ57">
 <style>
 
+	img {
+		display: block;
+		margin: 20px auto;
+		max-width: 700px;
+	}
+	
 </style>
 </head>
 <body>
 
+	<h1>Image Viewer</h1>
+	
+	<table>
+		<tr>
+			<td colspan="2"><img src="/file/files/${dto.filename}"></td>
+		</tr>
+		<tr>
+			<td>${dto.name}</td>
+			<td>${dto.regdate}</td>
+		</tr>
+	</table>
+
+	<div>
+		<input type="button" value="돌아가기" onclick="location.href='/file/list.do';">
+	</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script>
 
-	<c:if test="${result == 1}">
-	location.href = '/file/list.do';
-	</c:if>
-	
-	<c:if test="${result == 0}">
-	alert('failed');
-	history.back();
-	</c:if>
-	
 </script>
 </body>
 </html>

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Image Viewer</title>
 <link rel="stylesheet" href="https://me2.do/5BvBFJ57">
 <style>
 
