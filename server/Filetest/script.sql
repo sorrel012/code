@@ -7,3 +7,4 @@ create table tblFile (
 
 create sequence seqFile;
 
+select * from tblFile;
