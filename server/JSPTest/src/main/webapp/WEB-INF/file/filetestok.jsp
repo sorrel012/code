@@ -26,6 +26,12 @@
 		
 		<a href="http://naver.com" download>네이버</a>
 		
+		<hr>
+		<div>
+			다운로드:
+			<a href="/jsp/download.do?filename=${filename}&orgfilename=${orgfilename}">${orgfilename}</a>
+		</div>
+		
 		
 	</div>
 
