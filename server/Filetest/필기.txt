@@ -34,12 +34,24 @@
 					> "Add.java"	
 					> "AddOk.java"
 					> "View.java"
+					
+					> "Edit.java"
+					> "EditOk.java"
+					
+					> "DelOk.java"
+					
 					> "FileDAO.java"
 					> "FileDTO.java"
 					
 	- views	> "list.jsp"
 			> "add.jsp"
 			> "addok.jsp"
+			
+			> "edit.jsp"
+			> "editok.jsp"
+			
+			> "delok.jsp"
+			
 			> "view.jsp"
 			
 	- views	> "inc" > "header.jsp" 
