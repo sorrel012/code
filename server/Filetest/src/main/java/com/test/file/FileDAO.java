@@ -106,5 +106,58 @@ public class FileDAO {
         
         return null;
     }
+
+    public int edit(FileDTO dto) {
+        
+        try {
+            
+            String sql;
+            
+            if(dto.getFilename() != null && !dto.getFilename().equals("")) {
+                sql = "update tblFile set name = ?, filename = ? where seq = ?";
+                pstat = con.prepareStatement(sql);
+                
+                pstat.setString(1, dto.getName());
+                pstat.setString(2, dto.getFilename());
+                pstat.setString(3, dto.getSeq());
+                
+            } else {
+                sql = "update tblFile set name = ? where seq = ?";
+                pstat = con.prepareStatement(sql);
+                
+                pstat.setString(1, dto.getName());
+                pstat.setString(2, dto.getSeq());
+                
+            }
+            
+            return pstat.executeUpdate();
+            
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return 0;
+    }
+    
+    public int remove(String seq) {
+        
+        try {
+            
+            String sql = "delete from tblFile where seq = ?";
+            
+            pstat = con.prepareStatement(sql);
+            
+            pstat.setString(1, seq);
+            
+            return pstat.executeUpdate();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return 0;
+        
+    }
     
 }

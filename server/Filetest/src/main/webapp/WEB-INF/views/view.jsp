@@ -33,6 +33,8 @@
 
 	<div>
 		<input type="button" value="돌아가기" onclick="location.href='/file/list.do';">
+		<input type="button" value="수정하기" onclick="location.href='/file/edit.do?seq=${dto.seq}';">
+		<input type="button" value="삭제하기" onclick="location.href='/file/delok.do?seq=${dto.seq}';">
 	</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
