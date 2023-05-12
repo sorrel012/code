@@ -47,6 +47,7 @@
 	            	<input type="button" value="X" 
 	            			onclick="$(this).parent().remove()">
 	            </div>`);
+	    n++;
 	});
 
 </script>

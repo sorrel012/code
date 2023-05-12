@@ -63,7 +63,6 @@ public class MultiFileOk extends HttpServlet {
                 req.setAttribute("olist", olist);
                 req.setAttribute("flist", flist);
                 
-                
             }
 
         } catch (Exception e) {
