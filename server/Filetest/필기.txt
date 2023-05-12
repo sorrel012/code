@@ -1,0 +1,70 @@
+
+* 다중 파일 업로드 작업*
+	1. 업로드 폴더 생성
+		- webapp > "files"
+	
+	2. 패키지
+		- com.test.file
+		
+	3. 뷰 폴더
+		- webapp > WEB-INF > "views"
+		
+	4. 라이브러리
+		- webapp > WEB-INF > lib
+							- ojdbc6.jar
+							- mylibrary.jar
+							- jstl-1.2.jar
+							- cos.jar
+
+	- com.test.file > "MultiFile.java"
+					> "MultiFileOk.java"
+					> "Downlad.java			
+					
+	- views > "multifile.jsp"
+			> "multifileok.jsp"
+			
+
+* 이미지 뷰어(갤러리) *
+
+	- CR
+	- 유저 1명
+	- 사진(이미지) + 이름 + 날짜 + 설명 등
+	
+	- com.test.file > "List.java"	시작페이지
+					> "Add.java"	
+					> "AddOk.java"
+					> "View.java"
+					> "FileDAO.java"
+					> "FileDTO.java"
+					
+	- views	> "list.jsp"
+			> "add.jsp"
+			> "addok.jsp"
+			> "view.jsp"
+			
+	- views	> "inc" > "header.jsp" 
+	
+	- FileTest > 
+
+
+// 첨부파일 > 데이터 베이스 관리
+	1. 파일을 직접 DB에 저장 > 바이너리(이진 파일) 저장
+	2. 파일은 하드에 저장 > DB에는 파일명만(텍스트) 저장		 				
+	
+	
+// VO vs DTO
+	- 데이터를 저장하는 객체
+	- 자바 클래스
+	
+	1. VO : Value Object
+		- DB에서 가져온 데이터를 보관하는 용도
+		- 읽기 전용 > 리터럴(상수) > 불변 > setter 구현 (X)
+	
+	2. DTO : Data Transfer Object
+		- 계층 간에 데이터를 전송할 때 사용되는 도구 ≒ 택배 상자
+		
+	
+	- 목록보기: DB > DAO > (VO) > 컨트롤러 > (VO) > JSP
+	- 글쓰기: JSP > 컨트롤러 > (DTO) > DAO > DB		
+
+			
