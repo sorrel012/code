@@ -23,7 +23,9 @@
 		</tr>
 		<tr>
 			<th>이미지</th>
-			<td><input type="file" name="attach" required></td>
+			<!-- <td><input type="file" name="attach" required accept=".gif, .png, .jpg, .jpeg"></td> -->
+			<!-- <td><input type="file" name="attach" required accept="image/gif, image/jpeg, image/png"></td> -->
+			<td><input type="file" name="attach" required accept="image/*"></td>
 		</tr>		
 	</table>
 	

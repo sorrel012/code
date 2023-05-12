@@ -1,5 +1,6 @@
 package com.test.file;
 
+import java.io.File;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -40,6 +41,7 @@ public class EditOk extends HttpServlet {
             name = multi.getParameter("name");
             filename = multi.getFilesystemName("attach");
             seq = multi.getParameter("seq");
+            
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -47,6 +49,15 @@ public class EditOk extends HttpServlet {
 
         
         FileDAO dao = new FileDAO();
+
+        
+        if (filename != "") {
+            
+            //기존 파일 삭제 > 새 파일 교체
+            File file = new File(req.getRealPath("/files") + "\\" + dao.get(seq).getFilename());
+            file.delete();
+            
+        }
         
         FileDTO dto = new FileDTO();
         
