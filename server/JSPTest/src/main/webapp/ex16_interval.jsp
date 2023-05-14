@@ -16,7 +16,7 @@
     
     <%
         //1800
-        session.setMaxInactiveInterval(30);
+        session.setMaxInactiveInterval(5);
     %>
     
     <a href="ex16.jsp">돌아가기</a>
