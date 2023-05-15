@@ -6,16 +6,29 @@
 						> "MemoDTO.java""
 						
 						> "Ex02.java"
+						> "ResearchDTO.java"
+						
+						> "EX03.java"		> 디자인 담당
+						> "EX03Data.java" 	> 데이터 담당 ★★★중요
 						
 	- webapp > WEB-INF > "views"
 							- "ex01.jsp"
+							
 							- "ex02.jsp"
+														
+							- "ex03.jsp"
+							- "ex03data.jsp"
 							
 	- webapp > WEB-INF > lib
 							- ojdbc6.jar
 							- mylibrary.jar
 							- jstl-1.2.jar
 							- cos.jar
+
+	--------------------------------------------
+	
+	- "Ex04.java"
+	- "ex04.jsp"
 							
 // Ajax, Asynchronous JavaScript and XML
 	- 비동기 자바스크립트 & XMl
@@ -24,7 +37,8 @@
 	- 브라우저 <- (통신) -> 웹서버(톰캣)
 	- 자바스크립트 <- (통신) -> 웹서버(톰캣)
 	
-	1. 순수 자바스크립트 버전	> 현재는 잘 안 씀
-	2. jQuery 버전
-	3. ES6 자바스크립트 버전
+	- Ajax 구현
+		1. 순수 자바스크립트 버전	> 현재는 잘 안 씀
+		2. jQuery 버전
+		3. ES6 자바스크립트 버전
 	 
