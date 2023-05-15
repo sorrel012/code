@@ -17,13 +17,13 @@
 							- "edit.jsp"
 							- "del.jsp"
 									
-									>"inc"
-										- "asset.jsp"
-										- "header.jsp"
+	- webapp > WEB-INF > "views" >"inc"
+									- "asset.jsp"
+									- "header.jsp"
 									
 	
 	- lib 	> ojdbc6.jar
 			> mylibrary.jar
 			> jstl-1.2.jar
-			> lombok-1.18.26.jar
+			> lombok-1.18.26.jar : 코드 자동생성 + 코드 축소
 	
