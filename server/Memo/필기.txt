@@ -1,0 +1,29 @@
+
+* CRUD *
+	- Memo > "script.sql"
+	
+	- "com.test.memo"
+		- "List.java"	//목록
+		- "Add.java"	//글쓰기
+		- "Edit.java"	//수정하기
+		- "Del.java"	//삭제하기
+		- "MemoDAO.java"
+		- "MemoDTO.java"
+		- "CategoryDTO.java"
+	
+	- webapp > WEB-INF > "views"	
+							- "list.jsp"
+							- "add.jsp"
+							- "edit.jsp"
+							- "del.jsp"
+									
+									>"inc"
+										- "asset.jsp"
+										- "header.jsp"
+									
+	
+	- lib 	> ojdbc6.jar
+			> mylibrary.jar
+			> jstl-1.2.jar
+			> lombok-1.18.26.jar
+	
