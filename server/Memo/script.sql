@@ -25,4 +25,8 @@ insert into tblMemo values(seqMemo.nextVal, '메모입니다~', default, 1);
 
 select * from tblMemo;
 
-select tblMemo.* from tblMemo order by seq desc
+select 
+    tblMemo.*,
+    (select icon from tblCategory where seq = tblMemo.cseq) as icon,
+    (select color from tblCategory where seq = tblMemo.cseq) as color
+from tblMemo order by seq desc;
