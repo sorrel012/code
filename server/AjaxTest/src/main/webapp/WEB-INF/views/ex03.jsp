@@ -39,34 +39,28 @@
 </head>
 <body>
 
+	<!-- 바깥쪽 문서 -->
+
 	<h1>설문조사</h1>
 	
-	<div>주제: <span>${dto.question}</span></div>
+	<div>주제: <span id="question"></span></div>
 	
-	<div id="chart">
-	
-		<c:forEach var="i" begin="0" end="3">
-		<div style="width: ${dto.cnt[i] * 30}px;">${dto.item[i]}(${dto.cnt[i]})</div>
-		</c:forEach>
-		
-		<%-- 
-		<div>${dto.item[0]}(${dto.cnt[0]})</div>
-		<div>${dto.item[1]}(${dto.cnt[1]})</div>
-		<div>${dto.item[2]}(${dto.cnt[2]})</div>
-		<div>${dto.item[3]}(${dto.cnt[3]})</div>
-		 --%>
+	<div id="chart">		
+		<div><span class="item"></span>(<span class="cnt"></span>)</div>
+		<div><span class="item"></span>(<span class="cnt"></span>)</div>
+		<div><span class="item"></span>(<span class="cnt"></span>)</div>
+		<div><span class="item"></span>(<span class="cnt"></span>)</div>
 	</div>
 	
 	<hr>
+	메모: <input type="text">
+	<hr>
 	
-	메모 : <input type="text">
+	<iframe src="/ajax/ex03data.do" width="0" height="0" style="display:none";></iframe>
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script>
-
-	setTimeout(function() {
-	    location.reload();
-	}, 5000);
 
 </script>
 </body>
