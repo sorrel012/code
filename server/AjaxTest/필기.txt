@@ -1,7 +1,16 @@
-*
 
-	- "com.test.ajax"
+* 설문조사 * 
+
+	- "com.test.ajax" 	> "Ex01.java"
+						> "AjaxDAO.java"
+						> "MemoDTO.java""
+						
+						> "Ex02.java"
+						
 	- webapp > WEB-INF > "views"
+							- "ex01.jsp"
+							- "ex02.jsp"
+							
 	- webapp > WEB-INF > lib
 							- ojdbc6.jar
 							- mylibrary.jar
