@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/ex09.jsp.do")
+@WebServlet("/ex09data.do")
 public class Ex09Data extends HttpServlet {
 
     @Override
