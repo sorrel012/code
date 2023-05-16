@@ -83,10 +83,76 @@
 
 	$('#btn2').click(() => {
 	    
+	    $.ajax({
+	       	type: 'GET',
+	       	url: '/ajax/ex07data.do',
+	       	
+	       	data: 'type=4',
+	       	
+	       	dataType: 'xml',
+	       	
+	       	success: (result) => {
+	       	    
+	       	    //$('#div2').text(result)
+
+	       	    //$('#div2').text($(result).find('question').text());
+	       	    //$('#div2').text($(result).find('#q1').text());
+	       	    
+	       	    $(result).find('item').each((index, item) => {
+	       	    	
+	       	        $('#div2').append(
+	       	            `    
+	       	            <div>
+	       	            	\${$(item).find('seq').text()}
+	       	            	:
+	       	            	 \${$(item).find('name').text()}
+	       	            	:
+	       	            	 \${$(item).find('address').text()}
+	       	            </div>
+	       	            `
+	       	        );
+	       	    });
+	       	    
+	       	    
+	       	},
+	       	
+	       	error: (a,b,c) => console.log(a,b,c)
+	       	
+	    });	    
+	    
 	});
 
 	$('#btn3').click(() => {
 	    
+	    $.ajax({
+	    	
+	        type: 'GET',
+	        url: '/ajax/ex07data.do',	        
+	        
+	        data: 'type=6',
+	        
+	        dataType: 'json',
+	        
+	        success: (result)=>{
+	            
+	            //result = {"question":"가장 자신있는 프로그래밍 언어는?"}
+	            //alert(result.question);
+	            
+	            $(result).each((index, item) => {
+	               
+	                $('#div3').append(
+	                 	`
+	                 		<div>\${item.name}</div>
+	                	`
+	                )	                
+	                
+	            });          
+	            
+	        },
+	        
+	        error: (a,b,c,) => console.log(a,b,c)
+	        
+	    });
 	});
 
 </script>
