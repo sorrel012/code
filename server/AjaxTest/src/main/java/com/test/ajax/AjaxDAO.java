@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.test.my.DBUtil;
 
@@ -79,6 +81,39 @@ public class AjaxDAO {
         }
         
         return null;
+    }
+
+    public List<AddressDTO> listAddress() {
+        
+        List<AddressDTO> list= new ArrayList<AddressDTO>();
+        
+        try {
+            
+            String sql = "select * from tblAddress";
+            
+            st = con.createStatement();
+            rs = st.executeQuery(sql);
+            
+            while(rs.next()) {
+                
+                AddressDTO dto = new AddressDTO();
+                
+                dto.setSeq(rs.getString("seq"));
+                dto.setName(rs.getString("name"));
+                dto.setAge(rs.getString("age"));
+                dto.setTel(rs.getString("tel"));
+                dto.setAddress(rs.getString("address"));
+                
+                list.add(dto);
+            }
+            
+            return list;
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return list;
     }
 
 }
