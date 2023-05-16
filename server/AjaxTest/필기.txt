@@ -68,6 +68,12 @@
 				    ~ ajax.send('name=value');
 				    
 		2. jQuery 버전
+			a. txt
+			b. xml
+			c. json
+				- 키와 값을 쌍따옴표로 표기한다.
+				- 메소드는 표시할 수 없다.
+		
 		
 		3. ES6 자바스크립트 버전
 		
@@ -84,5 +90,14 @@
 	- webapp > WEB-INF > "views"
 							- "ex06.jsp"
 							
-							
+
+* ajax 아이디 중복 검사*
+
+	- com.text.ajax > Ex08.java
+	- vies > ex08.jsp
+	
+	- com.text.ajax > Ex08Check.java
+	- vies > ex08check.jsp
+	
+	- com.text.ajax > Ex08Data.java							
 		
