@@ -29,9 +29,22 @@
 	
 	- "Ex04.java"
 	- "ex04.jsp"
+
+	--------------------------------------------
+	
+	- 페이지 > 보임
+		- com.test.ajax > Ex05.java	
+		- views > ex05.jsp
+	
+	
+	- 데이터(처리_ > 안 보임
+		- com.test.ajax > Ex05Data.java	
+		- views > ex05data.jsp	
+		- webapp > ex05.txt
+	
 							
 // Ajax, Asynchronous JavaScript and XML
-	- 비동기 자바스크립트 & XMl
+	- 비동기 자바스크립트 & XML
 	- 비동기 자바스크립트 통신
 	
 	- 브라우저 <- (통신) -> 웹서버(톰캣)
@@ -41,4 +54,19 @@
 		1. 순수 자바스크립트 버전	> 현재는 잘 안 씀
 		2. jQuery 버전
 		3. ES6 자바스크립트 버전
+		
+		
+	- ★★★★★서버 페이지(Servlet/JSP)를 만들 때 브라우저로 요청할 페이지인지, Ajax로 요청할 페이지인지 미리 결정해야 한다.
+		- ajax로 요청하면 주석, 공백을 철저하게 관리해야 한다.
+			> ajax 응답용은 jsp 페이지보다는 PrintWriter을 사용하는 것이 좋다.
 	 
+	- 서버에 데이터를 보내는 방식
+		1. GET > QueryString
+			~ ajax.open('GET', 'uri?name=value');
+			~ ajax.send();
+			
+		2. POST > send할 때 데이터 넣어 전송
+			~ ajax.open('POST', 'uri');
+			~ ajax.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+		    ~ ajax.send('name=value');
+		
