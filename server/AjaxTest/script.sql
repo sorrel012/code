@@ -18,7 +18,7 @@ insert into tblResearch values ( 1, '가장 자신있는 프로그래밍 언어�
                                 , default, default, default, default);
 
 select * from tblResearch;
-
+    
 --현재 진행중인 상태를 웹페이지에 출력
 
 update tblResearch set
@@ -27,3 +27,14 @@ update tblResearch set
         cnt3 = 5,
         cnt4 = 10
             where seq = 1;
+            
+drop table zipcode;
+
+create table zipcode
+(
+  zip varchar2(7) not null,
+  sido varchar2(50) not null,
+  gugun varchar2(100) not null,
+  dong varchar2(200) not null,
+  bunji varchar2(200) null
+);
