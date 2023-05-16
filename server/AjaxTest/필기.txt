@@ -100,4 +100,12 @@
 	- vies > ex08check.jsp
 	
 	- com.text.ajax > Ex08Data.java							
+
+
+* 우편번호 검색 *
+	- com.test.ajax > Ex09.java
+	- views > ex09.jsp
+	
+	- com.test.ajax > Ex09Data.java
+	- com.test.ajax > ZipCode.java
 		

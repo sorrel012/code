@@ -138,4 +138,36 @@ public class AjaxDAO {
         return 0;
     }
 
+    public List<ZipCode> search(String dong) {
+        
+        List<ZipCode> list = new ArrayList<ZipCode>();
+                
+        try {
+            
+            String sql = "select * from zipcode "
+                    + "where dong like '%' || ? || '%'";
+            
+            pstat = con.prepareStatement(sql);
+            pstat.setString(1, dong);
+            
+            rs = pstat.executeQuery();
+            
+            while(rs.next()) {
+                ZipCode dto = new ZipCode();
+                dto.setZip(rs.getString("zip"));
+                dto.setSido(rs.getString("sido"));
+                dto.setGugun(rs.getString("gugun"));
+                dto.setDong(rs.getString("dong"));
+                
+                list.add(dto);
+            }
+            
+            return list;
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
 }
