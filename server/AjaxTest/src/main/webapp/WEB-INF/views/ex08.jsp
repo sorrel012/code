@@ -21,7 +21,7 @@
 		<tr>
 			<th>아이디</th>
 			<td>
-				<input type="text" id="id1" class="short">
+				<input type="text" id="id1" class="short" readonly>
 				<input type="button" id="btn1" value="id 중복검사">				
 			</td>
 		</tr>
