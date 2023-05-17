@@ -40,6 +40,7 @@ create table zipcode
 );
 
 
+/*ajax > ex11*/
 create table ajaxTable
 (
   seq number primary key,
@@ -51,3 +52,51 @@ create table ajaxTable
 create sequence tableseq;
 
 select * from ajaxtable;
+
+
+/*ajax > ex12*/
+create table tblJournal (
+    seq number primary key,
+    line varchar2(1000) null
+);
+
+insert into tblJournal values(1,null);
+insert into tblJournal values(2,null);
+insert into tblJournal values(3,null);
+insert into tblJournal values(4,null);
+insert into tblJournal values(5,null);
+insert into tblJournal values(6,null);
+insert into tblJournal values(7,null);
+insert into tblJournal values(8,null);
+insert into tblJournal values(9,null);
+insert into tblJournal values(10,null);
+insert into tblJournal values(11,null);
+insert into tblJournal values(12,null);
+insert into tblJournal values(13,null);
+insert into tblJournal values(14,null);
+insert into tblJournal values(15,null);
+
+select * from tblJournal;
+
+
+create table tblProduct(
+    seq number primary key,                     --번호(PK)
+    name varchar2(100) not null,                --상품명
+    price number not null,                      --가격
+    color varchar2(50) not null,                --색상
+    pic varchar2(100)default 'pic.png' not null --사진
+);
+
+create sequence seqProduct;
+
+
+
+
+
+
+
+
+
+
+
+
