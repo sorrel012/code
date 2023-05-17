@@ -21,12 +21,21 @@ select * from tblResearch;
     
 --현재 진행중인 상태를 웹페이지에 출력
 
+
+
+
+
 update tblResearch set
-        cnt1 = 7,
+        cnt1 = 12,
         cnt2 = 8,
         cnt3 = 5,
         cnt4 = 10
             where seq = 1;
+            
+            
+            
+            
+            
             
 drop table zipcode;
 
