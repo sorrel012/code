@@ -142,7 +142,7 @@
 	               
 	                $('#div3').append(
 	                 	`
-	                 		<div>\${item.name}</div>
+	                 		<div>\${item.seq} : \${item.name} : \${item.address}</div>	
 	                	`
 	                )	                
 	                
