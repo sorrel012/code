@@ -45,6 +45,11 @@ public class Ex05Data extends HttpServlet {
         
         req.setCharacterEncoding("UTF-8");
         String txt2 = req.getParameter("txt2");
+
+        resp.setCharacterEncoding("UTF-8");
+        PrintWriter writer = resp.getWriter();
+        writer.write("응답: " + txt2);
+        writer.close();
         System.out.println("POST: "+ txt2);
     }
 

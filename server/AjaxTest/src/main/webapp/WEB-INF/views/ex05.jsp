@@ -74,6 +74,12 @@
 	    
 	    //ajax.open('GET', '/ajax/ex05data.do?txt2=' + $('#txt2').val());
 	    //ajax.send();
+	    
+	    ajax.onreadystatechange = function() {
+	      	if(ajax.readyState ==4 && ajax.status == 200) {
+	      	    $('#div2').text(ajax.responseText);
+	      	}  
+	    };
 	   
 	    ajax.open('POST', '/ajax/ex05data.do');
 	    
