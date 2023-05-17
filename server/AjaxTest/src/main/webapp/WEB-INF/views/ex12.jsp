@@ -76,59 +76,59 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script>
 
-let timer = 0;
-//입력하다가 하지 않은상태여도 일정시간 후 자동저장
-$('.line').keydown(function() {
-   
-   clearTimeout(timer);
-   
-   let temp = this;
-   
-   timer = setTimeout(function() {
-      //$(temp.blur();
-      let seq = $(temp).index() + 1;
-      let line = $(temp).val();
-      
-      $.ajax({
-         type: 'POST',
-         url: '/ajax/ex12data.do',
-         data: {
-            //이안에서의 this 주체는 $.ajax 이므로 안됨.
-            /*seq: $(this).index() + 1,
-             line: $(this).val() */
-            seq: seq,
-            line: line
-         },
-         error: (a,b,c)=>console.log(a,b,c)
-      });
-      
-       //안내 메시지
-         $('#message').css('display', 'flex');
-         setTimeout(function() {
-            $('#message').css('display', 'none');
-         }, 500);
-         
-      }, 5000);
-   });
-
-   //포커스가 맞춰진 곳에서 벗어나게되면 발생하는 이벤트
-   //포커스가 벗어나면 자동 저장하게됨
-   $('.line').blur(function() {
-      let seq = $(this).index() + 1;
-      let line = $(this).val();
-      $.ajax({
-         type: 'POST',
-         url: '/ajax/ex12data.do',
-         data: {
-            //이안에서의 this 주체는 $.ajax 이므로 안됨.
-            /*seq: $(this).index() + 1,
-             line: $(this).val() */
-            seq: seq,
-            line: line
-         },
-         error: (a,b,c)=>console.log(a,b,c)
-      });
-   });
+	let timer = 0;
+	//입력하다가 하지 않은상태여도 일정시간 후 자동저장
+	$('.line').keydown(function() {
+	   
+	   clearTimeout(timer);
+	   
+	   let temp = this;
+	   
+	   timer = setTimeout(function() {
+	      //$(temp.blur();
+	      let seq = $(temp).index() + 1;
+	      let line = $(temp).val();
+	      
+	      $.ajax({
+	         type: 'POST',
+	         url: '/ajax/ex12data.do',
+	         data: {
+	            //이안에서의 this 주체는 $.ajax 이므로 안됨.
+	            /*seq: $(this).index() + 1,
+	             line: $(this).val() */
+	            seq: seq,
+	            line: line
+	         },
+	         error: (a,b,c)=>console.log(a,b,c)
+	      });
+	      
+	       //안내 메시지
+	      $('#message').css('display', 'flex');
+	          setTimeout(function() {
+	              $('#message').css('display', 'none');
+	          }, 500);
+	         
+	      }, 5000);
+	   });
+	
+	   //포커스가 맞춰진 곳에서 벗어나게되면 발생하는 이벤트
+	   //포커스가 벗어나면 자동 저장하게됨
+	   $('.line').blur(function() {
+	      let seq = $(this).index() + 1;
+	      let line = $(this).val();
+	      $.ajax({
+	         type: 'POST',
+	         url: '/ajax/ex12data.do',
+	         data: {
+	            //이안에서의 this 주체는 $.ajax 이므로 안됨.
+	            /*seq: $(this).index() + 1,
+	             line: $(this).val() */
+	            seq: seq,
+	            line: line
+	         },
+	         error: (a,b,c)=>console.log(a,b,c)
+	      });
+	   });
    
 
 </script>
