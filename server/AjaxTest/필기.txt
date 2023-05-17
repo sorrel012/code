@@ -73,13 +73,15 @@
 			c. json
 				- 키와 값을 쌍따옴표로 표기한다.
 				- 메소드는 표시할 수 없다.
-		
+			
+			- 데이터 전송 방법
+				1. Object > 권장
+				2. QueryString > serialize()
+				3. JSON
+					~ JSON.stringify(객체) > 객체 배열을 json 형식으로 변환
 		
 		3. ES6 자바스크립트 버전
 		
-		
-	
-	
 		
 		
 * jQuery ajax *	
@@ -108,4 +110,21 @@
 	
 	- com.test.ajax > Ex09Data.java
 	- com.test.ajax > ZipCode.java
+	
+	
+* 데이터 송수신 *
+	- com.test.ajax > Ex10.java
+	- views > ex10.jsp	
+	
+	- com.test.ajax > Ex10Data.java
+
+
+// JSON		
+
+	JSONParser parser = new JSONParser(); > JSON 포맷의 문자열을 자바 오브젝트로 변환
+	JSONObject obj = (JSONObject)parser.parse(JSON 포맷의 문자열); > JSON Object을 자바 오브젝트로 변환
+	
+	
+	
+	
 		
