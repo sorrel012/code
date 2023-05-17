@@ -129,9 +129,11 @@
 	    	type: 'GET',
 	    	url: '/ajax/ex10data.do',
 	    	data: {
-		        txt1: '딸기',
-		        txt2: '바나나',
-		        txt3: '포도'',
+		        txt1: $('#txt1').val(),
+		        txt2: $('#txt2').val(),
+		        txt3: $('#txt3').val(),
+		        txt4: $('#txt4').val(),
+		        txt5: $('#txt5').val()
 		    },
 	    	success: (result)=>{},
 	    	error: (a,b,c)=>console.log(a,b,c)
@@ -162,7 +164,7 @@
 	    return false;
 	    
 	});
-	*/
+	
 	
 	
 	//1. Object	> 권장
@@ -192,10 +194,10 @@
 	});
 	*/
 	
-	
+	/*
 	$('#form1').submit(()=>{
 	    
-	    //객체 전송
+	    //JSON 전송
 	    const obj = {
 	        txt1: $('#txt1').val(),
 	        txt2: $('#txt2').val(),
@@ -209,8 +211,8 @@
 	    $.ajax({
 	    	type: 'POST', // JSON으로 보낼 때는 GET 불가
 	    	url: '/ajax/ex10data.do',	    	
-	    	contentType: 'application/json', //서버 -> 클라이언트
-	    	//dataType: 'json', //클라이언트 -> 서버
+	    	contentType: 'application/json', //클라이언트 -> 서버
+	    	//dataType: 'json', //서버 -> 클라이언트
 	    	data: JSON.stringify(obj),
 	    	success: (result)=>{},
 	    	error: (a,b,c)=>console.log(a,b,c)
@@ -220,7 +222,7 @@
 	    return false;
 	    
 	});
-	
+	*/
 	
 	
 	$('#btn2').click(()=>{
@@ -243,8 +245,8 @@
 	    	},
 	    	error: (a,b,c)=>console.log(a,b,c)
 			
-	    })	
-	})
+	    });	
+	});
 
 </script>
 </body>
