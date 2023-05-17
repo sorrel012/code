@@ -125,6 +125,12 @@
 	JSONObject obj = (JSONObject)parser.parse(JSON 포맷의 문자열); > JSON Object을 자바 오브젝트로 변환
 	
 	
+* 테이블 문제 *
+	- com.test.ajax > Ex11.java
+	- vies > ex11.jsp
 	
-	
+	- com.test.ajax > Ex11Data.java
+	- com.test.ajax > Ex11DTO.java
+
+
 		
