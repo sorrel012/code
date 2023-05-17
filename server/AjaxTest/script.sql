@@ -1,4 +1,4 @@
-
+    
 -- 설문조사
 create table tblResearch (
     seq number primary key,             --번호(PK)
@@ -38,3 +38,16 @@ create table zipcode
   dong varchar2(200) not null,
   bunji varchar2(200) null
 );
+
+
+create table ajaxTable
+(
+  seq number primary key,
+  x number not null,
+  y number not null,
+  ck char(1) not null
+);
+
+create sequence tableseq;
+
+select * from ajaxtable;
