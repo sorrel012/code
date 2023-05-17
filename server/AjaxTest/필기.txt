@@ -133,4 +133,23 @@
 	- com.test.ajax > Ex11DTO.java
 
 
+* 일기장 *
+	- com.test.ajax > Ex12.java
+	- vies > ex12.jsp
+	
+	- com.test.ajax > Ex12Data.java
+	
+	
+* 상품 목록 페이지*
+- com.test.ajax	> Ex13.java
+				> Ex13Add.java
+				> Ex13Edit.java
+				> Ex13Del.java
+				> Ex13DTO.java
+	
+- views > ex13.jsp
+
+- webapp > pic > pic.png복사
+	
+	
 		
