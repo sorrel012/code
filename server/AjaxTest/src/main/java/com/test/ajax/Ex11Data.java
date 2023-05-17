@@ -37,7 +37,7 @@ public class Ex11Data extends HttpServlet {
         //    DAO.메소드() == 딱 1개의 SQL만 실행
         
         if(dao.checkCell(dto)) {
-            dao.editCel(dto);
+            dao.editCell(dto);
         } else {
             dao.addCell(dto);
         }

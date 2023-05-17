@@ -194,7 +194,7 @@ import com.test.my.DBUtil;
           return false;
       }
   
-      public void editCel(Ex11DTO dto) {
+      public void editCell(Ex11DTO dto) {
           
           try {
               
