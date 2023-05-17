@@ -43,6 +43,7 @@ public class Ex05Data extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         
+        req.setCharacterEncoding("UTF-8");
         String txt2 = req.getParameter("txt2");
         System.out.println("POST: "+ txt2);
     }
