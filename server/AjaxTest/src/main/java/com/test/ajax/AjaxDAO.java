@@ -170,4 +170,99 @@ public class AjaxDAO {
         return list;
     }
 
+    public boolean checkCell(Ex11DTO dto) {
+        
+        try {
+            
+            String sql = "select count(*) as cnt from ajaxTable"
+                        + " where x = ? and y = ?";
+            
+            pstat = con.prepareStatement(sql);
+            pstat.setString(1, dto.getX());
+            pstat.setString(2, dto.getY());
+            
+            rs = pstat.executeQuery();
+            
+            if(rs.next()) {
+                return rs.getInt("cnt") == 1 ? true : false;
+            }
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return false;
+    }
+
+    public void editCel(Ex11DTO dto) {
+        
+        try {
+            
+            String sql = "update ajaxTable set ck = ? where x = ? and y = ?";
+            
+            pstat = con.prepareStatement(sql);
+            pstat.setString(1, dto.getCk());
+            pstat.setString(2, dto.getX());
+            pstat.setString(3, dto.getY());
+            
+            pstat.executeUpdate();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void addCell(Ex11DTO dto) {
+        
+        try {
+            
+            String sql = "insert into ajaxTable (seq, x, y, ck) values (tableseq.nextVal,?,?,'y')";
+            
+            pstat = con.prepareStatement(sql);
+            pstat.setString(1, dto.getX());
+            pstat.setString(2, dto.getY());
+            
+            pstat.executeUpdate();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+    }
+
+    public List<Ex11DTO> listCell() {
+        
+        List<Ex11DTO> list = new ArrayList<Ex11DTO>();
+        
+        try {
+            
+            String sql = "select * from ajaxTable";
+            
+            st = con.createStatement();
+            rs = st.executeQuery(sql);
+            
+            
+            while(rs.next()) {
+                
+                Ex11DTO dto = new Ex11DTO();
+                
+                dto.setX(rs.getString("x"));
+                dto.setY(rs.getString("y"));
+                dto.setCk(rs.getString("ck"));
+                
+                list.add(dto);
+                
+            }
+            
+            return list;
+            
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return list;
+    }
+
 }
