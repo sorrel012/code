@@ -107,3 +107,26 @@ select * from tblProductCopy;
 
 select * from (select a.*, rownum as rnum from tblProductCopy a)
     where rnum between 11 and 20;
+    
+    
+create table ajaxList
+(
+  seq number primary key,
+  name varchar2(20) not null,
+  tel varchar2(20) not null,
+  address varchar2(100) not null
+);
+
+create sequence listseq;
+
+select * from ajaxList;
+
+
+create table ajaxCat
+(
+  id varchar2(50) primary key,  --고양이 파일명
+  x number not null,
+  y number not null
+);
+
+insert into ajaxCat values ('cat', 100, 500);
