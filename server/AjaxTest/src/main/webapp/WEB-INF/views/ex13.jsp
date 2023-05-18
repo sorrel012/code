@@ -129,13 +129,13 @@
                      <td>\${$('#color').val()}</td>
                      <td>     
                         <div>
-                        <input type="button" value="수정" onclick="edit();">
-                        <input type="button" value="삭제" onclick="del(\${result.seq});">
-                     </div>
-                     <div style="display:none;">
-                        <input type="button" value="확인" onclick="editok(\${result.seq});">
-                        <input type="button" value="취소" onclick="cancel();">
-                     </div>
+	                        <input type="button" value="수정" onclick="edit();">
+	                        <input type="button" value="삭제" onclick="del(\${result.seq});">
+	                     </div>
+	                     <div style="display:none;">
+	                        <input type="button" value="확인" onclick="editok(\${result.seq});">
+	                        <input type="button" value="취소" onclick="cancel();">
+	                     </div>
                      
                      </td>
                   </tr>
