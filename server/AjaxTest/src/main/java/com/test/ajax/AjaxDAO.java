@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import com.test.my.DBUtil;
   
@@ -431,6 +432,42 @@ import com.test.my.DBUtil;
         }
         
         return 0;
+    }
+
+    public List<Ex13DTO> listProduct2(Map<String, Integer> map) {
+        
+        List<Ex13DTO> list = new ArrayList<Ex13DTO>();
+        
+        try {
+            
+            String sql = "select * from (select a.*, rownum as rnum from tblProductCopy a)\r\n"
+                    + "    where rnum between ? and ?";
+            
+            pstat = con.prepareStatement(sql);
+            pstat.setInt(1, map.get("begin"));
+            pstat.setInt(2, map.get("end"));
+            
+            rs = pstat.executeQuery();
+            
+            while(rs.next()) {
+                
+                Ex13DTO dto = new Ex13DTO();
+                
+                dto.setSeq(rs.getString("seq"));
+                dto.setName(rs.getString("name"));
+                dto.setPrice(rs.getString("price"));
+                dto.setColor(rs.getString("color"));
+                
+                list.add(dto);
+            }
+            
+            return list;
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return list;
     }
   
   }
