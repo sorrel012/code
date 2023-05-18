@@ -411,5 +411,26 @@ import com.test.my.DBUtil;
         
         return 0;
     }
+
+    public int editProduct(Ex13DTO dto) {
+        
+        try {
+            
+            String sql = "update tblProduct set name = ?, price = ?, color = ? where seq = ?";
+            
+            pstat = con.prepareStatement(sql);
+            pstat.setString(1, dto.getName());
+            pstat.setString(2, dto.getPrice());
+            pstat.setString(3, dto.getColor());
+            pstat.setString(4, dto.getSeq());
+            
+            return pstat.executeUpdate();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return 0;
+    }
   
   }
