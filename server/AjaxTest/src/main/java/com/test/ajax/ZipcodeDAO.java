@@ -7,7 +7,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.test.my.DBUtil;
+import com.jdbc.DBUtil;
+
 
 public class ZipcodeDAO {
     
