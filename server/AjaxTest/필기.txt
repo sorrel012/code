@@ -120,7 +120,6 @@
 
 
 // JSON		
-
 	JSONParser parser = new JSONParser(); > JSON 포맷의 문자열을 자바 오브젝트로 변환
 	JSONObject obj = (JSONObject)parser.parse(JSON 포맷의 문자열); > JSON Object을 자바 오브젝트로 변환
 	
@@ -150,6 +149,13 @@
 - views > ex13.jsp
 
 - webapp > pic > pic.png복사
+
+	
+* 게시판 *
+- com.test.ajax	> Ex14.java
+				> Ex14Data.java
+	
+- views > ex14.jsp
 	
 	
 		
