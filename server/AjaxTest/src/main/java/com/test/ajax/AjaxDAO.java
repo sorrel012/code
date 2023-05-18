@@ -469,6 +469,14 @@ public class AjaxDAO {
 
         return list;
     }
+    
+
+    public void setPosition(Q04DTO dto) {
+        
+        //TODO 새로 위치 지정
+        
+        
+    }
 
     public List<AddressDTO> listAddress2() {
 
@@ -559,6 +567,4 @@ public class AjaxDAO {
         
         return 0;
     }
-
-
 }
