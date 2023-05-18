@@ -94,9 +94,16 @@ select * from tblProduct;
 
 delete tblProduct where seq = 33;
 
+drop table tblProductCopy;
 
+create table tblProductCopy
+    as select * from tblProduct;
 
+insert into tblProductCopy select * from tblProductCopy;
 
+delete from tblProductCopy;
 
+select * from tblProductCopy;
 
-
+select * from (select a.*, rownum as rnum from tblProductCopy a)
+    where rnum between 11 and 20;
