@@ -1,0 +1,10 @@
+
+- com.test.map 
+	> Map.java
+	> MapDAO.java
+	> PlaceDTO.java
+	> CategoryDTO.java
+
+- webapp > WEB-INF > views > map.jsp
+
+- MapTest > script.sql
