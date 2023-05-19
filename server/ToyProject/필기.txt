@@ -44,12 +44,12 @@
 				a. com.test.toy 
 					- Index.java : 시작 페이지
 					- Template.java : 템플릿 페이지
-				b. com.test.user
+				b. com.test.toy.user
 					- Register.java : 회원가입
 					- Login.java: 로그인
 					- Logout.java : 로그아웃
 					- Info.java : 정보 확인
-				c. com.test.user.repository
+				c. com.test.toy.user.repository
 					- UserDAO.java
 					- UserDTO.java
 				d. com.test.toy.filter	
@@ -79,6 +79,10 @@
 				- webapp > asset >  pic : 회원 프로필 사진 폴더 
 		- 업무별 작업
 		
-		
+// 서블릿 필터
+	- xml 수정
+	- Filter 자바 파일
+	
+	- compile		
 		
 		
