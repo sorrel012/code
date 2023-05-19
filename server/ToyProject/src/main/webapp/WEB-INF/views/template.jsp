@@ -13,12 +13,13 @@
 </head>
 <body>
 
-	<%@ include file="/WEB-INF/views/inc/header.jsp" %>
+	<%@ include file="/WEB-INF/views/inc/header.jsp" %>	
 
-	<main>
+	<main id="main">
 		<h1>콘텐츠 제목 <small>부제</small></h1>
 		콘텐츠 내용
 	</main>
+	
 </body>
 
 <script>
