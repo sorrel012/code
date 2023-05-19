@@ -39,6 +39,7 @@
 				c. com.test.toy.user.repository : DB
 				d. com.test.toy.board : 게시판
 				e. com.test.toy.board.repository : DB 
+				f. com.test.toy.filter : 필터
 			- 파일
 				a. com.test.toy 
 					- Index.java : 시작 페이지
@@ -51,6 +52,8 @@
 				c. com.test.user.repository
 					- UserDAO.java
 					- UserDTO.java
+				d. com.test.toy.filter	
+					- EncodingFilter.java
 			- 뷰
 				a. views 
 					- index.jsp : 메인 페이지
