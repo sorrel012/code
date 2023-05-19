@@ -24,6 +24,9 @@
 		
 	7. 스크립트
 		- DDL, DML
+		- ToyProject
+			- ddl.sql
+			- dml.sql
 		
 	8. 기초 데이터/더미 데이터
 		- DML
