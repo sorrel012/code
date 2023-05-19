@@ -32,14 +32,15 @@
 		- 기초 작업
 			- 패키지
 				a. com.test.toy : 메인 패키지
-				b. com.test.member : 회원
-				c. com.test.member.repository : DB
-				d. com.test.board : 게시판
-				e. com.test.board.repository : DB 
+				b. com.test.toy.user : 회원
+				c. com.test.toy.user.repository : DB
+				d. com.test.toy.board : 게시판
+				e. com.test.toy.board.repository : DB 
 			- 파일
 				a. com.test.toy 
 					- Index.java : 시작 페이지
-				b. com.test.member
+					- Template.java : 템플릿 페이지
+				b. com.test.user
 					- Register.java : 회원가입
 					- Login.java: 로그인
 					- Logout.java : 로그아웃
@@ -50,6 +51,7 @@
 			- 뷰
 				a. views 
 					- index.jsp : 메인 페이지
+					- template.jsp : 템플릿 페이지
 				b. views > inc : 조각 페이지
 					- asset.jsp
 					- header.jsp 
@@ -57,6 +59,18 @@
 					- register.jsp
 					- login.jsp
 					- info.jsp
+					
+			- 라이브러리
+				- lib
+					- 7개..
+					
+			- 리소스
+				- webapp > asset > js : *.js 폴더
+					- main.js
+				- webapp > asset > css : *.css 폴더
+					- main.css
+				- webapp > asset >  images : 이미지 폴더
+				- webapp > asset >  pic : 회원 프로필 사진 폴더 
 		- 업무별 작업
 		
 		
