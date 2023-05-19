@@ -39,7 +39,7 @@ public class EncodingFilter implements Filter {
     
     @Override
     public void destroy() {
-        System.out.println("필터 소멸");
+        //System.out.println("필터 소멸");
     }
     
 }
