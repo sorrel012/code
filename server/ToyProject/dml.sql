@@ -9,4 +9,4 @@ insert into tblUser (id, pw, name, email, lv, pic, profile)
     
 select * from tblUser;
 
-
+select * from tblBoard;

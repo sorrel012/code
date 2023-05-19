@@ -31,3 +31,8 @@ select
     seq, subject, id, regdate, readcount,
     (select name from tblUser where id = tblBoard.id) as name
 from tblBoard order by seq desc;
+
+
+select * from vwBoard;
+
+

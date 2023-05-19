@@ -33,8 +33,8 @@
 		<c:if test="${not empty id}">
 		<a href="/toy/user/register.do">Unregister</a>		
 		<a href="/toy/user/logout.do">Logout</a>
-		
-		<a href="/toy/board/list.do">Board</a>
 		</c:if>
+		
+		<a href="/toy/board/board.do">Board</a>
 	</nav>
 </header>
