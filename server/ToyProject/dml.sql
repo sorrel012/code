@@ -8,3 +8,5 @@ insert into tblUser (id, pw, name, email, lv, pic, profile)
     values ('admin', '1111', '관리자', 'admin@gmail.com', '3', default, '프로젝트 관리자입니다. 언제든지 연락주세요.');
     
 select * from tblUser;
+
+
