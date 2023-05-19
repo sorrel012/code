@@ -5,18 +5,24 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="https://me2.do/5BvBFJ57">
+<title>Toy Project</title>
+<%@ include file="/WEB-INF/views/inc/asset.jsp" %>
 <style>
 
 </style>
 </head>
 <body>
 
+	<%@ include file="/WEB-INF/views/inc/header.jsp" %>	
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	<main id="main">
+		<h1>시작 페이지 <small>없음</small></h1>
+		없음
+	</main>
+	
+</body>
+
 <script>
 
 </script>
-</body>
 </html>
