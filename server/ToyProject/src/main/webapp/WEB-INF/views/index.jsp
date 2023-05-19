@@ -17,7 +17,7 @@
 
 	<main id="main">
 		<h1>시작 페이지 <small>없음</small></h1>
-		없음
+		
 	</main>
 	
 </body>
