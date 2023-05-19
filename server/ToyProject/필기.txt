@@ -1,0 +1,64 @@
+
+* 게시판 * 
+	- CRUD
+	
+	1. 주제
+		- 토이 프로젝트
+		
+	2. 요구분석
+		- 회원
+		- 게시판
+		
+	3. 전체 구성
+		- 기능별
+		- draw.io
+		
+	4. 화면 설계
+		- 생략
+		
+	5. 스토리보드
+		- 생략
+		
+	6. 데이터베이스
+		- ERD
+		
+	7. 스크립트
+		- DDL, DML
+		
+	8. 기초 데이터/더미 데이터
+		- DML
+		
+	9. 구현
+		- 기초 작업
+			- 패키지
+				a. com.test.toy : 메인 패키지
+				b. com.test.member : 회원
+				c. com.test.member.repository : DB
+				d. com.test.board : 게시판
+				e. com.test.board.repository : DB 
+			- 파일
+				a. com.test.toy 
+					- Index.java : 시작 페이지
+				b. com.test.member
+					- Register.java : 회원가입
+					- Login.java: 로그인
+					- Logout.java : 로그아웃
+					- Info.java : 정보 확인
+				c. com.test.user.repository
+					- UserDAO.java
+					- UserDTO.java
+			- 뷰
+				a. views 
+					- index.jsp : 메인 페이지
+				b. views > inc : 조각 페이지
+					- asset.jsp
+					- header.jsp 
+				c. views > user
+					- register.jsp
+					- login.jsp
+					- info.jsp
+		- 업무별 작업
+		
+		
+		
+		
