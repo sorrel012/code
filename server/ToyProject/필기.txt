@@ -40,6 +40,7 @@
 				d. com.test.toy.board : 게시판
 				e. com.test.toy.board.repository : DB 
 				f. com.test.toy.filter : 필터
+				
 			- 파일
 				a. com.test.toy 
 					- Index.java : 시작 페이지
@@ -54,6 +55,16 @@
 					- UserDTO.java
 				d. com.test.toy.filter	
 					- EncodingFilter.java
+				e. com.test.toy.board
+					- Board.java : 목록보기
+					- Add.java  
+					- View.java
+					- Edit.java
+					- Del.java
+				f. com.test.toy.board.repository
+					- BoardDAO.java
+					- BoardDTO.java				
+									
 			- 뷰
 				a. views 
 					- index.jsp : 메인 페이지
@@ -65,7 +76,13 @@
 					- register.jsp
 					- login.jsp
 					- info.jsp
-					
+				d. vies > board
+					- board.jsp
+					- add.jsp
+					- view.jsp
+					- edit.jsp
+					- del.jsp				
+										
 			- 라이브러리
 				- lib
 					- 7개..
@@ -77,6 +94,7 @@
 					- main.css
 				- webapp > asset >  images : 이미지 폴더
 				- webapp > asset >  pic : 회원 프로필 사진 폴더 
+				
 		- 업무별 작업
 		
 // 서블릿 필터
