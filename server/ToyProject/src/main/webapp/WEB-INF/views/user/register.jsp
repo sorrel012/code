@@ -5,8 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="https://me2.do/5BvBFJ57">
+<title>Toy Project</title>
+<%@ include file="/WEB-INF/views/inc/asset.jsp" %>
 <style>
 
 </style>
