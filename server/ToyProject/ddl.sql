@@ -29,7 +29,8 @@ create or replace view vwBoard
 as
 select
     seq, subject, id, regdate, readcount,
-    (select name from tblUser where id = tblBoard.id) as name
+    (select name from tblUser where id = tblBoard.id) as name,
+    (sysdate - regdate) as isnew
 from tblBoard order by seq desc;
 
 
