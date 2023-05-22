@@ -50,8 +50,10 @@
 		
 		<div>
 			<button type="button" class="back" onclick="location.href='/toy/board/board.do';">돌아가기</button>
+			<c:if test="${not empty id && (id == dto.id || lv == 3)}">
 			<button type="button" class="edit" onclick="location.href='/toy/board/edit.do?seq=${dto.seq}';">수정하기</button>
 			<button type="button" class="del" onclick="location.href='/toy/board/del.do?seq=${dto.seq}';">삭제하기</button>
+			</c:if>
 		</div>
 		</form>
 		

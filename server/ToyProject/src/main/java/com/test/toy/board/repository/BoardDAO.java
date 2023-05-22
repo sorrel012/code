@@ -164,6 +164,25 @@ public class BoardDAO {
         
         return 0;
     }
+
+    public int del(String seq) {
+        
+        try {
+
+            String sql = "delete from tblBoard where seq = ?";
+
+            pstat = con.prepareStatement(sql);
+
+            pstat.setString(1, seq);
+
+            return pstat.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return 0;
+    }
     
     
 }

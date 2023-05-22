@@ -57,8 +57,10 @@
 		</table>
 		
 		<div>
+			<c:if test="${not empty id}">
 			<button type="button" class="add primary"
 				onclick="location.href='/toy/board/add.do';">글쓰기</button>
+			</c:if>
 		</div>
 		
 	</main>
