@@ -38,13 +38,18 @@ public class Del extends HttpServlet {
         
         BoardDAO dao = new BoardDAO();
         
-        int result = dao.del(seq);
+        //삭제될 글에 댓글이 달렸는지 확인 > 있으면 삭제
+        int result = 0;
+        
+        result = dao.delComment(seq); //댓글 삭제
+        
+        result *= dao.del(seq); //글 삭제
         
         if (result == 1) {
             resp.sendRedirect("/toy/board/board.do");
         } else {
             PrintWriter writer = resp.getWriter();
-            writer.print("<script>alert('failed)';history.back();</script>");
+            writer.print("<script>alert('failed');history.back();</script>");
             writer.close();
         }
         

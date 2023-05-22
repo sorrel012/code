@@ -60,7 +60,7 @@ public class Edit extends HttpServlet {
             resp.sendRedirect("/toy/board/view.do?seq=" + seq);
         } else {
             PrintWriter writer = resp.getWriter();
-            writer.print("<script>alert('failed)';history.back();</script>");
+            writer.print("<script>alert('failed');history.back();</script>");
             writer.close();
         }
         

@@ -73,13 +73,21 @@
 		<table id="comment">
 			<c:forEach items="${clist}" var="cdto">
 			<tr>	
-				<td class="comment-content">
+				<td>
+				<div class="comment-content">
 					<div><c:out value="${cdto.content}" /></div>
 					<div class="comment-regdate">${cdto.regdate}</div>
+				</div>
 				</td>
 				<td>
 					<div>
 						<div>${cdto.name}(${cdto.id})</div>
+						<c:if test="${not empty id && (id == cdto.id || lv == '3')}">
+						<div>
+							<button type="button" class="edit" onclick="editComment(${cdto.seq});">수정</button>
+							<button type="button" class="del">삭제</button>
+						</div>
+						</c:if>
 					</div>					
 				</td>
 			</tr>
@@ -87,6 +95,7 @@
 		</table>
 		</form>
 		
+		<c:if test="${not empty id}">
 		<form method="POST" action="/toy/board/comment.do">
 		<table id="addcomment">
 			<tr>
@@ -98,6 +107,7 @@
 		</table>
 		<input type="hidden" name="bseq" value="${dto.seq}">		
 		</form>
+		</c:if>
 		
 		<div>
 			<button type="button" class="back" onclick="location.href='/toy/board/board.do';">돌아가기</button>
@@ -109,9 +119,60 @@
 		
 	</main>
 	
+	<form id="editCommentForm" method="POST" action="/toy/board/editcomment.do">
+		<input type="hidden" name="bseq">
+		<input type="hidden" name="cseq">
+		<input type="hidden" name="content">
+	</form>
+	
 </body>
 
 <script>
+
+	function editComment(cseq) {
+	    
+	    //이전 수정중인 댓글 폼 전부 삭제
+	    $('.edit-comment').remove();
+	    
+	    const content = $(event.target).closest('tr').find('.comment-content').children().eq(0).text();
+	    
+	    $(event.target).closest('tr').after(
+	      	`
+	      		<tr style="background-color: #EFEFEF;" class="edit-comment">
+	      			<td><input type="text" class="full" value="\${content}" id="editcomment"></td>
+	      			<td>
+	      				<input type="button" value="확인" onclick="editOkComment(\${cseq});">
+	      				<input type="button" value="취소" onclick="cancleComment();">
+	      			</td>
+	      		</tr>
+	      	`
+	    );   
+	    
+	}
+	
+	
+	function cancleComment() {
+	    $(event.target).closest('tr').remove();
+	}
+	
+	
+	function editOkComment(cseq) {
+	    
+	    //부모 글번호
+	    //댓글 번호
+	    //댓글 내용
+	    
+	    //console.log(${dto.seq});
+	    //console.log(cseq);
+	    //console.log($('#editcomment').val());
+
+		
+		$('#editCommentForm input[name=bseq]').val(${dto.seq});
+		$('#editCommentForm input[name=cseq]').val(cseq);
+		$('#editCommentForm input[name=content]').val($('#editcomment').val());
+		
+		$('#editCommentForm').submit();
+	}
 
 </script>
 </html>

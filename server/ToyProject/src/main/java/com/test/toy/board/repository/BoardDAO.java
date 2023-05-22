@@ -244,6 +244,46 @@ public class BoardDAO {
         
         return null;
     }
+
+    //Del 서블릿에게 글 번호를 받아 그 글에 달려 있는 모든 댓글 삭제
+    public int delComment(String bseq) {
+        
+        try {
+
+            String sql = "delete from tblComment where bseq = ?";
+
+            pstat = con.prepareStatement(sql);
+
+            pstat.setString(1, bseq);
+
+            return pstat.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return 0;
+    }
+
+    public int editComment(CommentDTO cdto) {
+        
+        try {
+
+            String sql = "update tblComment set content = ? where seq = ?";
+
+            pstat = con.prepareStatement(sql);
+
+            pstat.setString(1, cdto.getContent());
+            pstat.setString(2, cdto.getSeq());
+
+            return pstat.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return 0;
+    }
     
     
 }
