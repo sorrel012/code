@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.test.toy.board.repository.BoardDAO;
 import com.test.toy.board.repository.BoardDTO;
@@ -22,6 +23,11 @@ public class Board extends HttpServlet {
         //1. DB 작업 > select
         //2. 결과 반환
         
+        HttpSession session = req.getSession();
+        
+        //읽음 제어
+        session.setAttribute("read", "n");
+        
         BoardDAO dao = new BoardDAO();
         
         List<BoardDTO> list = dao.list();
@@ -29,8 +35,16 @@ public class Board extends HttpServlet {
         //데이터 조작
         for (BoardDTO dto : list) {
             
-            //날짜 자르기
-            dto.setRegdate(dto.getRegdate().substring(0, 10));
+            //날짜 자르기(기준: 당일)
+            // - 년월일
+            // - 시분초
+            //dto.setRegdate(dto.getRegdate().substring(0, 10));
+            
+            //태그 이스케이프
+            String subject = dto.getSubject();
+            
+            subject = subject.replace("<", "&lt;").replace(">", "&gt;");
+            dto.setSubject(subject);
             
         }
         

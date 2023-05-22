@@ -83,5 +83,65 @@ public class BoardDAO {
         
     }
     
+
+    //View 서블릿에게 번호를 받아 일치하는 레코드 반환
+    public BoardDTO get(String seq) {
+        
+        try {
+
+            String sql = "select \r\n"
+                    + "    tblBoard.*,\r\n"
+                    + "    (select name from tblUser where id = tblBoard.id) as name    \r\n"
+                    + "from tblBoard\r\n"
+                    + "    where seq = ?";
+
+            pstat = con.prepareStatement(sql);
+
+            pstat.setString(1, seq);
+
+            rs = pstat.executeQuery();
+
+            if (rs.next()) {
+
+                BoardDTO dto = new BoardDTO();
+
+                dto.setSeq(rs.getString("seq"));
+                dto.setSubject(rs.getString("subject"));
+                dto.setContent(rs.getString("content"));
+                dto.setId(rs.getString("id"));
+                dto.setRegdate(rs.getString("regdate"));
+                dto.setReadcount(rs.getString("readcount"));
+                dto.setName(rs.getString("name"));
+
+                return dto;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        
+        return null;
+    }
+
+    //View 서블릿에게번호를 받아 조회수 +1 증가
+    public void updateReadcount(String seq) {
+        
+        try {
+
+            String sql = "update tblBoard set readcount = readcount + 1 where seq = ?";
+
+            pstat = con.prepareStatement(sql);
+
+            pstat.setString(1, seq);
+
+            pstat.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+    }
+    
     
 }

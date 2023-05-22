@@ -44,7 +44,7 @@
 			<tr>
 				<td>${dto.seq}</td>
 				<td>
-					${dto.subject}
+					<a href="/toy/board/view.do?seq=${dto.seq}">${dto.subject}</a>
 					<c:if test="${dto.isnew < 30 / 24 / 60}"> <!-- 30분이 안 된 글들은 옆에 new가 뜬다. -->
 						<span class="isnew">new</span>
 					</c:if>
