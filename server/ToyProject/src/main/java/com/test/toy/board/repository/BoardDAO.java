@@ -91,11 +91,7 @@ public class BoardDAO {
         
         try {
 
-            String sql = "select \r\n"
-                    + "    tblBoard.*,\r\n"
-                    + "    (select name from tblUser where id = tblBoard.id) as name    \r\n"
-                    + "from tblBoard\r\n"
-                    + "    where seq = ?";
+            String sql = "select tblBoard.*, (select name from tblUser where id = tblBoard.id) as name from tblBoard where seq = ?";
 
             pstat = con.prepareStatement(sql);
 
@@ -212,7 +208,7 @@ public class BoardDAO {
         
         try {
 
-            String sql = "select tblComment.*, (select name from tblUser where id = tblComment.id) as name from tblComment where bseq = ?";
+            String sql = "select tblComment.*, (select name from tblUser where id = tblComment.id) as name from tblComment where bseq = ? order by seq desc";
 
             pstat = con.prepareStatement(sql);
 
@@ -275,6 +271,25 @@ public class BoardDAO {
 
             pstat.setString(1, cdto.getContent());
             pstat.setString(2, cdto.getSeq());
+
+            return pstat.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return 0;
+    }
+
+    public int delComment2(String cseq) {
+        
+        try {
+
+            String sql = "delete from tblComment where seq = ?";
+
+            pstat = con.prepareStatement(sql);
+
+            pstat.setString(1, cseq);
 
             return pstat.executeUpdate();
 

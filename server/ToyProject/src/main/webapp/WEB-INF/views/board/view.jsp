@@ -85,7 +85,7 @@
 						<c:if test="${not empty id && (id == cdto.id || lv == '3')}">
 						<div>
 							<button type="button" class="edit" onclick="editComment(${cdto.seq});">수정</button>
-							<button type="button" class="del">삭제</button>
+							<button type="button" class="del" onclick="delComment(${cdto.seq})">삭제</button>
 						</div>
 						</c:if>
 					</div>					
@@ -172,6 +172,13 @@
 		$('#editCommentForm input[name=content]').val($('#editcomment').val());
 		
 		$('#editCommentForm').submit();
+	}
+	
+	
+	function delComment(cseq) {
+	    
+	    location.href = '/toy/board/delcomment.do?seq=${dto.seq}&cseq=' + cseq;
+	    
 	}
 
 </script>
