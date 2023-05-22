@@ -25,7 +25,7 @@ public class Auth {
         BoardDTO dto = dao.get(seq);
         
         if (!session.getAttribute("id").equals(dto.getId())
-                && session.getAttribute("lv").toString().equals("3")) {
+                && !session.getAttribute("lv").toString().equals("3")) {
             
             PrintWriter writer = resp.getWriter();
             writer.print("<script>alert('failed)';location.href='/toy/index.do';</script>");
