@@ -61,9 +61,11 @@
 					- View.java
 					- Edit.java
 					- Del.java
+					- Comment.java
 				f. com.test.toy.board.repository
 					- BoardDAO.java
-					- BoardDTO.java				
+					- BoardDTO.java
+					- CommentDTO.java				
 									
 			- 뷰
 				a. views 
@@ -113,5 +115,17 @@
 		2. 다른 경로를 통해서 유입
 		- list.do > view.do > 조회수 증가o
 		- view.do > 조회수 증가o
+	
 		
-		
+// 권한 처리
+	- 목록 보기, 상세보기 > 비회원o, 회원o
+	- 글쓰기, 수정하기, 삭제하기 > 비회원x, 회원o
+	- 방식 > 노출 제어
+	
+	- 수정하기, 삭제하기 > 비회원x, 회원(자기 것만 > 선택적)
+	- 수정하기, 삭제하기 > 관리자( 모든 글에 가능)
+
+
+// 부모글 삭제
+	1. 부모글 삭제 > 댓글 같이 삭제
+	2. 부모글 삭제 > 댓글 삭제 금지		
