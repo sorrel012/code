@@ -15,6 +15,7 @@ select * from tblBoard;
 --게시물 보기
 select 
     tblBoard.*,
-    (select name from tblUsere where id = tblBoard.id) as name    
-from tblBoard
+    (select name from tblUser where id = tblBoard.id) as name    
+from tblBoard   
     where seq = 4;
+    

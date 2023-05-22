@@ -11,6 +11,19 @@
 	#content {
 		height: 215px;
 	}
+	
+	#comment td:nth-child(1) { width: auto; }
+	#comment td:nth-child(2) { 
+		width: 150px;
+		text-align: center; 
+	}
+	
+	#addcomment td:nth-child(1) { width: auto; }
+	#addcomment td:nth-child(2) { 
+		width: 150px;
+		text-align: center; 
+	}
+	
 </style>
 </head>
 <body>
@@ -48,6 +61,39 @@
 			</tr>
 		</table>
 		
+		<table id="comment">
+			<tr>	
+				<td>댓글 내용입니다.</td>
+				<td>
+					<div>이름(아이디)</div>
+				</td>
+			</tr>
+			<tr>	
+				<td>댓글 내용입니다.</td>
+				<td>
+					<div>이름(아이디)</div>
+				</td>
+			</tr>
+			<tr>	
+				<td>댓글 내용입니다.</td>
+				<td>
+					<div>이름(아이디)</div>
+				</td>
+			</tr>
+		</table>
+		</form>
+		
+		<form method="POST" action="/toy/board/comment.do">
+		<table id="addcomment">
+			<tr>
+				<td><input type="text" name="comment" class="full" required></td>
+				<td>
+					<button type="submit" class="comment">댓글쓰기</button>
+				</td>
+			</tr>
+		</table>
+		</form>
+		
 		<div>
 			<button type="button" class="back" onclick="location.href='/toy/board/board.do';">돌아가기</button>
 			<c:if test="${not empty id && (id == dto.id || lv == 3)}">
@@ -55,7 +101,6 @@
 			<button type="button" class="del" onclick="location.href='/toy/board/del.do?seq=${dto.seq}';">삭제하기</button>
 			</c:if>
 		</div>
-		</form>
 		
 	</main>
 	
