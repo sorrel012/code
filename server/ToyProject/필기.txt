@@ -62,7 +62,8 @@
 					- Edit.java
 					- Del.java
 					- Comment.java
-					- EditCOmment.java
+					- EditComment.java
+					- DelComment.java
 				f. com.test.toy.board.repository
 					- BoardDAO.java
 					- BoardDTO.java
