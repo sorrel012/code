@@ -5,18 +5,61 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="https://me2.do/5BvBFJ57">
+<title>Toy Project</title>
+<%@ include file="/WEB-INF/views/inc/asset.jsp" %>
 <style>
-
+	#content {
+		height: 215px;
+	}
 </style>
 </head>
 <body>
 
+	<%@ include file="/WEB-INF/views/inc/header.jsp" %>	
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	<main id="main">
+		<h1>게시판 <small>글보기</small></h1>
+		
+		<form method="POST" action="/toy/board/add.do">
+		<table class="vertical">
+			<tr>
+				<th>번호</th>
+				<td>${dto.seq}</td>
+			</tr>
+			<tr>
+				<th>이름</th>
+				<td>${dto.name}(${dto.id})</td>
+			</tr>
+			<tr>
+				<th>제목</th>
+				<td>${dto.subject}</td>
+			</tr>
+			<tr>
+				<th>내용</th>
+				<td id="content">${dto.content}</td>
+			</tr>
+			<tr>
+				<th>날짜</th>
+				<td>${dto.regdate}</td>
+			</tr>
+			<tr>
+				<th>읽음</th>
+				<td>${dto.readcount}</td>
+			</tr>
+		</table>
+		
+		<div>
+			<button type="button" class="back" onclick="location.href='/toy/board/board.do';">돌아가기</button>
+			<button type="button" class="edit" onclick="location.href='/toy/board/edit.do?seq=${dto.seq}';">수정하기</button>
+			<button type="button" class="del" onclick="location.href='/toy/board/del.do?seq=${dto.seq}';">삭제하기</button>
+		</div>
+		</form>
+		
+	</main>
+	
+</body>
+
 <script>
 
 </script>
-</body>
 </html>
