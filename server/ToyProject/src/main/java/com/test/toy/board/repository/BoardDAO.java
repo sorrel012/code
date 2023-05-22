@@ -143,5 +143,27 @@ public class BoardDAO {
         
     }
     
+    //게시글 수정 내용 update
+    public int edit(BoardDTO dto) {
+        
+        try {
+
+            String sql = "update tblBoard set subject = ?, content = ? where seq = ?";
+
+            pstat = con.prepareStatement(sql);
+
+            pstat.setString(1, dto.getSubject());
+            pstat.setString(2, dto.getContent());
+            pstat.setString(3, dto.getSeq());
+
+            return pstat.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return 0;
+    }
+    
     
 }

@@ -5,18 +5,44 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="https://me2.do/5BvBFJ57">
+<title>Toy Project</title>
+<%@ include file="/WEB-INF/views/inc/asset.jsp" %>
 <style>
 
 </style>
 </head>
 <body>
 
+	<%@ include file="/WEB-INF/views/inc/header.jsp" %>	
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	<main id="main">
+		<h1>게시판 <small>수정하기</small></h1>
+		
+		<form method="POST" action="/toy/board/edit.do">
+		<table class="vertical">
+			<tr>
+				<th>제목</th>
+				<td><input type="text" name="subject" id="subject" required class="full" value="${dto.subject}"></td>
+			</tr>
+			<tr>
+				<th>내용</th>
+				<td><textarea name="content" id="content" required class="full" >${dto.content}</textarea></td>
+			</tr>
+		</table>
+		
+		<div>
+			<button type="button" class="back" onclick="history.back();">돌아가기</button>
+			<button type="submit" class="edit primary">수정하기</button>
+		</div>
+		
+		<input type="hidden" name="seq" value="${dto.seq}">
+		</form>
+		
+	</main>
+	
+</body>
+
 <script>
 
 </script>
-</body>
 </html>
