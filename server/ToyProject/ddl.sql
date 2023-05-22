@@ -28,9 +28,16 @@ create sequence seqBoard;
 create or replace view vwBoard
 as
 select
-    seq, subject, id, regdate, readcount,
+    seq, subject, id, readcount,
     (select name from tblUser where id = tblBoard.id) as name,
-    (sysdate - regdate) as isnew
+    (sysdate - regdate) as isnew,
+    
+    case
+        when to_char(sysdate, 'yyyy-mm-dd') = to_char(regdate, 'yyyy-mm-dd') 
+            then to_char(regdate, 'hh24:mi:ss')
+        else
+            to_char(regdate, 'yyyy-mm-dd')
+    end as regdate
 from tblBoard order by seq desc;
 
 
