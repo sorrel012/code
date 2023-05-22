@@ -22,6 +22,11 @@
 		font-size: 14px;
 		color: tomato;
 	}
+	
+	.comment-count {
+		font-size: 12px;
+		color: #777;
+	}
 
 </style>
 </head>
@@ -44,7 +49,15 @@
 			<tr>
 				<td>${dto.seq}</td>
 				<td>
+					<!-- 제목(링크) -->
 					<a href="/toy/board/view.do?seq=${dto.seq}">${dto.subject}</a>
+					
+					<!-- 댓글 개수 -->
+					<c:if test="${dto.ccnt > 0}">
+					<span class="comment-count">(${dto.ccnt})</span>
+					</c:if>
+					
+					<!-- 새 글 표시 -->
 					<c:if test="${dto.isnew < 30 / 24 / 60}"> <!-- 30분이 안 된 글들은 옆에 new가 뜬다. -->
 						<span class="isnew">new</span>
 					</c:if>

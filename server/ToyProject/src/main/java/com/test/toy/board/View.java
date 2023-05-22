@@ -1,6 +1,7 @@
 package com.test.toy.board;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import com.test.toy.board.repository.BoardDAO;
 import com.test.toy.board.repository.BoardDTO;
+import com.test.toy.board.repository.CommentDTO;
 
 @WebServlet("/board/view.do")
 public class View extends HttpServlet {
@@ -57,7 +59,14 @@ public class View extends HttpServlet {
         dto.setContent(content);
         dto.setSubject(subject);
         
+        
+        
+        //댓글 목록 가져오기
+        List<CommentDTO> clist = dao.clist(seq);
+        
+        
         req.setAttribute("dto", dto);
+        req.setAttribute("clist", clist);
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/board/view.jsp");
         dispatcher.forward(req, resp);

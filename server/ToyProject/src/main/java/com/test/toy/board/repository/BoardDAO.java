@@ -68,6 +68,8 @@ public class BoardDAO {
                 dto.setName(rs.getString("name"));
                 
                 dto.setIsnew(rs.getDouble("isnew"));
+                
+                dto.setCcnt(rs.getString("ccnt"));
 
                 list.add(dto);
                 
@@ -182,6 +184,65 @@ public class BoardDAO {
         }
         
         return 0;
+    }
+
+    public int addComment(CommentDTO cdto) {
+        
+        try {
+
+            String sql = "insert into tblComment (seq, content, id, regdate, bseq) values (seqComment.nextVal, ?, ?, default, ?)";
+
+            pstat = con.prepareStatement(sql);
+
+            pstat.setString(1, cdto.getContent());
+            pstat.setString(2, cdto.getId());
+            pstat.setString(3, cdto.getBseq());
+
+            return pstat.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return 0;
+    }
+    
+    //View 서블릿에게 현재 보고 있는 글의 댓글 목록 반환
+    public List<CommentDTO> clist(String bseq) {
+        
+        try {
+
+            String sql = "select tblComment.*, (select name from tblUser where id = tblComment.id) as name from tblComment where bseq = ?";
+
+            pstat = con.prepareStatement(sql);
+
+            pstat.setString(1, bseq);
+
+            rs = pstat.executeQuery();
+
+            List<CommentDTO> list = new ArrayList<CommentDTO>();
+
+            while (rs.next()) {
+
+                CommentDTO dto = new CommentDTO();
+
+                dto.setSeq(rs.getString("seq"));
+                dto.setContent(rs.getString("content"));
+                dto.setId(rs.getString("id"));
+                dto.setRegdate(rs.getString("regdate"));
+                dto.setBseq(rs.getString("bseq"));
+                dto.setName(rs.getString("name"));
+
+                list.add(dto);
+            }
+
+            return list;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return null;
     }
     
     

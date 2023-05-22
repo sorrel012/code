@@ -16,4 +16,6 @@ public class BoardDTO {
     
     private double isnew; //최신글 여부
     
+    private String ccnt; //현재글에 달린 댓글 개수
+    
 }

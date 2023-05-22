@@ -24,6 +24,15 @@
 		text-align: center; 
 	}
 	
+	.comment-content {
+		display: flex;
+		justify-content: space-between;
+	}	
+	
+	.comment-regdate {
+		font-size: 12px;
+		color: #777;
+	}
 </style>
 </head>
 <body>
@@ -62,24 +71,19 @@
 		</table>
 		
 		<table id="comment">
+			<c:forEach items="${clist}" var="cdto">
 			<tr>	
-				<td>댓글 내용입니다.</td>
+				<td class="comment-content">
+					<div><c:out value="${cdto.content}" /></div>
+					<div class="comment-regdate">${cdto.regdate}</div>
+				</td>
 				<td>
-					<div>이름(아이디)</div>
+					<div>
+						<div>${cdto.name}(${cdto.id})</div>
+					</div>					
 				</td>
 			</tr>
-			<tr>	
-				<td>댓글 내용입니다.</td>
-				<td>
-					<div>이름(아이디)</div>
-				</td>
-			</tr>
-			<tr>	
-				<td>댓글 내용입니다.</td>
-				<td>
-					<div>이름(아이디)</div>
-				</td>
-			</tr>
+			</c:forEach>
 		</table>
 		</form>
 		
@@ -92,6 +96,7 @@
 				</td>
 			</tr>
 		</table>
+		<input type="hidden" name="bseq" value="${dto.seq}">		
 		</form>
 		
 		<div>
