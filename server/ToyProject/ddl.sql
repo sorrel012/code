@@ -37,7 +37,10 @@ select
             then to_char(regdate, 'hh24:mi:ss')
         else
             to_char(regdate, 'yyyy-mm-dd')
-    end as regdate
+    end as regdate,
+    
+    (select count(*) from tblComment where bseq = tblBoard.seq) as ccnt
+    
 from tblBoard order by seq desc;
 
 
