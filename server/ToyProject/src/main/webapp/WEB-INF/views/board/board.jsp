@@ -27,6 +27,11 @@
 		font-size: 12px;
 		color: #777;
 	}
+	
+	#searchForm {
+		margin-bottom: 15px;
+		text-align: center;
+	}
 
 </style>
 </head>
@@ -68,6 +73,17 @@
 			</tr>
 			</c:forEach>
 		</table>
+		
+		<!-- 몇 안 되는 form 태그에 GET을 쓰는 경우 -->
+		<form id="searchForm" action="/toy/board/board.do" method="GET">
+			<select name="column">
+				<option value="subject">제목</option>
+				<option value="content">내용</option>
+				<option value="name">이름</option>
+			</select>
+			<input type="text" name="word" class="long" required>
+			<input type="submit" value="검색하기">
+		</form>		
 		
 		<div>
 			<c:if test="${not empty id}">

@@ -1,6 +1,7 @@
 package com.test.toy.board;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -27,10 +28,30 @@ public class Board extends HttpServlet {
         
         //읽음 제어
         session.setAttribute("read", "n");
+
+        
+        //2가지 용도로 호출
+        //1. 일반 목록 보기 > board.do
+        //2. 검색 결과 보기 > board.do?column=subject&word=test
+        
+        String column = req.getParameter("column");
+        String word = req.getParameter("word");
+        String search = "n"; //검색중(O,X)r
+        
+        HashMap<String, String> map = new HashMap<String, String>();
+        
+        if (column != null && word != null) {
+            search = "y";
+        }
+        
+        map.put("column", column);
+        map.put("word", word);
+        map.put("search", search);
+        
         
         BoardDAO dao = new BoardDAO();
         
-        List<BoardDTO> list = dao.list();
+        List<BoardDTO> list = dao.list(map);
         
         //데이터 조작
         for (BoardDTO dto : list) {
@@ -47,7 +68,6 @@ public class Board extends HttpServlet {
             dto.setSubject(subject);
             
         }
-        
         
         req.setAttribute("list", list);
 

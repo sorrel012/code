@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import com.jdbc.DBUtil;
@@ -44,11 +45,19 @@ public class BoardDAO {
 
     
     //Board 서블릿이 게시판 목록 요청
-    public List<BoardDTO> list() {
+    public List<BoardDTO> list(HashMap<String, String> map) {
         
         try {
+            
+            String where = "";
+            
+            if(map.get("search").equals("y")) {
+                where = String.format("where %s like '%%%s%%'"
+                                        , map.get("column")
+                                        , map.get("word"));
+            }
 
-            String sql = "select * from vwBoard";
+            String sql = String.format("select * from vwBoard %s", where);
 
             st = con.createStatement();
             rs = st.executeQuery(sql);
