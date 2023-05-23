@@ -59,3 +59,19 @@ create table tblComment (
 
 create sequence seqComment;
 
+
+drop table tblComment;
+drop table tblBoard;
+
+
+--답변형 게시판
+create table tblBoard(
+    seq number primary key,                         --번호(PK)
+    subject varchar2(300) not null,                 --제목
+    content varchar2(4000) not null,                --내용
+    id varchar2(30) not null references tblUser(id),--아이디(FK)
+    regdate date default sysdate not null,          --작성시각
+    readcount number default 0 not null,            --읽음
+    thread number not null,                         --답변형(정렬)
+    depth number not null                           --답변형(출력)
+);
