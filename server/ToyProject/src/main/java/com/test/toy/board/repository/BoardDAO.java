@@ -52,12 +52,12 @@ public class BoardDAO {
             String where = "";
             
             if(map.get("search").equals("y")) {
-                where = String.format("and %s like '%%%s%%'"
+                where = String.format("where %s like '%%%s%%'"
                                         , map.get("column")
                                         , map.get("word"));
             }
 
-            String sql = String.format("select * from (select a.*, rownum as rnum from vwBoard a) where rnum between %s and %s", map.get("begin"), map.get("end"), where);
+            String sql = String.format("select * from (select a.*, rownum as rnum from vwBoard a %s) where rnum between %s and %s", where, map.get("begin"), map.get("end"));
 
             st = con.createStatement();
             rs = st.executeQuery(sql);
@@ -324,7 +324,7 @@ public class BoardDAO {
 	                                        , map.get("word"));
 	            }
 
-	            String sql = String.format("select count(*) as cnt from vwBOard %s", where);
+	            String sql = String.format("select count(*) as cnt from vwBoard %s", where);
 
 			pstat = con.prepareStatement(sql);
 			rs = pstat.executeQuery();

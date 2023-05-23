@@ -43,6 +43,10 @@ public class Board extends HttpServlet {
         //읽음 제어
         session.setAttribute("read", "n");
         
+        //?page=5 > null
+        //?page=5&column=&word=	> ""
+        //?page=5&column=subject&word=자바	> "subject"
+        
         
         String page = req.getParameter("page");
 
@@ -83,9 +87,12 @@ public class Board extends HttpServlet {
         
         HashMap<String, String> map = new HashMap<String, String>();
         
-        if (column != null && word != null) {
+        if ((column == null && word == null)
+                || (column.endsWith("") && word.equals(""))) {
+            search = "n";
+         } else {
             search = "y";
-        }
+         }
         
         map.put("column", column);
         map.put("word", word);
@@ -129,14 +136,55 @@ public class Board extends HttpServlet {
         
         
         //총 게시물
-        // 총 페이지
+        //총 페이지
         totalCount = dao.getTotalCount(map);
         totalPage = (int)Math.ceil((double)totalCount / pageSize);
+        
+        /*
+			<a href="/toy/board/board.do?page=1">[이전 10페이지]</a>
+			<a href="/toy/board/board.do?page=1">1</a>
+			<a href="/toy/board/board.do?page=2">2</a>
+			<a href="/toy/board/board.do?page=3">3</a>
+			<a href="/toy/board/board.do?page=4">4</a>
+			<a href="/toy/board/board.do?page=5">5</a>
+			<a href="/toy/board/board.do?page=6">6</a>
+			<a href="/toy/board/board.do?page=7">7</a>
+			<a href="/toy/board/board.do?page=8">8</a>
+			<a href="/toy/board/board.do?page=9">9</a>
+			<a href="/toy/board/board.do?page=10">10</a>
+			<a href="/toy/board/board.do?page=1">[다음 10페이지]</a>
+        */
+        
+        StringBuilder sb = new StringBuilder();
+        
+        /*
+        for(int i=1; i<=totalPage; i++) {
+        	
+        	if( i == nowPage) {
+        		sb.append(String.format(" <a href=\"#!\" style='color:tomato;'>%d</a> ", i));
+        	} else {
+        		sb.append(String.format(" <a href=\"/toy/board/board.do?page=%d\">%d</a> ", i, i));
+        	}
+        }
+        */
+        
+        
+        //board.do?page=1
+        //1 2 3 4 5 6 7 8 9 10
+        
+        //board.do?page=5
+        //1 2 3 4 5 6 7 8 9 10
+                
+        //board.do?page=11
+        //11 12 13 14 15 16 17 18 19 20
+        
         
         req.setAttribute("list", list);
         req.setAttribute("map", map);
         req.setAttribute("totalCount", totalCount);
         req.setAttribute("totalPage", totalPage);
+        req.setAttribute("nowPage", nowPage);
+        req.setAttribute("pagination", sb);
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/board/board.jsp");
         dispatcher.forward(req, resp);

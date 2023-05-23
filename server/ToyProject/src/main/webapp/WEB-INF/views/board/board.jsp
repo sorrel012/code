@@ -49,9 +49,18 @@
 			<small>검색</small>
 			</c:if>
 			
-			<span id="pagebar" style="float: right;margin-top:-5px;">
-				<input type="number" id="page" class="short" min="1" max="${totalPage}">
-				<input type="button" value="이동" onclick="location.href='/toy/board/board.do?page=' + $('#page').val();">
+			<%-- <span id="pagebar" style="float: right;margin-top:-5px;">
+				<input type="number" id="page" class="short" min="1" max="${totalPage}" value="${nowPage}">
+				<input type="button" value="이동" onclick="location.href='/toy/board/board.do?page=' + $('#page').val() + '&column=${map.column}&word=${map.word}';">
+			</span> --%>
+			
+			
+			<span id="pagebar" style="float: right;">
+				<select onchange="location.href='/toy/board/board.do?page=' + $(this).val() + '&column=${map.column}&word=${map.word}';">
+					<c:forEach var="i" begin="1" end="${totalPage}">
+					<option value="${i}" <c:if test="${i == nowPage}">selected</c:if>>${i}페이지</option>
+					</c:forEach>
+				</select>
 			</span>
 			
 		</h1>
@@ -109,6 +118,8 @@
 			<input type="text" name="word" class="long" required>
 			<input type="submit" value="검색하기">
 		</form>		
+		
+		<div id="pagination" style="text-align: center; margin-bottom:10px;">${pagination}</div>
 		
 		<div>
 			<c:if test="${not empty id}">
