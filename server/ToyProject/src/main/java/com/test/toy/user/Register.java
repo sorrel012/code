@@ -48,7 +48,8 @@ public class Register extends HttpServlet {
                                     );
             
             //System.out.println(req.getRealPath("/asset/pic"));
-
+            //C:\OneDrive\class\code\server\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ToyProject\asset\pic
+            
             String id = multi.getParameter("id");
             String pw = multi.getParameter("pw");
             String name = multi.getParameter("name");
