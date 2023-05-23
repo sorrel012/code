@@ -59,7 +59,7 @@ public class Board extends HttpServlet {
         int end = 0;
         int n = 0;
         int loop = 0;
-        int blockSize = 0;
+        int blockSize = 10; //한번에 보여질 페이지 개수
 
         
         //board.do
@@ -140,20 +140,6 @@ public class Board extends HttpServlet {
         totalCount = dao.getTotalCount(map);
         totalPage = (int)Math.ceil((double)totalCount / pageSize);
         
-        /*
-			<a href="/toy/board/board.do?page=1">[이전 10페이지]</a>
-			<a href="/toy/board/board.do?page=1">1</a>
-			<a href="/toy/board/board.do?page=2">2</a>
-			<a href="/toy/board/board.do?page=3">3</a>
-			<a href="/toy/board/board.do?page=4">4</a>
-			<a href="/toy/board/board.do?page=5">5</a>
-			<a href="/toy/board/board.do?page=6">6</a>
-			<a href="/toy/board/board.do?page=7">7</a>
-			<a href="/toy/board/board.do?page=8">8</a>
-			<a href="/toy/board/board.do?page=9">9</a>
-			<a href="/toy/board/board.do?page=10">10</a>
-			<a href="/toy/board/board.do?page=1">[다음 10페이지]</a>
-        */
         
         StringBuilder sb = new StringBuilder();
         
@@ -177,6 +163,38 @@ public class Board extends HttpServlet {
                 
         //board.do?page=11
         //11 12 13 14 15 16 17 18 19 20
+        
+        loop = 1; //루프 변수(10바퀴)
+        n = ((nowPage - 1) / blockSize) * blockSize + 1; //페이지 번호
+        
+        
+        //이번 10페이지
+        if (n == 1) {
+        	sb.append(String.format("<a href=\"#!\">[이전 %d페이지]</a>", blockSize));
+        } else {
+        	sb.append(String.format("<a href=\"/toy/board/board.do?page=%d\">[이전 %d페이지]</a>", n-1, blockSize));
+        }
+        
+        
+        while(!(loop > blockSize || n > totalPage)) {
+        	
+        	if(n == nowPage) {
+        		sb.append(String.format(" <a href=\"#!\" style='color:tomato;'>%d</a> ", n));
+        	} else {
+        		sb.append(String.format(" <a href=\"/toy/board/board.do?page=%d\">%d</a> ", n, n));
+        	}
+        	
+        	loop++;
+        	n++;
+        }
+        
+        
+        //다음 10페이지
+        if(n > totalPage) {
+        	sb.append(String.format("<a href=\"#!\">[다음 %d페이지]</a>", blockSize));
+        } else {
+        	sb.append(String.format("<a href=\"/toy/board/board.do?page=%d\">[다음 %d페이지]</a>", n, blockSize));
+        }
         
         
         req.setAttribute("list", list);
