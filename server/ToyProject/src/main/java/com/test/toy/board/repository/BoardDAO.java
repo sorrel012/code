@@ -25,7 +25,7 @@ public class BoardDAO {
         
         try {
 
-            String sql = "insert into tblBoard (seq, subject, content, id, regdate, readcount) values (seqBoard.nextVal, ?, ?, ?, default, default)";
+            String sql = "insert into tblBoard (seq, subject, content, id, regdate, readcount, thread, depth) values (seqBoard.nextVal, ?, ?, ?, default, default, ?, ?)";
 
             pstat = con.prepareStatement(sql);
 
@@ -33,6 +33,8 @@ public class BoardDAO {
             pstat.setString(2, dto.getContent());
             pstat.setString(3, dto.getId());
             
+            pstat.setInt(4, dto.getThread());
+            pstat.setInt(5, dto.getDepth());
 
             return pstat.executeUpdate();
 
@@ -80,7 +82,9 @@ public class BoardDAO {
                 
                 dto.setCcnt(rs.getString("ccnt"));
                 
-                dto.setContent(rs.getString("content"));
+                //dto.setContent(rs.getString("content"));
+                
+                dto.setDepth(rs.getInt("depth"));
 
                 list.add(dto);
                 
@@ -121,6 +125,9 @@ public class BoardDAO {
                 dto.setRegdate(rs.getString("regdate"));
                 dto.setReadcount(rs.getString("readcount"));
                 dto.setName(rs.getString("name"));
+                
+                dto.setThread(rs.getInt("thread"));
+                dto.setDepth(rs.getInt("depth"));
 
                 return dto;
             }
@@ -339,6 +346,46 @@ public class BoardDAO {
 		}
 		
 		return 0;
+	}
+
+	public int getMaxThread() {
+		
+		try {
+
+			String sql = "select nvl(max(thread), 0) as thread from tblBoard";
+
+			st = con.createStatement();
+			rs = st.executeQuery(sql);
+
+			if (rs.next()) {
+
+				return rs.getInt("thread");
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return 0;
+	}
+
+	public void updateThread(HashMap<String, Integer> map) {
+		
+		try {
+
+			String sql = "update tblBoard set thread = thread - 1 where thread > ? and thread < ?";
+
+			pstat = con.prepareStatement(sql);
+
+			pstat.setInt(1, map.get("previousThread"));
+			pstat.setInt(2, map.get("parentThread"));
+
+			pstat.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
     
     

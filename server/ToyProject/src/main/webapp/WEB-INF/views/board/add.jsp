@@ -16,7 +16,16 @@
 	<%@ include file="/WEB-INF/views/inc/header.jsp" %>	
 
 	<main id="main">
-		<h1>게시판 <small>글쓰기</small></h1>
+		<h1>게시판
+		 
+		<c:if test="${mode == 'new'}">
+		<small>글쓰기</small>
+		</c:if>
+		<c:if test="${mode == 'reply'}">
+		<small>답변쓰기</small>
+		</c:if>
+		
+		</h1>
 		
 		<form method="POST" action="/toy/board/add.do">
 		<table class="vertical">
@@ -33,7 +42,10 @@
 		<div>
 			<button type="button" class="back" onclick="location.href='/toy/board/board.do';">돌아가기</button>
 			<button type="submit" class="add primary">글쓰기</button>
-		</div>
+		</div>		
+		<input type="hidden" name="mode" value="${mode}">
+		<input type="hidden" name="thread" value="${thread}">
+		<input type="hidden" name="depth" value="${depth}">
 		</form>
 		
 	</main>

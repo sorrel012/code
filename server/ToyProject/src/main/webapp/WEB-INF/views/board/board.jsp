@@ -86,9 +86,18 @@
 			</c:if>
 			<c:forEach items="${list}" var="dto">
 			<tr>
+				<c:if test="${dto.depth == 0}">
 				<td>${dto.seq}</td>
-				<td>
-					<!-- 제목(링크) -->
+				</c:if>
+				<c:if test="${dto.depth > 0}">
+				<td>답변</td>
+				</c:if>
+				<td>			
+					<c:if test="${dto.depth > 0}">
+					<span class="material-symbols-outlined" style="font-size: 16px; margin-left: ${dto.depth * 20}px;">subdirectory_arrow_right</span>
+					</c:if>
+					
+					<!-- 제목(링크) -->		
 					<a href="/toy/board/view.do?seq=${dto.seq}&column=${map.column}&word=${map.word}&search=${map.search}">${dto.subject}</a>
 					
 					<!-- 댓글 개수 -->
@@ -124,7 +133,7 @@
 		<div>
 			<c:if test="${not empty id}">
 			<button type="button" class="add primary"
-				onclick="location.href='/toy/board/add.do';">글쓰기</button>
+				onclick="location.href='/toy/board/add.do?mode=new';">글쓰기</button>
 			</c:if>
 			<button type="button" class="list primary" 
 				onclick="location.href='/toy/board/board.do';">목록보기</button>

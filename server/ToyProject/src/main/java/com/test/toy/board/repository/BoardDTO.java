@@ -18,4 +18,8 @@ public class BoardDTO {
     
     private String ccnt; //현재글에 달린 댓글 개수
     
+    //계산할 거라 숫자로!
+    private int thread;
+    private int depth;
+    
 }

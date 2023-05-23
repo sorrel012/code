@@ -42,7 +42,7 @@ select
     (select count(*) from tblComment where bseq = tblBoard.seq) as ccnt,
     content
     
-from tblBoard order by seq desc;
+from tblBoard order by thread desc;
 
 
 select * from vwBoard;
@@ -58,10 +58,6 @@ create table tblComment (
 );
 
 create sequence seqComment;
-
-
-drop table tblComment;
-drop table tblBoard;
 
 
 --답변형 게시판
