@@ -52,12 +52,12 @@ public class BoardDAO {
             String where = "";
             
             if(map.get("search").equals("y")) {
-                where = String.format("where %s like '%%%s%%'"
+                where = String.format("and %s like '%%%s%%'"
                                         , map.get("column")
                                         , map.get("word"));
             }
 
-            String sql = String.format("select * from vwBoard %s", where);
+            String sql = String.format("select * from (select a.*, rownum as rnum from vwBoard a) where rnum between %s and %s", map.get("begin"), map.get("end"), where);
 
             st = con.createStatement();
             rs = st.executeQuery(sql);
@@ -79,6 +79,8 @@ public class BoardDAO {
                 dto.setIsnew(rs.getDouble("isnew"));
                 
                 dto.setCcnt(rs.getString("ccnt"));
+                
+                dto.setContent(rs.getString("content"));
 
                 list.add(dto);
                 
@@ -308,6 +310,36 @@ public class BoardDAO {
         
         return 0;
     }
+
+    //Board 서블릿이 게시물 총개수를 달라고 요청
+	public int getTotalCount(HashMap<String, String> map) {
+		
+		try {
+			
+			 String where = "";
+	            
+	            if(map.get("search").equals("y")) {
+	                where = String.format("where %s like '%%%s%%'"
+	                                        , map.get("column")
+	                                        , map.get("word"));
+	            }
+
+	            String sql = String.format("select count(*) as cnt from vwBOard %s", where);
+
+			pstat = con.prepareStatement(sql);
+			rs = pstat.executeQuery();
+			
+			if (rs.next()) {
+
+				return rs.getInt("cnt");
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return 0;
+	}
     
     
 }

@@ -48,6 +48,12 @@
 			<c:if test="${map.search =='y'}">
 			<small>검색</small>
 			</c:if>
+			
+			<span id="pagebar" style="float: right;margin-top:-5px;">
+				<input type="number" id="page" class="short" min="1" max="${totalPage}">
+				<input type="button" value="이동" onclick="location.href='/toy/board/board.do?page=' + $('#page').val();">
+			</span>
+			
 		</h1>
 		
 		<c:if test="${map.search == 'y'}">
@@ -74,7 +80,7 @@
 				<td>${dto.seq}</td>
 				<td>
 					<!-- 제목(링크) -->
-					<a href="/toy/board/view.do?seq=${dto.seq}">${dto.subject}</a>
+					<a href="/toy/board/view.do?seq=${dto.seq}&column=${map.column}&word=${map.word}&search=${map.search}">${dto.subject}</a>
 					
 					<!-- 댓글 개수 -->
 					<c:if test="${dto.ccnt > 0}">

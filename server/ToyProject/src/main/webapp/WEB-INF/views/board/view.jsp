@@ -105,12 +105,15 @@
 				</td>
 			</tr>
 		</table>
-		<input type="hidden" name="bseq" value="${dto.seq}">		
+		<input type="hidden" name="bseq" value="${dto.seq}">
+		<input type="hidden" name="column" value="${column}">		
+		<input type="hidden" name="word" value="${word}">		
+		<input type="hidden" name="search" value="${search}">		
 		</form>
 		</c:if>
 		
 		<div>
-			<button type="button" class="back" onclick="location.href='/toy/board/board.do';">돌아가기</button>
+			<button type="button" class="back" onclick="location.href='/toy/board/board.do?column=${column}&word=${word}';">돌아가기</button>
 			<c:if test="${not empty id && (id == dto.id || lv == 3)}">
 			<button type="button" class="edit" onclick="location.href='/toy/board/edit.do?seq=${dto.seq}';">수정하기</button>
 			<button type="button" class="del" onclick="location.href='/toy/board/del.do?seq=${dto.seq}';">삭제하기</button>

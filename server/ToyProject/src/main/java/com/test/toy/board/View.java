@@ -34,6 +34,10 @@ public class View extends HttpServlet {
         
         String seq = req.getParameter("seq");
         
+        String column = req.getParameter("column");
+        String word = req.getParameter("word");
+        String search = req.getParameter("search");
+        
         BoardDAO dao = new BoardDAO();
         
         //조회수(읽음) 증가
@@ -56,9 +60,14 @@ public class View extends HttpServlet {
         content = content.replace("\r\n", "<br>");
         
         
+        //내용으로 검색중.. 검색어 강조!!
+        if(search.equals("y") && column.equals("content")) {
+        	content = content.replace(word, "<span style=\"background-color:yellow;color:tomato;\">" + word + "</span>");
+        	
+        }
+        
         dto.setContent(content);
         dto.setSubject(subject);
-        
         
         
         //댓글 목록 가져오기
@@ -67,6 +76,9 @@ public class View extends HttpServlet {
         
         req.setAttribute("dto", dto);
         req.setAttribute("clist", clist);
+        req.setAttribute("column", column);
+        req.setAttribute("word", word);
+        req.setAttribute("search", search);
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/board/view.jsp");
         dispatcher.forward(req, resp);
