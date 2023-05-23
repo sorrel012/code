@@ -46,6 +46,8 @@ public class BoardDAO {
     
     //Board 서블릿이 게시판 목록 요청
     public List<BoardDTO> list(HashMap<String, String> map) {
+
+        List<BoardDTO> list = new ArrayList<BoardDTO>();
         
         try {
             
@@ -61,8 +63,6 @@ public class BoardDAO {
 
             st = con.createStatement();
             rs = st.executeQuery(sql);
-
-            List<BoardDTO> list = new ArrayList<BoardDTO>();
 
             while (rs.next()) {
 
@@ -92,7 +92,7 @@ public class BoardDAO {
             e.printStackTrace();
         }
         
-        return null;
+        return list;
         
     }
     
