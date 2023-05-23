@@ -82,14 +82,14 @@ public class Add extends HttpServlet {
         	
         	HashMap<String, Integer> map = new HashMap<String, Integer>();
         	map.put("parentThread", parentThread);
-        	map.put("previoutThread", previousThread);
+        	map.put("previousThread", previousThread);
         	
         	dao.updateThread(map);
         	
     		//2. 답변글의 thread값은 부모글의 thread-1 을을 넣는다.
         	thread = parentThread - 1;
         	
-    		//3. 답변걸의 depth값을 부모글의 depth+1을 넣는다.
+    		//3. 답변글의 depth값을 부모글의 depth+1을 넣는다.
         	depth = parentDepth + 1;
         	
         }
