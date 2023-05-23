@@ -39,7 +39,8 @@ select
             to_char(regdate, 'yyyy-mm-dd')
     end as regdate,
     
-    (select count(*) from tblComment where bseq = tblBoard.seq) as ccnt
+    (select count(*) from tblComment where bseq = tblBoard.seq) as ccnt,
+    content
     
 from tblBoard order by seq desc;
 

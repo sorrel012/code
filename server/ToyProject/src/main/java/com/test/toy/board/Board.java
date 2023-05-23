@@ -21,7 +21,21 @@ public class Board extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        //1. DB 작업 > select
+        test(req, resp);
+
+    }
+    
+    @Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    	
+    	test(req, resp);
+    	
+    }
+    
+    
+
+	private void test(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		//1. DB 작업 > select
         //2. 결과 반환
         
         HttpSession session = req.getSession();
@@ -70,10 +84,10 @@ public class Board extends HttpServlet {
         }
         
         req.setAttribute("list", list);
+        req.setAttribute("map", map);
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/board/board.jsp");
         dispatcher.forward(req, resp);
-
-    }
+	}
 
 }

@@ -19,3 +19,6 @@ select
 from tblBoard   
     where seq = 4;
     
+
+--댓글
+select * from tblComment;

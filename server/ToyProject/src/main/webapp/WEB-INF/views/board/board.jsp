@@ -40,7 +40,21 @@
 	<%@ include file="/WEB-INF/views/inc/header.jsp" %>	
 
 	<main id="main">
-		<h1>게시판 <small>목록</small></h1>
+		<h1 class="sub">
+			게시판 
+			<c:if test="${map.search =='n'}">
+			<small>목록</small>
+			</c:if>
+			<c:if test="${map.search =='y'}">
+			<small>검색</small>
+			</c:if>
+		</h1>
+		
+		<c:if test="${map.search == 'y'}">
+		<div style="text-align:center;">
+			'${map.word}'으로 검색한 결과 ${list.size()}건이 있습니다.
+		</div>
+		</c:if>
 		
 		<table id="list">
 			<tr>
@@ -50,6 +64,11 @@
 				<th>날짜</th>
 				<th>읽음</th>
 			</tr>
+			<c:if test="${list.size() == 0}">
+			<tr>
+				<td colspan="5">게시물이 없습니다.</td>
+			</tr>			
+			</c:if>
 			<c:forEach items="${list}" var="dto">
 			<tr>
 				<td>${dto.seq}</td>
@@ -90,6 +109,8 @@
 			<button type="button" class="add primary"
 				onclick="location.href='/toy/board/add.do';">글쓰기</button>
 			</c:if>
+			<button type="button" class="list primary" 
+				onclick="location.href='/toy/board/board.do';">목록보기</button>
 		</div>
 		
 	</main>
@@ -97,6 +118,11 @@
 </body>
 
 <script>
+	
+	<c:if test="map.search == 'y'">
+	$('select[name=column]').val('${map.column}');
+	$('input[name=word]').val('${map.word}');
+	</c:if>
 
 </script>
 </html>
