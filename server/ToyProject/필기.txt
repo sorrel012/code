@@ -64,6 +64,7 @@
 					- Comment.java
 					- EditComment.java
 					- DelComment.java
+					- Dummy.java
 				f. com.test.toy.board.repository
 					- BoardDAO.java
 					- BoardDTO.java
@@ -131,3 +132,21 @@
 // 부모글 삭제
 	1. 부모글 삭제 > 댓글 같이 삭제
 	2. 부모글 삭제 > 댓글 삭제 금지		
+	
+	
+// 페이징
+	- 가상으로 일정 개수의 게시물을 가져오는 기법
+	- rownum > rnum > 
+	
+
+// 인코딩
+	- 자바스크립트: encodeUrlComponent()
+	- 자바: URLEncoder.encode()
+	
+	
+	
+	
+	
+	
+	
+	
