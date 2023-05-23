@@ -28,3 +28,7 @@ select * from (select a.*, rownum as rnum from vwBoard a) where rnum between 1 a
 
 
 select nvl(max(thread), 0) as thread from tblBoard;
+
+select * from tblBoard;
+
+delete from tblBoard;

@@ -40,7 +40,8 @@ select
     end as regdate,
     
     (select count(*) from tblComment where bseq = tblBoard.seq) as ccnt,
-    content
+    content,
+    depth
     
 from tblBoard order by thread desc;
 
