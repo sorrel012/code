@@ -28,7 +28,7 @@ public class Auth {
                 && !session.getAttribute("lv").toString().equals("3")) {
             
             PrintWriter writer = resp.getWriter();
-            writer.print("<script>alert('failed)';location.href='/toy/index.do';</script>");
+            writer.print("<script>alert('failed');location.href='/toy/index.do';</script>");
             writer.close();
             
             return true;

@@ -74,7 +74,7 @@ public class Register extends HttpServlet {
                 resp.sendRedirect("/toy/index.do");
             } else {
                 PrintWriter writer = resp.getWriter();
-                writer.print("<script>alert('failed)';history.back();</script>");
+                writer.print("<script>alert('failed');history.back();</script>");
                 writer.close();
             }
             
