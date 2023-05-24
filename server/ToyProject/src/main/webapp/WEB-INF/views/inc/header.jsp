@@ -32,10 +32,11 @@
 		<!-- 로그인 했을 때 보여야 함 -->
 		<c:if test="${not empty id}">
 		<a href="/toy/user/info.do">Info</a>		
-		<a href="/toy/user/register.do">Unregister</a>		
+		<a href="/toy/user/unregister.do">Unregister</a>		
 		<a href="/toy/user/logout.do">Logout</a>
 		</c:if>
-		
+				
+		<a href="/toy/place/place.do">Place</a>
 		<a href="/toy/board/board.do">Board</a>
 	</nav>
 </header>

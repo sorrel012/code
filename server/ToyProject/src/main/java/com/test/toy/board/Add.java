@@ -109,7 +109,7 @@ public class Add extends HttpServlet {
             
             //실패
             PrintWriter writer = resp.getWriter();
-            writer.print("<script>alert('failed)';history.back();</script>");
+            writer.print("<script>alert('failed');history.back();</script>");
             writer.close();
             
         }
