@@ -48,7 +48,7 @@ public class UserDAO {
         
         try {
 
-            String sql = "select * from tblUser where id = ? and pw = ?";
+            String sql = "select * from tblUser where id = ? and pw = ? and ing='y'";
 
             pstat = con.prepareStatement(sql);
 
@@ -149,6 +149,25 @@ public class UserDAO {
 		
 		
 		return map;
+	}
+
+	public int unregister(String id) {
+		
+		try {
+
+			String sql = "update tblUser set pw = 'x', name='x', email = 'x', pic = 'x', profile = 'x', ing = 'n' where id = ?";
+
+			pstat = con.prepareStatement(sql);
+
+			pstat.setString(1, id);
+
+			return pstat.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return 0;
 	}
 
 }
