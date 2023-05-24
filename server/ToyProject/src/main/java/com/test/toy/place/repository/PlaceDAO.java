@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import com.jdbc.DBUtil;
@@ -107,6 +108,86 @@ public class PlaceDAO {
 		}
 		
 		return null;
+	}
+
+	public void addHashTag(String tag) {
+		
+		try {
+
+			String sql = "insert into tblHashTag (seq, tag) values (seqHashTag.nextVal, ?)";
+
+			pstat = con.prepareStatement(sql);
+
+			pstat.setString(1, tag);
+
+			pstat.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+	}
+
+	public String getHashTagSeq() {
+		
+		try {
+
+			String sql = "select max(seq) as seq from tblHashTag";
+
+			st = con.createStatement();
+			rs = st.executeQuery(sql);
+
+			if (rs.next()) {
+
+				return rs.getString("seq");
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+
+	public String getPlaceSeq() {
+		
+		try {
+
+			String sql = "select max(seq) as seq from tblPlace";
+
+			st = con.createStatement();
+			rs = st.executeQuery(sql);
+
+			if (rs.next()) {
+
+				return rs.getString("seq");
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+
+	public void addPlaceHashTag(HashMap<String, String> map) {
+		
+		try {
+
+			String sql = "insert into tblPlaceHashTag (seq, pseq, hseq) values (seqPlaceHashTag.nextVal, ?, ?)";
+
+			pstat = con.prepareStatement(sql);
+
+			pstat.setString(1, map.get("pseq"));
+			pstat.setString(2, map.get("hseq"));
+
+			pstat.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
 	
 }
