@@ -108,8 +108,10 @@
 	tagify.on('click', test);
 	
 	function test(e) {
-	    alert(e.detail.data.value);   
-	}
+        //alert(e.detail.data.value);   
+        location.href = '/toy/place/place.do?tag=' + e.detail.data.value;
+    }
+  
 	   
 </script>
 </html>
