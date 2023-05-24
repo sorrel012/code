@@ -36,3 +36,19 @@ delete from tblBoard;
 select * from tblPlace; --23
 
 select * from tblHashTag; --1,2
+
+select * from tblPlaceHashTag; --23+1, 23+2
+
+select 
+    tblPlace.*, 
+    (select name from tblUser where id = tblPlace.id) as uname 
+from tblPlace 
+    where seq in (select pseq from tblPlaceHashTag
+                where hseq = (select seq from tblHashTag where tag = '졸업' and rownum = 1))
+    order by seq desc;
+    
+delete from tblPlaceHashTag;
+delete from tblHashTag;
+delete from tblPlace;
+
+commit;

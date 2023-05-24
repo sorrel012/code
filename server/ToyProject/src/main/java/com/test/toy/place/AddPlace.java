@@ -84,9 +84,14 @@ public class AddPlace extends HttpServlet {
 				String tag = (String)((JSONObject)obj).get("value");
 				
 				//해시태그 > DB insert
-				dao.addHashTag(tag);
+				String hseq = "";
 				
-				String hseq = dao.getHashTagSeq();
+				if(dao.checkHashTag(tag)) {
+					dao.addHashTag(tag);
+					hseq = dao.getHashTagSeq();
+				} else {
+					hseq = dao.getHashTagSeq(tag); //기존 태그 번호
+				}
 				
 				//관계 테이블 추가
 				HashMap<String,String> map = new HashMap<String,String>();

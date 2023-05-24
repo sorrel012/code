@@ -43,16 +43,33 @@ public class PlaceDAO {
 		return 0;
 	}
 
-	public List<PlaceDTO> listPlace() {
+	public List<PlaceDTO> listPlace(String tag) {
+
+		List<PlaceDTO> list = new ArrayList<PlaceDTO>();
 		
 		try {
+			
+			String sql = "";
+			
+			if (tag == null || tag.equals("")) {
+				sql = "select tblPlace.*, (select name from tblUser where id = tblPlace.id) as uname from tblPlace order by seq desc";
+				pstat = con.prepareStatement(sql);
+			} else {
 
-			String sql = "select tblPlace.*, (select name from tblUser where id = tblPlace.id) as uname from tblPlace order by seq desc";
+				sql = "select \r\n"
+						+ "    tblPlace.*, \r\n"
+						+ "    (select name from tblUser where id = tblPlace.id) as uname \r\n"
+						+ "from tblPlace \r\n"
+						+ "    where seq in (select pseq from tblPlaceHashTag\r\n"
+						+ "                where hseq = (select seq from tblHashTag where tag = ?))\r\n"
+						+ "    order by seq desc";
 
-			st = con.createStatement();
-			rs = st.executeQuery(sql);
+				pstat = con.prepareStatement(sql);
+				pstat.setString(1, tag);
+			}
+			
+			rs = pstat.executeQuery();
 
-			List<PlaceDTO> list = new ArrayList<PlaceDTO>();
 
 			while (rs.next()) {
 
@@ -73,7 +90,7 @@ public class PlaceDAO {
 			e.printStackTrace();
 		}
 		
-		return null;
+		return list;
 	}
 
 	public PlaceDTO get(String seq) {
@@ -188,6 +205,77 @@ public class PlaceDAO {
 			e.printStackTrace();
 		}
 		
+	}
+
+	public ArrayList<String> getHashTag(String seq) {
+		
+		ArrayList<String> hashtag = new ArrayList<String>();
+		
+		try {
+			
+			String sql = "select tag from tblHashTag h inner join tblPlaceHashTag ph on h.seq = ph.hseq where ph.pseq = ?";
+			
+			pstat = con.prepareStatement(sql);
+			pstat.setString(1, seq);
+			
+			rs = pstat.executeQuery();
+			
+			while(rs.next()) {
+				hashtag.add(rs.getString("tag"));
+			}
+			
+			return hashtag;
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return hashtag;
+	}
+
+	public boolean checkHashTag(String tag) {
+		
+		try {
+
+			String sql = "select count(*) as cnt from tblHashTag where tag = ?";
+
+			pstat = con.prepareStatement(sql);
+
+			pstat.setString(1, tag);
+
+			rs = pstat.executeQuery();
+
+			if (rs.next()) {
+				return rs.getInt("cnt") > 0 ? false : true;
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return true;
+	}
+
+	public String getHashTagSeq(String tag) {
+		
+		try {
+
+			String sql = String.format("select seq as seq from tblHashTag where tag = '%s'", tag);
+
+			st = con.createStatement();
+			rs = st.executeQuery(sql);
+
+			if (rs.next()) {
+
+				return rs.getString("seq");
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return null;
 	}
 	
 }

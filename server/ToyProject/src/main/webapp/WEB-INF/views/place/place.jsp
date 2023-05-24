@@ -21,8 +21,8 @@
 	}
 	
 	#list .item img {
-		width: 170px;
-		height: 170px;
+		width: 165px;
+		height: 165px;
 		border: 1px solid #CCC;
 		padding: 2px;
 		object-fit: cover;

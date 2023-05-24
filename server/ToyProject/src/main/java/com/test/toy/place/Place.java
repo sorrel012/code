@@ -19,9 +19,11 @@ public class Place extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+		String tag = req.getParameter("tag");
+		
 		PlaceDAO dao = new PlaceDAO();
 		
-		List<PlaceDTO> list= dao.listPlace();
+		List<PlaceDTO> list= dao.listPlace(tag);
 		
 		req.setAttribute("list", list);
 

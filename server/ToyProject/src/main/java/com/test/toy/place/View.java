@@ -2,6 +2,7 @@ package com.test.toy.place;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -28,6 +29,11 @@ public class View extends HttpServlet {
 		
 		PlaceDTO dto = dao.get(seq);
 		
+		
+		ArrayList<String> hashtag = dao.getHashTag(seq);
+		
+		dto.setHashtag(hashtag);
+		
 		//사진 메타 데이터 접근
 		File file = new File(req.getRealPath("asset/place") + "\\" + dto.getPic());
 		
@@ -45,7 +51,7 @@ public class View extends HttpServlet {
 	                GpsDirectory gps = metadata.getFirstDirectoryOfType(GpsDirectory.class);
 	                
 	                //위도, 경도
-	                if (gps.containsTag(GpsDirectory.TAG_LATITUDE) && gps.containsTag(GpsDirectory.TAG_LONGITUDE)) {
+	                if (gps != null && gps.containsTag(GpsDirectory.TAG_LATITUDE) && gps.containsTag(GpsDirectory.TAG_LONGITUDE)) {
 	                   
 	                   double lat = gps.getGeoLocation().getLatitude();
 	                   double lng = gps.getGeoLocation().getLongitude();
