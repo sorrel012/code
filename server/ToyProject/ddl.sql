@@ -9,9 +9,12 @@ create table tblUser (
     email varchar2(100) not null,
     lv char(1) not null,
     pic varchar2(100) default 'pic.png' not null,
-    profile varchar2(500) not null
-);
+    profile varchar2(500) not null,
+    ing char(1) default 'y' not null    --탈퇴여부
+)
 
+alter table TblUser
+    add ing char(1) default 'y' not null;
 
 --게시판
 create table tblBoard(
