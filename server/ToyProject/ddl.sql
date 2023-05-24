@@ -75,3 +75,30 @@ create table tblBoard(
     thread number not null,                         --답변형(정렬)
     depth number not null                           --답변형(출력)
 );
+
+
+create table tblPlace(
+    seq number primary key,
+    name varchar2(100) not null,
+    content varchar2(1000) not null,
+    pic varchar2(100) not null,
+    regdate date default sysdate not null,
+    id varchar2(50) not null references tblUser(id)
+);
+
+create sequence seqPlace;
+
+create table tblHashTag(
+    seq number primary key,
+    tag varchar2(100) not null
+);
+
+create sequence seqHashTag;
+
+create table tblPlaceHashTag (
+    seq number primary key,
+    pseq number not null references tblPlace(seq),
+    hseq number not null references tblHashTag(seq)
+);
+
+create sequence seqPlaceHashTag;
