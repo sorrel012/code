@@ -40,6 +40,8 @@
 				d. com.test.toy.board : 게시판
 				e. com.test.toy.board.repository : DB 
 				f. com.test.toy.filter : 필터
+				g. com.test.toy.place
+				h. com.test.toy.place.repository
 				
 			- 파일
 				a. com.test.toy 
@@ -50,6 +52,7 @@
 					- Login.java: 로그인
 					- Logout.java : 로그아웃
 					- Info.java : 정보 확인
+					- Unregister.java : 회원 탈퇴
 				c. com.test.toy.user.repository
 					- UserDAO.java
 					- UserDTO.java
@@ -68,7 +71,14 @@
 				f. com.test.toy.board.repository
 					- BoardDAO.java
 					- BoardDTO.java
-					- CommentDTO.java				
+					- CommentDTO.java	
+				g. com.test.toy.place
+					- Place.java : 목록 보기
+					- AddPlace.java : 추가하기
+					- View.java : 상세보기
+				h. com.test.toy/place.repository
+					- PlaceDAO
+					- PlaceDTO
 									
 			- 뷰
 				a. views 
@@ -86,7 +96,11 @@
 					- add.jsp
 					- view.jsp
 					- edit.jsp
-					- del.jsp				
+					- del.jsp		
+				e. views > place
+					- place.jsp
+					- addplace.jsp
+					- view.jsp		
 										
 			- 라이브러리
 				- lib
@@ -98,7 +112,10 @@
 				- webapp > asset > css : *.css 폴더
 					- main.css
 				- webapp > asset >  images : 이미지 폴더
-				- webapp > asset >  pic : 회원 프로필 사진 폴더 
+				- webapp > asset >  pic : 회원 프로필 사진 폴더
+				- webapp > asset
+					- favicon.ico
+				- webapp > asset > place 
 				
 		- 업무별 작업
 		
@@ -162,7 +179,8 @@
 	3. 삭제한 것처럼 보이게 하고 update하기
 	
 	
-	
+// 회원 탈퇴
+		
 	
 	
 	
