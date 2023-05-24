@@ -33,4 +33,6 @@ select * from tblBoard;
 
 delete from tblBoard;
 
-select * from tblPlace;
+select * from tblPlace; --23
+
+select * from tblHashTag; --1,2
