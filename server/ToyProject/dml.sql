@@ -32,3 +32,5 @@ select nvl(max(thread), 0) as thread from tblBoard;
 select * from tblBoard;
 
 delete from tblBoard;
+
+select * from tblPlace;
