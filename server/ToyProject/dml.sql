@@ -52,3 +52,35 @@ delete from tblHashTag;
 delete from tblPlace;
 
 commit;
+
+
+-- 특정 회원(hong)이 특정 날짜(2023.05.25)에
+-- 어떤 행동(글/댓글/장소 쓰기)을
+-- 어떤 시간에 했는지?
+select
+    level
+from dual
+    connect by level <= 24;
+    
+select to_char(regdate, 'hh24') from tblBoard
+    where id = 'sorrel012' and to_char(regdate, 'yyyymmdd') = '20230525';
+
+select 
+    lv, count(hour) as cnt
+from (select level-1 as lv from dual connect by level <= 24) a 
+    left outer join (select to_char(regdate, 'hh24') as hour from tblBoard 
+                        where id = 'sorrel012' and to_char(regdate, 'yyyymmdd') = '20230525') b 
+        on a.lv = b.hour
+            group by lv
+                order by lv;
+
+
+-- 특정 날짜에 몇 건의 글을 썼는가
+select 
+    lv, count(dd) as cnt
+from (select level as lv from dual connect by level <= 31) a 
+    left outer join (select to_char(regdate, 'dd') as dd from tblBoard 
+                        where id = 'sorrel012' and to_char(regdate, 'yyyymm') = '202305') b 
+        on a.lv = b.dd
+            group by lv
+                order by lv;
