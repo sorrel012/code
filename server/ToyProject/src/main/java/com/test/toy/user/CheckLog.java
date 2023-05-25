@@ -1,6 +1,7 @@
 package com.test.toy.user;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,6 +12,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 import com.test.toy.user.repository.LogDTO;
 import com.test.toy.user.repository.UserDAO;
@@ -36,7 +40,25 @@ public class CheckLog extends HttpServlet {
 		
 		List<LogDTO> list = dao.checkLog(map);
 		
-		System.out.println(list);
+		JSONArray arr = new JSONArray();
+		
+		for (LogDTO dto : list) {
+			
+			JSONObject obj = new JSONObject();
+			
+			obj.put("dd", dto.getHour());
+			obj.put("cnt", dto.getCnt());
+			
+			arr.add(obj);
+			
+		}
+		
+		resp.setCharacterEncoding("UTF-8");
+		resp.setContentType("application/json");
+		
+		PrintWriter writer = resp.getWriter();
+		writer.print(arr);
+		writer.close();
 
 	}
 

@@ -244,6 +244,82 @@ public class UserDAO {
 		return null;
 	}
 
+	public List<LogDTO> clistLog(Map<String, String> map) {
+
+		List<LogDTO> list = new ArrayList<LogDTO>();
+		
+		try {
+
+			String sql = "select lv, count(hour) as cnt from (select level - 1 as lv from dual connect by level <= 24) a left outer join (select to_char(regdate, 'hh24') as hour from tblComment where id = ? and to_char(regdate, 'yyyymmdd') = ?) b on a.lv = b.hour group by lv order by lv asc";
+
+			pstat = con.prepareStatement(sql);
+
+			pstat.setString(1, map.get("id"));
+			pstat.setString(2, String.format("%s%02d%02d"
+	                  , map.get("year")
+	                  , Integer.parseInt(map.get("month"))
+	                  , Integer.parseInt(map.get("date"))));
+
+			rs = pstat.executeQuery();
+
+
+			while (rs.next()) {
+
+				LogDTO dto = new LogDTO();
+
+				dto.setHour(rs.getString("lv"));
+				dto.setCnt(rs.getString("cnt"));
+
+				list.add(dto);
+			}
+
+			return list;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+
+	public List<LogDTO> plistLog(Map<String, String> map) {
+
+		List<LogDTO> list = new ArrayList<LogDTO>();
+		
+		try {
+
+			String sql = "select lv, count(hour) as cnt from (select level - 1 as lv from dual connect by level <= 24) a left outer join (select to_char(regdate, 'hh24') as hour from tblPlace where id = ? and to_char(regdate, 'yyyymmdd') = ?) b on a.lv = b.hour group by lv order by lv asc";
+
+			pstat = con.prepareStatement(sql);
+
+			pstat.setString(1, map.get("id"));
+			pstat.setString(2, String.format("%s%02d%02d"
+	                  , map.get("year")
+	                  , Integer.parseInt(map.get("month"))
+	                  , Integer.parseInt(map.get("date"))));
+
+			rs = pstat.executeQuery();
+
+
+			while (rs.next()) {
+
+				LogDTO dto = new LogDTO();
+
+				dto.setHour(rs.getString("lv"));
+				dto.setCnt(rs.getString("cnt"));
+
+				list.add(dto);
+			}
+
+			return list;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+
 
 
 }

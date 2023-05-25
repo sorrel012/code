@@ -77,7 +77,7 @@
 	}
 	
 	#time {
-		width: 200px;
+		width: 220px;
 		margin-left: 10px;
 	}
 	
@@ -199,8 +199,6 @@
 		month= now.getMonth();
 		createCalendar(year, month);
 	});
-
-	$('#calendar .item').eq(now.getDate()-1).css('background-color', 'gold');
 	
 	function showLog(year, month, date) {
 	    
@@ -217,11 +215,27 @@
 	    	    
 	    	    $('#time tbody tr td:last-child').html(''); //초기화
 	    	    
-	    	    $(result).each((index,item)=>{
+	    	    $(result.list).each((index,item)=>{
 	    	       	
 	    	        //item = {"hour":"1", "cnt":"0"}
 	    	        if(item.cnt > 0) {
-	    	        	$('#time tbody tr').eq(item.hour).children().eq(1).html(`<span class="material-symbols-outlined">pending_actions</span> \${item.cnt}건`);
+	    	        	$('#time tbody tr').eq(item.hour).children().eq(1).append(`<span class="material-symbols-outlined">pending_actions</span> \${item.cnt}`);
+	    	        }
+	    	    });
+	    	    
+				$(result.clist).each((index,item)=>{
+	    	       	
+	    	        //item = {"hour":"1", "cnt":"0"}
+	    	        if(item.cnt > 0) {
+	    	        	$('#time tbody tr').eq(item.hour).children().eq(1).append(` <span class="material-symbols-outlined">comment</span> \${item.cnt}`);
+	    	        }
+	    	    });
+	    	    
+				$(result.plist).each((index,item)=>{
+	    	       	
+	    	        //item = {"hour":"1", "cnt":"0"}
+	    	        if(item.cnt > 0) {
+	    	        	$('#time tbody tr').eq(item.hour).children().eq(1).append(` <span class="material-symbols-outlined">location_on</span> \${item.cnt}`);
 	    	        }
 	    	    });
 	    	    
@@ -253,7 +267,19 @@
 	            month: month + 1
 	        },
 	        dataType: 'json',
-	        success: result=>{},
+	        success: result=>{
+	            //console.log(result)	            
+	            
+	            $(result).each((index,item)=>{
+	                if (item.cnt > 0) {
+		                $('#calendar .item').eq(item.dd-1).css('font-weight', 'bold');
+		                $('#calendar .item').eq(item.dd-1).css('color', 'tomato');
+		            } 
+	            });
+	                
+	            $('#calendar .item').eq(now.getDate()-1).css('background-color', 'gold');
+	            
+	        },
 	        error: (a,b,c)=>console.log(a,b,c)
 	    })
 	    

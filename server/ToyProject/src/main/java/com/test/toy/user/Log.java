@@ -30,44 +30,81 @@ public class Log extends HttpServlet {
 		String date = req.getParameter("date");
 
 		HttpSession session = req.getSession();
-		
+
 		UserDAO dao = new UserDAO();
-		
+
 		Map<String, String> map = new HashMap<String, String>();
-		
+
 		map.put("year", year);
 		map.put("month", month);
 		map.put("date", date);
 		map.put("id", (String)session.getAttribute("id"));
-		
-		
+
+
 		List<LogDTO> list = dao.listLog(map);
-		
+		List<LogDTO> clist = dao.clistLog(map);
+		List<LogDTO> plist = dao.plistLog(map);
+
 		//System.out.println(list);
-		
+
 		//List<LogDTO>  >> JSONArray(JSONObject)
+		JSONObject root = new JSONObject();
+
 		JSONArray arr = new JSONArray();
-	
+
 		for (LogDTO dto : list) {
+
+			JSONObject obj = new JSONObject();
+
+			obj.put("hour", dto.getHour());
+			obj.put("cnt", dto.getCnt());
+
+			arr.add(obj);
+
+		}
+
+		root.put("list", arr);
+		
+
+		JSONArray carr = new JSONArray();
+
+		for (LogDTO dto : clist) {
+
+			JSONObject obj = new JSONObject();
+
+			obj.put("hour", dto.getHour());
+			obj.put("cnt", dto.getCnt());
+
+			carr.add(obj);
+
+		}
+
+		root.put("clist", carr);
+		
+		JSONArray parr = new JSONArray();
+		
+		for (LogDTO dto : plist) {
 			
 			JSONObject obj = new JSONObject();
 			
 			obj.put("hour", dto.getHour());
 			obj.put("cnt", dto.getCnt());
 			
-			arr.add(obj);
+			parr.add(obj);
 			
 		}
 		
+		root.put("plist", parr);
+		
 		resp.setCharacterEncoding("UTF-8");
 		resp.setContentType("application/json");
-		
+
 		PrintWriter writer = resp.getWriter();
-		writer.print(arr);
+		writer.print(root);
 		writer.close();
-		
+
 		//System.out.println(arr);
-		
+
 	}
 
 }
