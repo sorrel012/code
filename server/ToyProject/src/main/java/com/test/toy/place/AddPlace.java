@@ -59,6 +59,8 @@ public class AddPlace extends HttpServlet {
 			String content = multi.getParameter("content");
 			String pic = multi.getFilesystemName("pic");
 			
+			String hashtag = multi.getParameter("hashtag");
+			//System.out.println(hashtag);
 
 			PlaceDTO dto = new PlaceDTO();
 
@@ -70,10 +72,6 @@ public class AddPlace extends HttpServlet {
 			int result = dao.addPlace(dto);
 			
 			String pseq = dao.getPlaceSeq();
-			
-
-			String hashtag = multi.getParameter("hashtag");
-			//System.out.println(hashtag);
 
 			JSONParser parser = new JSONParser();
 
