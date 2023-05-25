@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.jdbc.DBUtil;
@@ -169,5 +171,79 @@ public class UserDAO {
 		
 		return 0;
 	}
+
+	public List<LogDTO> listLog(Map<String, String> map) {
+		
+		try {
+
+			String sql = "select lv, count(hour) as cnt from (select level - 1 as lv from dual connect by level <= 24) a left outer join (select to_char(regdate, 'hh24') as hour from tblBoard where id = ? and to_char(regdate, 'yyyymmdd') = ?) b on a.lv = b.hour group by lv order by lv asc";
+
+			pstat = con.prepareStatement(sql);
+
+			pstat.setString(1, map.get("id"));
+			pstat.setString(2, String.format("%s%02d%02d"
+	                  , map.get("year")
+	                  , Integer.parseInt(map.get("month"))
+	                  , Integer.parseInt(map.get("date"))));
+
+			rs = pstat.executeQuery();
+
+			List<LogDTO> list = new ArrayList<LogDTO>();
+
+			while (rs.next()) {
+
+				LogDTO dto = new LogDTO();
+
+				dto.setHour(rs.getString("lv"));
+				dto.setCnt(rs.getString("cnt"));
+
+				list.add(dto);
+			}
+
+			return list;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+
+	public List<LogDTO> checkLog(Map<String, String> map) {
+		try {
+
+			String sql = "select lv, count(dd) as cnt from (select level as lv from dual connect by level <= 31) a left outer join (select to_char(regdate, 'dd') as dd from tblBoard where id = ? and to_char(regdate, 'yyyymm') = ?) b on a.lv = b.dd group by lv order by lv";
+
+			pstat = con.prepareStatement(sql);
+
+			pstat.setString(1, map.get("id"));
+			pstat.setString(2, String.format("%s%02d"
+	                  , map.get("year")
+	                  , Integer.parseInt(map.get("month"))));
+
+			rs = pstat.executeQuery();
+
+			List<LogDTO> list = new ArrayList<LogDTO>();
+
+			while (rs.next()) {
+
+				LogDTO dto = new LogDTO();
+
+				dto.setHour(rs.getString("lv"));
+				dto.setCnt(rs.getString("cnt"));
+
+				list.add(dto);
+			}
+
+			return list;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+
+
 
 }

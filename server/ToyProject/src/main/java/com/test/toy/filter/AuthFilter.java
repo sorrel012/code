@@ -45,7 +45,8 @@ public class AuthFilter implements Filter {
         if (session.getAttribute("id") == null) {
             if (req.getRequestURI().endsWith("add.do")
                 || req.getRequestURI().endsWith("edit.do")
-                || req.getRequestURI().endsWith("del.do")) {
+                || req.getRequestURI().endsWith("del.do")
+                || req.getRequestURI().endsWith("info.do")) {
                 
                 PrintWriter writer = ((HttpServletResponse)response).getWriter();
                 writer.write("<script>alert('failed');location.href='/toy/index.do'</script>");

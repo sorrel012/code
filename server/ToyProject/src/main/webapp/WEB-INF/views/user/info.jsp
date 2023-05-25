@@ -30,6 +30,60 @@
 	#count th { width: 170px; }
 	#count td { width: 170px; }
 	
+	body {
+		padding-bottom: 500px;
+	}
+	
+	
+	#log {
+		display: flex;
+		align-items: flex-start;
+	}
+	
+	#calendar {
+		width: 200px;
+		border: 1px solid #BBB;
+		font-size: 14px;
+		padding: 0px;
+	}
+	
+	#calendar > div:first-child {
+		display: flex;
+		padding: .5rem 1rem;
+		justify-content: space-between;
+		border-bottom: 1px solid #BBB
+	}
+	
+	#calendar > div:last-child {
+		display: grid;
+		grid-template-columns: repeat(7, 1fr);
+		padding: 1rem;
+	}
+	
+	#calendar > div:last-child > div {
+		font-size: 13px;
+		margin: 1px;
+		border-radius: 50%;
+		/* background-color: #DDD; */
+		width: 22px;
+		height: 22px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	
+	#calendar > div > div {
+		cursor: pointer;
+	}
+	
+	#time {
+		width: 200px;
+		margin-left: 10px;
+	}
+	
+	#time tbody td:first-child { width: 50px; text-align:center;}
+	#time tbody td:last-child { width: 150px;}
+	
 </style>
 </head>
 <body>
@@ -70,11 +124,142 @@
 			</tr>
 		</table>
 		
+		<div id="log">
+			<div id="calendar">
+				<div>
+					<div>&lt;&lt;</div>
+					<div></div>
+					<div>&gt;&gt;</div>
+				</div>
+				<div></div>
+			</div>
+			<table id="time">
+				<thead>
+					<tr>
+						<th colspan="2">시간</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach var="i" begin="0" end="23">
+					<tr>
+						<td>${i}</td>
+						<td></td>
+					</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>
+		
 	</main>
 	
 </body>
 
 <script>
 
+	let year, month;
+	
+	let now = new Date();
+	
+	year = now.getFullYear();
+	month = now.getMonth();
+	
+	function createCalendar(year, month) {
+	    
+	    $('#calendar > div:eq(0) > div:eq(1)').text(year + '.' + String(month + 1).padStart(2, '0'));
+	    
+	    let lastDate = new Date(year, month + 1, 0).getDate();
+	    let firstDay = new Date(year, month, 1).getDay();
+	    
+	    let tmp = '';
+	    
+	    for (let i=0; i<firstDay; i++) {
+	        tmp += '<div></div>';
+	    }
+	    
+	    for(let i=1; i<=lastDate; i++) {
+	    	tmp += `<div class="item">\${i}</div>`;
+	    }
+	    
+	    $('#calendar > div:last-child').html(tmp);
+	    
+	}
+	
+	createCalendar(year, month); //현재 달 출력
+	
+	$('#calendar > div:eq(0) > div:eq(0)').click(()=>{
+		now.setMonth(now.getMonth() - 1);
+		year = now.getFullYear();
+		month= now.getMonth();
+		createCalendar(year, month);
+	});
+	
+	$('#calendar > div:eq(0) > div:eq(2)').click(()=>{
+		now.setMonth(now.getMonth() + 1);
+		year = now.getFullYear();
+		month= now.getMonth();
+		createCalendar(year, month);
+	});
+
+	$('#calendar .item').eq(now.getDate()-1).css('background-color', 'gold');
+	
+	function showLog(year, month, date) {
+	    
+	    $.ajax({
+	    	type: 'POST',
+	    	url: '/toy/user/log.do',
+	    	data: {
+	    	    year: year,
+	    	    month: month + 1,
+	    	    date: date
+	    	},
+	    	dataType: 'json',
+	    	success: result=>{
+	    	    
+	    	    $('#time tbody tr td:last-child').html(''); //초기화
+	    	    
+	    	    $(result).each((index,item)=>{
+	    	       	
+	    	        //item = {"hour":"1", "cnt":"0"}
+	    	        if(item.cnt > 0) {
+	    	        	$('#time tbody tr').eq(item.hour).children().eq(1).html(`<span class="material-symbols-outlined">pending_actions</span> \${item.cnt}건`);
+	    	        }
+	    	    });
+	    	    
+	    	},
+	    	error: (a,b,c)=>console.log(a,b,c)
+	    })
+	}
+	
+	showLog(now.getFullYear(), now.getMonth(), now.getDate());	
+	
+
+	$('#calendar .item').click(function() {
+	   
+	    //alert($(this).text());
+	    
+	    $('#calendar .item').css('outline', 'none');
+	    $(this).css('outline', '1px solid blue');
+	    
+	    showLog(now.getFullYear(), now.getMonth(), $(this).text());
+	});
+	
+	function checkLog(year, month) {
+
+	    $.ajax({
+	        type: 'POST',
+	        url: '/toy/user/checklog.do',
+	        data: {
+	            year: year,
+	            month: month + 1
+	        },
+	        dataType: 'json',
+	        success: result=>{},
+	        error: (a,b,c)=>console.log(a,b,c)
+	    })
+	    
+	}
+	
+	checkLog(now.getFullYear(), now.getMonth());
+	
 </script>
 </html>
