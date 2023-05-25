@@ -27,7 +27,7 @@
 	<main id="main">
 		<h1 class="page">장소 <small>보기</small></h1>
 		
-		<form method="POST" action="/toy/place/addplace.do" enctype="multipart/form-data">
+		<!-- <form method="POST" action="/toy/place/addplace.do" enctype="multipart/form-data"> -->
 		<table class="vertical">
 			<tr>
 				<th>장소명</th>
@@ -63,7 +63,7 @@
 				onclick="location.href='/toy/place/place.do';">돌아가기</button>
 		</div>		
 		
-		</form>
+		<!-- </form> -->
 		
 	</main>
 	
