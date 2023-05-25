@@ -54,6 +54,7 @@
 					- Info.java : 정보 확인
 					- Unregister.java : 회원 탈퇴
 					- Log.java : 로그
+					- CheckLog.java
 				c. com.test.toy.user.repository
 					- UserDAO.java
 					- UserDTO.java
