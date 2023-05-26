@@ -16,11 +16,27 @@
 	
 	<p class="desc">자바 크롤링 테스트</p>
 	<p class="desc">Jsoup 라이브러리 사용</p>
-
+	
+	<hr>
+	
+	<h2>다른 데이터</h2>
+	
+	<div id="items"></div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script>
 
+	load();
+	
+	function load() {
+	    
+	    const list = [ '자바', '오라클', '스프링' ];
+	    
+	    list.forEach((item)=>{
+	        $('#items').append(`<div class="item">\${item}</div>`)
+	    })
+	}
+	
 </script>
 </body>
 </html>
