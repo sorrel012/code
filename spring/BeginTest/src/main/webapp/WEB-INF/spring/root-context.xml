@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 	
-	<!-- Root Context: defines shared resources visible to all other web components -->
+	<!-- 
+	
+		@Component를 동작시키기 위해서는 반드시 대상 패키지 지정
 		
+		스프링 컨테이너에 의해서 객체가 관리가 되려면
+		> 특정 패캐지를 타겟으로 지정
+		> 특정 패키지 내의 클래스를 관리 대상 인식
+	
+	 -->
+	 <context:component-scan base-package="com.test.di03"></context:component-scan>
+			
 </beans>
