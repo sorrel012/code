@@ -158,14 +158,13 @@
 	- 스프링 기술 (X)
 	
 
-// Spring DI
+// Spring DI, Dependency Injection
 	- DI : 디자인 패턴
-	- Dependency Injection
 	- 의존(성) 주입
 	- 스프링에서 중요한 개념 > 스프링의 모든 객체 관리에 사용
 	- 프로그래밍에서 구성 요소 간의 의존 관계가 소스 내부가 아닌 외부 환경에서 정의되게 하는 디자인 패턴
 	
-	1. XMl 방식
+	1. XML 방식
 	2. 어노테이션 방식
 	
 	- 의존 관계?
