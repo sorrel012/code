@@ -16,12 +16,27 @@ import org.springframework.stereotype.Component;
 @Component
 public class Hong {
 
+	//4.
+	@Autowired
 	private Pen pen;
 	
-	@Autowired
-	public Hong(Pen pen) {
-		this.pen = pen;
-	}
+	//3. lombok
+//	@Setter(onMethod_ = @Autowired)
+//	private Pen pen;
+	
+	//1. 생성자
+//	@Autowired
+//	public Hong(Pen pen) {
+//		this.pen = pen;
+//	}
+	
+	
+	//2. Setter
+//	@Autowired
+//	public void setPen(Pen pen) {
+//		this.pen = pen;
+//	}
+	
 	
 	public void run() {
 		pen.write();
