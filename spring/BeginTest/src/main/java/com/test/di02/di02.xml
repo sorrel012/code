@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!--  
+	스프링이 현재 XMl에 정의된 <beans>를 통해서 객체를 관리
+	
+	스프링에서 관리하는 객체를 Spring Bean이라고 부른다.
+ 
+-->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans
+        				https://www.springframework.org/schema/beans/spring-beans.xsd">
+        				
+        				
+    <!-- 
+    	스프링이 관리하는 객체 :Spring Bean
+    	
+    	Pen p1 = new Pen(); 
+    -->
+    <bean id="pen" class="com.test.di02.Pen"></bean>
+    
+    <!-- name: alias -->
+    <bean id="brush" name="b1 b2 b3" class="com.test.di02.Brush"></bean>
+    
+    <bean id="hong" class="com.test.di02.Hong">
+    	<!-- 스프링 의존 주입(DI) : Constructor -->
+    	<constructor-arg ref="pen"></constructor-arg>
+    </bean>
+    
+    <bean id="lee" class="com.test.di02.Lee">
+    	<!-- 스프링 의존 주입 : Setter -->
+    	<property name="brush" ref="brush"></property>
+    </bean>
+        				
+</beans>
