@@ -165,13 +165,105 @@
 	- 스프링에서 중요한 개념 > 스프링의 모든 객체 관리에 사용
 	- 프로그래밍에서 구성 요소 간의 의존 관계가 소스 내부가 아닌 외부 환경에서 정의되게 하는 디자인 패턴
 	
+	1. XMl 방식
+	2. 어노테이션 방식
 	
 	- 의존 관계?
-	- src/main/java > com.test.di01 패키지 생성	
+	- src/main/java > "com.test.di01" 패키지 생성	
 					> Main.java
+					
+					> Hong.java
+					> Pen.java
+					
+					> Lee.java
+					> Brush.java
+	
+	- src/main/java > "com.test.di02"
+					> Main.java					
+					> Hong.java
+					> Pen.java
+					> Lee.java
+					> Brush.java
+					> di02.xml
+					
+					
+	- src/main/java	> "com.test.di03"
 					> Hong.java
 					> Pen.java
 	
+	- src/test/java	> "com.test.di03"
+					> DITest.java									
+					
 	
-// Spring AOP
-	- 
+// Spring AOP, Aspect Oriented Programming
+	- 관점 지향 프로그래밍
+	- 관점, 관심사 > 코드를 작성하는 데 필요한 주업무가 아닌, 나머지 신경써야할 보조 업무 
+	- 핵심 업무는 아니지만, 코드를 완성하기 위해서 필요한 나머지 업무들
+	- Concern > 관심사, 관점
+	
+	[게시판 글쓰기]
+	1. 기존 방식
+		- Add.do
+			a. 글쓰기 : 주업무
+			b. 권한 체크 : 보조업무
+		- 주업무와 보조업무를 같은 곳에서 구현(한 파일에서 구현)
+		
+	2. AOP 방식
+		- Add.do
+		- 주업무와 보조업무를 분리시켜서 따로 구현하자 > AOP 목적
+		- 스프링을 통해서 주업무와 보조업무를 다시 결합 후 동작
+		
+	- 용어
+		1. Core Concern
+			- 비즈니스 코드, 주업무
+		
+		2. Cross-cutting Concern
+			- 보조업무
+		
+		3. Target
+			- 순수한 비즈니스 로직을 소유한 객체
+			- 객체
+		
+		4. Proxy
+			- Target을 감싸고 있는 객체
+		
+		5. JoinPoint
+			- Target이 가지고 있는 메소드(주업무)
+			
+		6. Pointcut
+			- 보조업무와 어떤 JoinPoint에 연결하는 작업
+			
+		7. Aspect
+			- 보조업무를 구현하는 객체
+			
+		8. Advice
+			- 주업무가 실행되는 어느 시점에서 보조 업무를 실행할지?
+			
+			- Before Advice
+				- 주업무가 실행되기 전에 보조업무를 실행
+				
+			- After Advice
+				- 주업무가 종료된 후에 보조업무를 실행
+				
+			- Around Advice
+				- 주업무 실행 전후에 보조업무를 실행
+				
+			- After-returning Advice
+				- After Advice와 유사
+				- 주업무가 성공했을 때만 실행
+			
+			- After-throwing Advice
+				- 예외가 발생할 때만 실행
+	
+	1. XML 방식
+		- "com.test.aop1" 패키지 생성
+					> Main.java 		//메인
+					
+					> Memo.java(I)		//메인 업무 객체(인터페이스)
+					> MemoImpl.java(C)	//메인 업무 객체(클래스)				
+	
+					> Logger.java(C)	//보조 업무 객체(클래스)
+					
+					> memo.xml			//스프링 설정 파일(<beans>)
+	2. 어노테이션 방식	
+		
