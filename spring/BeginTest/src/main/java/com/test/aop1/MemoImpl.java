@@ -16,9 +16,15 @@ public class MemoImpl implements Memo {
 	}
 
 	@Override
-	public String read(int seq) {
+	public String read(int seq) throws Exception {
 		
-		return "메모 읽기: 메모입니다.";
+		if (seq < 10) {
+			System.out.println("메모 읽기");
+		} else {
+			throw new Exception("존재하지 않는 메모");
+		}
+		
+		return "홍길동";
 	}
 
 	@Override

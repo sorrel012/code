@@ -16,8 +16,15 @@ public class Main {
 		
 		memo.add("스프링 AOP");
 		
-		String txt = memo.read(5);
-		System.out.println(txt);
+		try {
+			String txt = memo.read(15);
+			System.out.println(txt);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			//DB insert..
+			//담당자 메일 or 메시지
+		}
 		
 		memo.edit(5, "수정한 내용");
 		
