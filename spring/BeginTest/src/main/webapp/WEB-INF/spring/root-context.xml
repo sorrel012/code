@@ -15,5 +15,24 @@
 	
 	 -->
 	 <context:component-scan base-package="com.test.di03"></context:component-scan>
+	 
+
+	 <!--
+	 	BoardController > BoardService > BoardDAO
+	 	
+	 	빈 만들기
+	 	1. <bean>
+	 	2. 어노테이션(@Component)	 	
+	 -->
+	 
+	 <bean id="controller" class="com.test.di04.BoardController">
+	 	<constructor-arg ref="service"></constructor-arg>
+	 </bean>
+	 
+	 <bean id="service" class="com.test.di04.BoardServiceImpl">
+	 	<property name="dao" ref="dao"></property>
+	 </bean>
+	 
+	 <bean id="dao" class="com.test.di04.BoardDAOImpl"></bean>
 			
 </beans>
