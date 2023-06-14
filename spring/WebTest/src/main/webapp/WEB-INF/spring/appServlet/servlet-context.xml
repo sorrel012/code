@@ -21,7 +21,15 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
+	<!-- 1. -->
 	<context:component-scan base-package="com.test.web" />
+	<context:component-scan base-package="com.test.controller" /> 
+
+	<!-- 2. -->
+	<context:component-scan base-package="com.test.web, com.test.controller" />
+	
+	<!-- 3. 비권장 -->
+	<context:component-scan base-package="com.test" /> 
 	
 	
 	<!-- 컨트롤러를 빈으로 등록하기 -->
