@@ -16,13 +16,23 @@
 	<resources mapping="/resources/**" location="/resources/" />
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
-	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"> <!-- viewresolver  -->
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
 	<context:component-scan base-package="com.test.web" />
 	
+	
+	<!-- 컨트롤러를 빈으로 등록하기 -->
+	<beans:bean name="/ex01.do" class="com.test.controller.Ex01Controller"></beans:bean>
+	
+	
+	<beans:bean id="dao" class="com.test.persistence.SpringDAOImpl"></beans:bean>
+	
+	<beans:bean name="/ex02.do" class="com.test.controller.Ex02Controller">
+		<beans:constructor-arg ref="dao"></beans:constructor-arg>
+	</beans:bean>
 	
 	
 </beans:beans>
