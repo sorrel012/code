@@ -10,4 +10,40 @@
 		웹 요청 담당하는 서블릿 > Controller 역할
 		스프링 컨트롤러 > OOOController
 		
-		"com.test.controller" > Ex01Controller.java
+		
+	~ "com.test.controller"	> Ex01Controller.java		
+	   views > ex01.jsp
+	   
+		
+	~ "com.test.controller"	> Ex02Controller.java
+	
+	~ "com.test.persistence"> SpringDAO.java(I)
+							> SpringDAOImpl.java(C)
+	   views > ex02.jsp
+	   
+	  
+    ~ "com.test.controller" > Ex03Controller.java
+       views > ex03.jsp
+	
+	
+	~ "com.test.controller" > Ex04Controller.java ★★★★★★★
+	   views > ex04.jsp
+	   
+	   
+	~ "com.test.controller" > BoardController.java
+	   views > list.jsp
+	   		 > add.jsp
+	   		 > addok.jsp
+	   		 > view.jsp
+	   		 
+	
+	- 스프링에서 데이터 가져오는 방법!!	   		 
+		~ "com.test.controller" > Ex05Controller.java ★★★★★★★
+		  "com.test.domain"		> SpringDTO.java //VO, DTO
+		   views > ex05.jsp
+		   		 > ex05ok.jsp
+		   		 
+	
+	- 요청 메소드 반환값!!
+		~ "com.test.controller" > Ex06Controller.java
+		   views > ex06.jsp
