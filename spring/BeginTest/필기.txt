@@ -278,3 +278,19 @@
 					> memo.xml			//스프링 설정 파일(<beans>)
 	2. 어노테이션 방식	
 		
+		
+// IoC, Inversion of Control
+	- 역제어
+	
+	- 객체 생성 순서
+		- 기존 방식
+			- BoardController > BoardService > BoardDAO
+		- 의존 주입
+			- BoardDAO > BoardService > BoardController :: IoC
+
+
+// 새 프로젝트 만들기
+	- New > Spring Legacy Project > Sprinng MVC Project > "WebTest" > "com.test.web" > Finish			
+	
+	
+	
