@@ -35,9 +35,6 @@
 				- '..' : 와일드카드(인자) > 0개 이상의 인자값
 				
 				- within() 지시자
-				- within(
-				
-				
 	    	-->
 	    	
 	    	<aop:pointcut expression="execution(public void com.test.aop1.MemoImpl.add(String))" id="p1"/>
