@@ -1,0 +1,13 @@
+// 새 프로젝트 만들기
+	- New > Spring Legacy Project > Sprinng MVC Project > "WebTest" > "com.test.web" > Finish			
+	
+// Spring MVC
+	- 스프링 기반 MVC 웹 프로젝트 구현
+	
+
+	- "com.test.controller"
+	
+		웹 요청 담당하는 서블릿 > Controller 역할
+		스프링 컨트롤러 > OOOController
+		
+		"com.test.controller" > Ex01Controller.java
