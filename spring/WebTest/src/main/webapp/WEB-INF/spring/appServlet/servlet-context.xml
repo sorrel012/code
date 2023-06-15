@@ -23,12 +23,14 @@
 	
 	<!-- 1. -->
 	<context:component-scan base-package="com.test.web" />
-	<context:component-scan base-package="com.test.controller" /> 
+	<context:component-scan base-package="com.test.controller" />
+	<context:component-scan base-package="com.test.exception" />  
 
 	<!-- 2. -->
 	<context:component-scan base-package="com.test.web, com.test.controller" />
 	
 	<!-- 3. 비권장 -->
+	<context:component-scan base-package="com.test" /> 
 	<context:component-scan base-package="com.test" /> 
 	
 	
