@@ -183,7 +183,7 @@ public class MyBatisController {
    }
    
    @GetMapping("/m11.do")
-   public String m10(Model model) {
+   public String m11(Model model) {
 	   
 	   //insert + dto
 	   //방금 insert한 Pk를 가져오는 방법
@@ -226,21 +226,3 @@ public class MyBatisController {
    */
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

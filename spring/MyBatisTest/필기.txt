@@ -58,7 +58,7 @@
 	- 사용자가 사용 종료 > 제공했던 Connection 객체 회수
 	
 		
-// Connection Poll, 커넥션풀
+// Connection Pool, 커넥션풀
 	- Commons DBCP
 		- pom.xml > commons-dbcp 의존 추가	
 		- root-context.xml > 서블릿 설정 추가
@@ -82,7 +82,7 @@
 		~ "com.test.persistence" > MyBatisDAO.java(I)
 								 > MyBatisDAOImpl.java(C)
 								
-		~ "com.test.domian" > MyBatisDTO.java
+		~ "com.test.domain" > MyBatisDTO.java
 		
 		~ src/main/resources > mapper> mybatis.xml
 		
