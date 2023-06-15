@@ -44,10 +44,10 @@ public class Ex06Controller {
 	public String test() {
 	
 		// = response.sendRedirect()
-		//return "redirect:/ex05.do";> 종종 사용
+		//return "redirect:/ex05.do"; //> 종종 사용
 		
 		// = pageContext.forward() > 쓸일이 많지 X
-		return "forward:/ex05.do";
+		//return "forward:/ex05.do";
 	}
 	*/
 	
@@ -84,6 +84,7 @@ public class Ex06Controller {
 		return dto;
 	}
 	*/
+	
 	
 	@GetMapping("/ex06.do")
 	public @ResponseBody List<SpringDTO> test() {

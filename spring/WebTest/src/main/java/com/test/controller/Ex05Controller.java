@@ -1,11 +1,9 @@
 package com.test.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-
-import com.test.domain.SpringDTO;
 
 @Controller
 public class Ex05Controller {
@@ -51,7 +49,7 @@ public class Ex05Controller {
 		
 		//String data = req.getParameter("data");   == @RequestParam("data") String data
 		
-		System.out.println(data);
+		//System.out.println(data);
 		
 		//ModelAndView > Model
 		
@@ -67,7 +65,7 @@ public class Ex05Controller {
 
 		//@RequestParam("data") 생략 가능!
 		
-		System.out.println(data);
+		//System.out.println(data);
 		
 		model.addAttribute("data", data);
 		
@@ -75,6 +73,7 @@ public class Ex05Controller {
 	}
 	*/
 	
+	//복합 데이터 전송
 	/*
 	@PostMapping("ex05ok.do")
 	public String ex05ok(
@@ -131,12 +130,13 @@ public class Ex05Controller {
 	}
 	*/
 	
-	/*
+	
 	//다중 데이터 받는 법
+	
 	@PostMapping("ex05ok.do")
 	public String ex05ok(Model model,
 						//@RequestParam("cb") String[] cb
-						//String[] cb
+						String[] cb
 						//@RequestParam("cb") List<String> cb
 						//List<String> cb  > 동작(X)
 						) {
@@ -147,7 +147,7 @@ public class Ex05Controller {
 		
 		return "ex05ok";
 	}
-	*/
+	
 	
 	/*
 	@PostMapping("ex05ok.do")
@@ -160,6 +160,7 @@ public class Ex05Controller {
 	}
 	*/
 	
+	/*
 	@PostMapping("ex05ok.do")
 	public String ex05ok(@ModelAttribute("dto") SpringDTO dto) {
 		
@@ -171,5 +172,5 @@ public class Ex05Controller {
 		
 		return "ex05ok";
 	}
-	
+	*/
 }

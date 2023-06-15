@@ -37,6 +37,12 @@
 		</c:forEach>
 	</div>
 	
+	<div class="list">
+		<c:forEach items="${dto}" var="item">
+			<div>${item}</div>
+		</c:forEach>
+	</div>
+	
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script>
