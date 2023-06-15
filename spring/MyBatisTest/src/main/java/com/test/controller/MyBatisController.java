@@ -207,6 +207,7 @@ public class MyBatisController {
 	   
 	   //MyBatis 동적 쿼리
 	   // - 동적 태그
+	   // - JSTL 유사
 	   
 	   //1. if
 	   //2. choose(when, otherwise)
