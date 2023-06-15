@@ -3,7 +3,10 @@
 	
 // Spring MVC
 	- 스프링 기반 MVC 웹 프로젝트 구현
-	
+	1. Controller
+	2. 파라미터 전송
+	3. 컨트롤러 반환값
+	4. 사용자 예외 처리
 
 	- "com.test.controller"
 	
@@ -47,3 +50,12 @@
 	- 요청 메소드 반환값!!
 		~ "com.test.controller" > Ex06Controller.java
 		   views > ex06.jsp
+----------------------------------------------------------------- 6월 15일		   
+	- 에러 처리(서버 측 에러 - 자바 or 오라클)
+		~ "com.test.controller"	> Ex07Controller.java
+		  "com.test.exception" 	> CommonExceptionAdvice.java	   
+		   views > ex07.jsp   
+		   		 > error.jsp 
+	   
+	* 404번 에러만 별도로 처리	   
+		   views > notfound.jsp  
