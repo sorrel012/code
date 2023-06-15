@@ -1,0 +1,103 @@
+// 새 프로젝트
+	- New > Spring Legacy Project > Spring MVC Project > "MyBatisTest" > "com.test.mybatis" > Finish
+	
+
+// MyBatis(iBatis)
+	- 영속성 계층(데이터베이스 조작 기술)
+	- JDBC 역할과 동일
+	- 응용 프로그램 <-> JDBC <-> 데이터베이스
+	- 응용 프로그램 <-> MyBatis <-> 데이터베이스
+	- JDBC 기반 > 관리, 생산성 향상
+	
+// MyBatis를 스프링에 적용하는 방법
+	1. XML 매퍼를 사용하는 방법
+	2. 인터페이스 매퍼를 사용하는 방법
+	
+	
+// pom.xml > dependency 추가
+	<dependency>
+	    <groupId>org.mybatis</groupId>
+	    <artifactId>mybatis</artifactId>
+	    <!-- <version>3.4.6</version> warning 때문에 --> 
+	    <version>3.5.2</version>
+	</dependency>
+	
+	<dependency>
+	    <groupId>org.mybatis</groupId>
+	    <artifactId>mybatis-spring</artifactId>
+	    <version>1.3.2</version>
+	</dependency>
+	
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-tx</artifactId>
+	    <version>${org.springframework-version}</version>
+	</dependency>
+	
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-jdbc</artifactId>
+	    <version>${org.springframework-version}</version>
+	</dependency>
+
+
+// ojdbc6.jar 추가
+	- 이전 방식: WEB-INF\lib 폴더에 복사
+	- 새로운 방식 : classpath에 external jar 추가 후 프로젝트 Property > Deployment Assembly > Maven ~~ > Add	
+	
+	
+// MyBatisTest > JDBC 연결 테스트
+
+	~ src/text/java > "com.test.persistence" > JDBCTest.java
+
+
+// Connection 객체들 따로 관리
+	- Connection 객체들을 미리 여러 개 생성(10개)
+	- 모두 DB 연결(open)
+	- 사용자가 요청 시 1개씩 꺼내서 제공
+	- 사용자가 사용 종료 > 제공했던 Connection 객체 회수
+	
+		
+// Connection Poll, 커넥션풀
+	- Commons DBCP
+		- pom.xml > commons-dbcp 의존 추가	
+		- root-context.xml > 서블릿 설정 추가
+		- "com.test.persistence" > DBCPTest
+	- Tomcat DBCP
+	- HikariCP > 스프링 부트 2.0부터 기본 적용
+		- pom.xml > 의존 추가
+		- root-context.xml > 설정 추가
+		
+		
+// MyBatis 설정
+	- pom.xml > 의존 추가(4개)
+	- root-context.xml > 설정 추가
+	
+	~ src/main/resources > "mapper" 폴더 > test.xml
+	~ src/test/java > com.test.persistence > MapperTest.java
+	
+	- 각종 SQL 실행하기
+		
+		~ "com.test.controller" > MyBatisController.java
+		~ "com.test.persistence" > MyBatisDAO.java(I)
+								 > MyBatisDAOImpl.java(C)
+								
+		~ "com.test.domian" > MyBatisDTO.java
+		
+		~ src/main/resources > mapper> mybatis.xml
+		
+		~ views > list.jsp
+				> add.jsp
+				> addok.jsp
+				
+		~ MyBatisTest > script.sql
+		
+		
+	- log4jdbc-log4j2 설정하기
+		- log4j > JDBC 감시
+		
+		~ src/main/resources > log4jdbc.log4j2.properties
+		
+		~ src/test/resources > log4j.xml
+		~ src/main/resources > log4j.xml
+		
