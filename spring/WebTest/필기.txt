@@ -59,7 +59,3 @@
 	   
 	* 404번 에러만 별도로 처리	   
 		   views > notfound.jsp  
-		   
-		   
-// 새 프로젝트
-	- New > Spring Legacy Project > Spring MVC Project > "MyBatisTest" > "com.test.mybatis" > Finish
