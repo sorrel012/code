@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace="파일명" -->
+<mapper namespace="mybatis">
+	<insert id="m1">
+		insert into tblMyBatis(seq, name, age, address, gender) values (seqMyBatis.nextVal, '하하하', 23, '서울시 강동구', 'm')
+	</insert>
+	
+	<!-- parameterType은 생략 가능 -->
+	<insert id="add" parameterType="com.test.domain.MyBatisDTO">
+		insert into tblMyBatis(seq, name, age, address, gender) values (seqMyBatis.nextVal, #{name}, #{age}, #{address}, #{gender})
+	</insert>
+	
+	<delete id="m2" parameterType="String">
+		delete from tblMyBatis where seq = #{seq}
+	</delete>
+	
+	<update id="m3" parameterType="java.util.HashMap">
+		update tblMyBatis set
+			name = #{name},
+			address = #{address}
+				where seq = #{seq}
+	</update>
+	
+	<!-- resultType은 생략 불가!! 반드시 적어야 한다. + 클래스형으로 -->
+	<select id="m4" resultType="Integer">
+		select count(*) from tblMyBatis		
+	</select>
+	
+	<select id="m5" parameterType="String" resultType="com.test.domain.MyBatisDTO">
+		select * from tblMyBatis where seq = #{seq}
+	</select>
+	
+	<select id="m6" resultType="String">
+		select name from tblMybatis
+	</select>
+	
+	<select id="m7" resultType="com.test.domain.MyBatisDTO">
+		select * from tblMyBatis		
+	</select>
+	
+	<select id="m8" parameterType="String" resultType="Integer">
+		<!--		
+			#{key}: 데이터 바인딩 > 문자열 전송 > '문자열' 
+			${key}: 식별자 바인딩 > 문자열 전송 > 문자열
+		-->	
+		select count(*) from ${table}
+	</select>
+	
+	<select id="m9" parameterType="Integer" resultType="com.test.domain.MyBatisDTO">
+	
+		select * from tblMyBatis
+			<![CDATA[  
+			where age < #{age}
+			]]>
+			
+	</select>	
+	
+	<select id="m10" parameterType="String" resultType="com.test.domain.MyBatisDTO">
+	
+		select * from tblMyBatis 
+			where address like '%${word}%'
+			<!-- where address like '%' || #{word} || '%'  -->
+	
+	</select>
+	
+	<insert id="m11" parameterType="com.test.domain.MyBatisDTO">
+	
+		<selectKey keyProperty="seq" order="BEFORE" resultType="String">
+			select seqmyBatis.nextVal from dual
+		</selectKey>
+		insert into tblMyBatis(seq, name, age, address, gender) values (#{seq}, #{name}, #{age}, #{address}, #{gender})
+	</insert>
+	
+</mapper>
