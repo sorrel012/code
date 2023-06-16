@@ -1,0 +1,4 @@
+// 새 프로젝트 만들기
+	- Nes > Spring Legacy Project > Spring MVC Project > "com.test.code" > Finish
+	
+	- 기본 설정 + MyBatis
