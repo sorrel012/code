@@ -21,9 +21,9 @@ public class CodeDAOImpl implements CodeDAO {
 	}
 	
 	@Override
-	public List<CodeDTO> list() {
+	public List<CodeDTO> list(List<String> language) {
 		
-		return template.selectList("code.list");
+		return template.selectList("code.list", language);
 	}
 	
 	@Override

@@ -14,6 +14,15 @@
 		select
 			seq, subject, regdate, language
 		from tblCode
+			
+			<if test="list != null">
+			<where>
+				<foreach collection="list" item="lang" separator="or">
+					language = #{lang}					
+				</foreach>
+			</where>
+			</if>
+		
 			order by seq desc
 	</select>
 	

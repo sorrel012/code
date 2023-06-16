@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.test.domain.CodeDTO;
 import com.test.persistence.CodeDAO;
@@ -18,14 +19,18 @@ public class CodeController {
 	private CodeDAO dao;
 
 	@GetMapping("/list.do")
-	public String list(Model model) {
+	public String list(Model model, @RequestParam(value="language", required=false) List<String> language) {
 		
-		List<CodeDTO> list = dao.list();
+		System.out.println(language);
+		
+		List<CodeDTO> list = dao.list(language);
 		
 		model.addAttribute("list", list);
+		model.addAttribute("language", language);
 		
 		return "list";
 	}
+	
 	
 	@GetMapping("/add.do")
 	public String add(Model model) {

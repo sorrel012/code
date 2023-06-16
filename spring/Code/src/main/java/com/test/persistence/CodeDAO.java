@@ -8,7 +8,7 @@ public interface CodeDAO {
 
 	int add(CodeDTO dto);
 
-	List<CodeDTO> list();
+	List<CodeDTO> list(List<String> language);
 
 	CodeDTO view(String seq);
 
