@@ -22,6 +22,8 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="com.test.code" />
+	<context:component-scan base-package="com.test.controller" />
+	<context:component-scan base-package="com.test.persistence" />
 	
 	
 	

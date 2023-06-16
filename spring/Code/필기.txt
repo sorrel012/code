@@ -2,3 +2,22 @@
 	- Nes > Spring Legacy Project > Spring MVC Project > "com.test.code" > Finish
 	
 	- 기본 설정 + MyBatis
+	
+	
+// 코드 조각 관리 게시판	
+	~ Code > script.sql 
+	
+	~ "com.test.controller" > CodeController.java 
+	
+	~ "com.test.persistence" > CodeDAO.java(I)
+							 > CodeDAOImpl.java(C)
+							 
+	~ "com.test.domain"	> CodeDTO.java
+	
+	~ views > list.jsp
+			> view.jsp
+			> add.jsp 
+			
+	~ src/main/resources > mapper > code.xml
+	
+	~ spring > appServlet > servlet-context.xml

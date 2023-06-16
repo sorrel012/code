@@ -5,19 +5,23 @@
 <!-- namespace="파일명" -->
 <mapper namespace="code">
 
-	<!-- 
-		모든 SQL 작성 > XML
-	-->
+	<insert id="add">
+		insert into tblCode (seq, subject, code, regdate, language) 
+			values (seqCode.nextVal, #{subject}, #{code}, default, #{language})		
+	</insert>
 	
-	<!-- 
-	<select id=""></select>
-	<insert id=""></insert>
-	<update id=""></update>
-	<delete id=""></delete>
-	-->
+	<select id="list" resultType="com.test.domain.CodeDTO">
+		select
+			seq, subject, regdate, language
+		from tblCode
+			order by seq desc
+	</select>
 	
-	<select id="time" resultType="String">
-		select sysdate from dual <!-- 세미콜론 적지 말기! -->
-	</select> 
+	<select id="view" resultType="com.test.domain.CodeDTO">
+		select
+			*
+		from tblCode
+			where seq = #{seq}
+	</select>
 	 
 </mapper>
