@@ -32,5 +32,13 @@ public interface MyBatisDAO {
 	List<MyBatisDTO> m10(String word);
 
 	int m11(MyBatisDTO dto);
+
+	List<String> m12(String type);
+
+	List<MyBatisDTO> m13(Map<String, String> map);
+
+	List<MyBatisDTO> m14(String address);
+
+	List<MyBatisDTO> m15(List<String> word);
 	
 }

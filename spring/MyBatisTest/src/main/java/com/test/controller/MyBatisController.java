@@ -1,5 +1,6 @@
 package com.test.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -203,7 +204,7 @@ public class MyBatisController {
    }
 
    @GetMapping("/m12.do")
-   public String m12() {
+   public String m12(Model model, String type) {
 	   
 	   //MyBatis 동적 쿼리
 	   // - 동적 태그
@@ -213,7 +214,59 @@ public class MyBatisController {
 	   //2. choose(when, otherwise)
 	   //3. trim(where, set)
 	   //4. foreach
+	   
+	   //m12.do?type=1 > select first_name from employees
+	   //m12.do?type=2 > select last_name from employees
+	   
+	   List<String> elist = dao.m12(type);
+	   
+	   model.addAttribute("elist", elist);
       
+       return "list";
+   }
+   
+   @GetMapping("/m13.do")
+   public String m13(Model model, String column, String word) {
+	   
+	   //1. 이름 m13.do?column=name&word=홍길동
+	   //2. 주소 m13.do?column=address&word=서울
+	   //3. 나이 m13.do?column=age&word=25
+	   
+	   Map<String,String> map = new HashMap<String, String>();
+	   
+	   map.put("column", column);
+	   map.put("word", word);
+	   
+	   List<MyBatisDTO> list = dao.m13(map);
+	   
+	   model.addAttribute("list", list);
+	   	   
+       return "list";
+   }
+   
+   @GetMapping("/m14.do")
+   public String m14(Model model, String address) {
+	   
+	   List<MyBatisDTO> list= dao.m14(address);
+	   
+	   model.addAttribute("list", list);
+      
+       return "list";
+   }
+   
+   @GetMapping("/m15.do")
+   public String m15(Model model) {
+	   
+	   //검색어
+	   List<String> word = new ArrayList<String>();
+	   
+	   word.add("홍길동");
+	   word.add("아무개");
+	   
+	   List<MyBatisDTO> list = dao.m15(word);
+	   
+	   model.addAttribute("list", list);
+	         
        return "list";
    }
    

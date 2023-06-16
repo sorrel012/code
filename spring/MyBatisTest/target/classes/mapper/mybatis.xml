@@ -74,4 +74,95 @@
 		insert into tblMyBatis(seq, name, age, address, gender) values (#{seq}, #{name}, #{age}, #{address}, #{gender})
 	</insert>
 	
+	<select id="m12" resultType="String">
+	
+		<!-- <if test="type == 1">
+		select first_name from employees
+		</if>
+		<if test="type == 2">
+		select last_name from employees
+		</if> -->
+		
+		select 
+			<if test="type == 1">first_name</if>
+			<if test="type == 2">last_name</if>
+		from employees
+		
+	</select>
+	
+	<select id="m13" resultType="com.test.domain.MyBatisDTO">
+		
+		select * from tblMybatis
+			<!-- 
+			<if test="column == 'name'">
+			where name = #{word}
+			</if>
+			<if test="column == 'age'">
+			<![CDATA[
+			where age <= #{word} 
+			]]>
+			</if>
+			<if test="column == 'address'">
+			where address like '%${word}%'
+			</if>
+			-->
+			
+			<choose>
+				<when test="column == 'name'">
+					where name = #{word}
+				</when>
+				<when test="column == 'age'">
+					<![CDATA[where age <= #{word}]]>
+				</when>
+				<otherwise>
+					where address like '%${word}%'
+				</otherwise>
+			</choose>
+			
+	</select>
+	
+	<select id="m14" resultType="com.test.domain.MyBatisDTO">
+		
+		<!--
+			1. m14.do
+				- select * from tblMyBatis
+			2. m14.do?address=서울  
+				- select * from tblMyBatis where 조건
+		-->
+		
+		select * from tblMyBatis
+			<where>
+				<if test="address != null">
+					address like '%${address}%'
+				</if>
+				<trim prefix="and">
+					rownum = 1
+				</trim>
+			</where>
+	
+	</select>
+	
+	
+	<select id="m15" resultType="com.test.domain.MyBatisDTO">
+		
+		select * from tblMyBatis
+			where name in 
+			
+			<!-- 
+				ArrayList > list
+				HashMap > map			
+			 -->			
+			
+			<!-- 
+				collection: 예약어 list
+				open: foreach 시작에 붙을 것
+				close: foreach 끝날 때 붙을 것
+				separator: 한 바퀴 돌 때마다 찍힐 것
+			 -->
+			<foreach collection="list" item="name" open="(" close=")" separator=",">
+				#{name}
+			</foreach>
+		
+	</select>
+	
 </mapper>

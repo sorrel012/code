@@ -94,8 +94,7 @@ public class MyBatisDAOImpl implements MyBatisDAO {
 		//while(rs.next()) {
 		//list.add(rs.getString("name"))
 		//return list
-		
-		
+				
 		return this.template.selectList("mybatis.m6");
 	}
 
@@ -131,6 +130,30 @@ public class MyBatisDAOImpl implements MyBatisDAO {
 		System.out.println("방금 추가된 PK: " + dto.getSeq());
 		
 		return result;
+	}
+	
+	@Override
+	public List<String> m12(String type) {
+				
+		return this.template.selectList("mybatis.m12", type);
+	}
+	
+	@Override
+	public List<MyBatisDTO> m13(Map<String, String> map) {
+		
+		return this.template.selectList("mybatis.m13", map);
+	}
+	
+	@Override
+	public List<MyBatisDTO> m14(String address) {
+		
+		return this.template.selectList("mybatis.m14", address);
+	}
+	
+	@Override
+	public List<MyBatisDTO> m15(List<String> word) {
+				
+		return this.template.selectList("mybatis.m15", word);
 	}
 	
 }
