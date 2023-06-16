@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.test.nontiles">
+	<logger name="com.test.tiles">
 		<level value="info" />
 	</logger>
 	

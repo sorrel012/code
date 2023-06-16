@@ -1,5 +1,5 @@
 // 새 프로젝트 만들기
-	- New > Spring Legacy Project > Spring MVC Project > TilesTest > "com.test.tiles" > Finish
+	- New > Spring Legacy Project > Spring MVC Project > NonTilesTest > "com.test.nontiles" > Finish
 		
 	1. 자바 버전 변경하기
 	2. 스프링 버전 변경하기
