@@ -5,12 +5,6 @@
 	2. 스프링 버전 변경하기
 	3. Maven > Update Project
 
-
-// Tiles
-	- 레이아웃 프레임워크
-	- 페이지 레이아웃 구성하고 관리하는 기술
-	- <@include file="">
-	
 	
 // 구현 기능
 	- 메인(index.do)
