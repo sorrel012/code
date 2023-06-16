@@ -11,3 +11,7 @@ create sequence seqMyBatis;
 insert into tblMyBatis(seq, name, age, address, gender) values (seqMyBatis.nextVal, '홍길동', 20, '서울시 강남구', 'm');
 
 select * from tblMyBatis;
+
+select * from employees;
+
+select * from tblMyBatis order by seq;
