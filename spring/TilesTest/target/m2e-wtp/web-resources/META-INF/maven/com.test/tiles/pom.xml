@@ -3,8 +3,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.test</groupId>
-	<artifactId>nontiles</artifactId>
-	<name>NonTilesTest</name>
+	<artifactId>tiles</artifactId>
+	<name>TilesTest</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
@@ -115,9 +115,8 @@
 			<artifactId>junit</artifactId>
 			<version>4.7</version>
 			<scope>test</scope>
-		</dependency>    
+		</dependency>  
 		
-		<!-- Tiles -->
 		<dependency>
 		   <groupId>org.apache.tiles</groupId>
 		   <artifactId>tiles-core</artifactId>
@@ -141,7 +140,7 @@
 		   <artifactId>tiles-servlet</artifactId>
 		   <version>3.0.8</version>
 		</dependency>
-		    
+		      
 	</dependencies>
     <build>
         <plugins>
