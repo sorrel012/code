@@ -1,0 +1,8 @@
+// 새 프로젝트 만들기
+- New > Spring Legacy Project > Spring MVC Project > "FileTest" > "com.test.file" > Finish
+
+
+// 파일 업로드
+	1. cos.jar > 개발 종료
+	2. commons-fileupload > 많이 사용
+	3. Servlet 3.0이상 > 파일 업로드 기능 내장
