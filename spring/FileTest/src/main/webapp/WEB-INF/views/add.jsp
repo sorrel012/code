@@ -193,7 +193,7 @@
 		            let filename = f.name;
 		            let filesize = f.size / 1024 / 1024; //MB 변환
 		            
-		            filesize = filesize < 1 ? filesize.toFixxed(2) : filesize.toFixed(1);
+		            filesize = filesize < 1 ? filesize.toFixed(2) : filesize.toFixed(1);
 		            
 		            temp += `
 		            	<div class="item">
@@ -209,6 +209,8 @@
 		    }//if
 		    
 		    $(this).css('background-color', 'var(--back-color)');
+		    
+		    $('#attach3').prop('files', files);
 		    
 		})	
 

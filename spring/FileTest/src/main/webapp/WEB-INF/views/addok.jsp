@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix = "c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,14 +12,17 @@
 </style>
 </head>
 <body>
+   <!-- addok.jsp -->
+   <h1>결과</h1>
+   
+   <div class="message" title="txt">${txt}</div>
+   <div class="message" title="file">
+      <a href="/file/resources/files/${filename}" download>${filename}</a>
+   </div>
 
-	<h1>결과</h1>
-	
-	<div class="message" title="txt">${txt}</div>
-	
-	<div class="message" title="file">
-		<a href="/file/download.do?filename=${filename}">${orgfilename}</a>
-	</div>	
+   <div class="message" title="file">
+      <a href="/file/download.do?filename=${filename}">${orgfilename}</a>
+   </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script>
@@ -27,3 +30,11 @@
 </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
