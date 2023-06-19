@@ -6,3 +6,34 @@
 	1. cos.jar > 개발 종료
 	2. commons-fileupload > 많이 사용
 	3. Servlet 3.0이상 > 파일 업로드 기능 내장
+	
+
+	- 설정
+	
+	~ pom.xml
+		- 의존성 추가
+	~ web.xml
+		- webapp 시작 태그 버전 수정
+		- 파일 업로드 설정 추가
+		
+	~ servlet-context.xml
+		- 파일 업로드 <bean> 추가
+		
+		
+// 단일 파일 업로드
+	- DB(X)
+	
+	~ "com.test.controller" > FileController.java
+	
+	~ views > add.jsp
+			> addok.jsp
+	
+	~ webapp > resources > files
+	
+	
+// 다중 파일 업로드
+	- DB(O)
+	
+	
+	
+	
