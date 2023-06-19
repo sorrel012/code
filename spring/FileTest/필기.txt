@@ -33,7 +33,14 @@
 	
 // 다중 파일 업로드
 	- DB(O)
+	- Multiple
 	
-	
+
+// 다중 파일 업로드
+	- File Drop
+
+
+// 아파치 톰캣 다운로드 > 특수문자 해결	
+	- "Servers" > server.xml > Connector connectionTimeout="20000" maxParameterCount="1000" port="8091" protocol="HTTP/1.1" redirectPort="8443"  뒤에 relaxedQueryChars="[]()^|&quot;" 추가
 	
 	
