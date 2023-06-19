@@ -1,0 +1,50 @@
+
+// MyBatis를 스프링에 적용하는 방법
+	2. 인터페이스 매퍼를 사용하는 방법	
+
+	~ pom.xml
+	
+	~ ojdbc6.jar
+	
+	~ web.xml
+	
+	~ root-context.xml 
+	
+	~ XML Mapper 건너뜀
+	
+	~ log4jdbc.log4j2.properties
+	
+	~ log4j level
+	
+	~ Mapper 인터페이스 만들기
+		- src/main/java > "com.test.mapper" > TimeMapper.java(I)
+		- SQL 실행하는 담당자
+	
+	~ Mapper 인터페이스를 인식할 수 있게
+		- root-context.xml 수정
+		
+	~ src/main/resources > 인터페이스 매퍼가 들어있는 패키지와 동일한 구조의 폴더 생성 > TimeMapper.xml
+	
+	
+
+// Crud
+	
+	~ MyBatisSimpleTest > script.sql
+	
+	- 파일 생성
+		
+		~ "com.test.controller" > AddressController.java
+		
+		~ "com.test.service'	> AddressService.java(I)
+								> AddressServiceImpl.java(C)
+								
+		~ "com.test.mapper"	> AddressMapper.java(I)  (= AddressDAO 역할)
+		
+		~ "com.test.domain" > AddressDTO.java
+							> EmailDTO.java
+		
+		~ src/main/resources > com > test> mapper > AddressMapper.xml
+		
+		~ views > list.jsp
+				> add.jsp
+												
