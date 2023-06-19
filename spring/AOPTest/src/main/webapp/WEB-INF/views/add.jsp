@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>add.jsp</title>
 <link rel="stylesheet" href="https://me2.do/5BvBFJ57">
 <style>
 
@@ -13,6 +13,11 @@
 </head>
 <body>
 
+	<h1>게시판 <small>add</small></h1>
+	
+	<div>
+		<input type="button" value="돌아가기" onclick="location.href='/aop/list.do';">
+	</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script>
