@@ -9,13 +9,28 @@
 <link rel="stylesheet" href="https://me2.do/5BvBFJ57">
 <style>
 
+	#attach-zone {
+		border: 1px solid var(--border-color);
+		background-color: var(--back-color);
+		width: 300px;
+		height: 150px;
+		overflow: auto;
+	}
+	
+	#attach-zone .item {
+		display: flex;
+		justify-content: space-between;
+		font-size: 14px;
+		margin: 5px 10px;
+	}
+
 </style>
 </head>
 <body>
 
 	<h1>파일 업로드</h1>
 	
-	<form method="POST" action="/file/addok.do" enctype="multipart/form-data">
+	<form method="POST" action="/file/addok.do" enctype="multipart/form-data" id="form1">
 	<table class="vertical">
 		<tr>
 			<th>텍스트</th>
@@ -31,36 +46,80 @@
 	</div>
 	</form>
 	
+	
+	<hr>
+	
+	<h1>다중 파일 업로드(multiple)</h1>
+	
+	<form method="POST" action="/file/multiaddok.do" enctype="multipart/form-data" id="form2">
+	<table class="vertical">
+		<tr>
+			<th>텍스트</th>
+			<td><input type="text" name="txt" value="홍길동"></td>
+		</tr>
+		<tr>
+			<th>파일</th>
+			<td><input type="file" name="attach" multiple></td>
+		</tr>
+	</table>
+	<div>
+		<button>보내기</button>
+	</div>
+	</form>
+	
+	
+	<hr>
+	
+	<h1>다중 파일 업로드(File Drop)</h1>
+	
+	<form method="POST" action="/file/multiaddok.do" enctype="multipart/form-data" id="form3">
+	<table class="vertical">
+		<tr>
+			<th>텍스트</th>
+			<td><input type="text" name="txt" value="홍길동"></td>
+		</tr>
+		<tr>
+			<th>파일</th>
+			<td>
+				<div id="attach-zone"></div>
+				<input type="file" name="attach" id="attach3" style="display:none;">
+				
+			</td>
+		</tr>
+	</table>
+	<div>
+		<button>보내기</button>
+	</div>
+	</form>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script>
 
-	function checkFile(filename, filesize) {
+	function checkFile(filename, filesize){
+	    const maxsize = 10485760; //10MB
+	    const regex = /^(.*?)\.(exe|sh)$/gi;
 	    
-	    const maxsize = 10485760;	//10MB
-	    const regex = /(.*?)\.(exe|sh)$/gi;
-	    
-	    if (filesize >= maxsize) {
-	        alert('단일 파일의 크기는 10MB 이하만 가능합니다.');
-	        return false;
+	    if(filesize >= maxsize) {
+	       alert('단일 파일의 크기가 10MB 이하만 가능합니다 !')
+	       return false;
 	    }
 	    
-	    if (regex.test(filename)) {	        
-	        alert('해당 파일은 업로드할 수 없습니다.');
-	        return false;	        
+	    if(regex.test(filename)){
+	       alert('해당 파일은 업로드할 수 없습니다.');
+	       return false;
 	    }
 	    
-	    return true;	    
-	}
+	    return true;
+	 }
 
 	//전송되기 바로 직전에 발생하는 이벤트
-	$('form').submit(function() {
+	$('#form1').submit(function() {
 	    
 	    let filename = $('input[name=attach]')[0].files[0].name;
-	    alert(filename);
+	    //alert(filename);
 	    
 	    let filesize = $('input[name=attach]')[0].files[0].size;
-	    alert(filesize);
+	    //alert(filesize);
 	
 	    if(!checkFile(filename, filesize)) {
 	        
@@ -70,6 +129,88 @@
 	    }
 	    
 	});
+	
+	$('#form2').submit(function() {
+	    
+	    //let filename = $('input[name=attach]')[0].files[0].name;	    
+	    //let filesize = $('input[name=attach]')[0].files[0].size;
+	    
+	    let totalsize = 0;
+	    
+	    Array.from($('input[name=attach]')[1].files).forEach(file => {
+	       
+	        if(!checkFile(file.name, file.size)) {    	        
+		        event.preventDefault();
+		        return false;
+		    }
+	        
+	        totalsize += file.size;
+	        
+	    });
+	    
+	    if(totalsize >= 52428800) {
+	        alert('총 파일 크기의 합 50MB 이하만 가능합니다.');
+	        event.preventDefault();
+	        return false;
+	    }
+	    
+	});
+	
+	
+	$('#attach-zone')
+		.on('dragenter', function(e) {
+		    e.preventDefault();
+		    e.stopPropagation();
+		})	
+		.on('dragover', function(e) {
+		    e.preventDefault();
+		    e.stopPropagation();
+		    $(this).css('background-color', 'gold');
+		})	
+		.on('dragleave', function(e) {
+		    e.preventDefault();
+		    e.stopPropagation();
+		    $(this).css('background-color', 'var(--back-color)');
+		})	
+		.on('drop', function(e) {
+		    
+		    $(this).empty();
+		    
+		    e.preventDefault();
+		    
+		    const files = e.originalEvent.dataTransfer.files;
+		    
+		    if(files != null & files != undefined) {
+		        
+		        let temp = '';
+		        
+		        for (let i=0; i<files.length; i++) {
+		            
+		            //console.log(files[i].name);
+		            
+		            let f = files[i];
+		            
+		            let filename = f.name;
+		            let filesize = f.size / 1024 / 1024; //MB 변환
+		            
+		            filesize = filesize < 1 ? filesize.toFixxed(2) : filesize.toFixed(1);
+		            
+		            temp += `
+		            	<div class="item">
+		            		<span>\${filename}</span>
+		            		<span>\${filesize}MB</span>
+		            	</div>
+		            `;
+		            
+		        }// for
+		        
+		        $(this).append(temp);
+		        
+		    }//if
+		    
+		    $(this).css('background-color', 'var(--back-color)');
+		    
+		})	
 
 </script>
 </body>
