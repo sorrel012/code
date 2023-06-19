@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.test.mapper.AddressMapper">
+
+	<insert id="add">
+	
+		<selectKey keyProperty="seq" order="BEFORE" resultType="String">
+			select seqAddress.nextVal from dual
+		</selectKey>
+		
+		insert into tblAddress (seq, name, age, address)
+			values (#{seq}, #{name}, #{age}, #{address})
+	
+	</insert>
+	
+	<insert id="addEmail">
+		
+		insert into tblEmail (seq, email, pseq)
+			values (seqEmail.nextVal, #{email}, #{pseq})
+		
+	</insert>
+	
+	<select id="list" resultType="com.test.domain.AddressDTO">
+		
+		select * from tblAddress
+			order by seq asc
+		
+	</select>
+	
+	<select id="elist" resultType="com.test.domain.EmailDTO">
+		
+		select * from tblEmail
+			where pseq = #{pseq}
+				order by seq asc
+		
+	</select>
+	
+	<resultMap type="com.test.domain.AddressDTO" id="addressMap">
+	<!--
+		property : dto의 멤버 변수 이름
+		column : 쿼리문의 컬럼명
+	-->
+		<id property="seq" column="seq"/>
+		<result property="seq" column="seq" />
+		<result property="name" column="name" />
+		<result property="age" column="age" />
+		<result property="address" column="address" />
+		<collection property="email" resultMap="emailMap"></collection>
+	</resultMap>
+	
+	<resultMap type="com.test.domain.EmailDTO" id="emailMap">
+		<!-- <id property="seq" column="seq" /> -->
+		<result property="seq" column="seq" />
+		<result property="email" column="email" />
+		<result property="pseq" column="pseq" />
+	</resultMap>
+	
+	<select id="list2" resultMap="addressMap">
+		select 
+			a.seq,
+			a.name,
+			a.age,
+			a.address,
+			e.email
+		from tblAddress a
+			left outer join tblEmail e
+				on a.seq = e.pseq
+					order by a.seq asc
+	</select>
+
+</mapper>
