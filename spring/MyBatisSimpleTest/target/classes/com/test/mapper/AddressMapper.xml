@@ -21,6 +21,7 @@
 		
 	</insert>
 	
+	
 	<select id="list" resultType="com.test.domain.AddressDTO">
 		
 		select * from tblAddress
