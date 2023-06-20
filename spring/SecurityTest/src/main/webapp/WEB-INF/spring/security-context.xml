@@ -5,12 +5,51 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<security:http>
+	<!-- 403 처리 담당자 -->
+	<bean id="customAccessDenied" class="com.test.auth.CustomAccessDeniedHandler"></bean>
+
+	<!-- 로그인 성공 처리 담당자 -->
+	<bean id="customLoginSuccess" class="com.test.auth.CustomLoginSuccessHandler"></bean>
+		
+
+	<!-- <security:http>
 		<security:form-login/>
+	</security:http> -->
+
+	<security:http>
+		<!-- 특정 URI + 액세스 설정 -->
+		<!--  
+			pattern: URI 패턴
+			access: 권한 > 표현식(권장★★★) or 권한명
+			
+			인증 > Role(자격 - 관리자,매니저,팀장,담당자)
+				> Authority(권한 - 글쓰기,열람,승인) 
+		-->
+		<security:intercept-url pattern="/index.do" access="permitAll"/> 
+		<security:intercept-url pattern="/member.do" access="hasRole('ROLE_MEMBER')"/> 
+		<security:intercept-url pattern="/admin.do" access="hasRole('ROLE_ADMIN')"/> 
+		<security:form-login login-page="/customlogin.do"
+			authentication-success-handler-ref="customLoginSuccess"/>
+		
+		<!-- <security:access-denied-handler error-page="/accesserror.do"/> -->
+		
+		<!-- ref에 bean id 넣기 -->
+		<security:access-denied-handler ref="customAccessDenied"/> 
+		
+		<!-- 로그아웃 -->
+		<security:logout logout-url="/customlogout.do" invalidate-session="true" logout-success-url="/index.do"/>		
+		
 	</security:http>
 	
 	<security:authentication-manager>
-		
+		<security:authentication-provider>
+			<security:user-service>
+			
+				<security:user name="hong" password="{noop}1111" authorities="ROLE_MEMBER"/>
+				<security:user name="admin" password="{noop}1111" authorities="ROLE_ADMIN, ROLE_MEMBER"/>
+				
+			</security:user-service>
+		</security:authentication-provider>
 	</security:authentication-manager>
 
 </beans>

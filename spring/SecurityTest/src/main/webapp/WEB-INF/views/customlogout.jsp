@@ -15,7 +15,16 @@
 
 	<%@ include file="/WEB-INF/views/inc/header.jsp" %>
 	
-	<h2>000 Page</h2>
+	<h2>Custom Logout Page</h2>
+	
+	<form method="POST" action="/security/customlogout.do">
+		<div>
+			<button class="out">로그아웃</button>
+		</div>
+		
+		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+	
+	</form>	
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script>

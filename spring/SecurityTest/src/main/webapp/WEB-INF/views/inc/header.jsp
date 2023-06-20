@@ -1,22 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix = "c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="https://me2.do/5BvBFJ57">
-<style>
 
-</style>
-</head>
-<body>
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-<script>
-
-</script>
-</body>
-</html>
+<header>
+	<h1>Spring Security</h1>
+	<ul>
+		<li><a href="/security/index.do">Index</a></li>
+		<li><a href="/security/member.do">Member</a></li>
+		<li><a href="/security/admin.do">Admin</a></li>
+		<li class="divider"></li>
+		<li><a href="/security/customlogin.do">Login</a></li>
+		<li><a href="/security/customlogout.do">Logout</a></li>
+	</ul>
+</header>

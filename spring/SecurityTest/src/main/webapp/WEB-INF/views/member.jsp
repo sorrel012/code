@@ -13,6 +13,14 @@
 </head>
 <body>
 
+	<%@ include file="/WEB-INF/views/inc/header.jsp" %>
+	
+	<h2>
+		<span class="material-symbols-outlined">heart_plus</span>
+		Member Page
+	</h2>
+	
+	<div>회원만 접근 가능합니다.</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script>

@@ -15,7 +15,12 @@
 
 	<%@ include file="/WEB-INF/views/inc/header.jsp" %>
 	
-	<h2>000 Page</h2>
+	<h2>
+		<span class="material-symbols-outlined">favorite</span>
+		Index Page
+	</h2>
+	
+	<div>모든 사용자가 접근 가능합니다.</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script>

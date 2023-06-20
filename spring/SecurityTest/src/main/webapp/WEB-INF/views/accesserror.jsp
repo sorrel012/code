@@ -15,7 +15,11 @@
 
 	<%@ include file="/WEB-INF/views/inc/header.jsp" %>
 	
-	<h2>000 Page</h2>
+	<h2>Access Denied Page</h2>
+
+	<div>${SPRING_SECURITY_403_EXCEPTION.getMessage()}</div>
+	
+	<div>${msg}</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script>
