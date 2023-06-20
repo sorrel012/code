@@ -1,0 +1,71 @@
+
+// 스프링 시큐리티
+	- 기존 Servlet/JSP > 인증(증명, 인증 티켓) + 허가(권한) > 세션 기반 인증
+	- 동작 방식 > 서블릿 필터와 스프링 인터셉터를 사용하여 보안을 처리
+	
+	
+	- 일괄 설정
+		
+	- 스프링 시큐리티 설정
+		
+		~ pom.xml : 의존성 4개 추가
+			<dependency>
+			   <groupId>org.springframework.security</groupId>
+			   <artifactId>spring-security-web</artifactId>
+			   <version>5.0.7.RELEASE</version>
+			</dependency>
+			
+			<dependency>
+			   <groupId>org.springframework.security</groupId>
+			   <artifactId>spring-security-config</artifactId>
+			   <version>5.0.7.RELEASE</version>
+			</dependency>
+			
+			<dependency>
+			   <groupId>org.springframework.security</groupId>
+			   <artifactId>spring-security-core</artifactId>
+			   <version>5.0.7.RELEASE</version>
+			</dependency>
+			
+			<dependency>
+			   <groupId>org.springframework.security</groupId>
+			   <artifactId>spring-security-taglibs</artifactId>
+			   <version>5.0.7.RELEASE</version>
+			</dependency>
+			
+			
+		~ /webapp/WEB-INF/spring/ > security-context.xml
+			- root-context.xml, servlet-context/xml 처럼 스프링을 설정하는 파일(Context)
+			- 기존 컨텍스트와 분리해서 설정할 수 있다. > 단독 설정
+			- Spring Bean Configuration File
+			- xsi:schemaLocation에서 5.0 버전 지우기
+		
+		~ web.xml
+			- 스프링 시큐리티가 스프링 MVC에서 사용 > 필터를 사용해서 스프링 시큐리티가 스프링 동작에 관여할 수 있도록 설정(필터 등록)				
+			1. security-context.xml 인식 > web.xml 추가
+			2. security-context.xml 기본 구문 설정
+			
+
+// 테스트를 위한 URI 설계
+	- 통제가 필요한 URI를 설계 + 스프링 시큐리티를 적용
+	
+	- /index.do  > 로그인(O), 로그인(X) > 모든 사용자 접근 가능
+	- /member.do > 로그인(O) > 회원만 접근 가능
+	- /admin.do  > 로그인(O) > 회원 중 관리자 권한이 있는 사용자만 접근 가능
+	
+	
+	- 파일 생성
+		
+		~ "com.test.controller" > Test.Controller.java
+		
+		~ views > index.jsp
+				> member.jsp
+				> admin.jsp
+				> template.jsp
+		
+		~ views > "inc" > header.jsp
+
+
+
+
+			
