@@ -148,3 +148,40 @@
 	
 	~ views > customlogout.jsp
 	
+
+// 계정 정보
+	- XMl > <security:user name="hong" password="{noop}1111" authorities="ROLE_MEMBER">
+	- InMemoryUserDetailsManager를 사용한 방식
+	
+	
+	- 데이터베이스를 활용한 계정 정보
+		1.미리 정해진 구조의 스키마 사용	> 편해짐 > 제약 심함		
+			~ SecurityTest > script.sql			
+			~ "com.test.auth" > CustomNoOpPasswordEncoder.java
+			
+		2. 사용자가 직접 만든 구조의 스키마 사용 > 불편함 > 제약 약함		
+			- 스프링 시큐리티에서 제공하는 기본 스키마 말고, 사용자가 직접 설계한 스키마로 적용
+			※ 스프링 시큐리티
+				- BCryptPasswordEncoder 클래스를 사용
+				- bcrypt(Blowfish > 암호화 해시 함수)
+				- 암호화 가능, 복호화 불가능
+			
+			- 인증을 하는 데 사용할 쿼리
+						
+				select 
+					userid username,
+					userpw password,
+					enabled
+				from tbl_member
+					where userid = 'hong'
+					
+			- 권한을 확인하는 데 사용할 쿼리
+			
+				select 
+					userid username,
+					auth authority
+				from tbl_member_auth
+					where userid = ?
+					
+			~ src/test/java > com.test.security > MemberTest.java
+		
