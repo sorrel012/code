@@ -183,5 +183,7 @@
 				from tbl_member_auth
 					where userid = ?
 					
-			~ src/test/java > com.test.security > MemberTest.java
+			~ src/test/java > com.test.security > MemberTest.java(정보)
+			
+			~ src/test/java > com.test.security > MemberTest2.java(권한)
 		
