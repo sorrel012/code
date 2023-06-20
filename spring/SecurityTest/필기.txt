@@ -66,6 +66,85 @@
 		~ views > "inc" > header.jsp
 
 
+// 인증, Authentication & 허가(권한부여, Authorization)
 
-
+	- 스프링 시큐리티
+		~ AuthenticationManager
+			- 인증 매니저
+			- 가장 중심 + 가장 중요한 역할
+			- 인증을 담당한다.
 			
+		~ AuthenticationProvider
+			- 인증 제공자
+			- 실제로 인증 작업을 진행한다.
+		
+		~ UserDetailsService
+			- 사용자 정보 + 사용자 권한 관리		
+			
+			
+// 로그인, 로그아웃 > 인증			
+
+	~ security-context.xml 수정
+	
+	- 단순 로그인 처리
+		- 자동 생성 로그인 페ㅣ지 사용
+		- 계정 정보 > XMl 정의 > 메모리 상에서 관리 
+		~ security-context.xml 수정
+		
+		- There is no PasswordEncoder mapped for the id "null"
+		- 스프링 4버전까지는 암호 유무 선택
+		- 스프링 5버전부터는 반드시 구현 > PasswordEncoder 사용
+		
+	- 관리자 사용자 설정
+		1. 비회원(X)
+		2. 회원('ROLE_MEMBER') 
+		3. 관리자('ROLE_MEMBER', 'ROLE_ADMIN')
+
+
+	- 접근 권한 메시지 처리
+		- 로그인을 한 상태에서 접근 불가능한 URI를 접근하면 에러가 발생 > 403
+		1. AccessDeniedHandler 직접 구현
+			~ "com.test.auth" > CustomAccessDeniedHandler.java
+		
+		2. 단순 URI 지정 > forward
+
+	- 에러 페이지 작성
+		~ "com.test.controller" > AuthControler.java
+		~ views > accesserror.jsp
+
+
+// 로그인 페이지
+	- 직접 로그인 페이지 구현 > URI 지정
+	
+	~ AuthController.java>  로그인 페이지 추가
+	~ views > customlogin.jsp
+	
+	- <form>의 action이 "/login"이다. + POST
+	- <input name="username">, <input name="password"> 의 name이 예약어이다.★★★★★		
+		※ 스프링 시큐리티에서 username의 의미★★★ 
+		- 일반 시스템(userid) == 스프링 시큐리티(username)
+		- '홍길동' != username
+		- 'hong' == username
+		
+	- <input type="hidden" name="_csrf" value="1219d8e6-7f5c-4391-89b0-9ca958ef675e">
+		※ CSRF, Cross-site request forgery
+			- CSRT 공격 > 토큰
+			- <security:csrf disabled="true" />	
+	
+	- "/login" + GET 요청 > /customlogin.do 호출  
+	
+
+// 로그인 > 후속 동작
+	- 로그인 성공 후에 특정한 동작을 하고 싶을 때
+	- AuthenticationSuccessHandler 인터페이스를 구현
+	
+	~ "com.test.auth" > CustomLoginSuccessHandler.java	
+	
+	
+// 로그아웃
+	- 로그인처럼 URI 지정, 핸들러 등록	
+
+	~ AuthController.java > 메소드 추가
+	
+	~ views > customlogout.jsp
+	
