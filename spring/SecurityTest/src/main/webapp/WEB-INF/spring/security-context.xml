@@ -10,7 +10,13 @@
 
 	<!-- 로그인 성공 처리 담당자 -->
 	<bean id="customLoginSuccess" class="com.test.auth.CustomLoginSuccessHandler"></bean>
+	
+	<!-- 암호화 객체 -->
+	<!-- <bean id="customPasswordEncoder" class="com.test.auth.CustomNoOpPasswordEncoder"></bean> -->
 		
+	
+	<!-- 암호화 객체(사용자 정의) -->
+	<bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"></bean>
 
 	<!-- <security:http>
 		<security:form-login/>
@@ -43,13 +49,19 @@
 	
 	<security:authentication-manager>
 		<security:authentication-provider>
-			<security:user-service>
-			
+		
+			<!-- <security:user-service>
 				<security:user name="hong" password="{noop}1111" authorities="ROLE_MEMBER"/>
 				<security:user name="admin" password="{noop}1111" authorities="ROLE_ADMIN, ROLE_MEMBER"/>
-				
-			</security:user-service>
-		</security:authentication-provider>
+			</security:user-service> -->
+			
+			<!-- <security:jdbc-user-service data-source-ref="dataSource"/> -->
+			<security:jdbc-user-service data-source-ref="dataSource" users-by-username-query="select userid username, userpw password, enabled from tbl_member where userid = ?" authorities-by-username-query="select userid username, auth authority from tbl_member_auth where userid = ?" />
+			
+			<!-- <security:password-encoder ref="customPasswordEncoder"/> -->
+			<security:password-encoder ref="bcryptPasswordEncoder"/>
+			
+		</security:authentication-provider> 
 	</security:authentication-manager>
 
 </beans>
