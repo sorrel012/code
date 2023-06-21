@@ -43,6 +43,9 @@
 		<!-- 로그아웃 -->
 		<security:logout logout-url="/customlogout.do" invalidate-session="true" logout-success-url="/index.do"/>		
 		
+		<!-- 자동 로그인(8640000 > 3개월) -->
+		<security:remember-me data-source-ref="dataSource" token-validity-seconds="8640000"/>
+		
 	</security:http>
 	
 	<!-- <security:authentication-manager>
