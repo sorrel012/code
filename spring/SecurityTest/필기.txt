@@ -186,4 +186,66 @@
 			~ src/test/java > com.test.security > MemberTest.java(정보)
 			
 			~ src/test/java > com.test.security > MemberTest2.java(권한)
+			
+
+// 회원가입 구현
+
+	1. "src/main/resources" > com > test > mapper > MemberMapper.xml
+	
+	2. "com.test.domain"	> MemberDTO.java
+						    > AuthDTO.java
+					    
+	3. "com.test.controller" > MemberController.java > register 메소드 구현
+	
+	4. views > inc > header > link 추가		
+	
+	5. root-context.xml > mybatis-spring:scan 추가
+	
+	6. views > register.jsp
+			
+	7. "com.test.controller" > MemberController.java > registerok 메소드 구현
+	
+	8. "com.test.mapper" > MemberMapper.java(I)
 		
+	9. "src/main/resources" > com > test > mapper > MemberMapper.xml > insert 쿼리 짜기
+	
+	10. "com.test.controller" > MemberController.java > registerok 권한 구현
+	
+	11. "com.test.mapper" > MemberMapper.java(I)
+	
+	12. "src/main/resources" > com > test > mapper > MemberMapper.xml > 권한 insert 쿼리 짜기
+	
+	13. views > registerok.jsp			
+	
+	
+// UserDetailsService
+	1. taglib sec 사용
+		> username(id), userpassword, enabled, authority
+		~ index.jsp (taglib 추가)
+		
+	2. 추가로 관리하고 싶은 정보가 있으면 직접 UserDetailsService를 구현
+		- 우리가 가져오고 싶은 정보 > SQL
+			1. MemberDTO
+			2. AuthDTO
+			3. MemberMaper(I) > mapper.read() 
+			   MemberMapper.xml
+			   
+			4. src/test/java > "com.test.mapper" > MapperTest.java 
+			
+			5. com.test.auth > CustomUserDetailsService.java
+			
+			6. security-context.xml > bean 등록
+			
+			7. com.test.domain > CustomUser.java
+			
+			8. views > inc > header > link 추가	
+			
+			9. views > info.jsp
+			
+
+// 시큐리티 표현식	
+	- hasRole()
+	- isAnonymous()
+	- isAuthenticated()
+	
+	~ views > inc > header
