@@ -41,3 +41,17 @@ create table tbl_member_auth (
 select * from tbl_member;
 
 select * from tbl_member_auth;
+
+
+select 
+    m.userid,
+    m.userpw,
+    m.username,
+    m.enabled,
+    m.regdate,
+    m.updatedate,
+    a.auth
+from tbl_member m
+    left outer join tbl_member_auth a
+        on m.userid = a.userid
+            where m.userid = ?

@@ -14,14 +14,12 @@
 	<!-- 암호화 객체 -->
 	<!-- <bean id="customPasswordEncoder" class="com.test.auth.CustomNoOpPasswordEncoder"></bean> -->
 		
-	
 	<!-- 암호화 객체(사용자 정의) -->
-	<bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"></bean>
-
-	<!-- <security:http>
-		<security:form-login/>
-	</security:http> -->
-
+	<bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"></bean>	
+	
+	<!-- 유저 정보 객체(기존 Spring에서 제공하는 서비스 커스텀) -->
+    <bean id="customUserDetailsService" class="com.test.auth.CustomUserDetailsService"></bean>
+   
 	<security:http>
 		<!-- 특정 URI + 액세스 설정 -->
 		<!--  
@@ -47,21 +45,27 @@
 		
 	</security:http>
 	
-	<security:authentication-manager>
+	<!-- <security:authentication-manager>
 		<security:authentication-provider>
 		
-			<!-- <security:user-service>
+			<security:user-service>
 				<security:user name="hong" password="{noop}1111" authorities="ROLE_MEMBER"/>
 				<security:user name="admin" password="{noop}1111" authorities="ROLE_ADMIN, ROLE_MEMBER"/>
-			</security:user-service> -->
+			</security:user-service>
 			
-			<!-- <security:jdbc-user-service data-source-ref="dataSource"/> -->
+			<security:jdbc-user-service data-source-ref="dataSource"/>
 			<security:jdbc-user-service data-source-ref="dataSource" users-by-username-query="select userid username, userpw password, enabled from tbl_member where userid = ?" authorities-by-username-query="select userid username, auth authority from tbl_member_auth where userid = ?" />
 			
-			<!-- <security:password-encoder ref="customPasswordEncoder"/> -->
+			<security:password-encoder ref="customPasswordEncoder"/>
 			<security:password-encoder ref="bcryptPasswordEncoder"/>
 			
 		</security:authentication-provider> 
+	</security:authentication-manager> -->
+	
+	<security:authentication-manager>
+		<security:authentication-provider user-service-ref="customUserDetailsService">
+			<security:password-encoder ref="bcryptPasswordEncoder"/>
+		</security:authentication-provider>
 	</security:authentication-manager>
 
 </beans>
