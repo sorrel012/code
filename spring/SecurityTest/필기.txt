@@ -249,3 +249,14 @@
 	- isAuthenticated()
 	
 	~ views > inc > header
+
+	
+// 자동 로그인(Remember-me)
+	- 스프링 시큐리티에 기본으로 탑재
+	- 쿠키 + DB
+	- 정해진 테이블 구현
+	
+	1. script.sql > 테이블 생성
+	2. security-context.xml > security:remember-me 추가
+	3. customlogin
+	
