@@ -11,7 +11,7 @@
 
 	<insert id = "registerAuth">		
 		insert into tbl_member_auth(userid, auth) 
-			values (#{userid}, #{auth}) 4
+			values (#{userid}, #{auth}) 
 	</insert>
 	
 	<resultMap type="com.test.domain.MemberDTO" id="memberMap">
