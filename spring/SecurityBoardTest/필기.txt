@@ -1,0 +1,83 @@
+
+// 새 프로젝트
+	1. 회원 기능(DB 구축 X, 가입X, 로그인 O)
+	2. 게시판 기능(CRUD)
+	
+	
+// 설정
+	1. pom.xml(스프링 시큐리티 4개도 추가)
+	2. maven update
+	3. ojdbc6
+	4. web.xml(스프링 시큐리티 필터도 추가)
+	5. log4jdbc.log4j2.properties
+	6. log4j(log level)
+	
+	7. WEB-INF/spring/security-context.xml 생성
+		- namespace에서 security 설정
+		- 5.0 지우기
+			<?xml version="1.0" encoding="UTF-8"?>
+			<beans xmlns="http://www.springframework.org/schema/beans"
+				xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				xmlns:security="http://www.springframework.org/schema/security"
+				xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
+					http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+			
+				<security:http>
+					<security:form-login/>
+				</security:http>
+				
+				<security:authentication-manager>
+				</security:authentication-manager>
+			
+			</beans>
+	
+	8. web.xml > context-param에 /WEB-INF/spring/security-context.xml 추가		
+
+
+// 회원 인증(로그인, 로그아웃)
+	
+	1. script.sql
+	
+	2. "com.test.domain" > MemberDTO.java
+						 > AuthDTO.java
+						 > CustomUser.java						
+	
+	3. "com.test.mapper" > MemberMapper.java(I)	
+	
+	4. root-context.xml > namespaces 설정(mybatis)
+	
+	5. "com.test.security" > CustomUserDetailsService.java 
+	
+	6. src/main/resources > "com" > "test" > "mapper" > MemberMapper.xml
+	
+	7. security-context.xml	> namespaces 설정(security)
+	
+	8. src/test/resources > MemberTest	
+						  > MemberTest2
+						  
+	9. security-context.xml	> login, logout
+	
+	10. "com.test.controller" > CommonController.java
+							  > MemberController.java
+							  > BoardController.java
+	
+	11. views > template.jsp
+			  > index.jsp 
+				
+	12. views > member > login.jsp
+					   > logout.jsp
+	
+	13. views > board > list.jsp
+					  > view.jsp
+					  > add.jsp
+					  > edit.jsp
+					  > del.jsp 
+						  
+	14. views > inc > header.jsp				
+	
+						 
+	
+// 게시판
+	
+	
+	

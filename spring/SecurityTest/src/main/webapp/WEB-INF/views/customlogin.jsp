@@ -31,6 +31,12 @@
 			<th>암호</th>
 			<td><input type="password" name="password" required></td>
 		</tr>
+		<tr>
+			<td colspan="2">
+				<input type="checkbox" name="remember-me">
+				자동 로그인
+			</td>
+		</tr>
 	</table>
 	<div>
 		<button class="in">로그인</button>
