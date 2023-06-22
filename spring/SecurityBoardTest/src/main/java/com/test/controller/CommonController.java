@@ -18,4 +18,10 @@ public class CommonController {
 		return "index";
 	}
 	
+	@GetMapping("/rest.do")
+	public String rest() {
+		
+		return "rest";
+	}
+	
 }
