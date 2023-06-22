@@ -36,5 +36,10 @@ create table tblBoard (
     subject varchar2(1000) not null,
     content varchar2(2000) not null,
     regdate date default sysdate not null,
-    id varchar2(30)
+    id varchar2(30) not null references tblMember(id)
 );
+
+select * from tblBoard;
+
+drop sequence seqBoard;
+create sequence seqBoard;
