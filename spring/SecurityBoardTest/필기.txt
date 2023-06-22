@@ -218,7 +218,5 @@
 	
 	3. views > board > list.jsp > 글쓰기 버튼 <sec:authorize>로 감싸기
 	
-	3. views > board > view.jsp > 수정, 삭제 버튼 <sec:authorize>로 감싸기
-	
-	4. com.test.controller > BoardController > 원하는 메소드에 @PreAuthorize 달기 
+	4. views > board > view.jsp > 수정, 삭제 버튼 <sec:authorize>로 감싸기
 	
