@@ -8,7 +8,7 @@
 	
 // 게시판 구현
 	
-	1. 여태 사용한 구현 방식 > UIR 표현
+	1. 여태 사용한 구현 방식 > URI 표현
 		- 목록보기		GET		http://localhost/board/list.do
 		- 추가하기		POST	http://localhost/board/add.do	
 		- 수정하기		POST	http://localhost/board/edit.do	
