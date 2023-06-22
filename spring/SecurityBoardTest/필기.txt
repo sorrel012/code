@@ -163,13 +163,63 @@
 	
 	1."com.test.controller" > CommonController.java
 							> BoardController.java
+	
+	2. com.test.domian > BoardDTO.java
+	
 							
-	2. "com.test.service" > BoardService.java(I)
+	3. "com.test.service" > BoardService.java(I)
 						  > BoardServiceImpl.java(C)
 						  
-	3. com.test.mapper > BoardMapper.java(I)
+	4. com.test.mapper > BoardMapper.java(I)
 	
-	4. src/main/resource > com > test > mapper > BoardMapper.xml
+	5. src/main/resource > com > test > mapper > BoardMapper.xml
 	
-	5. servlet-context > 스캔
+	6. servlet-context > 스캔
+	
+	7. com.test.service > BoardServiceImpl.java > add 메소드 추가		
+	8. src/main/resource > com > test > mapper > BoardMapper.xml > insert 쿼리 추가	
+	9. src/test/java > com.test.board > BoardTest.java > testAdd
+	
+	10. com.test.service > BoardServiceImpl.java > list 메소드 추가		
+	11. src/main/resource > com > test > mapper > BoardMapper.xml > select 쿼리 추가	
+	12. src/test/java > com.test.board > BoardTest.java > testList
+	
+	13. com.test.service > BoardServiceImpl.java > get 메소드 추가		
+	14. src/main/resource > com > test > mapper > BoardMapper.xml > select 쿼리 추가	
+	15. src/test/java > com.test.board > BoardTest.java > testGet
+	
+	16. com.test.service > BoardServiceImpl.java > edit 메소드 추가		
+	17. src/main/resource > com > test > mapper > BoardMapper.xml > update 쿼리 추가	
+	18. src/test/java > com.test.board > BoardTest.java > testEdit
+	
+	19. com.test.service > BoardServiceImpl.java > del 메소드 추가		
+	20. src/main/resource > com > test > mapper > BoardMapper.xml > delete 쿼리 추가	
+	21. src/test/java > com.test.board > BoardTest.java > testDel
+	
+	22. com.test.controller > BoardController.java > list() 구현
+	23. views > board > list.jsp
+	
+	22.com.test.controller > BoardController.java > add() 구현
+	23. views > board > add.jsp
+	
+	22.com.test.controller > BoardController.java > edit() 구현
+	23. views > board > edit.jsp
+	
+	22.com.test.controller > BoardController.java > del() 구현
+	23. views > board > del.jsp
+	
+	
+// 권한 체크
+	- add.do, addok.do, edit.do, editok.do, del.do, delok.do > 인증 사용자만 접근	
+	
+	1. servlet-context,xml > namespaces 설정(security) & security:global-method-security 추가
+	
+	2. com.test.controller > BoardController > 원하는 메소드에 @PreAuthorize 달기 
+	
+	3. views > board > list.jsp > 글쓰기 버튼 <sec:authorize>로 감싸기
+	
+	3. views > board > view.jsp > 수정, 삭제 버튼 <sec:authorize>로 감싸기
+	
+	4. views > board > view.jsp > <sec:authentication property="principal" var="pinfo"/> + <c:if> 추가하기
+	
 	
