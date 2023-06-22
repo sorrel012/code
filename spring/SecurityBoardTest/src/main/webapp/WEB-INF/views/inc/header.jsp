@@ -8,10 +8,6 @@
 	<h1>Spring Security</h1>
 	</sec:authorize>
 
-	<sec:authorize access="isAuthenticated()">
-	<h1 class="in">Spring Security</h1>
-	</sec:authorize>	
-
 	<sec:authorize access="hasRole('ROLE_MEMBER') and !hasRole('ROLE_ADMIN')">
 	<h1 style="color: cornflowerblue;">Spring Security</h1>
 	</sec:authorize>	

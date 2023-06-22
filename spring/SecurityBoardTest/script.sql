@@ -28,3 +28,13 @@ from tblMember m
     left outer join tblAuth a
         on m.id = a.id
             where m.id = 'cat';
+            
+------------------------------------------------------------------------
+
+create table tblBoard (
+    seq number primary key,
+    subject varchar2(1000) not null,
+    content varchar2(2000) not null,
+    regdate date default sysdate not null,
+    id varchar2(30)
+);

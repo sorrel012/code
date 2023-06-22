@@ -15,7 +15,7 @@ public class MemberController {
 	@GetMapping("/member/logout.do")
 	public String logout() {
 		
-		return "member/login";
+		return "member/logout";
 	}
 	
 }

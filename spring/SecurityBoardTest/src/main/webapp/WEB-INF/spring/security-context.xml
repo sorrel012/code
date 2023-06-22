@@ -15,15 +15,19 @@
 	<bean id="customLoginSuccess" class="com.test.security.CustomLoginSuccessHandler"></bean>
    
    <security:http>
-       <security:form-login login-page="/member/login.do" authentication-success-handler-ref="customLoginSuccess"/>
-       <security:logout logout-url="/member/logout.do" invalidate-session="true" logout-success-url="/index.do" />
+   
+        <!-- <security:intercept-url pattern="/board/add.do" access="isAuthenticated()" /> -->
+        <!-- <security:intercept-url pattern="/board/add.do" access="hasRole('ROLE_MEMBER')" /> -->
+   
+       	<security:form-login login-page="/member/login.do" authentication-success-handler-ref="customLoginSuccess"/>
+       	<security:logout logout-url="/member/logout.do" invalidate-session="true" logout-success-url="/index.do" />
    </security:http>
    
    
-      <security:authentication-manager>
-      <security:authentication-provider user-service-ref="customUserDetailsService">
-         <security:password-encoder ref="bcryptPasswordEncoder"/>
-      </security:authentication-provider>
-   </security:authentication-manager>
+	<security:authentication-manager>
+    	<security:authentication-provider user-service-ref="customUserDetailsService">
+        <security:password-encoder ref="bcryptPasswordEncoder"/>
+      	</security:authentication-provider>
+   	</security:authentication-manager>
 
 </beans>
