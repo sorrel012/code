@@ -43,23 +43,12 @@
 	<div>
 		<button type="button" class="back" onclick="location.href='/board/list.do';">돌아가기</button>
 		
-		<sec:authentication property="principal" var="pinfo"/>
-		
-		<sec:authorize access="isAuthenticated() and !hasRole('ROLE_ADMIN')">
-				
-		<c:if test="${pinfo.username == dto.id}">
-		<button type="button" class="edit" onclick="location.href='/board/edit.do?seq=${dto.seq}';">수정하기</button>
-		<button type="button" class="del" onclick="location.href='/board/del.do?seq=${dto.seq}';">삭제하기</button>
-		</c:if>
-		
-		</sec:authorize>
-		
-		<sec:authorize access="hasRole('ROLE_ADMIN')">
-				
-		<button type="button" class="edit" onclick="location.href='/board/edit.do?seq=${dto.seq}';">수정하기</button>
-		<button type="button" class="del" onclick="location.href='/board/del.do?seq=${dto.seq}';">삭제하기</button>
-		
-		</sec:authorize>
+		<sec:authorize access="hasRole('ROLE_ADMIN') or (isAuthenticated() and principal.username == #dto.id)">
+	         <button type="button" class="edit"
+	            onclick="location.href='/board/edit.do?seq=${dto.seq}&id=${dto.id}';">수정하기</button>
+	         <button type="button" class="del"
+	            onclick="location.href='/board/del.do?seq=${dto.seq}&id=${dto.id}';">삭제하기</button>
+      	</sec:authorize>
 		
 	</div>	
 

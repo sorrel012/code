@@ -51,7 +51,7 @@ public class BoardController {
 		return "board/view";
 	}
 
-	@PreAuthorize("isAuthenticated()")
+	@PreAuthorize("isAuthenticated() and principal.username == #id")
 	@GetMapping("/board/edit.do")
 	public String edit(Model model, String seq) {
 		
@@ -71,9 +71,9 @@ public class BoardController {
 		return "redirect:/board/view.do?seq=" + dto.getSeq();
 	}
 
-	@PreAuthorize("isAuthenticated()")
+	@PreAuthorize("isAuthenticated() and principal.username == #id")
 	@GetMapping("/board/del.do")
-	public String del(Model model, String seq) {
+	public String del(Model model, String seq, String id) {
 		
 		model.addAttribute("seq", seq);
 
