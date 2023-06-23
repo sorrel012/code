@@ -11,4 +11,17 @@ public class SocketController {
 		
 		return "test";
 	}
+	
+	@GetMapping("/admin.do")
+	public String admin() {
+		
+		return "admin";
+	}
+	
+	@GetMapping("/user.do")
+	public String user() {
+		
+		return "user";
+	}
+	
 }
