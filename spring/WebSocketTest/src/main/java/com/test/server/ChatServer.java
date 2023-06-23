@@ -1,7 +1,6 @@
 package com.test.server;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.websocket.OnClose;
@@ -111,16 +110,6 @@ public class ChatServer {
 	@OnError
 	public void handleError(Throwable e) {
 		
-	}
-	
-	public void clearSession() {
-		Iterator<Session> iter = sessionList.iterator();
-		
-		while(iter.hasNext()) {
-			if(!(iter.next()).isOpen())  {
-				iter.remove(); //접속이 끊긴 클라이언트 소켓(세션)을 제거
-			}
-		}
 	}
 	
 }
