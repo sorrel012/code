@@ -1,0 +1,59 @@
+
+// 설정
+	1. pom.xml
+	2. web.xml	
+	
+// Socket
+	- 네트워크상에서 호스트 간의 통신하는 규약(약속) - 인터페이스
+	- 여러 언어들이 Socket 구현 > 클래스 or 객체 제공
+	
+	- 웹통신, Ajax 통신 > 단방향 통신(편지, 무전기)
+	   <-> 소켓 통신 > 양방향 통신(전화)
+	   
+
+// WebSocket
+	- HTML5 때 생성
+	- JavaScript에서 소켓 통신 지원
+	- Spring > WebSocket을 지원하는 API 제공
+	
+
+// 파일 생성
+	
+	~ "com.test.controller" > "SocketController.java"	
+	~ sevlet-context.xml > scan 하기
+	
+	~ "com.test.server" > "SocketServer.java"	
+	~ sevlet-context.xml > scan 하기	
+	
+	~ views > "test.jsp"
+	
+
+// 알림 서비스
+	- 관리자가 접속자에게 공지 > 알림 표시 구현	
+	
+	~ com.test.controller > SocketController.java > admin(), user() 추가
+	
+	~ com.test.server > "NoticeServer.java" > 메소드 선언
+	
+	~ views > "admin.jsp"	
+			> "user.jsp
+			
+	
+	~ views > admin.jsp > ws.open 구현
+	~ com.test.server > NoticeServer.java > handleOpen 구현
+			
+	
+	~ views > admin.jsp > 메시지(버튼 클릭 이벤트) 구현
+	~ com.test.server > NoticeServer.java > handleMessgae 구현
+			
+	~ views > user.jsp > ready 구현
+	
+	~ com.test.server > NoticeServer.java	> Session 연결
+											> sessionList 선언 및 handleOpen에서 활용
+											> handleMessage
+				
+	~ views > user.jsp > onmessage 메소드 구현				
+	
+	~ com.test.server > NoticeServer.java > clearSession 구현 + handleMessage에서 호출
+			
+	~ views > user.jsp > showMsgBox 수정 + ready(onmessage 호출)			
