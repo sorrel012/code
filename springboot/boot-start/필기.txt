@@ -1,0 +1,90 @@
+
+// 스프링 부트, Spring boot 
+
+    - 스프링 애플리케이션 제작 기술
+    - 독립 실행이 가능한 웹 애플리케이션 제작 > 톰캣 내장
+
+    - 설치 및 환경 설정
+        ~ https://github.com/spring-projects/sts4/wiki/Previous-Versions
+            > spring-tool-suite-4-4.10.0.RELEASE-e4.19.0-win32.win32.x86_64.zip
+
+        ~ vm 경로 수정
+        
+        ~ lombok 설치
+        
+        ~ workspace 변경
+        
+        ~ STS4 > 플러그인 설치
+
+    - 프로젝트 생성
+        ~ New > Other > Spring Boot > Spring Starter Project
+            - 네이밍 패턴 : boot-XXX
+            - Type : Maven
+            - Packaging : 배포 형식 (Jar)
+            - Group, Artifact: 기본값으로 두는 것이 좋음
+
+        ~ New Spring Starter Project Dependencies
+            - Spring Boot Version : 2.7.13
+            - Web > Spring Web
+            
+    - Spring Boot 프로젝트 구조
+    	1. src/main/java
+    		- 이전과 동일 > 자바 소스 폴더 > 패키지 or 자바
+    		~ com.test.start > BootStartApplication.java 
+    			- 스프링 부트의 메인 클래스 > main() 소유 역할
+    			- 웹 서비스를 시작하고 끝내는 역할
+    			- 이름: 프로젝트명Application.java
+    			- 손상되어서는 안 됨!
+    			
+    	2. src/main/resources
+    		~ static
+    			- 정적 웹 자원
+	    		- HTML, CSS, JavaScript, 이미지 등.. 
+	    			
+    		~ templates
+    			- View 파일
+    			- views 폴더 역할
+    			
+    		~ application.properties
+    			- 스프링 부트 설정 파일
+    			- web.xml + root-context.xml + servlet-context.xml
+    			
+    	3. src/test/java
+    		- JUnit 테스트 폴더
+    		
+    	4. JRE System Library
+    		- JRE
+    		
+    	5. Maven Dependencies
+    		- Maven
+    		
+    	6. src
+    		- 사용 잘 안 함
+    		
+    	7. pom.xml
+    		- POM
+    		
+    	8. mvnw.cmd
+    		- 메이븐 실행 파일
+    		
+    		
+ // 스프링 부트 실행
+    
+    - 파일 생성
+    	~ src/main/resources > static > "hello.html"
+    	
+    - 톰캣 포트 변경하기
+    	~ src/main/resources > application.properties > server.port=8092 추가(포트번호 변경)
+    	
+    - 스프링 부트 애플리케이션 실행하기
+    	1. Boot Dashboard > 권장
+    		- local > 프로젝트(boot-start) > 시작	
+    		- http://localhost:8092/hello.html
+    	
+    	2. com.test.start > BootStartApplication.java	
+    		- Ctrl + F11
+    		
+    - Maven 빌드 및 실행 파일 생성 > 실행
+    	- mvnw.cmd
+    	- 프로젝트 우클릭 > Show In> System Explorer > 프로젝트 선택 > cmd > mvnw install > cd target > java -jar boot-start-0.0.1-SNAPSHOT.jar
+    
