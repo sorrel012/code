@@ -1,0 +1,28 @@
+
+//J2EE
+	- Servlet, JSP 등
+
+
+// 스프링 부트 + JSP
+
+
+// 템플릿 엔진 > JSP 역할(+EL, +JSTL)
+	- FreeMarker
+	- Groovy
+	- thymeleaf > 선택!
+	- Mustache
+	
+// 설정
+	~ pom.xml
+		- 의존성 2개 추가
+		
+	~ application.properties
+		- ViewResolver 등록
+	
+	~ src > main > "webapp" > "WEB-INF" > "views"
+
+
+// 페이지 작성
+	~ "com.test.bootjsp.controller" > "TestController.java"
+	
+	~ views > "test.jsp"
