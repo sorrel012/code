@@ -84,7 +84,7 @@
     	2. com.test.start > BootStartApplication.java	
     		- Ctrl + F11
     		
-    - Maven 빌드 및 실행 파일 생성 > 실행
-    	- mvnw.cmd
-    	- 프로젝트 우클릭 > Show In> System Explorer > 프로젝트 선택 > cmd > mvnw install > cd target > java -jar boot-start-0.0.1-SNAPSHOT.jar
+    	3. Maven 빌드 및 실행 파일 생성 > 실행
+    		- mvnw.cmd
+    		- 프로젝트 우클릭 > Show In> System Explorer > 프로젝트 선택 > cmd > mvnw install > cd target > java -jar boot-start-0.0.1-SNAPSHOT.jar
     
