@@ -1,0 +1,25 @@
+
+//Spring Boot + Thymeleaf
+	
+	- New > Spring Starter Project
+		~ Name > boot-thymeleaf
+ 		~ Package > com.test.thymeleaf
+		
+		~ Spring Boot Version > 2.7.13
+ 				
+		~ Spring Web
+		~ Oracle Driver
+		~ MyBatis Framework
+		~ Lombok
+		~ SpringBoot Dev Tools
+		~ Thymeleaf
+	
+	- MyBatis + Thyemleaf 설정
+		~ application.properties
+	
+	- 테스트
+		~ "com.test.controller" > "ThymeleafController.java"
+		~ "com.test.mapper" > "ThymeleafMapper.java"(I)
+		~ src/main/resources > "com" > "test" > "mapper" > "ThymeleafMapper.xml"
+		
+		~ "com.test.domain" > "BoardDTO.java"
