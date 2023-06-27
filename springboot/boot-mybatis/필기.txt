@@ -1,0 +1,56 @@
+
+// Spring Boot + Mybatis
+
+	- New > Spring Starter Project
+		~ Name > boot-mybatis
+		~ Type > Maven
+		~ Packaging > Jar
+		~ Java Version > 11
+		~ Language > Java
+		~ Group > com.test
+		~ Aritfact > boot-mybatis
+		~ Package > com.test.mybatis
+		
+		~ Spring Boot Version > 2.7.13
+
+		~ Spring Web
+		~ Oracle Driver
+		~ MyBatis Framework
+		~ Lombok
+		~ Spring Boot DevTools
+		
+		
+	- jsp 설정
+		1. pom.xml
+			- 의존성 2개 추가
+			<dependency>
+			    <groupId>javax.servlet</groupId>
+			    <artifactId>jstl</artifactId>
+			</dependency>
+			
+			<dependency>
+			    <groupId>org.apache.tomcat.embed</groupId>
+			    <artifactId>tomcat-embed-jasper</artifactId>
+			</dependency>
+			
+		2. application.properties > ViewResolver
+		
+		3. src> main > "webapp" > "WEB-INF" > "views" 폴더 추가	
+		
+			
+	- 파일 생성
+		※ com.test.mybatis.controller > 기본 패키지의 하위 패키지로 넣으면 스캔을 따로 할 필요 x
+			- 스캔할 거면 main 파일로 이동해서 @ComponentScan 어노테이션 활용
+			- @MapperScan > 매퍼 파일 스캔
+  
+							
+		~ "com.test.controller" > "MyBatisController.java"
+		~ "com.test.mapper" > "MyBatisMapper.java"(I)
+		
+		~ views > "ex01.jsp"
+		
+		~ com.test.mybatis > BootMybatisApplication > 매퍼, 컨트롤러 스캔
+		
+		~ src/main/resources > "com" > "test" > "mapper" > "MyBatisMapper.xml" > 테스트용 쿼리 짜기
+		
+		~ src/test/java > "MapperTest.java" > 테스트 파일
