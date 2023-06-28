@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://me2.do/5BvBFJ57">
+<style>
+	
+	.one { color: gold; }
+	.two { text-decoration: underline; }
+	.three { font-size: 3rem; }
+	
+</style>
+</head>
+<body>
+
+	<h1>Thyemleaf + HTML Attribute</h1>
+	
+	<!-- 
+	
+		HTML 속성 조작
+		- th:HTML속성명="값"
+		- 기존에 동일한 속성이 선언되어 있으면 대체한다.
+		- 기존에 동일한 속성이 선언되어 있지 않으면 추가한다.
+		
+		**대부분 서버에서 전달 받은 값(model)은
+			- 직접 표현식은 반드시 th:속성에만 적용이 가능
+	
+	-->
+	
+	<input type="text" name="age">
+	<input type="text" th:name="age">
+	<input type="text" name="${name}">
+	<input type="text" th:name="${name}">
+	<input type="text" th:name="${name}" th:size="${size}">
+	
+	<input type="text" th:value="${color}">
+	
+	<hr>
+	
+	<div class="one">Box 1</div>
+	<div th:class="one">Box 2</div>
+	
+	<div class="one" th:class="two">Box 3</div>
+	
+	
+	<div class="one" th:attrappend="class=' two'">Box 4</div>
+	<div class="one" th:attrprepend="class='two '">Box 5</div>
+	
+	<div class="one" th:classappend="two">Box 6</div>
+	
+	<input type="checkbox" name="cb" th:checked="true">
+	<input type="checkbox" name="cb" th:checked="false">
+	
+	<div style="background-color:${color}">Box 7</div>
+	<div th:style="'background-color:'+${color}">Box 7</div>
+	<div th:style="|background-color:${color}|">Box 7</div>
+	
+</body>
+</html>

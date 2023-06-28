@@ -2,6 +2,7 @@ package com.test.controller;
 
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,6 +59,75 @@ public class ThymeleafController {
 			
 		
 		return "m3";
+	}
+	
+	@GetMapping("/m4")
+	public String m4(Model model) {
+		
+		int a = 10;
+		int b = 3;
+		
+		model.addAttribute("a", a);
+		model.addAttribute("b", b);
+				
+		return "m4";
+	}
+	
+	@GetMapping("/m5")
+	public String m5(Model model) {
+		
+		model.addAttribute("name", "age");
+		model.addAttribute("size", 30);
+		model.addAttribute("color", "cornflowerblue");
+	
+		return "m5";
+	}
+	
+	@GetMapping("/m6")
+	public String m6(Model model) {
+		
+		
+		//PCDATA 출력
+		String name = mapper.getTxt();
+		BoardDTO dto = mapper.getDTO();
+		String txt = "안농하세요. <i>홍길동</i>입니다.";
+		int num = 100;
+		
+		List<String> names = mapper.getNames();
+		
+		model.addAttribute("name", name);
+		model.addAttribute("dto", dto);
+		model.addAttribute("txt", txt);
+		model.addAttribute("num", num);
+		model.addAttribute("names", names);
+		
+		return "m6";
+	}
+
+	@GetMapping("/m7")
+	public String m7(Model model) {
+		
+		int num1 = 1234567;
+		double num2 = 12345.6789;
+		Calendar now = Calendar.getInstance();
+		
+		model.addAttribute("num1", num1);
+		model.addAttribute("num2", num2);
+		model.addAttribute("now", now);
+	
+		return "m7";
+	}
+	
+	@GetMapping("/m8")
+	public String m8(Model model) {
+		
+		int seq = 10;
+		String mode = "add";
+		
+		model.addAttribute("seq", seq);
+		model.addAttribute("mode", mode);
+	
+		return "m8";
 	}
 	
 	/*

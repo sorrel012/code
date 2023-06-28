@@ -1,5 +1,7 @@
 package com.test.mapper;
 
+import java.util.List;
+
 import com.test.domain.BoardDTO;
 
 public interface ThymeleafMapper {
@@ -9,5 +11,7 @@ public interface ThymeleafMapper {
 	String getTxt();
 
 	BoardDTO getDTO();
+
+	List<String> getNames();
 
 }
