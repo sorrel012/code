@@ -23,5 +23,9 @@
 	<select id="getNames" resultType="String">
 		select first_name from employees where rownum &lt;= 10
 	</select>
+	
+	<select id="getList" resultType="dto">
+		select * from tblBoard
+	</select>
 
 </mapper>

@@ -14,4 +14,6 @@ public interface ThymeleafMapper {
 
 	List<String> getNames();
 
+	List<BoardDTO> getList();
+
 }

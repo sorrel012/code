@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://me2.do/5BvBFJ57">
+</head>
+<body>
+
+	<h1>Thymeleaf Iterations</h1>
+	
+	<h2>each</h2>
+	
+	<ul>
+		<li th:each="name : ${names}" th:text="${name}">이름</li>
+	</ul>
+	
+	<ul>
+		<li th:each="name : ${names}"><span th:text="${name}"></span></li>
+	</ul>
+	
+	<ul th:each="name: ${names}">
+		<li th:text="${name}"></li>
+	</ul>
+	
+	<hr>
+	
+	<ul>
+		<li th:each="dto : ${list}" th:text="|${dto.subject}(${dto.id})|"></li>
+	</ul>
+	
+	<ul>
+		<li th:each="dto : ${list}" th:object="${dto}" th:text="*{subject}"></li>
+	</ul>
+	
+	<hr>
+	
+	<table>
+		<tr>
+			<th>번호</th>
+			<th>아이디</th>
+			<th>제목</th>
+			<th>index</th>
+			<th>count</th>
+			<th>size</th>
+			<th>even</th>
+			<th>odd</th>
+			<th>first</th>
+			<th>last</th>
+		</tr>
+		<tr th:each="dto, status : ${list}">
+			<td th:text="${dto.seq}"></td>
+			<td th:text="${dto.id}"></td>
+			<td th:text="${subject}"></td>
+			<td th:text="${status.index}"></td>
+			<td th:text="${status.count}"></td>
+			<td th:text="${status.size}"></td>
+			<td th:text="${status.even}"></td>
+			<td th:text="${status.odd}"></td>
+			<td th:text="${status.first}"></td>
+			<td th:text="${status.last}"></td>
+		</tr>
+	</table>
+	
+</body>
+</html>
