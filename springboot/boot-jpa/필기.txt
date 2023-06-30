@@ -1,0 +1,38 @@
+
+// JPA, Java Persistent API
+	- Java ORM 기술에 대한 API 표준 명세
+	- JPA 구현 기술 > Hibernate, EclipseLin, DataNucleus 등
+	- 대부분 Hibernate를 사용
+	
+	
+// ORM, Object Relational Mapping
+	- Entity 객체와 Database 테이블을 서로 매핑해서, SQL 쿼리가 아닌 Java 메소드를 사용해서 데이터를 조작한다.
+	- DB의 데이터 구조를 자바의 객체 구조로 취급
+
+
+// Spring Boot + JPA
+
+	- 의존성
+		~ Lombok
+		~ MyBatis Framework
+		~ Oracle Driver
+		~ Spring Boot DevTools
+		~ Spring Data JPA
+		~ Spring Web
+		~ Tymeleaf	
+		
+
+	- 파일 생성
+		~ boot-jpa > "script.sql"
+		
+		~ src/main/java > "com.test.controller" > "ItemController.java"
+		~ src/main/java > "com.test.repository" > "ItemRepository.java"(I)
+		~ src/main/java > "com.test.domain" > "Item.java"
+		~ src/main/resources > templates > "item" > "result.html"  
+		
+		
+	- 설정
+		~ src/main/resources > application.properties
+		~ src/main/java > com.test.jpa > BootJpaApplication.java 
+			> @ComponentScan, @EntityScan, @EnableJpaRepositories 추가
+	
