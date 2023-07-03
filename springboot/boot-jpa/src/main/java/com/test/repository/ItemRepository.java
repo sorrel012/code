@@ -2,8 +2,10 @@ package com.test.repository;
 
 import java.util.List;
 
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import com.test.domain.Item;
 
@@ -37,8 +39,51 @@ public interface ItemRepository extends JpaRepository<Item, String> {
 	List<Item> findByColorOrOwner(String color, String owner);
 	
 	List<Item> findByNameLike(String word);
-	
+
 	List<Item> findByNameEndingWith(String word);
-	
-	
+
+	List<Item> findByOwnerNull();
+
+	List<Item> findByOwnerNotNull();
+
+	List<Item> findAllByOrderByColor();
+
+	List<Item> findAllByOrderByColorDesc();
+
+	//인터페이스의 매개 변수의 이름은 중요하지 않다. 타입이 중요!!
+	List<Item> findAllByOwnerOrderByColorDesc(String name);
+
+	List<Item> findByPriceGreaterThan(int price);
+
+	List<Item> findByPriceGreaterThan(int price, Sort by);
+
+	List<Item> findByPriceLessThan(int price);
+
+	List<Item> findByPriceBetween(int min, int max);
+
+	List<Item> findByOrderdateBetween(String begin, String end);
+
+	List<Item> findByColorIgnoreCase(String color);
+
+	List<Item> findByColorIn(List<String> colors);
+
+	List<Item> findByOwnerIn(String[] owners);
+
+	List<Item> findByOwnerNotIn(String[] strings);
+
+	Item findFirstByOrderByPriceAsc();
+
+	Item findTopByOrderByPriceAsc();
+
+	List<Item> findTop3ByOrderByPriceDesc();
+
+	List<Item> findPageListBy(PageRequest pageRequest);
+
+	@Query(value="select * from Item", nativeQuery = true)
+	List<Item> findAllItem();
+
+	//JPQL > Java Persistence Query Language
+	// ? 자리에 :변수명 붙인다.
+	@Query(value="select * from Item where color = :color", nativeQuery = true)
+	List<Item> findAllItemByColor(String color);
 }

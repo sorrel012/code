@@ -4,9 +4,13 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.test.domain.Item;
 import com.test.repository.ItemRepository;
@@ -224,14 +228,176 @@ public class ItemController {
 		return "item/result";
 	}
 	
-	
+	@GetMapping("/item/m12")
+	public String m12(Model model) {
+		//[Is]Null. [Is]NotNull
+		//- 컬럼값이 null인 레코드 검색
+
+		//[Is]Empty, [Is]NotEmpty
+		//- 컬럼값이 null이거나 빈문자열인 레코드
+
+		//List<Item> list = itemRepo.findByOwnerNull();
+		//List<Item> list = itemRepo.findByOwnerEmpty(); > 이건 안된당??
+
+		//List<Item> list = itemRepo.findByOwnerNotNull();
+
+
+		//정렬
+		//List<Item> list = itemRepo.findAll(Sort.by(Sort.Direction.ASC, "price"));
+
+		//List<Item> list = itemRepo.findAll(Sort.by("name")); // Direction 안쓰면 오름차순
+
+		//List<Item> list = itemRepo.findAllByOrderByColor();
+
+		//List<Item> list = itemRepo.findAllByOrderByColorDesc();
+
+		//List<Item> list = itemRepo.findAllByOwnerOrderByColorDesc("홍길동");
+
+
+		//[Is]GreaterThan, [Is]LessThan, [Is]Between
+		//[Is]GreaterThanEqual, [Is]LessThanEqual
+
+		//List<Item> list = itemRepo.findByPriceGreaterThan(100000);
+
+		//List<Item> list = itemRepo.findByPriceGreaterThan(100000, Sort.by("price"));
+
+		//List<Item> list = itemRepo.findByPriceLessThan(100000);
+
+		//List<Item> list = itemRepo.findByPriceBetween(90000, 120000);
+
+		//List<Item> list = itemRepo.findByOrderdateBetween("2023-06-25", "2023-06-27");
+
+		//IgnoreCase
+		//- 특정 컬럼의 대소문자를 구분하지 않고 검색
+
+		//List<Item> list = itemRepo.findByColor("White");
+
+		//List<Item> list = itemRepo.findByColorIgnoreCase("White");
+		//where upper(item0_.color)=upper(?)
+
+
+		//In, NotIn
+		//- where color in ('yellow', 'blue')
+		//List<String> colors = new ArrayList<String>();
+		//colors.add("yellow");
+		//colors.add("blue");
+
+		//List<Item> list = itemRepo.findByColorIn(colors);
+
+		List<Item> list = itemRepo.findByOwnerNotIn(new String[]{"홍길동", "아무개"});
+
+
+
+		model.addAttribute("list", list);
+
+
+		return "item/result";
+	}
+
+
+	@GetMapping("/item/m13")
+	public String m13(Model model, @RequestParam("name") Item result) {
+
+		//도메인 클래스 컨버터(Domain Class Converter)
+		//- PK를 넘겨서, 바로 Entity를 조회할 수 있다.
+
+		//item/m13?name=마우스
+
+		//"마우스" > PK
+		//Optional<Item> result = itemRepo.findById(name);
+		//model.addAttribute("result", result.get());
+
+		System.out.println(result);
+		model.addAttribute("result", result);
+
+		return "item/result";
+	}
+
+
+	@GetMapping("/item/m14/{name}")
+	public String m14(Model model, @PathVariable("name") Item result) {
+
+		//item/m13?name=마우스
+		//item/m13/마우스
+		model.addAttribute("result", result);
+
+		return "item/result";
+	}
+
+	@GetMapping("/item/m15")
+	public String m15(Model model) {
+
+		//First
+		//Top
+
+		//이거 application.properties 가서 수정해야됨
+		//spring.jpa.database-platform=org.hibernate.dialect.Oracle10gDialect
+		//Item result = itemRepo.findFirstByOrderByPriceAsc();
+		//Item result = itemRepo.findTopByOrderByPriceAsc();
+		//model.addAttribute("result", result);
+
+		List<Item> list = itemRepo.findTop3ByOrderByPriceDesc();
+
+		model.addAttribute("list", list);
+
+
+		return "item/result";
+	}
+
+
+
+	@GetMapping("/item/m16")
+	public String m16(Model model, int page) {
+
+		//페이징
+		//매개 변수 > int page(페이지번호), int size(가져올 개수), Sort sort
+		PageRequest pageRequest = PageRequest.of(page,  5, Sort.by("name"));
+
+		List<Item> list = itemRepo.findPageListBy(pageRequest);
+
+		model.addAttribute("list", list);
+
+		return "item/result";
+	}
+
+
+
+	@GetMapping("/item/m17")
+	public String m17(Model model) {
+
+		//@Query
+		//- 사용자 쿼리 작성
+		//- 쿼리 메소드 키워드로 작성 불가능 쿼리 > 직접 SQL 작성
+
+		//select * from Item
+
+		//직접 만드는 쿼리의 메소드 이름은 아무렇게나 해도 된다!
+		List<Item> list = itemRepo.findAllItem();
+
+		model.addAttribute("list", list);
+
+		return "item/result";
+	}
+
+	@GetMapping("/item/m18")
+	public String m18(Model model, String color) {
+
+		List<Item> list = itemRepo.findAllItemByColor(color);
+
+		model.addAttribute("list", list);
+
+		return "item/result";
+	}
+
+
+
 	/*
 	@GetMapping("/item/m")
 	public String m(Model model) {
-		
+
 		return "item/result";
 	}
-	*/
+	 */
 	
 }
  
