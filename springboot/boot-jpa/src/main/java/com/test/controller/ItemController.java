@@ -318,7 +318,7 @@ public class ItemController {
 	public String m14(Model model, @PathVariable("name") Item result) {
 
 		//item/m13?name=마우스
-		//item/m13/마우스
+		//item/m14/마우스
 		model.addAttribute("result", result);
 
 		return "item/result";

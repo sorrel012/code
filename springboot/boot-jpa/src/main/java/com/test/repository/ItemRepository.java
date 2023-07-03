@@ -83,7 +83,7 @@ public interface ItemRepository extends JpaRepository<Item, String> {
 	List<Item> findAllItem();
 
 	//JPQL > Java Persistence Query Language
-	// ? 자리에 :변수명 붙인다.
+	// JDBC의 ? 자리에 ? 대신 :변수명 붙인다.
 	@Query(value="select * from Item where color = :color", nativeQuery = true)
 	List<Item> findAllItemByColor(String color);
 }
